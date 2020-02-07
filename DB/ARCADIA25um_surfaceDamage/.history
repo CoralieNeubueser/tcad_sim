@@ -1,0 +1,63 @@
+14:55:47 Feb 06 2020 <ARCADIA25um_surfaceDamage> submitted to the batch system
+14:55:47 Feb 06 2020     job 170 <sde> started on host 'localhost': "sde -e -l n170_dvs.cmd"
+14:55:49 Feb 06 2020 +++ job 170 <sde> done: exit(0)
+14:55:50 Feb 06 2020     job 186 <sde> started on host 'localhost': "sde -e -l n186_dvs.cmd"
+14:55:52 Feb 06 2020 +++ job 186 <sde> done: exit(0)
+14:55:53 Feb 06 2020     job 192 <sde> started on host 'localhost': "sde -e -l n192_dvs.cmd"
+14:55:55 Feb 06 2020 +++ job 192 <sde> done: exit(0)
+14:55:56 Feb 06 2020     job 198 <sde> started on host 'localhost': "sde -e -l n198_dvs.cmd"
+14:55:58 Feb 06 2020 +++ job 198 <sde> done: exit(0)
+14:55:59 Feb 06 2020     job 173 <sdevice> started on host 'localhost': "sdevice pp173_des.cmd"
+14:59:18 Feb 06 2020 +++ job 173 <sdevice> done: exit(0)
+14:59:19 Feb 06 2020     job 206 <sdevice> started on host 'localhost': "sdevice pp206_des.cmd"
+15:02:39 Feb 06 2020 +++ job 206 <sdevice> done: exit(0)
+15:02:40 Feb 06 2020     job 222 <sdevice> started on host 'localhost': "sdevice pp222_des.cmd"
+15:06:00 Feb 06 2020 +++ job 222 <sdevice> done: exit(0)
+15:06:01 Feb 06 2020     job 174 <sdevice> started on host 'localhost': "sdevice pp174_des.cmd"
+15:13:01 Feb 06 2020 +++ job 174 <sdevice> done: exit(0)
+15:13:02 Feb 06 2020     job 207 <sdevice> started on host 'localhost': "sdevice pp207_des.cmd"
+15:19:59 Feb 06 2020 +++ job 207 <sdevice> done: exit(0)
+15:20:00 Feb 06 2020     job 223 <sdevice> started on host 'localhost': "sdevice pp223_des.cmd"
+15:26:58 Feb 06 2020 +++ job 223 <sdevice> done: exit(0)
+15:26:59 Feb 06 2020     job 190 <sdevice> started on host 'localhost': "sdevice pp190_des.cmd"
+15:30:29 Feb 06 2020 +++ job 190 <sdevice> done: exit(0)
+15:30:30 Feb 06 2020     job 210 <sdevice> started on host 'localhost': "sdevice pp210_des.cmd"
+15:33:58 Feb 06 2020 +++ job 210 <sdevice> done: exit(0)
+15:33:59 Feb 06 2020     job 226 <sdevice> started on host 'localhost': "sdevice pp226_des.cmd"
+15:37:28 Feb 06 2020 +++ job 226 <sdevice> done: exit(0)
+15:37:29 Feb 06 2020     job 191 <sdevice> started on host 'localhost': "sdevice pp191_des.cmd"
+15:45:12 Feb 06 2020 +++ job 191 <sdevice> done: exit(0)
+15:45:13 Feb 06 2020     job 211 <sdevice> started on host 'localhost': "sdevice pp211_des.cmd"
+15:52:51 Feb 06 2020 +++ job 211 <sdevice> done: exit(0)
+15:52:52 Feb 06 2020     job 227 <sdevice> started on host 'localhost': "sdevice pp227_des.cmd"
+15:53:52 Feb 06 2020 <ARCADIA25um_surfaceDamage> aborted
+16:10:27 Feb 06 2020 <ARCADIA25um_surfaceDamage> submitted to the batch system
+16:10:27 Feb 06 2020     job 227 <sdevice> started on host 'localhost': "sdevice --max_threads 1  pp227_des.cmd"
+16:18:06 Feb 06 2020 +++ job 227 <sdevice> done: exit(0)
+16:18:08 Feb 06 2020 <ARCADIA25um_surfaceDamage> done (461 sec)
+16:22:40 Feb 06 2020 <ARCADIA25um_surfaceDamage> submitted to the batch system
+16:22:40 Feb 06 2020     job 196 <sdevice> started on host 'localhost': "sdevice pp196_des.cmd"
+16:26:06 Feb 06 2020 +++ job 196 <sdevice> done: exit(0)
+16:26:07 Feb 06 2020     job 214 <sdevice> started on host 'localhost': "sdevice pp214_des.cmd"
+16:29:34 Feb 06 2020 +++ job 214 <sdevice> done: exit(0)
+16:29:35 Feb 06 2020     job 230 <sdevice> started on host 'localhost': "sdevice pp230_des.cmd"
+16:33:02 Feb 06 2020 +++ job 230 <sdevice> done: exit(0)
+16:33:03 Feb 06 2020     job 202 <sdevice> started on host 'localhost': "sdevice pp202_des.cmd"
+16:36:30 Feb 06 2020 +++ job 202 <sdevice> done: exit(0)
+16:36:31 Feb 06 2020     job 218 <sdevice> started on host 'localhost': "sdevice pp218_des.cmd"
+16:39:58 Feb 06 2020 +++ job 218 <sdevice> done: exit(0)
+16:39:59 Feb 06 2020     job 234 <sdevice> started on host 'localhost': "sdevice pp234_des.cmd"
+16:43:23 Feb 06 2020 +++ job 234 <sdevice> done: exit(0)
+16:43:24 Feb 06 2020     job 197 <sdevice> started on host 'localhost': "sdevice pp197_des.cmd"
+16:50:51 Feb 06 2020 +++ job 197 <sdevice> done: exit(0)
+16:50:52 Feb 06 2020     job 215 <sdevice> started on host 'localhost': "sdevice pp215_des.cmd"
+16:58:22 Feb 06 2020 +++ job 215 <sdevice> done: exit(0)
+16:58:23 Feb 06 2020     job 231 <sdevice> started on host 'localhost': "sdevice pp231_des.cmd"
+17:05:48 Feb 06 2020 +++ job 231 <sdevice> done: exit(0)
+17:05:49 Feb 06 2020     job 203 <sdevice> started on host 'localhost': "sdevice pp203_des.cmd"
+17:13:06 Feb 06 2020 +++ job 203 <sdevice> done: exit(0)
+17:13:07 Feb 06 2020     job 219 <sdevice> started on host 'localhost': "sdevice pp219_des.cmd"
+17:20:21 Feb 06 2020 +++ job 219 <sdevice> done: exit(0)
+17:20:22 Feb 06 2020     job 235 <sdevice> started on host 'localhost': "sdevice --max_threads 1  pp235_des.cmd"
+17:27:30 Feb 06 2020 +++ job 235 <sdevice> done: exit(0)
+17:27:32 Feb 06 2020 <ARCADIA25um_surfaceDamage> done (3892 sec)

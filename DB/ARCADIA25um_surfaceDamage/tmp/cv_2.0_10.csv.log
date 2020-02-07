@@ -1,0 +1,28 @@
+###########################################
+# Sentaurus Visual P-2019.03-SP1.
+# Tcl log file.
+#------------------------------------------
+# Date: Feb 07, 2020. 15:13:54.
+# Version: 29.0.1250 (1.1250)
+# Mode: Batch.
+# Hostname: localhost.localdomain.
+# Machine: Linux, x86_64, x86_64.
+# Kernel: 4.18.0-147.3.1.el8_1.x86_64.
+###########################################
+
+load_script_file /home/cneubueser/tcad_sim/DB/ARCADIA25um_surfaceDamage/tmp/cv_2.0_10.csv.tcl
+cd /home/cneubueser/tcad_sim/DB/ARCADIA25um_surfaceDamage/tmp
+  load_file /home/cneubueser/tcad_sim/DB/ARCADIA25um_surfaceDamage/cv_ac_2.0_10_ac_des.plt
+#--> cv_ac_2.0_10_ac_des
+  create_plot -1d
+  select_plots {Plot_1}
+#--> Plot_1
+#--> Plot_1
+  select_plots {Plot_1}
+#--> Plot_1
+  create_curve -plot Plot_1 -dataset {cv_ac_2.0_10_ac_des} -axisX v(Pbot) -axisY c(Ntop,Ntop)
+#--> Curve_1
+  export_curves {Curve_1} -plot Plot_1 -filename /home/cneubueser/tcad_sim/DB/ARCADIA25um_surfaceDamage/tmp/cv_2.0_10.csv -format csv -overwrite
+#--> /home/cneubueser/tcad_sim/DB/ARCADIA25um_surfaceDamage/tmp/cv_2.0_10.csv
+#-> 0
+ 

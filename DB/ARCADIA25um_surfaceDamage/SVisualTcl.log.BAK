@@ -1,0 +1,27 @@
+###########################################
+# Sentaurus Visual P-2019.03-SP1.
+# Tcl log file.
+#------------------------------------------
+# Date: Feb 06, 2020. 15:07:26.
+# Version: 29.0.1250 (1.1250)
+# Mode: Interactive (GUI).
+# Mesa: enabled.
+# Hostname: localhost.localdomain.
+# Machine: Linux, x86_64, x86_64.
+# Kernel: 4.18.0-147.3.1.el8_1.x86_64.
+###########################################
+
+load_file /home/cneubueser/synopsys/DB/Pixel25um/ARCADIA25um_surfaceDamage/iv_2_1000.plt
+#-> iv_2_1000
+create_plot -1d
+#-> Plot_1
+create_curve -plot Plot_1 -dataset {iv_2_1000} -axisX {Pbot OuterVoltage} -axisY {Ntop TotalCurrent}
+#-> Curve_1
+load_script_file /home/cneubueser/synopsys/DB/Pixel25um/ARCADIA25um_surfaceDamage/tmp/cv_4.25_100.tcl
+#!-> Error: load_script_file: '/home/cneubueser/synopsys/DB/Pixel25um/ARCADIA25um_surfaceDamage/tmp/cv_4.25_100.tcl': extra characters after close-brace. (line 1).
+load_script_file /home/cneubueser/synopsys/DB/Pixel25um/ARCADIA25um_surfaceDamage/tmp/cv_4.25_100.tcl
+#!-> Error: load_script_file: '/home/cneubueser/synopsys/DB/Pixel25um/ARCADIA25um_surfaceDamage/tmp/cv_4.25_100.tcl': extra characters after close-brace. (line 1).
+load_script_file home/cneubueser/synopsys/DB/Pixel25um/ARCADIA25um_surfaceDamage/tmp/cv_4.25_100.tcl
+#!-> Error: load_script_file: File 'home/cneubueser/synopsys/DB/Pixel25um/ARCADIA25um_surfaceDamage/tmp/cv_4.25_100.tcl' could not be loaded.
+exit 0
+ 

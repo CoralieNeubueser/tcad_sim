@@ -1,0 +1,569 @@
+
+****************************************************************************
+***                       Sentaurus Workbench gsub                       ***
+***                        Version P-2019.03-SP1                         ***
+***                       (1.1250, x86_64, Linux)                        ***
+***                                                                      ***
+***                Copyright (c) 1994-2019 Synopsys, Inc.                ***
+***                                                                      ***
+***  This software and the associated documentation are confidential     ***
+***  and proprietary to Synopsys, Inc.  Your use or disclosure of this   ***
+***  software is subject to the terms and conditions of a written        ***
+***  license agreement between you, or your company, and Synopsys, Inc.  ***
+****************************************************************************
+
+gsub is running on host 'localhost' by user 'cneubueser'
+Binary '/usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/bin/../lib/gsub0'
+Command line options '-verbose -swb_pid 23385 -q local:default -e {14 + 185 + 187 + 193 + 199 + 171 + 204 + 220 + 188 + 208 + 224 + 194 + 212 + 228 + 200 + 216 + 232 + 172 + 205 + 221 + 189 + 209 + 225 + 195 + 213 + 229 + 201 + 217 + 233 + 196 + 214 + 230 + 202 + 218 + 234 + 197 + 215 + 231 + 203 + 219 + 235} /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage'
+Current directory '/home/cneubueser/sim'
+Some relevant environment variables:
+	STROOT=/usr/synopsys/sentaurus/P_2019.03-SP1
+	STRELEASE=current
+	STROOT_LIB=/usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/lib
+	STDB=/home/cneubueser/sim
+	DATEX=/usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/lib/datexcodes.txt
+	DISPLAY=:1
+
+Starting swblm daemon...OK
+Loading global tool database '/usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/lib/glib2/tooldb.tcl'
+Project '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage'
+16:22:40 Feb 06 2020 <ARCADIA25um_surfaceDamage> submitted to the batch system
+Loading global queue configuration file '/usr/synopsys/sentaurus/P_2019.03-SP1/queues/gqueues.dat'...ok
+Loading project tree '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gtree.dat'
+>>>>> Preprocessing the project to run in normal mode
+Loading jobs and dependence graph '"/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gexec.cmd"'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gtree.dat'
+Loading project variables '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sde_dvs.cmd
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd fornode 196
+'@tdr@' creates dependences with the node(s) '192'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 196
++++Node successfully preprocessed+++
+The node '196' has dependencies to the node(s) '192'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd fornode 197
+'@tdr@' creates dependences with the node(s) '192'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 197
++++Node successfully preprocessed+++
+The node '197' has dependencies to the node(s) '192'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd fornode 202
+'@tdr@' creates dependences with the node(s) '198'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 202
++++Node successfully preprocessed+++
+The node '202' has dependencies to the node(s) '198'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd fornode 203
+'@tdr@' creates dependences with the node(s) '198'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 203
++++Node successfully preprocessed+++
+The node '203' has dependencies to the node(s) '198'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd fornode 214
+'@tdr@' creates dependences with the node(s) '192'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 214
++++Node successfully preprocessed+++
+The node '214' has dependencies to the node(s) '192'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd fornode 215
+'@tdr@' creates dependences with the node(s) '192'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 215
++++Node successfully preprocessed+++
+The node '215' has dependencies to the node(s) '192'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd fornode 218
+'@tdr@' creates dependences with the node(s) '198'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 218
++++Node successfully preprocessed+++
+The node '218' has dependencies to the node(s) '198'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd fornode 219
+'@tdr@' creates dependences with the node(s) '198'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 219
++++Node successfully preprocessed+++
+The node '219' has dependencies to the node(s) '198'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd fornode 230
+'@tdr@' creates dependences with the node(s) '192'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 230
++++Node successfully preprocessed+++
+The node '230' has dependencies to the node(s) '192'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd fornode 231
+'@tdr@' creates dependences with the node(s) '192'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 231
++++Node successfully preprocessed+++
+The node '231' has dependencies to the node(s) '192'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd fornode 234
+'@tdr@' creates dependences with the node(s) '198'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 234
++++Node successfully preprocessed+++
+The node '234' has dependencies to the node(s) '198'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd fornode 235
+'@tdr@' creates dependences with the node(s) '198'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 235
++++Node successfully preprocessed+++
+The node '235' has dependencies to the node(s) '198'
+Writing 'gexec.cmd'
+saving variables
+Loading jobs and dependence graph '"/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gexec.cmd"'
+Warning: node '14' not queued: node is virtual
+Warning: node '185' not queued: node is virtual
+Warning: node '187' not queued: node is virtual
+Warning: node '193' not queued: node is virtual
+Warning: node '199' not queued: node is virtual
+Warning: node '171' not queued: node is virtual
+Warning: node '204' not queued: node is virtual
+Warning: node '220' not queued: node is virtual
+Warning: node '188' not queued: node is virtual
+Warning: node '208' not queued: node is virtual
+Warning: node '224' not queued: node is virtual
+Warning: node '194' not queued: node is virtual
+Warning: node '212' not queued: node is virtual
+Warning: node '228' not queued: node is virtual
+Warning: node '200' not queued: node is virtual
+Warning: node '216' not queued: node is virtual
+Warning: node '232' not queued: node is virtual
+Warning: node '172' not queued: node is virtual
+Warning: node '205' not queued: node is virtual
+Warning: node '221' not queued: node is virtual
+Warning: node '189' not queued: node is virtual
+Warning: node '209' not queued: node is virtual
+Warning: node '225' not queued: node is virtual
+Warning: node '195' not queued: node is virtual
+Warning: node '213' not queued: node is virtual
+Warning: node '229' not queued: node is virtual
+Warning: node '201' not queued: node is virtual
+Warning: node '217' not queued: node is virtual
+Warning: node '233' not queued: node is virtual
+>>>>>>>>>> job '196' status changed from 'none' to 'queued'
+>>>>>>>>>> job '214' status changed from 'none' to 'queued'
+>>>>>>>>>> job '230' status changed from 'none' to 'queued'
+>>>>>>>>>> job '202' status changed from 'none' to 'queued'
+>>>>>>>>>> job '218' status changed from 'none' to 'queued'
+>>>>>>>>>> job '234' status changed from 'none' to 'queued'
+>>>>>>>>>> job '197' status changed from 'none' to 'queued'
+>>>>>>>>>> job '215' status changed from 'none' to 'queued'
+>>>>>>>>>> job '231' status changed from 'none' to 'queued'
+>>>>>>>>>> job '203' status changed from 'none' to 'queued'
+>>>>>>>>>> job '219' status changed from 'none' to 'queued'
+>>>>>>>>>> job '235' status changed from 'none' to 'queued'
+-----------------------------------------------------------------
+queue "local:default" - 196 214 230 202 218 234 197 215 231 203 219 235
+-----------------------------------------------------------------
+>>>>> cleaning the index file from previous simulations 
+                       /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/.gindex
+>>>>>>>>>> Initializing back-end schedulers...
+>>>>>>>> Loaded Schedulers are ... local
+local% initialize 'local' scheduler data
+>>>>> List of Active Schedulers : local
+<<<<<<<<<<
+>>>>>>>>>> job '196' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gexec.cmd"'
+Loading project variables '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd fornode 196
+'@tdr@' creates dependences with the node(s) '192'
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp196_des.cmd
+The node '196' has dependencies to the node(s) '192'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 196
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp196_des.par
+The node '196' has dependencies to the node(s) '192'
+>>>>>>>>>> os_rm /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/n196_des.job
+local% submit job 196 for local execution
+>>>>>>>>>> job '196' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '214' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gexec.cmd"'
+Loading project variables '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd fornode 214
+'@tdr@' creates dependences with the node(s) '192'
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp214_des.cmd
+The node '214' has dependencies to the node(s) '192'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 214
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp214_des.par
+The node '214' has dependencies to the node(s) '192'
+>>>>>>>>>> os_rm /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/n214_des.job
+local% submit job 214 for local execution
+>>>>>>>>>> job '214' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '230' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gexec.cmd"'
+Loading project variables '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd fornode 230
+'@tdr@' creates dependences with the node(s) '192'
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp230_des.cmd
+The node '230' has dependencies to the node(s) '192'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 230
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp230_des.par
+The node '230' has dependencies to the node(s) '192'
+>>>>>>>>>> os_rm /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/n230_des.job
+local% submit job 230 for local execution
+>>>>>>>>>> job '230' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '202' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gexec.cmd"'
+Loading project variables '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd fornode 202
+'@tdr@' creates dependences with the node(s) '198'
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp202_des.cmd
+The node '202' has dependencies to the node(s) '198'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 202
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp202_des.par
+The node '202' has dependencies to the node(s) '198'
+>>>>>>>>>> os_rm /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/n202_des.job
+local% submit job 202 for local execution
+>>>>>>>>>> job '202' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '218' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gexec.cmd"'
+Loading project variables '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd fornode 218
+'@tdr@' creates dependences with the node(s) '198'
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp218_des.cmd
+The node '218' has dependencies to the node(s) '198'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 218
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp218_des.par
+The node '218' has dependencies to the node(s) '198'
+>>>>>>>>>> os_rm /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/n218_des.job
+local% submit job 218 for local execution
+>>>>>>>>>> job '218' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '234' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gexec.cmd"'
+Loading project variables '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd fornode 234
+'@tdr@' creates dependences with the node(s) '198'
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp234_des.cmd
+The node '234' has dependencies to the node(s) '198'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 234
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp234_des.par
+The node '234' has dependencies to the node(s) '198'
+>>>>>>>>>> os_rm /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/n234_des.job
+local% submit job 234 for local execution
+>>>>>>>>>> job '234' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '197' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gexec.cmd"'
+Loading project variables '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd fornode 197
+'@tdr@' creates dependences with the node(s) '192'
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp197_des.cmd
+The node '197' has dependencies to the node(s) '192'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 197
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp197_des.par
+The node '197' has dependencies to the node(s) '192'
+>>>>>>>>>> os_rm /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/n197_des.job
+local% submit job 197 for local execution
+>>>>>>>>>> job '197' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '215' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gexec.cmd"'
+Loading project variables '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd fornode 215
+'@tdr@' creates dependences with the node(s) '192'
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp215_des.cmd
+The node '215' has dependencies to the node(s) '192'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 215
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp215_des.par
+The node '215' has dependencies to the node(s) '192'
+>>>>>>>>>> os_rm /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/n215_des.job
+local% submit job 215 for local execution
+>>>>>>>>>> job '215' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '231' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gexec.cmd"'
+Loading project variables '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd fornode 231
+'@tdr@' creates dependences with the node(s) '192'
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp231_des.cmd
+The node '231' has dependencies to the node(s) '192'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 231
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp231_des.par
+The node '231' has dependencies to the node(s) '192'
+>>>>>>>>>> os_rm /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/n231_des.job
+local% submit job 231 for local execution
+>>>>>>>>>> job '231' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '203' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gexec.cmd"'
+Loading project variables '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd fornode 203
+'@tdr@' creates dependences with the node(s) '198'
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp203_des.cmd
+The node '203' has dependencies to the node(s) '198'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 203
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp203_des.par
+The node '203' has dependencies to the node(s) '198'
+>>>>>>>>>> os_rm /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/n203_des.job
+local% submit job 203 for local execution
+>>>>>>>>>> job '203' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '219' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gexec.cmd"'
+Loading project variables '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd fornode 219
+'@tdr@' creates dependences with the node(s) '198'
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp219_des.cmd
+The node '219' has dependencies to the node(s) '198'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 219
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp219_des.par
+The node '219' has dependencies to the node(s) '198'
+>>>>>>>>>> os_rm /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/n219_des.job
+local% submit job 219 for local execution
+>>>>>>>>>> job '219' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '235' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gexec.cmd"'
+Loading project variables '/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd
+Reading file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd fornode 235
+'@tdr@' creates dependences with the node(s) '198'
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp235_des.cmd
+The node '235' has dependencies to the node(s) '198'
+Preprocessing file /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/sdevice.par fornode 235
++++Preprocessing results written to /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/pp235_des.par
+The node '235' has dependencies to the node(s) '198'
+>>>>>>>>>> os_rm /home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage/n235_des.job
+local% submit job 235 for local execution
+>>>>>>>>>> job '235' status changed from 'ready' to 'pending'
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 196 -swb_pid 23385 -gsub_pid 24330 -gsub_host localhost -gsub_port 42333  "/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage""
+>>>>>>>>>> job '196' status changed from 'pending' to 'running'
+16:22:40 Feb 06 2020     job 196 <sdevice> started on host 'localhost': "sdevice pp196_des.cmd"
+>>>>>>>>>> job '196' status changed from 'running' to 'done'
+16:26:06 Feb 06 2020 +++ job 196 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 214 -swb_pid 23385 -gsub_pid 24330 -gsub_host localhost -gsub_port 42333  "/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage""
+>>>>>>>>>> job '214' status changed from 'pending' to 'running'
+16:26:07 Feb 06 2020     job 214 <sdevice> started on host 'localhost': "sdevice pp214_des.cmd"
+>>>>>>>>>> job '214' status changed from 'running' to 'done'
+16:29:34 Feb 06 2020 +++ job 214 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 230 -swb_pid 23385 -gsub_pid 24330 -gsub_host localhost -gsub_port 42333  "/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage""
+>>>>>>>>>> job '230' status changed from 'pending' to 'running'
+16:29:35 Feb 06 2020     job 230 <sdevice> started on host 'localhost': "sdevice pp230_des.cmd"
+>>>>>>>>>> job '230' status changed from 'running' to 'done'
+16:33:02 Feb 06 2020 +++ job 230 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 202 -swb_pid 23385 -gsub_pid 24330 -gsub_host localhost -gsub_port 42333  "/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage""
+>>>>>>>>>> job '202' status changed from 'pending' to 'running'
+16:33:03 Feb 06 2020     job 202 <sdevice> started on host 'localhost': "sdevice pp202_des.cmd"
+>>>>>>>>>> job '202' status changed from 'running' to 'done'
+16:36:30 Feb 06 2020 +++ job 202 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 218 -swb_pid 23385 -gsub_pid 24330 -gsub_host localhost -gsub_port 42333  "/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage""
+>>>>>>>>>> job '218' status changed from 'pending' to 'running'
+16:36:31 Feb 06 2020     job 218 <sdevice> started on host 'localhost': "sdevice pp218_des.cmd"
+>>>>>>>>>> job '218' status changed from 'running' to 'done'
+16:39:58 Feb 06 2020 +++ job 218 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 234 -swb_pid 23385 -gsub_pid 24330 -gsub_host localhost -gsub_port 42333  "/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage""
+>>>>>>>>>> job '234' status changed from 'pending' to 'running'
+16:39:59 Feb 06 2020     job 234 <sdevice> started on host 'localhost': "sdevice pp234_des.cmd"
+>>>>>>>>>> job '234' status changed from 'running' to 'done'
+16:43:23 Feb 06 2020 +++ job 234 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 197 -swb_pid 23385 -gsub_pid 24330 -gsub_host localhost -gsub_port 42333  "/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage""
+>>>>>>>>>> job '197' status changed from 'pending' to 'running'
+16:43:24 Feb 06 2020     job 197 <sdevice> started on host 'localhost': "sdevice pp197_des.cmd"
+>>>>>>>>>> job '197' status changed from 'running' to 'done'
+16:50:51 Feb 06 2020 +++ job 197 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 215 -swb_pid 23385 -gsub_pid 24330 -gsub_host localhost -gsub_port 42333  "/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage""
+>>>>>>>>>> job '215' status changed from 'pending' to 'running'
+16:50:52 Feb 06 2020     job 215 <sdevice> started on host 'localhost': "sdevice pp215_des.cmd"
+>>>>>>>>>> job '215' status changed from 'running' to 'done'
+16:58:22 Feb 06 2020 +++ job 215 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 231 -swb_pid 23385 -gsub_pid 24330 -gsub_host localhost -gsub_port 42333  "/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage""
+>>>>>>>>>> job '231' status changed from 'pending' to 'running'
+16:58:23 Feb 06 2020     job 231 <sdevice> started on host 'localhost': "sdevice pp231_des.cmd"
+>>>>>>>>>> job '231' status changed from 'running' to 'done'
+17:05:48 Feb 06 2020 +++ job 231 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 203 -swb_pid 23385 -gsub_pid 24330 -gsub_host localhost -gsub_port 42333  "/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage""
+>>>>>>>>>> job '203' status changed from 'pending' to 'running'
+17:05:49 Feb 06 2020     job 203 <sdevice> started on host 'localhost': "sdevice pp203_des.cmd"
+>>>>>>>>>> job '203' status changed from 'running' to 'done'
+17:13:06 Feb 06 2020 +++ job 203 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 219 -swb_pid 23385 -gsub_pid 24330 -gsub_host localhost -gsub_port 42333  "/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage""
+>>>>>>>>>> job '219' status changed from 'pending' to 'running'
+17:13:07 Feb 06 2020     job 219 <sdevice> started on host 'localhost': "sdevice pp219_des.cmd"
+>>>>>>>>>> job '219' status changed from 'running' to 'done'
+17:20:21 Feb 06 2020 +++ job 219 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 235 -swb_pid 23385 -gsub_pid 24330 -gsub_host localhost -gsub_port 42333  "/home/cneubueser/sim/DB/ARCADIA25um_surfaceDamage""
+>>>>>>>>>> job '235' status changed from 'pending' to 'running'
+17:20:22 Feb 06 2020     job 235 <sdevice> started on host 'localhost': "sdevice --max_threads 1  pp235_des.cmd"
+>>>>>>>>>> job '235' status changed from 'running' to 'done'
+17:27:30 Feb 06 2020 +++ job 235 <sdevice> done: exit(0)
+
+SCHEDULING REPORT
++++ done     : 196 214 230 202 218 234 197 215 231 203 219 235
+
+17:27:32 Feb 06 2020 <ARCADIA25um_surfaceDamage> done (3892 sec)
+>>>>>> Writing to status file 3892
+gsub exits with status 0
