@@ -6,12 +6,14 @@ Analysis tools for TCAD Sentaurus outputs
 - plotting with matplotlib
 
 # Initialization
+Dependent on..
 - python3
 
-# Prepare TCAD outputs:
-1. define parameter that you want to study, here example for 2.
+# Prepare TCAD outputs
+1. define parameter that you want to study, here example for 2, add them to python/run.py ll 15/16.
 2. make sure that the output files feature parameters "_@par@_" to command files of CV/IV measurements
-- see line 24/25 of sdevice_des.cmd
+- see line 24/25 of DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd
+- see line 77 of DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd
 
 # Run analysis
 use run.py scipt in python/
