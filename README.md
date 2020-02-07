@@ -19,3 +19,7 @@ use run.py scipt in python/
 ~~~
 python3 python/run.py --project ARCADIA25um_surfaceDamage -m cv --writeCSV
 ~~~
+
+- possible choices for measurements are: 'cv', 'iv', or 'iv_b'.
+- adjust the parameters in python/run.py.
+- when you have run once with flag --writeCSV, you can leave it out the next time you want to plot.
