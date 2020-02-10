@@ -9,6 +9,11 @@ Analysis tools for TCAD Sentaurus outputs
 Dependent on..
 - python3
 
+Clone the git repository:
+~~~
+git clone https://github.com/CoralieNeubueser/tcad_sim.git .
+~~~
+
 # Prepare TCAD outputs
 1. define parameter that you want to study, here example for 2, add them to python/run.py ll 15/16.
 2. make sure that the output files feature parameters "_@par@_" to command files of CV/IV measurements
