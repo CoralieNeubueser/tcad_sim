@@ -35,4 +35,4 @@ python3 python/run.py --project ARCADIA25um_surfaceDamage -m 'cv' --writeCSV
 - adjust the parameters in python/run.py.
 - when you have run once with flag --writeCSV, you can leave it out the next time you want to plot only.
 
--> csv and pdf files are stored in DB/<project>/tmp/
+-> csv and pdf files are stored in DB/<--project-->/tmp/
