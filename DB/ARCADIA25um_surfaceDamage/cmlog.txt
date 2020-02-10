@@ -1,8 +1,0 @@
-DATE: 02/07/20 - 02/07/20 cmlog.txt
-
-This localhost (server) information:
-	Name:    localhost
-	Address: ::1
-Warning: detection hostname info retrieved a less specific hostname part: initial argument[localhost.localdomain] hostname part[localhost].
-Warning: detection hostname info retrieved a less specific hostname part: initial argument[localhost.localdomain] hostname part[localhost].
-Warning: detection hostname info retrieved a less specific hostname part: initial argument[localhost.localdomain] hostname part[localhost].
