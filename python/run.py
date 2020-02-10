@@ -7,13 +7,17 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument('--project', type=str, default='ARCADIA25um_surfaceDamage', help='Define patht to project.')
 parser.add_argument('--writeCSV', action='store_true', help='Convert tcl to csv, if not already done.')
-parser.add_argument('-m', '--measure', action='store', type=str, nargs='+', default=['cv','iv'], help='Define which plots you want to draw.', choices=['cv','iv','iv_b'])
+parser.add_argument('-m', '--measure', action='append', type=str, default=[], help='Define which plots you want to draw.', choices=['cv','iv','iv_b'])
 
 args,_=parser.parse_known_args()
 
 # pre-define the two paramters that you have tested
 par1=[0.0, 0.5, 2.0, 4.25]
 par2=[10, 100, 1000]
+
+titles = dict([('cv', 'C [C]'),
+               ('iv', 'I [A]'),
+               ('iv_b', 'I$_{back}$ [A]')])
 
 # produce csv files
 if args.writeCSV:
@@ -55,29 +59,45 @@ for ip1,p1 in enumerate(par1):
         
         lab=str('p1='+str(p1)+', p2='+str(p2))
 
+        # if multiple measurements are analysed draw in multiple subplots
         if len(args.measure)>1:
             for im,m in enumerate(args.measure):
                 f2=csvFileName(args.project, m, [p1], [p2])
                 data2 = pd.read_csv(f2, names=["X","Y"], skiprows=1)
                 
                 drawGraphLines(axs[im],-data2.X, data2.Y,colors[ip1],lines[ip2],lab)
-                
+                axs[im].set_ylabel(titles[m])
+
+                # if measurement is cv curve, fit and extract the depletion voltage 
                 if m=='cv':
                     deplV,deplC=deplVoltage(axs[im],data2,colors[ip1])
-
+                    print('#############################')
                     print('p1='+str(p1)+', p2='+str(p2))
                     print('Depletion voltage found to be:    {:.1f} V'.format(deplV))
                     print('Capacitance at depletion voltage: {:.4f} fC'.format(deplC*pow(10,15)))
+                    print('#############################')
                     deplVs[ip1][ip2]=deplV
                     capCs[ip1][ip2]=deplC
+                elif m=='iv' and m.find('cv'):
+                    xtmp=np.array(-data2.X)
+                    vbin=np.where((xtmp<deplVs[ip1][ip2]+0.2) & (xtmp>deplVs[ip1][ip2]-0.2) )
+                    ytmp=np.array(data2.Y)
+                    idpl=float(ytmp[vbin])
+                    print('Current at depletion voltage:    {:.4f} pA'.format(idpl*pow(10,12)))
+                    print('#############################')
 
+        # if only one measurement, draw in one canvas
         else:
             drawGraphLines(axs,-data1.X, data1.Y,colors[ip1],lines[ip2],lab)
+            
+            # if measurement is cv curve, fit and extract the depletion voltage
             if args.measure=='cv':
                 deplV,deplC=deplVoltage(axs,data1,colors[ip1])
+                print('#############################')
                 print('p1='+str(p1)+', p2='+str(p2))
                 print('Depletion voltage found to be:    {:.1f} V'.format(deplV))
                 print('Capacitance at depletion voltage: {:.4f} fC'.format(deplC*pow(10,15)))
+                print('#############################')
                 deplVs[ip1][ip2]=deplV
                 capCs[ip1][ip2]=deplC
         i=i+1
@@ -91,10 +111,9 @@ outName=allCurvesName(args.project, allM, 'pdf')
 print(outName)
 
 if len(args.measure)>1:
-    #axs[len(args.measure)-1].set_yscale('log')
+    axs[len(args.measure)-1].set_yscale('log')
     axs[1].legend(loc='center left', bbox_to_anchor=(1, 0.5), fancybox=True)
     axs[len(args.measure)-1].set_xlabel('|V|')
-    
 else:
     axs.set_yscale('log')
     axs.legend(loc='center left', bbox_to_anchor=(1, 0.5), fancybox=True)
