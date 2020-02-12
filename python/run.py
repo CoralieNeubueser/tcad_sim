@@ -91,7 +91,7 @@ for ip1,p1 in enumerate(par1):
             drawGraphLines(axs,-data1.X, data1.Y,colors[ip1],lines[ip2],lab)
             
             # if measurement is cv curve, fit and extract the depletion voltage
-            if args.measure=='cv':
+            if args.measure[0]=='cv':
                 deplV,deplC=deplVoltage(axs,data1,colors[ip1])
                 print('#############################')
                 print('p1='+str(p1)+', p2='+str(p2))

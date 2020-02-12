@@ -8,8 +8,9 @@ parser.add_argument('--project', type=str, default='ARCADIA25um_surfaceDamage', 
 parser.add_argument('--cv', action='store_true', help='Specify if measurement is cv.')
 parser.add_argument('--iv', action='store_true', help='Specify if measurement is iv.')
 parser.add_argument('--iv_b', action='store_true', help='Specify if measurement is iv.')
-parser.add_argument('-pF', '--parFloat', type=float, nargs='+', help='Give parameters as specified in tcad project.')
-parser.add_argument('-pI', '--parInt', type=int, nargs='+', help='Give parameters as specified in tcad project.')
+parser.add_argument('-pF', '--parFloat', type=float, default=None, nargs='+', help='Give parameters as specified in tcad project.')
+parser.add_argument('-pI', '--parInt', type=int, nargs='+', default=None, help='Give parameters as specified in tcad project.')
+parser.add_argument('-pS', '--parStr', type=str, nargs='+', default=None, help='Give parameters as specified in tcad project.')
 parser.add_argument('--run', action='store_true', help='Specify if you want to execute the tcl file.')
 
 args,_=parser.parse_known_args()
@@ -41,20 +42,26 @@ elif args.iv_b:
 
 figName=nameBegin
 inFileName=home+args.project+"/"+nameBegin
-csvFileName=csvFileName(args.project, measure, args.parFloat, args.parInt)
+csvFileName=csvFileName(args.project, measure, args.parFloat, args.parInt, args.parStr)
 
 # check if temporary path exist, if not create
 workDir=home+args.project+"/tmp/"
 if not os.path.isdir(workDir):
     print("Create output directory /tmp/")
     os.system('mkdir '+home+args.project+"/tmp/")
-
-for par in args.parFloat:
-    inFileName=inFileName+"_"+str(par)
-    figName=figName+"_"+str(par)
-for par in args.parInt:
-    inFileName=inFileName+"_"+str(par)
-    figName=figName+"_"+str(par)
+    
+if args.parFloat is not None:
+    for par in args.parFloat:
+        inFileName=inFileName+"_"+str(par)
+        figName=figName+"_"+str(par)
+if args.parInt is not None:
+    for par in args.parInt:
+        inFileName=inFileName+"_"+str(par)
+        figName=figName+"_"+str(par)
+if args.parStr is not None:
+    for par in args.parStr:
+        inFileName=inFileName+"_"+str(par)
+        figName=figName+"_"+str(par)
 
 inFileName=inFileName+nameEnd
 tclFileName=csvFileName+".tcl"

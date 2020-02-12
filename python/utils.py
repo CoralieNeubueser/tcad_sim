@@ -166,7 +166,8 @@ def csvFileName(project, measure, *pars):
     home=os.getcwd()+"/DB/"
     csvName=home+project+"/tmp/"+measure
     for par in pars:
-        csvName=csvName+"_"+str(par[0])
+        if par is not None:
+            csvName=csvName+"_"+str(par[0])
     return csvName+".csv"
 
 def allCurvesName(project, measure, form):
