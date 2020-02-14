@@ -15,11 +15,11 @@ args,_=parser.parse_known_args()
 par1=[0.0, 0.5, 2.0, 4.25]
 par2=[10, 100, 1000]
 
-titles = dict([('cv', 'C [C]'),
-               ('iv', 'I [A]'),
-               ('iv_b', 'I$_{back}$ [A]')])
+titles = dict([('cv', 'C [F/$\mu$m]'),
+               ('iv', 'I [A/$\mu$m]'),
+               ('iv_b', 'I$_{back}$ [A/$\mu$m]')])
 
-ranges = dict([('cv', [5e-14, 5e-15]),
+ranges = dict([('cv', [5e-16, 5e-15]),
                ('iv', [1e-17, 3e-14]),
                ('iv_b', [1e-18, 1e-5])])
 
