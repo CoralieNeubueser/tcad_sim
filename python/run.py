@@ -19,6 +19,10 @@ titles = dict([('cv', 'C [C]'),
                ('iv', 'I [A]'),
                ('iv_b', 'I$_{back}$ [A]')])
 
+ranges = dict([('cv', [5e-14, 5e-15]),
+               ('iv', [1e-17, 3e-14]),
+               ('iv_b', [1e-18, 1e-5])])
+
 # produce csv files
 if args.writeCSV:
     for p1 in par1:
@@ -67,6 +71,7 @@ for ip1,p1 in enumerate(par1):
                 
                 drawGraphLines(axs[im],-data2.X, data2.Y,colors[ip1],lines[ip2],lab)
                 axs[im].set_ylabel(titles[m])
+                axs[im].set_ylim(ranges[m][0],ranges[m][1])
 
                 # if measurement is cv curve, fit and extract the depletion voltage 
                 if m=='cv':
