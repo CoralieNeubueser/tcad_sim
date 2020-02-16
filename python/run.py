@@ -20,7 +20,7 @@ titles = dict([('cv', 'C [F/$\mu$m]'),
                ('iv_b', 'I$_{back}$ [A/$\mu$m]')])
 
 ranges = dict([('cv', [5e-16, 5e-15]),
-               ('iv', [1e-17, 3e-14]),
+               ('iv', [1e-15, 3e-14]),
                ('iv_b', [1e-18, 1e-5])])
 
 # produce csv files
@@ -83,6 +83,7 @@ for ip1,p1 in enumerate(par1):
                     print('#############################')
                     deplVs[ip1][ip2]=deplV
                     capCs[ip1][ip2]=deplC
+
                 elif m=='iv' and m.find('cv'):
                     xtmp=np.array(-data2.X)
                     vbin=np.where((xtmp<deplVs[ip1][ip2]+0.2) & (xtmp>deplVs[ip1][ip2]-0.2) )
@@ -90,6 +91,7 @@ for ip1,p1 in enumerate(par1):
                     idpl=float(ytmp[vbin])
                     print('Current at depletion voltage:    {:.4f} pA'.format(idpl*pow(10,12)))
                     print('#############################')
+                    drawVdpl(axs[im],deplVs[ip1][ip2],idpl,colors[ip1])
 
         # if only one measurement, draw in one canvas
         else:
@@ -116,8 +118,8 @@ outName=allCurvesName(args.project, allM, 'pdf')
 print(outName)
 
 if len(args.measure)>1:
-    axs[len(args.measure)-1].set_yscale('log')
-    axs[1].legend(loc='center left', bbox_to_anchor=(1, 0.5), fancybox=True)
+    #    axs[0].set_yscale('log')
+    axs[0].legend(loc='center left', bbox_to_anchor=(1, 0.5), fancybox=True)
     axs[len(args.measure)-1].set_xlabel('|V|')
 else:
     axs.set_yscale('log')

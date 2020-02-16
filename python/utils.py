@@ -6,6 +6,9 @@ from scipy.stats import linregress
 import scipy.optimize
 import math
 
+def drawVdpl(ax,x,y,col):
+    ax.plot(x, y, color=col, marker='*')
+    
 def deplVoltage(ax,dat,*col):
     
     x = np.array(-dat.X)
