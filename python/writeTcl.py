@@ -8,6 +8,7 @@ parser.add_argument('--project', type=str, default='ARCADIA25um_surfaceDamage', 
 parser.add_argument('--cv', action='store_true', help='Specify if measurement is cv.')
 parser.add_argument('--iv', action='store_true', help='Specify if measurement is iv.')
 parser.add_argument('--iv_b', action='store_true', help='Specify if measurement is iv.')
+parser.add_argument('--cv_b', action='store_true', help='Specify if measurement is cv.')
 parser.add_argument('-pF', '--parFloat', type=float, default=None, nargs='+', help='Give parameters as specified in tcad project.')
 parser.add_argument('-pI', '--parInt', type=int, nargs='+', default=None, help='Give parameters as specified in tcad project.')
 parser.add_argument('-pS', '--parStr', type=str, nargs='+', default=None, help='Give parameters as specified in tcad project.')
@@ -39,6 +40,10 @@ elif args.iv_b:
     measure='iv_b'
     nameBegin="iv"
     nameEnd=".plt"
+elif args.cv_b:
+    measure='cv_b'
+    nameBegin="cv_ac"
+    nameEnd="_ac_des.plt"
 
 figName=nameBegin
 inFileName=home+args.project+"/"+nameBegin
@@ -84,6 +89,9 @@ elif measure=='iv':
 
 elif measure=='iv_b':
     newFile.write('create_curve -plot Plot_1 -dataset {'+str(figName)+'} -axisX {Pbot OuterVoltage} -axisY {Ptop TotalCurrent}\n')
+
+elif measure=='cv_b':
+    newFile.write('create_curve -plot Plot_1 -dataset {'+str(figName)+'} -axisX v(Pbot) -axisY c(Ptop,Ptop)\n')
 
 newFile.write('#-> Curve_1\n')
 newFile.write('export_curves {Curve_1} -plot Plot_1 -filename '+str(csvFileName)+' -format csv -overwrite\n')
