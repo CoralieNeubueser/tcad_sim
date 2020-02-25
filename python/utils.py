@@ -1,4 +1,4 @@
-import os, sys
+import os, sys, argparse
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
@@ -165,15 +165,14 @@ def drawGraph(axis,arr1,arr2,col,la):
 def drawGraphLines(axis,arr1,arr2,col,linestyle,la):
     axis.plot(arr1,arr2, color=col,marker=',', linestyle=linestyle, label=la)
 
-def csvFileName(project, measure, *pars):
+def csvFileName(project, measure, pars):
     home=os.getcwd()+"/DB/"
     csvName=home+project+"/tmp/"+measure
-    for par in pars:
-        if par is not None:
-            csvName=csvName+"_"+str(par[0])
+    csvName=csvName+"_"+str(pars)
     return csvName+".csv"
 
 def allCurvesName(project, measure, form):
     home=os.getcwd()+"/DB/"
     name=home+project+"/tmp/"+measure
     return name+"_all."+str(form)
+
