@@ -1,0 +1,61 @@
+# project name
+name ARCADIA50um_3D_particle1
+# execution graph
+job 57 -d "13"  -post { extract_vars "$wdir" n57_des.out 57 }  -o n57_des "sdevice pp57_des.cmd"
+job 92 -d "13"  -post { extract_vars "$wdir" n92_des.out 92 }  -o n92_des "sdevice pp92_des.cmd"
+job 94 -d "13"  -post { extract_vars "$wdir" n94_des.out 94 }  -o n94_des "sdevice pp94_des.cmd"
+job 96 -d "13"  -post { extract_vars "$wdir" n96_des.out 96 }  -o n96_des "sdevice pp96_des.cmd"
+job 98 -d "13"  -post { extract_vars "$wdir" n98_des.out 98 }  -o n98_des "sdevice pp98_des.cmd"
+job 100 -d "13"  -post { extract_vars "$wdir" n100_des.out 100 }  -o n100_des "sdevice pp100_des.cmd"
+job 102 -d "13"  -post { extract_vars "$wdir" n102_des.out 102 }  -o n102_des "sdevice pp102_des.cmd"
+job 46 -d "13"  -post { extract_vars "$wdir" n46_des.out 46 }  -o n46_des "sdevice pp46_des.cmd"
+job 68 -d "57"  -post { extract_vars "$wdir" n68_ins.out 68; waiting "$wdir" 68 ins }  -o n68_ins "inspect -batch -f pp68_ins.cmd"
+job 13   -post { extract_vars "$wdir" n13_dvs.out 13; waiting "$wdir" 13 dvs }  -o n13_dvs "sde -e -l n13_dvs.cmd"
+job 14   -post { extract_vars "$wdir" n14_dvs.out 14; waiting "$wdir" 14 dvs }  -o n14_dvs "sde -e -l n14_dvs.cmd"
+job 15   -post { extract_vars "$wdir" n15_dvs.out 15; waiting "$wdir" 15 dvs }  -o n15_dvs "sde -e -l n15_dvs.cmd"
+job 16   -post { extract_vars "$wdir" n16_dvs.out 16; waiting "$wdir" 16 dvs }  -o n16_dvs "sde -e -l n16_dvs.cmd"
+job 17   -post { extract_vars "$wdir" n17_dvs.out 17; waiting "$wdir" 17 dvs }  -o n17_dvs "sde -e -l n17_dvs.cmd"
+job 18   -post { extract_vars "$wdir" n18_dvs.out 18; waiting "$wdir" 18 dvs }  -o n18_dvs "sde -e -l n18_dvs.cmd"
+job 19   -post { extract_vars "$wdir" n19_dvs.out 19; waiting "$wdir" 19 dvs }  -o n19_dvs "sde -e -l n19_dvs.cmd"
+job 20   -post { extract_vars "$wdir" n20_dvs.out 20; waiting "$wdir" 20 dvs }  -o n20_dvs "sde -e -l n20_dvs.cmd"
+job 21   -post { extract_vars "$wdir" n21_dvs.out 21; waiting "$wdir" 21 dvs }  -o n21_dvs "sde -e -l n21_dvs.cmd"
+job 22   -post { extract_vars "$wdir" n22_dvs.out 22; waiting "$wdir" 22 dvs }  -o n22_dvs "sde -e -l n22_dvs.cmd"
+job 23   -post { extract_vars "$wdir" n23_dvs.out 23; waiting "$wdir" 23 dvs }  -o n23_dvs "sde -e -l n23_dvs.cmd"
+job 47 -d "14"  -post { extract_vars "$wdir" n47_des.out 47; waiting "$wdir" 47 des }  -o n47_des "sdevice pp47_des.cmd"
+job 48 -d "15"  -post { extract_vars "$wdir" n48_des.out 48; waiting "$wdir" 48 des }  -o n48_des "sdevice pp48_des.cmd"
+job 49 -d "16"  -post { extract_vars "$wdir" n49_des.out 49; waiting "$wdir" 49 des }  -o n49_des "sdevice pp49_des.cmd"
+job 50 -d "17"  -post { extract_vars "$wdir" n50_des.out 50; waiting "$wdir" 50 des }  -o n50_des "sdevice pp50_des.cmd"
+job 51 -d "18"  -post { extract_vars "$wdir" n51_des.out 51; waiting "$wdir" 51 des }  -o n51_des "sdevice pp51_des.cmd"
+job 52 -d "19"  -post { extract_vars "$wdir" n52_des.out 52; waiting "$wdir" 52 des }  -o n52_des "sdevice pp52_des.cmd"
+job 53 -d "20"  -post { extract_vars "$wdir" n53_des.out 53; waiting "$wdir" 53 des }  -o n53_des "sdevice pp53_des.cmd"
+job 54 -d "21"  -post { extract_vars "$wdir" n54_des.out 54; waiting "$wdir" 54 des }  -o n54_des "sdevice pp54_des.cmd"
+job 55 -d "22"  -post { extract_vars "$wdir" n55_des.out 55; waiting "$wdir" 55 des }  -o n55_des "sdevice pp55_des.cmd"
+job 56 -d "23"  -post { extract_vars "$wdir" n56_des.out 56; waiting "$wdir" 56 des }  -o n56_des "sdevice pp56_des.cmd"
+job 58 -d "14"  -post { extract_vars "$wdir" n58_des.out 58; waiting "$wdir" 58 des }  -o n58_des "sdevice pp58_des.cmd"
+job 59 -d "15"  -post { extract_vars "$wdir" n59_des.out 59; waiting "$wdir" 59 des }  -o n59_des "sdevice pp59_des.cmd"
+job 60 -d "16"  -post { extract_vars "$wdir" n60_des.out 60; waiting "$wdir" 60 des }  -o n60_des "sdevice pp60_des.cmd"
+job 61 -d "17"  -post { extract_vars "$wdir" n61_des.out 61; waiting "$wdir" 61 des }  -o n61_des "sdevice pp61_des.cmd"
+job 62 -d "18"  -post { extract_vars "$wdir" n62_des.out 62; waiting "$wdir" 62 des }  -o n62_des "sdevice pp62_des.cmd"
+job 63 -d "19"  -post { extract_vars "$wdir" n63_des.out 63; waiting "$wdir" 63 des }  -o n63_des "sdevice pp63_des.cmd"
+job 64 -d "20"  -post { extract_vars "$wdir" n64_des.out 64; waiting "$wdir" 64 des }  -o n64_des "sdevice pp64_des.cmd"
+job 65 -d "21"  -post { extract_vars "$wdir" n65_des.out 65; waiting "$wdir" 65 des }  -o n65_des "sdevice pp65_des.cmd"
+job 66 -d "22"  -post { extract_vars "$wdir" n66_des.out 66; waiting "$wdir" 66 des }  -o n66_des "sdevice pp66_des.cmd"
+job 67 -d "23"  -post { extract_vars "$wdir" n67_des.out 67; waiting "$wdir" 67 des }  -o n67_des "sdevice pp67_des.cmd"
+job 69 -d "58"  -post { extract_vars "$wdir" n69_ins.out 69; waiting "$wdir" 69 ins }  -o n69_ins "inspect -batch -f pp69_ins.cmd"
+job 70 -d "59"  -post { extract_vars "$wdir" n70_ins.out 70; waiting "$wdir" 70 ins }  -o n70_ins "inspect -batch -f pp70_ins.cmd"
+job 71 -d "60"  -post { extract_vars "$wdir" n71_ins.out 71; waiting "$wdir" 71 ins }  -o n71_ins "inspect -batch -f pp71_ins.cmd"
+job 72 -d "61"  -post { extract_vars "$wdir" n72_ins.out 72; waiting "$wdir" 72 ins }  -o n72_ins "inspect -batch -f pp72_ins.cmd"
+job 73 -d "62"  -post { extract_vars "$wdir" n73_ins.out 73; waiting "$wdir" 73 ins }  -o n73_ins "inspect -batch -f pp73_ins.cmd"
+job 74 -d "63"  -post { extract_vars "$wdir" n74_ins.out 74; waiting "$wdir" 74 ins }  -o n74_ins "inspect -batch -f pp74_ins.cmd"
+job 75 -d "64"  -post { extract_vars "$wdir" n75_ins.out 75; waiting "$wdir" 75 ins }  -o n75_ins "inspect -batch -f pp75_ins.cmd"
+job 76 -d "65"  -post { extract_vars "$wdir" n76_ins.out 76; waiting "$wdir" 76 ins }  -o n76_ins "inspect -batch -f pp76_ins.cmd"
+job 77 -d "66"  -post { extract_vars "$wdir" n77_ins.out 77; waiting "$wdir" 77 ins }  -o n77_ins "inspect -batch -f pp77_ins.cmd"
+job 78 -d "67"  -post { extract_vars "$wdir" n78_ins.out 78; waiting "$wdir" 78 ins }  -o n78_ins "inspect -batch -f pp78_ins.cmd"
+check sde_dvs.cmd 1582622792
+check sdevice_des.cmd 1582622791
+check sdevice.par 1582622788
+check sdevice1_des.cmd 1582622792
+check inspect_ins.cmd 1582622791
+check global_tooldb 1556860855
+check gtree.dat 1582622791
+# included files

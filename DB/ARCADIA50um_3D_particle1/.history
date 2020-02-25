@@ -1,0 +1,299 @@
+13:43:15 Sep 25 2019 <ARCADIA25um_epi4_100um_GR_tran_Bragg2> submitted to the batch system
+13:43:15 Sep 25 2019     job 13 <sde> started on host 'localhost.localdomain': "sde -e -l n13_dvs.cmd"
+13:43:22 Sep 25 2019 +++ job 13 <sde> done: exit(0)
+13:43:23 Sep 25 2019     job 14 <sde> started on host 'localhost.localdomain': "sde -e -l n14_dvs.cmd"
+13:43:29 Sep 25 2019 +++ job 14 <sde> done: exit(0)
+13:43:30 Sep 25 2019     job 15 <sde> started on host 'localhost.localdomain': "sde -e -l n15_dvs.cmd"
+13:43:37 Sep 25 2019 +++ job 15 <sde> done: exit(0)
+13:43:38 Sep 25 2019     job 16 <sde> started on host 'localhost.localdomain': "sde -e -l n16_dvs.cmd"
+13:43:45 Sep 25 2019 +++ job 16 <sde> done: exit(0)
+13:43:46 Sep 25 2019     job 17 <sde> started on host 'localhost.localdomain': "sde -e -l n17_dvs.cmd"
+13:43:52 Sep 25 2019 +++ job 17 <sde> done: exit(0)
+13:43:53 Sep 25 2019     job 18 <sde> started on host 'localhost.localdomain': "sde -e -l n18_dvs.cmd"
+13:44:00 Sep 25 2019 +++ job 18 <sde> done: exit(0)
+13:44:01 Sep 25 2019     job 19 <sde> started on host 'localhost.localdomain': "sde -e -l n19_dvs.cmd"
+13:44:07 Sep 25 2019 +++ job 19 <sde> done: exit(0)
+13:44:08 Sep 25 2019     job 20 <sde> started on host 'localhost.localdomain': "sde -e -l n20_dvs.cmd"
+13:44:14 Sep 25 2019 +++ job 20 <sde> done: exit(0)
+13:44:15 Sep 25 2019     job 21 <sde> started on host 'localhost.localdomain': "sde -e -l n21_dvs.cmd"
+13:44:21 Sep 25 2019 +++ job 21 <sde> done: exit(0)
+13:44:22 Sep 25 2019     job 22 <sde> started on host 'localhost.localdomain': "sde -e -l n22_dvs.cmd"
+13:44:28 Sep 25 2019 +++ job 22 <sde> done: exit(0)
+13:44:29 Sep 25 2019     job 23 <sde> started on host 'localhost.localdomain': "sde -e -l n23_dvs.cmd"
+13:44:36 Sep 25 2019 +++ job 23 <sde> done: exit(0)
+13:44:37 Sep 25 2019     job 46 <sdevice> started on host 'localhost.localdomain': "sdevice pp46_des.cmd"
+13:49:26 Sep 25 2019 +++ job 46 <sdevice> done: exit(0)
+13:49:27 Sep 25 2019     job 57 <sdevice> started on host 'localhost.localdomain': "sdevice pp57_des.cmd"
+15:40:21 Sep 25 2019 +++ job 57 <sdevice> done: exit(0)
+15:40:22 Sep 25 2019     job 47 <sdevice> started on host 'localhost.localdomain': "sdevice pp47_des.cmd"
+15:45:02 Sep 25 2019 +++ job 47 <sdevice> done: exit(0)
+15:45:03 Sep 25 2019     job 58 <sdevice> started on host 'localhost.localdomain': "sdevice pp58_des.cmd"
+17:29:17 Sep 25 2019 +++ job 58 <sdevice> done: exit(0)
+17:29:18 Sep 25 2019     job 68 <inspect> started on host 'localhost.localdomain': "inspect -batch -f pp68_ins.cmd"
+17:29:19 Sep 25 2019 +++ job 68 <inspect> done: exit(0)
+17:29:20 Sep 25 2019     job 48 <sdevice> started on host 'localhost.localdomain': "sdevice pp48_des.cmd"
+17:33:54 Sep 25 2019 +++ job 48 <sdevice> done: exit(0)
+17:33:55 Sep 25 2019     job 49 <sdevice> started on host 'localhost.localdomain': "sdevice pp49_des.cmd"
+17:38:51 Sep 25 2019 +++ job 49 <sdevice> done: exit(0)
+17:38:52 Sep 25 2019     job 50 <sdevice> started on host 'localhost.localdomain': "sdevice pp50_des.cmd"
+17:43:39 Sep 25 2019 +++ job 50 <sdevice> done: exit(0)
+17:43:40 Sep 25 2019     job 51 <sdevice> started on host 'localhost.localdomain': "sdevice pp51_des.cmd"
+17:49:01 Sep 25 2019 +++ job 51 <sdevice> done: exit(0)
+17:49:02 Sep 25 2019     job 52 <sdevice> started on host 'localhost.localdomain': "sdevice pp52_des.cmd"
+17:54:02 Sep 25 2019 +++ job 52 <sdevice> done: exit(0)
+17:54:03 Sep 25 2019     job 53 <sdevice> started on host 'localhost.localdomain': "sdevice pp53_des.cmd"
+17:59:15 Sep 25 2019 +++ job 53 <sdevice> done: exit(0)
+17:59:16 Sep 25 2019     job 54 <sdevice> started on host 'localhost.localdomain': "sdevice pp54_des.cmd"
+18:04:00 Sep 25 2019 +++ job 54 <sdevice> done: exit(0)
+18:04:01 Sep 25 2019     job 55 <sdevice> started on host 'localhost.localdomain': "sdevice pp55_des.cmd"
+18:08:42 Sep 25 2019 +++ job 55 <sdevice> done: exit(0)
+18:08:43 Sep 25 2019     job 56 <sdevice> started on host 'localhost.localdomain': "sdevice pp56_des.cmd"
+18:13:09 Sep 25 2019 +++ job 56 <sdevice> done: exit(0)
+18:13:10 Sep 25 2019     job 59 <sdevice> started on host 'localhost.localdomain': "sdevice pp59_des.cmd"
+19:51:41 Sep 25 2019 +++ job 59 <sdevice> done: exit(0)
+19:51:42 Sep 25 2019     job 60 <sdevice> started on host 'localhost.localdomain': "sdevice pp60_des.cmd"
+21:44:05 Sep 25 2019 +++ job 60 <sdevice> done: exit(0)
+21:44:06 Sep 25 2019     job 61 <sdevice> started on host 'localhost.localdomain': "sdevice pp61_des.cmd"
+23:30:19 Sep 25 2019 +++ job 61 <sdevice> done: exit(0)
+23:30:20 Sep 25 2019     job 62 <sdevice> started on host 'localhost.localdomain': "sdevice pp62_des.cmd"
+01:27:50 Sep 26 2019 +++ job 62 <sdevice> done: exit(0)
+01:27:51 Sep 26 2019     job 63 <sdevice> started on host 'localhost.localdomain': "sdevice pp63_des.cmd"
+03:13:55 Sep 26 2019 +++ job 63 <sdevice> done: exit(0)
+03:13:56 Sep 26 2019     job 64 <sdevice> started on host 'localhost.localdomain': "sdevice pp64_des.cmd"
+05:03:46 Sep 26 2019 +++ job 64 <sdevice> done: exit(0)
+05:03:47 Sep 26 2019     job 65 <sdevice> started on host 'localhost.localdomain': "sdevice pp65_des.cmd"
+06:48:00 Sep 26 2019 +++ job 65 <sdevice> done: exit(0)
+06:48:01 Sep 26 2019     job 66 <sdevice> started on host 'localhost.localdomain': "sdevice pp66_des.cmd"
+08:33:00 Sep 26 2019 +++ job 66 <sdevice> done: exit(0)
+08:33:01 Sep 26 2019     job 67 <sdevice> started on host 'localhost.localdomain': "sdevice pp67_des.cmd"
+10:10:27 Sep 26 2019 +++ job 67 <sdevice> done: exit(0)
+10:10:28 Sep 26 2019     job 69 <inspect> started on host 'localhost.localdomain': "inspect -batch -f pp69_ins.cmd"
+10:10:29 Sep 26 2019 +++ job 69 <inspect> done: exit(0)
+10:10:30 Sep 26 2019     job 70 <inspect> started on host 'localhost.localdomain': "inspect -batch -f pp70_ins.cmd"
+10:10:31 Sep 26 2019 +++ job 70 <inspect> done: exit(0)
+10:10:32 Sep 26 2019     job 71 <inspect> started on host 'localhost.localdomain': "inspect -batch -f pp71_ins.cmd"
+10:10:33 Sep 26 2019 +++ job 71 <inspect> done: exit(0)
+10:10:34 Sep 26 2019     job 72 <inspect> started on host 'localhost.localdomain': "inspect -batch -f pp72_ins.cmd"
+10:10:35 Sep 26 2019 +++ job 72 <inspect> done: exit(0)
+10:10:36 Sep 26 2019     job 73 <inspect> started on host 'localhost.localdomain': "inspect -batch -f pp73_ins.cmd"
+10:10:37 Sep 26 2019 +++ job 73 <inspect> done: exit(0)
+10:10:38 Sep 26 2019     job 74 <inspect> started on host 'localhost.localdomain': "inspect -batch -f pp74_ins.cmd"
+10:10:39 Sep 26 2019 +++ job 74 <inspect> done: exit(0)
+10:10:40 Sep 26 2019     job 75 <inspect> started on host 'localhost.localdomain': "inspect -batch -f pp75_ins.cmd"
+10:10:41 Sep 26 2019 +++ job 75 <inspect> done: exit(0)
+10:10:42 Sep 26 2019     job 76 <inspect> started on host 'localhost.localdomain': "inspect -batch -f pp76_ins.cmd"
+10:10:43 Sep 26 2019 +++ job 76 <inspect> done: exit(0)
+10:10:44 Sep 26 2019     job 77 <inspect> started on host 'localhost.localdomain': "inspect -batch -f pp77_ins.cmd"
+10:10:45 Sep 26 2019 +++ job 77 <inspect> done: exit(0)
+10:10:46 Sep 26 2019     job 78 <inspect> started on host 'localhost.localdomain': "inspect -batch -f pp78_ins.cmd"
+10:10:47 Sep 26 2019 +++ job 78 <inspect> done: exit(0)
+10:10:49 Sep 26 2019 <ARCADIA25um_epi4_100um_GR_tran_Bragg2> done (73654 sec)
+15:15:50 Sep 26 2019 <ARCADIA25um_epi4_100um_GR_tran_MIP> submitted to the batch system
+15:15:51 Sep 26 2019     job 13 <sde> started on host 'localhost.localdomain': "sde -e -l n13_dvs.cmd"
+15:15:57 Sep 26 2019 +++ job 13 <sde> done: exit(0)
+15:16:00 Sep 26 2019 <ARCADIA25um_epi4_100um_GR_tran_MIP> done (10 sec)
+15:18:23 Sep 26 2019 <ARCADIA25um_epi4_100um_GR_tran_MIP> submitted to the batch system
+15:18:23 Sep 26 2019     job 14 <sde> started on host 'localhost.localdomain': "sde -e -l n14_dvs.cmd"
+15:18:29 Sep 26 2019 +++ job 14 <sde> done: exit(0)
+15:18:30 Sep 26 2019     job 15 <sde> started on host 'localhost.localdomain': "sde -e -l n15_dvs.cmd"
+15:18:36 Sep 26 2019 +++ job 15 <sde> done: exit(0)
+15:18:37 Sep 26 2019     job 16 <sde> started on host 'localhost.localdomain': "sde -e -l n16_dvs.cmd"
+15:18:43 Sep 26 2019 +++ job 16 <sde> done: exit(0)
+15:18:44 Sep 26 2019     job 17 <sde> started on host 'localhost.localdomain': "sde -e -l n17_dvs.cmd"
+15:18:50 Sep 26 2019 +++ job 17 <sde> done: exit(0)
+15:18:51 Sep 26 2019     job 18 <sde> started on host 'localhost.localdomain': "sde -e -l n18_dvs.cmd"
+15:18:57 Sep 26 2019 +++ job 18 <sde> done: exit(0)
+15:18:58 Sep 26 2019     job 19 <sde> started on host 'localhost.localdomain': "sde -e -l n19_dvs.cmd"
+15:19:04 Sep 26 2019 +++ job 19 <sde> done: exit(0)
+15:19:05 Sep 26 2019     job 20 <sde> started on host 'localhost.localdomain': "sde -e -l n20_dvs.cmd"
+15:19:11 Sep 26 2019 +++ job 20 <sde> done: exit(0)
+15:19:12 Sep 26 2019     job 21 <sde> started on host 'localhost.localdomain': "sde -e -l n21_dvs.cmd"
+15:19:18 Sep 26 2019 +++ job 21 <sde> done: exit(0)
+15:19:19 Sep 26 2019     job 22 <sde> started on host 'localhost.localdomain': "sde -e -l n22_dvs.cmd"
+15:19:25 Sep 26 2019 +++ job 22 <sde> done: exit(0)
+15:19:26 Sep 26 2019     job 23 <sde> started on host 'localhost.localdomain': "sde -e -l n23_dvs.cmd"
+15:19:32 Sep 26 2019 +++ job 23 <sde> done: exit(0)
+15:19:33 Sep 26 2019     job 46 <sdevice> started on host 'localhost.localdomain': "sdevice pp46_des.cmd"
+15:24:06 Sep 26 2019 +++ job 46 <sdevice> done: exit(0)
+15:24:07 Sep 26 2019     job 57 <sdevice> started on host 'localhost.localdomain': "sdevice pp57_des.cmd"
+16:03:08 Sep 26 2019 +++ job 57 <sdevice> done: exit(0)
+16:03:09 Sep 26 2019     job 47 <sdevice> started on host 'localhost.localdomain': "sdevice pp47_des.cmd"
+16:07:42 Sep 26 2019 +++ job 47 <sdevice> done: exit(0)
+16:07:43 Sep 26 2019     job 58 <sdevice> started on host 'localhost.localdomain': "sdevice pp58_des.cmd"
+16:50:52 Sep 26 2019 +++ job 58 <sdevice> done: exit(0)
+16:50:53 Sep 26 2019     job 48 <sdevice> started on host 'localhost.localdomain': "sdevice pp48_des.cmd"
+16:55:20 Sep 26 2019 +++ job 48 <sdevice> done: exit(0)
+16:55:21 Sep 26 2019     job 59 <sdevice> started on host 'localhost.localdomain': "sdevice pp59_des.cmd"
+17:36:07 Sep 26 2019 +++ job 59 <sdevice> done: exit(0)
+17:36:08 Sep 26 2019     job 49 <sdevice> started on host 'localhost.localdomain': "sdevice pp49_des.cmd"
+17:41:11 Sep 26 2019 +++ job 49 <sdevice> done: exit(0)
+17:41:12 Sep 26 2019     job 60 <sdevice> started on host 'localhost.localdomain': "sdevice pp60_des.cmd"
+18:32:38 Sep 26 2019 +++ job 60 <sdevice> done: exit(0)
+18:32:39 Sep 26 2019     job 50 <sdevice> started on host 'localhost.localdomain': "sdevice pp50_des.cmd"
+18:37:21 Sep 26 2019 +++ job 50 <sdevice> done: exit(0)
+18:37:22 Sep 26 2019     job 61 <sdevice> started on host 'localhost.localdomain': "sdevice pp61_des.cmd"
+19:27:17 Sep 26 2019 +++ job 61 <sdevice> done: exit(0)
+19:27:18 Sep 26 2019     job 51 <sdevice> started on host 'localhost.localdomain': "sdevice pp51_des.cmd"
+19:32:21 Sep 26 2019 +++ job 51 <sdevice> done: exit(0)
+19:32:22 Sep 26 2019     job 62 <sdevice> started on host 'localhost.localdomain': "sdevice pp62_des.cmd"
+20:28:54 Sep 26 2019 +++ job 62 <sdevice> done: exit(0)
+20:28:55 Sep 26 2019     job 52 <sdevice> started on host 'localhost.localdomain': "sdevice pp52_des.cmd"
+20:33:37 Sep 26 2019 +++ job 52 <sdevice> done: exit(0)
+20:33:38 Sep 26 2019     job 63 <sdevice> started on host 'localhost.localdomain': "sdevice pp63_des.cmd"
+21:23:28 Sep 26 2019 +++ job 63 <sdevice> done: exit(0)
+21:23:29 Sep 26 2019     job 53 <sdevice> started on host 'localhost.localdomain': "sdevice pp53_des.cmd"
+21:28:32 Sep 26 2019 +++ job 53 <sdevice> done: exit(0)
+21:28:33 Sep 26 2019     job 64 <sdevice> started on host 'localhost.localdomain': "sdevice pp64_des.cmd"
+22:25:05 Sep 26 2019 +++ job 64 <sdevice> done: exit(0)
+22:25:06 Sep 26 2019     job 54 <sdevice> started on host 'localhost.localdomain': "sdevice pp54_des.cmd"
+22:29:58 Sep 26 2019 +++ job 54 <sdevice> done: exit(0)
+22:29:59 Sep 26 2019     job 65 <sdevice> started on host 'localhost.localdomain': "sdevice pp65_des.cmd"
+23:18:20 Sep 26 2019 +++ job 65 <sdevice> done: exit(0)
+23:18:21 Sep 26 2019     job 55 <sdevice> started on host 'localhost.localdomain': "sdevice pp55_des.cmd"
+23:22:56 Sep 26 2019 +++ job 55 <sdevice> done: exit(0)
+23:22:57 Sep 26 2019     job 66 <sdevice> started on host 'localhost.localdomain': "sdevice pp66_des.cmd"
+00:12:54 Sep 27 2019 +++ job 66 <sdevice> done: exit(0)
+00:12:55 Sep 27 2019     job 56 <sdevice> started on host 'localhost.localdomain': "sdevice pp56_des.cmd"
+00:17:25 Sep 27 2019 +++ job 56 <sdevice> done: exit(0)
+00:17:26 Sep 27 2019     job 67 <sdevice> started on host 'localhost.localdomain': "sdevice pp67_des.cmd"
+01:06:35 Sep 27 2019 +++ job 67 <sdevice> done: exit(0)
+01:06:36 Sep 27 2019     job 68 <inspect> started on host 'localhost.localdomain': "inspect -batch -f pp68_ins.cmd"
+01:06:37 Sep 27 2019 +++ job 68 <inspect> done: exit(0)
+01:06:38 Sep 27 2019     job 69 <inspect> started on host 'localhost.localdomain': "inspect -batch -f pp69_ins.cmd"
+01:06:39 Sep 27 2019 +++ job 69 <inspect> done: exit(0)
+01:06:40 Sep 27 2019     job 70 <inspect> started on host 'localhost.localdomain': "inspect -batch -f pp70_ins.cmd"
+01:06:41 Sep 27 2019 +++ job 70 <inspect> done: exit(0)
+01:06:42 Sep 27 2019     job 71 <inspect> started on host 'localhost.localdomain': "inspect -batch -f pp71_ins.cmd"
+01:06:43 Sep 27 2019 +++ job 71 <inspect> done: exit(0)
+01:06:44 Sep 27 2019     job 72 <inspect> started on host 'localhost.localdomain': "inspect -batch -f pp72_ins.cmd"
+01:06:45 Sep 27 2019 +++ job 72 <inspect> done: exit(0)
+01:06:46 Sep 27 2019     job 73 <inspect> started on host 'localhost.localdomain': "inspect -batch -f pp73_ins.cmd"
+01:06:47 Sep 27 2019 +++ job 73 <inspect> done: exit(0)
+01:06:48 Sep 27 2019     job 74 <inspect> started on host 'localhost.localdomain': "inspect -batch -f pp74_ins.cmd"
+01:06:49 Sep 27 2019 +++ job 74 <inspect> done: exit(0)
+01:06:50 Sep 27 2019     job 75 <inspect> started on host 'localhost.localdomain': "inspect -batch -f pp75_ins.cmd"
+01:06:51 Sep 27 2019 +++ job 75 <inspect> done: exit(0)
+01:06:52 Sep 27 2019     job 76 <inspect> started on host 'localhost.localdomain': "inspect -batch -f pp76_ins.cmd"
+01:06:53 Sep 27 2019 +++ job 76 <inspect> done: exit(0)
+01:06:54 Sep 27 2019     job 77 <inspect> started on host 'localhost.localdomain': "inspect -batch -f pp77_ins.cmd"
+01:06:55 Sep 27 2019 +++ job 77 <inspect> done: exit(0)
+01:06:56 Sep 27 2019     job 78 <inspect> started on host 'localhost.localdomain': "inspect -batch -f pp78_ins.cmd"
+01:06:57 Sep 27 2019 +++ job 78 <inspect> done: exit(0)
+01:07:00 Sep 27 2019 <ARCADIA25um_epi4_100um_GR_tran_MIP> done (35317 sec)
+11:20:55 Oct 15 2019 <ARCADIA25um_epi4_100um_GR_tran_MIP_empty> submitted to the batch system
+11:20:56 Oct 15 2019     job 13 <sde> started on host 'localhost.localdomain': "sde -e -l n13_dvs.cmd"
+11:21:02 Oct 15 2019 +++ job 13 <sde> done: exit(0)
+11:21:04 Oct 15 2019 <ARCADIA25um_epi4_100um_GR_tran_MIP_empty> done (9 sec)
+10:30:41 Oct 31 2019 <ARCADIA50um_3D_particle> submitted to the batch system
+10:30:42 Oct 31 2019     job 13 <sde> started on host 'localhost.localdomain': "sde -e -l n13_dvs.cmd"
+10:31:59 Oct 31 2019 +++ job 13 <sde> done: exit(0)
+10:32:01 Oct 31 2019 <ARCADIA50um_3D_particle> done (80 sec)
+10:57:32 Oct 31 2019 <ARCADIA50um_3D_particle> submitted to the batch system
+10:57:33 Oct 31 2019     job 13 <sde> started on host 'localhost.localdomain': "sde -e -l n13_dvs.cmd"
+10:58:52 Oct 31 2019 +++ job 13 <sde> done: exit(0)
+10:58:54 Oct 31 2019 <ARCADIA50um_3D_particle> done (82 sec)
+11:03:09 Oct 31 2019 <ARCADIA50um_3D_particle> submitted to the batch system
+11:03:10 Oct 31 2019     job 13 <sde> started on host 'localhost.localdomain': "sde -e -l n13_dvs.cmd"
+11:04:24 Oct 31 2019 +++ job 13 <sde> done: exit(0)
+11:04:27 Oct 31 2019 <ARCADIA50um_3D_particle> done (78 sec)
+11:05:41 Oct 31 2019 <ARCADIA50um_3D_particle> submitted to the batch system
+11:05:42 Oct 31 2019     job 13 <sde> started on host 'localhost.localdomain': "sde -e -l n13_dvs.cmd"
+11:06:53 Oct 31 2019 +++ job 13 <sde> done: exit(0)
+11:06:55 Oct 31 2019 <ARCADIA50um_3D_particle> done (74 sec)
+11:07:45 Oct 31 2019 <ARCADIA50um_3D_particle> submitted to the batch system
+11:07:46 Oct 31 2019     job 13 <sde> started on host 'localhost.localdomain': "sde -e -l n13_dvs.cmd"
+11:09:04 Oct 31 2019 +++ job 13 <sde> done: exit(0)
+11:09:06 Oct 31 2019 <ARCADIA50um_3D_particle> done (81 sec)
+11:13:59 Oct 31 2019 <ARCADIA50um_3D_particle> submitted to the batch system
+11:13:59 Oct 31 2019     job 13 <sde> started on host 'localhost.localdomain': "sde -e -l n13_dvs.cmd"
+11:15:12 Oct 31 2019 +++ job 13 <sde> done: exit(0)
+11:15:14 Oct 31 2019 <ARCADIA50um_3D_particle> done (75 sec)
+11:08:34 Nov 04 2019 <ARCADIA50um_3D_particle> submitted to the batch system
+11:08:34 Nov 04 2019     job 13 <sde> started on host 'localhost.localdomain': "sde -e -l n13_dvs.cmd"
+11:09:45 Nov 04 2019 +++ job 13 <sde> done: exit(0)
+11:09:48 Nov 04 2019 <ARCADIA50um_3D_particle> done (74 sec)
+11:11:17 Nov 04 2019 <ARCADIA50um_3D_particle> submitted to the batch system
+11:11:18 Nov 04 2019     job 13 <sde> started on host 'localhost.localdomain': "sde -e -l n13_dvs.cmd"
+11:12:29 Nov 04 2019 +++ job 13 <sde> done: exit(0)
+11:12:31 Nov 04 2019 <ARCADIA50um_3D_particle> done (74 sec)
+11:13:38 Nov 04 2019 <ARCADIA50um_3D_particle> submitted to the batch system
+11:13:38 Nov 04 2019     job 13 <sde> started on host 'localhost.localdomain': "sde -e -l n13_dvs.cmd"
+11:14:16 Nov 04 2019 +++ job 13 <sde> done: exit(0)
+11:14:18 Nov 04 2019 <ARCADIA50um_3D_particle> done (40 sec)
+11:15:18 Nov 04 2019 <ARCADIA50um_3D_particle> submitted to the batch system
+11:15:19 Nov 04 2019     job 13 <sde> started on host 'localhost.localdomain': "sde -e -l n13_dvs.cmd"
+11:16:35 Nov 04 2019 +++ job 13 <sde> done: exit(0)
+11:16:37 Nov 04 2019 <ARCADIA50um_3D_particle> done (79 sec)
+11:18:14 Nov 04 2019 <ARCADIA50um_3D_particle> submitted to the batch system
+11:18:15 Nov 04 2019     job 13 <sde> started on host 'localhost.localdomain': "sde -e -l n13_dvs.cmd"
+11:18:50 Nov 04 2019 +++ job 13 <sde> done: exit(0)
+11:18:52 Nov 04 2019 <ARCADIA50um_3D_particle> done (38 sec)
+11:23:33 Nov 04 2019 <ARCADIA50um_3D_particle> submitted to the batch system
+11:23:34 Nov 04 2019     job 13 <sde> started on host 'localhost.localdomain': "sde -e -l n13_dvs.cmd"
+11:24:10 Nov 04 2019 +++ job 13 <sde> done: exit(0)
+11:24:12 Nov 04 2019 <ARCADIA50um_3D_particle> done (39 sec)
+11:28:17 Nov 04 2019 <ARCADIA50um_3D_particle> submitted to the batch system
+11:28:18 Nov 04 2019     job 13 <sde> started on host 'localhost.localdomain': "sde -e -l n13_dvs.cmd"
+11:29:08 Nov 04 2019 +++ job 13 <sde> done: exit(0)
+11:29:10 Nov 04 2019 <ARCADIA50um_3D_particle> done (53 sec)
+11:33:26 Nov 04 2019 <ARCADIA50um_3D_particle> submitted to the batch system
+11:33:27 Nov 04 2019     job 46 <sdevice> started on host 'localhost.localdomain': "sdevice pp46_des.cmd"
+11:48:34 Nov 04 2019 +++ job 46 <sdevice> done: exit(0)
+11:48:35 Nov 04 2019     job 57 <sdevice> started on host 'localhost.localdomain': "sdevice pp57_des.cmd"
+11:48:47 Nov 04 2019 --- job 57 <sdevice> exited abnormally: exit()
+11:48:49 Nov 04 2019 <ARCADIA50um_3D_particle> failed
+12:06:11 Nov 04 2019 <ARCADIA50um_3D_particle> submitted to the batch system
+12:06:11 Nov 04 2019     job 57 <sdevice> started on host 'localhost.localdomain': "sdevice pp57_des.cmd"
+12:15:53 Nov 04 2019 <ARCADIA50um_3D_particle> done (582 sec)
+12:22:15 Nov 04 2019 <ARCADIA50um_3D_particle> submitted to the batch system
+12:22:15 Nov 04 2019     job 57 <sdevice> started on host 'localhost.localdomain': "sdevice pp57_des.cmd"
+13:44:55 Nov 04 2019 +++ job 57 <sdevice> done: exit(0)
+13:44:57 Nov 04 2019 <ARCADIA50um_3D_particle> done (4962 sec)
+10:28:40 Nov 05 2019 <ARCADIA50um_3D_particle> submitted to the batch system
+10:28:41 Nov 05 2019     job 68 <inspect> started on host 'localhost.localdomain': "inspect -batch -f pp68_ins.cmd"
+10:28:43 Nov 05 2019 +++ job 68 <inspect> done: exit(0)
+10:28:45 Nov 05 2019 <ARCADIA50um_3D_particle> done (5 sec)
+10:38:33 Jan 28 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+10:38:34 Jan 28 2020     job 57 <sdevice> started on host 'localhost': "sdevice --max_threads 12  pp57_des.cmd"
+11:31:48 Jan 28 2020 +++ job 57 <sdevice> done: exit(0)
+11:31:51 Jan 28 2020 <ARCADIA50um_3D_particle1> done (3198 sec)
+11:37:21 Jan 28 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+11:37:22 Jan 28 2020     job 46 <sdevice> started on host 'localhost': "sdevice --max_threads 1  pp46_des.cmd"
+11:43:27 Jan 28 2020 +++ job 46 <sdevice> done: exit(0)
+11:43:28 Jan 28 2020     job 57 <sdevice> started on host 'localhost': "sdevice --max_threads 12  pp57_des.cmd"
+12:27:07 Jan 28 2020 +++ job 57 <sdevice> done: exit(0)
+12:27:09 Jan 28 2020 <ARCADIA50um_3D_particle1> done (2988 sec)
+14:31:03 Jan 28 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+14:31:04 Jan 28 2020     job 57 <sdevice> started on host 'localhost': "sdevice --max_threads 12  pp57_des.cmd"
+15:17:19 Jan 28 2020 +++ job 57 <sdevice> done: exit(0)
+15:17:22 Jan 28 2020 <ARCADIA50um_3D_particle1> done (2779 sec)
+14:12:31 Feb 24 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+14:12:32 Feb 24 2020     job 46 <sdevice> started on host 'localhost': "sdevice --max_threads 1  pp46_des.cmd"
+14:18:29 Feb 24 2020 +++ job 46 <sdevice> done: exit(0)
+14:18:31 Feb 24 2020 <ARCADIA50um_3D_particle1> done (360 sec)
+14:21:20 Feb 24 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+14:21:20 Feb 24 2020     job 57 <sdevice> started on host 'localhost': "sdevice --max_threads 12  pp57_des.cmd"
+15:01:58 Feb 24 2020 +++ job 57 <sdevice> done: exit(0)
+15:02:00 Feb 24 2020 <ARCADIA50um_3D_particle1> done (2440 sec)
+09:26:22 Feb 25 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+09:26:23 Feb 25 2020     job 57 <sdevice> started on host 'localhost': "sdevice --max_threads 12  pp57_des.cmd"
+10:13:36 Feb 25 2020 +++ job 57 <sdevice> done: exit(0)
+10:13:38 Feb 25 2020 <ARCADIA50um_3D_particle1> done (2836 sec)
+10:22:39 Feb 25 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+10:22:39 Feb 25 2020     job 57 <sdevice> started on host 'localhost': "sdevice --max_threads 12  pp57_des.cmd"
+10:31:45 Feb 25 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+10:31:46 Feb 25 2020     job 92 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp92_des.cmd"
+11:03:00 Feb 25 2020 +++ job 92 <sdevice> done: exit(0)
+11:03:01 Feb 25 2020     job 94 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp94_des.cmd"
+11:36:21 Feb 25 2020 +++ job 94 <sdevice> done: exit(0)
+11:36:22 Feb 25 2020     job 96 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp96_des.cmd"
+12:07:49 Feb 25 2020 +++ job 96 <sdevice> done: exit(0)
+12:07:50 Feb 25 2020     job 98 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp98_des.cmd"
+12:43:04 Feb 25 2020 +++ job 98 <sdevice> done: exit(0)
+12:43:05 Feb 25 2020     job 100 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp100_des.cmd"
+13:17:15 Feb 25 2020 +++ job 100 <sdevice> done: exit(0)
+13:17:16 Feb 25 2020     job 102 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp102_des.cmd"
+13:51:39 Feb 25 2020 +++ job 102 <sdevice> done: exit(0)
+13:51:40 Feb 25 2020     job 57 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp57_des.cmd"
+14:24:53 Feb 25 2020 +++ job 57 <sdevice> done: exit(0)
+14:24:55 Feb 25 2020 <ARCADIA50um_3D_particle1> done (13990 sec)

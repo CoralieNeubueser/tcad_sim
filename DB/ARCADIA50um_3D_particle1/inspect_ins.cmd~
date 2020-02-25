@@ -1,0 +1,15 @@
+set N     @node@
+
+proj_load  tran_@plot@ PLT($N)
+cv_create ITcurve "PLT($N) NO_NODE time" "PLT($N) Ntop TotalCurrent" y
+cv_create ITcurve2 "PLT($N) NO_NODE time" "PLT($N) Ngr TotalCurrent" y
+load_library extend
+set XMIN [cv_getXmin ITcurve]
+set XMAX [cv_getXmax ITcurve]
+set QN [cv_integrate "<ITcurve>/1.6e-19" $XMIN $XMAX trapez]
+ft_scalar Qpix $QN
+
+set XMIN [cv_getXmin ITcurve2]
+set XMAX [cv_getXmax ITcurve2]
+set QNGR [cv_integrate "<ITcurve2>/1.6e-19" $XMIN $XMAX trapez]
+ft_scalar Qgr $QNGR

@@ -1,0 +1,36 @@
+# Copyright (C) 1994-2019 Synopsys Inc.
+# swbtree vcurrent
+
+# --- simulation flow
+sde sde "" {}
+sde xpart "-90" {25}
+sde tepi "5" {7}
+sde tsi "100" {100}
+sde zpart "25" {25}
+sdevice sdevice "" {}
+sdevice vbot "200" {-45}
+sdevice vn "1" {0.8}
+sdevice1 sdevice "" {}
+sdevice1 let "1.28e-5" {1.28e-5}
+inspect inspect "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default xpart ""
+scenario default tepi ""
+scenario default tsi ""
+scenario default zpart ""
+scenario default vbot ""
+scenario default vn ""
+scenario default let ""
+# --- simulation tree
+0 1 0 {} {default} 0
+1 2 1 {25} {default} 0
+2 79 2 {7} {default} 0
+3 90 79 {100} {default} 0
+4 13 90 {25} {default} 0
+5 24 13 {} {default} 0
+6 35 24 {-45} {default} 0
+7 46 35 {0.8} {default} 0
+8 91 46 {} {default} 0
+9 57 91 {1.28e-5} {default} 0
+10 68 57 {} {default} 0

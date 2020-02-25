@@ -1,0 +1,22 @@
+###########################################
+# Sentaurus Visual P-2019.03-SP1.
+# Tcl log file.
+#------------------------------------------
+# Date: Feb 25, 2020. 17:37:32.
+# Version: 29.0.1250 (1.1250)
+# Mode: Interactive (GUI).
+# Hostname: ludwig-boltzmann.
+# Machine: Linux, x86_64, x86_64.
+# Kernel: 3.10.0-1062.9.1.el7.x86_64.
+###########################################
+
+load_file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_particle1/tran_100_0.67e-5.plt
+#!-> Error: File '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_particle1/tran_100_0.67e-5.plt' could not be loaded.
+load_file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_particle1/tran_100_0.67e-5.plt
+#-> tran_100_0.67e-5
+create_plot -1d
+#-> Plot_1
+select_plots {Plot_1}
+#-> Plot_1
+export_curves {Curve_1} -plot Plot_1 -filename /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_particle1/tmp/tran_100_0.67e-5.csv -format csv -overwrite
+#!-> Error: Couldn't export curves.
