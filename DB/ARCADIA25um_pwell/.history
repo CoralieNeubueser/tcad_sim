@@ -1,0 +1,204 @@
+13:03:55 Feb 10 2020 <ARCADIA25um_pwell> submitted to the batch system
+13:03:56 Feb 10 2020     job 170 <sde> started on host 'localhost': "sde -e -l n170_dvs.cmd"
+13:04:00 Feb 10 2020 +++ job 170 <sde> done: exit(0)
+13:04:01 Feb 10 2020     job 188 <sde> started on host 'localhost': "sde -e -l n188_dvs.cmd"
+13:04:03 Feb 10 2020 +++ job 188 <sde> done: exit(0)
+13:04:04 Feb 10 2020     job 203 <sde> started on host 'localhost': "sde -e -l n203_dvs.cmd"
+13:04:06 Feb 10 2020 +++ job 203 <sde> done: exit(0)
+13:04:07 Feb 10 2020     job 218 <sde> started on host 'localhost': "sde -e -l n218_dvs.cmd"
+13:04:09 Feb 10 2020 +++ job 218 <sde> done: exit(0)
+13:04:10 Feb 10 2020     job 175 <sde> started on host 'localhost': "sde -e -l n175_dvs.cmd"
+13:04:12 Feb 10 2020 +++ job 175 <sde> done: exit(0)
+13:04:13 Feb 10 2020     job 193 <sde> started on host 'localhost': "sde -e -l n193_dvs.cmd"
+13:04:15 Feb 10 2020 +++ job 193 <sde> done: exit(0)
+13:04:16 Feb 10 2020     job 208 <sde> started on host 'localhost': "sde -e -l n208_dvs.cmd"
+13:04:18 Feb 10 2020 +++ job 208 <sde> done: exit(0)
+13:04:19 Feb 10 2020     job 223 <sde> started on host 'localhost': "sde -e -l n223_dvs.cmd"
+13:04:21 Feb 10 2020 +++ job 223 <sde> done: exit(0)
+13:04:22 Feb 10 2020     job 180 <sde> started on host 'localhost': "sde -e -l n180_dvs.cmd"
+13:04:24 Feb 10 2020 +++ job 180 <sde> done: exit(0)
+13:04:25 Feb 10 2020     job 198 <sde> started on host 'localhost': "sde -e -l n198_dvs.cmd"
+13:04:27 Feb 10 2020 +++ job 198 <sde> done: exit(0)
+13:04:28 Feb 10 2020     job 213 <sde> started on host 'localhost': "sde -e -l n213_dvs.cmd"
+13:04:30 Feb 10 2020 +++ job 213 <sde> done: exit(0)
+13:04:31 Feb 10 2020     job 228 <sde> started on host 'localhost': "sde -e -l n228_dvs.cmd"
+13:04:33 Feb 10 2020 +++ job 228 <sde> done: exit(0)
+13:04:34 Feb 10 2020     job 234 <sde> started on host 'localhost': "sde -e -l n234_dvs.cmd"
+13:04:36 Feb 10 2020 +++ job 234 <sde> done: exit(0)
+13:04:37 Feb 10 2020     job 239 <sde> started on host 'localhost': "sde -e -l n239_dvs.cmd"
+13:04:39 Feb 10 2020 +++ job 239 <sde> done: exit(0)
+13:04:40 Feb 10 2020     job 244 <sde> started on host 'localhost': "sde -e -l n244_dvs.cmd"
+13:04:42 Feb 10 2020 +++ job 244 <sde> done: exit(0)
+13:04:43 Feb 10 2020     job 249 <sde> started on host 'localhost': "sde -e -l n249_dvs.cmd"
+13:04:45 Feb 10 2020 +++ job 249 <sde> done: exit(0)
+13:04:46 Feb 10 2020     job 255 <sde> started on host 'localhost': "sde -e -l n255_dvs.cmd"
+13:04:48 Feb 10 2020 +++ job 255 <sde> done: exit(0)
+13:04:49 Feb 10 2020     job 260 <sde> started on host 'localhost': "sde -e -l n260_dvs.cmd"
+13:04:51 Feb 10 2020 +++ job 260 <sde> done: exit(0)
+13:04:52 Feb 10 2020     job 265 <sde> started on host 'localhost': "sde -e -l n265_dvs.cmd"
+13:04:54 Feb 10 2020 +++ job 265 <sde> done: exit(0)
+13:04:55 Feb 10 2020     job 270 <sde> started on host 'localhost': "sde -e -l n270_dvs.cmd"
+13:04:57 Feb 10 2020 +++ job 270 <sde> done: exit(0)
+13:04:58 Feb 10 2020     job 173 <sdevice> started on host 'localhost': "sdevice pp173_des.cmd"
+13:08:07 Feb 10 2020 +++ job 173 <sdevice> done: exit(0)
+13:08:08 Feb 10 2020     job 174 <sdevice> started on host 'localhost': "sdevice pp174_des.cmd"
+13:14:27 Feb 10 2020 +++ job 174 <sdevice> done: exit(0)
+13:14:28 Feb 10 2020     job 191 <sdevice> started on host 'localhost': "sdevice pp191_des.cmd"
+13:17:30 Feb 10 2020 +++ job 191 <sdevice> done: exit(0)
+13:17:31 Feb 10 2020     job 192 <sdevice> started on host 'localhost': "sdevice pp192_des.cmd"
+13:23:37 Feb 10 2020 +++ job 192 <sdevice> done: exit(0)
+13:23:38 Feb 10 2020     job 206 <sdevice> started on host 'localhost': "sdevice pp206_des.cmd"
+13:26:36 Feb 10 2020 +++ job 206 <sdevice> done: exit(0)
+13:26:37 Feb 10 2020     job 207 <sdevice> started on host 'localhost': "sdevice pp207_des.cmd"
+13:32:39 Feb 10 2020 +++ job 207 <sdevice> done: exit(0)
+13:32:40 Feb 10 2020     job 221 <sdevice> started on host 'localhost': "sdevice pp221_des.cmd"
+13:35:39 Feb 10 2020 +++ job 221 <sdevice> done: exit(0)
+13:35:40 Feb 10 2020     job 222 <sdevice> started on host 'localhost': "sdevice pp222_des.cmd"
+13:41:50 Feb 10 2020 +++ job 222 <sdevice> done: exit(0)
+13:41:52 Feb 10 2020     job 178 <sdevice> started on host 'localhost': "sdevice pp178_des.cmd"
+13:44:57 Feb 10 2020 +++ job 178 <sdevice> done: exit(0)
+13:44:58 Feb 10 2020     job 179 <sdevice> started on host 'localhost': "sdevice pp179_des.cmd"
+13:51:12 Feb 10 2020 +++ job 179 <sdevice> done: exit(0)
+13:51:13 Feb 10 2020     job 196 <sdevice> started on host 'localhost': "sdevice pp196_des.cmd"
+13:54:18 Feb 10 2020 +++ job 196 <sdevice> done: exit(0)
+13:54:19 Feb 10 2020     job 197 <sdevice> started on host 'localhost': "sdevice pp197_des.cmd"
+14:00:45 Feb 10 2020 +++ job 197 <sdevice> done: exit(0)
+14:00:46 Feb 10 2020     job 211 <sdevice> started on host 'localhost': "sdevice pp211_des.cmd"
+14:03:45 Feb 10 2020 +++ job 211 <sdevice> done: exit(0)
+14:03:46 Feb 10 2020     job 212 <sdevice> started on host 'localhost': "sdevice pp212_des.cmd"
+14:09:57 Feb 10 2020 +++ job 212 <sdevice> done: exit(0)
+14:09:58 Feb 10 2020     job 226 <sdevice> started on host 'localhost': "sdevice pp226_des.cmd"
+14:12:57 Feb 10 2020 +++ job 226 <sdevice> done: exit(0)
+14:12:58 Feb 10 2020     job 227 <sdevice> started on host 'localhost': "sdevice pp227_des.cmd"
+14:19:28 Feb 10 2020 +++ job 227 <sdevice> done: exit(0)
+14:19:29 Feb 10 2020     job 183 <sdevice> started on host 'localhost': "sdevice pp183_des.cmd"
+14:22:34 Feb 10 2020 +++ job 183 <sdevice> done: exit(0)
+14:22:35 Feb 10 2020     job 184 <sdevice> started on host 'localhost': "sdevice pp184_des.cmd"
+14:28:49 Feb 10 2020 +++ job 184 <sdevice> done: exit(0)
+14:28:50 Feb 10 2020     job 201 <sdevice> started on host 'localhost': "sdevice pp201_des.cmd"
+14:31:43 Feb 10 2020 +++ job 201 <sdevice> done: exit(0)
+14:31:44 Feb 10 2020     job 202 <sdevice> started on host 'localhost': "sdevice pp202_des.cmd"
+14:37:36 Feb 10 2020 +++ job 202 <sdevice> done: exit(0)
+14:37:37 Feb 10 2020     job 216 <sdevice> started on host 'localhost': "sdevice pp216_des.cmd"
+14:40:24 Feb 10 2020 +++ job 216 <sdevice> done: exit(0)
+14:40:25 Feb 10 2020     job 217 <sdevice> started on host 'localhost': "sdevice pp217_des.cmd"
+14:46:11 Feb 10 2020 +++ job 217 <sdevice> done: exit(0)
+14:46:12 Feb 10 2020     job 231 <sdevice> started on host 'localhost': "sdevice pp231_des.cmd"
+14:49:05 Feb 10 2020 +++ job 231 <sdevice> done: exit(0)
+14:49:06 Feb 10 2020     job 232 <sdevice> started on host 'localhost': "sdevice pp232_des.cmd"
+14:54:59 Feb 10 2020 +++ job 232 <sdevice> done: exit(0)
+14:55:00 Feb 10 2020     job 237 <sdevice> started on host 'localhost': "sdevice pp237_des.cmd"
+14:57:53 Feb 10 2020 +++ job 237 <sdevice> done: exit(0)
+14:57:54 Feb 10 2020     job 238 <sdevice> started on host 'localhost': "sdevice pp238_des.cmd"
+15:04:01 Feb 10 2020 +++ job 238 <sdevice> done: exit(0)
+15:04:02 Feb 10 2020     job 242 <sdevice> started on host 'localhost': "sdevice pp242_des.cmd"
+15:06:58 Feb 10 2020 +++ job 242 <sdevice> done: exit(0)
+15:06:59 Feb 10 2020     job 243 <sdevice> started on host 'localhost': "sdevice pp243_des.cmd"
+15:13:04 Feb 10 2020 +++ job 243 <sdevice> done: exit(0)
+15:13:06 Feb 10 2020     job 247 <sdevice> started on host 'localhost': "sdevice pp247_des.cmd"
+15:16:05 Feb 10 2020 +++ job 247 <sdevice> done: exit(0)
+15:16:06 Feb 10 2020     job 248 <sdevice> started on host 'localhost': "sdevice pp248_des.cmd"
+15:22:17 Feb 10 2020 +++ job 248 <sdevice> done: exit(0)
+15:22:18 Feb 10 2020     job 252 <sdevice> started on host 'localhost': "sdevice pp252_des.cmd"
+15:25:15 Feb 10 2020 +++ job 252 <sdevice> done: exit(0)
+15:25:16 Feb 10 2020     job 253 <sdevice> started on host 'localhost': "sdevice pp253_des.cmd"
+15:31:27 Feb 10 2020 +++ job 253 <sdevice> done: exit(0)
+15:31:28 Feb 10 2020     job 258 <sdevice> started on host 'localhost': "sdevice pp258_des.cmd"
+15:34:32 Feb 10 2020 +++ job 258 <sdevice> done: exit(0)
+15:34:33 Feb 10 2020     job 259 <sdevice> started on host 'localhost': "sdevice pp259_des.cmd"
+15:40:44 Feb 10 2020 +++ job 259 <sdevice> done: exit(0)
+15:40:45 Feb 10 2020     job 263 <sdevice> started on host 'localhost': "sdevice pp263_des.cmd"
+15:43:45 Feb 10 2020 +++ job 263 <sdevice> done: exit(0)
+15:43:46 Feb 10 2020     job 264 <sdevice> started on host 'localhost': "sdevice pp264_des.cmd"
+15:50:04 Feb 10 2020 +++ job 264 <sdevice> done: exit(0)
+15:50:05 Feb 10 2020     job 268 <sdevice> started on host 'localhost': "sdevice pp268_des.cmd"
+15:52:50 Feb 10 2020 +++ job 268 <sdevice> done: exit(0)
+15:52:51 Feb 10 2020     job 269 <sdevice> started on host 'localhost': "sdevice pp269_des.cmd"
+15:58:38 Feb 10 2020 +++ job 269 <sdevice> done: exit(0)
+15:58:39 Feb 10 2020     job 273 <sdevice> started on host 'localhost': "sdevice pp273_des.cmd"
+16:01:25 Feb 10 2020 +++ job 273 <sdevice> done: exit(0)
+16:01:26 Feb 10 2020     job 274 <sdevice> started on host 'localhost': "sdevice --max_threads 1  pp274_des.cmd"
+16:07:09 Feb 10 2020 +++ job 274 <sdevice> done: exit(0)
+16:07:12 Feb 10 2020 <ARCADIA25um_pwell> done (10997 sec)
+16:13:33 Feb 10 2020 <ARCADIA25um_pwell> submitted to the batch system
+16:13:34 Feb 10 2020     job 173 <sdevice> started on host 'localhost': "sdevice pp173_des.cmd"
+16:16:35 Feb 10 2020 +++ job 173 <sdevice> done: exit(0)
+16:16:36 Feb 10 2020     job 191 <sdevice> started on host 'localhost': "sdevice pp191_des.cmd"
+16:19:35 Feb 10 2020 +++ job 191 <sdevice> done: exit(0)
+16:19:36 Feb 10 2020     job 206 <sdevice> started on host 'localhost': "sdevice pp206_des.cmd"
+16:22:37 Feb 10 2020 +++ job 206 <sdevice> done: exit(0)
+16:22:38 Feb 10 2020     job 221 <sdevice> started on host 'localhost': "sdevice pp221_des.cmd"
+16:25:35 Feb 10 2020 +++ job 221 <sdevice> done: exit(0)
+16:25:36 Feb 10 2020     job 178 <sdevice> started on host 'localhost': "sdevice pp178_des.cmd"
+16:28:43 Feb 10 2020 +++ job 178 <sdevice> done: exit(0)
+16:28:44 Feb 10 2020     job 196 <sdevice> started on host 'localhost': "sdevice pp196_des.cmd"
+16:31:52 Feb 10 2020 +++ job 196 <sdevice> done: exit(0)
+16:31:53 Feb 10 2020     job 211 <sdevice> started on host 'localhost': "sdevice pp211_des.cmd"
+16:34:57 Feb 10 2020 +++ job 211 <sdevice> done: exit(0)
+16:34:58 Feb 10 2020     job 226 <sdevice> started on host 'localhost': "sdevice pp226_des.cmd"
+16:37:54 Feb 10 2020 +++ job 226 <sdevice> done: exit(0)
+16:37:55 Feb 10 2020     job 183 <sdevice> started on host 'localhost': "sdevice pp183_des.cmd"
+16:40:50 Feb 10 2020 +++ job 183 <sdevice> done: exit(0)
+16:40:51 Feb 10 2020     job 201 <sdevice> started on host 'localhost': "sdevice pp201_des.cmd"
+16:43:45 Feb 10 2020 +++ job 201 <sdevice> done: exit(0)
+16:43:46 Feb 10 2020     job 216 <sdevice> started on host 'localhost': "sdevice pp216_des.cmd"
+16:46:37 Feb 10 2020 +++ job 216 <sdevice> done: exit(0)
+16:46:38 Feb 10 2020     job 231 <sdevice> started on host 'localhost': "sdevice pp231_des.cmd"
+16:49:30 Feb 10 2020 +++ job 231 <sdevice> done: exit(0)
+16:49:31 Feb 10 2020     job 237 <sdevice> started on host 'localhost': "sdevice pp237_des.cmd"
+16:52:29 Feb 10 2020 +++ job 237 <sdevice> done: exit(0)
+16:52:30 Feb 10 2020     job 242 <sdevice> started on host 'localhost': "sdevice pp242_des.cmd"
+16:55:24 Feb 10 2020 +++ job 242 <sdevice> done: exit(0)
+16:55:25 Feb 10 2020     job 247 <sdevice> started on host 'localhost': "sdevice pp247_des.cmd"
+16:58:17 Feb 10 2020 +++ job 247 <sdevice> done: exit(0)
+16:58:18 Feb 10 2020     job 252 <sdevice> started on host 'localhost': "sdevice pp252_des.cmd"
+17:01:09 Feb 10 2020 +++ job 252 <sdevice> done: exit(0)
+17:01:10 Feb 10 2020     job 258 <sdevice> started on host 'localhost': "sdevice pp258_des.cmd"
+17:04:03 Feb 10 2020 +++ job 258 <sdevice> done: exit(0)
+17:04:04 Feb 10 2020     job 263 <sdevice> started on host 'localhost': "sdevice pp263_des.cmd"
+17:07:05 Feb 10 2020 +++ job 263 <sdevice> done: exit(0)
+17:07:06 Feb 10 2020     job 268 <sdevice> started on host 'localhost': "sdevice pp268_des.cmd"
+17:09:57 Feb 10 2020 +++ job 268 <sdevice> done: exit(0)
+17:09:58 Feb 10 2020     job 273 <sdevice> started on host 'localhost': "sdevice pp273_des.cmd"
+17:12:43 Feb 10 2020 +++ job 273 <sdevice> done: exit(0)
+17:12:44 Feb 10 2020     job 174 <sdevice> started on host 'localhost': "sdevice pp174_des.cmd"
+17:18:54 Feb 10 2020 +++ job 174 <sdevice> done: exit(0)
+17:18:55 Feb 10 2020     job 192 <sdevice> started on host 'localhost': "sdevice pp192_des.cmd"
+17:24:51 Feb 10 2020 +++ job 192 <sdevice> done: exit(0)
+17:24:52 Feb 10 2020     job 207 <sdevice> started on host 'localhost': "sdevice pp207_des.cmd"
+17:30:44 Feb 10 2020 +++ job 207 <sdevice> done: exit(0)
+17:30:45 Feb 10 2020     job 222 <sdevice> started on host 'localhost': "sdevice pp222_des.cmd"
+17:36:38 Feb 10 2020 +++ job 222 <sdevice> done: exit(0)
+17:36:39 Feb 10 2020     job 179 <sdevice> started on host 'localhost': "sdevice pp179_des.cmd"
+17:42:42 Feb 10 2020 +++ job 179 <sdevice> done: exit(0)
+17:42:43 Feb 10 2020     job 197 <sdevice> started on host 'localhost': "sdevice pp197_des.cmd"
+17:48:52 Feb 10 2020 +++ job 197 <sdevice> done: exit(0)
+17:48:53 Feb 10 2020     job 212 <sdevice> started on host 'localhost': "sdevice pp212_des.cmd"
+17:54:46 Feb 10 2020 +++ job 212 <sdevice> done: exit(0)
+17:54:47 Feb 10 2020     job 227 <sdevice> started on host 'localhost': "sdevice pp227_des.cmd"
+18:00:54 Feb 10 2020 +++ job 227 <sdevice> done: exit(0)
+18:00:55 Feb 10 2020     job 184 <sdevice> started on host 'localhost': "sdevice pp184_des.cmd"
+18:06:49 Feb 10 2020 +++ job 184 <sdevice> done: exit(0)
+18:06:50 Feb 10 2020     job 202 <sdevice> started on host 'localhost': "sdevice pp202_des.cmd"
+18:12:35 Feb 10 2020 +++ job 202 <sdevice> done: exit(0)
+18:12:36 Feb 10 2020     job 217 <sdevice> started on host 'localhost': "sdevice pp217_des.cmd"
+18:18:12 Feb 10 2020 +++ job 217 <sdevice> done: exit(0)
+18:18:13 Feb 10 2020     job 232 <sdevice> started on host 'localhost': "sdevice pp232_des.cmd"
+18:23:55 Feb 10 2020 +++ job 232 <sdevice> done: exit(0)
+18:23:56 Feb 10 2020     job 238 <sdevice> started on host 'localhost': "sdevice pp238_des.cmd"
+18:29:49 Feb 10 2020 +++ job 238 <sdevice> done: exit(0)
+18:29:50 Feb 10 2020     job 243 <sdevice> started on host 'localhost': "sdevice pp243_des.cmd"
+18:35:44 Feb 10 2020 +++ job 243 <sdevice> done: exit(0)
+18:35:45 Feb 10 2020     job 248 <sdevice> started on host 'localhost': "sdevice pp248_des.cmd"
+18:41:38 Feb 10 2020 +++ job 248 <sdevice> done: exit(0)
+18:41:39 Feb 10 2020     job 253 <sdevice> started on host 'localhost': "sdevice pp253_des.cmd"
+18:47:27 Feb 10 2020 +++ job 253 <sdevice> done: exit(0)
+18:47:28 Feb 10 2020     job 259 <sdevice> started on host 'localhost': "sdevice pp259_des.cmd"
+18:53:07 Feb 10 2020 +++ job 259 <sdevice> done: exit(0)
+18:53:08 Feb 10 2020     job 264 <sdevice> started on host 'localhost': "sdevice pp264_des.cmd"
+18:59:13 Feb 10 2020 +++ job 264 <sdevice> done: exit(0)
+18:59:14 Feb 10 2020     job 269 <sdevice> started on host 'localhost': "sdevice pp269_des.cmd"
+19:04:45 Feb 10 2020 +++ job 269 <sdevice> done: exit(0)
+19:04:46 Feb 10 2020     job 274 <sdevice> started on host 'localhost': "sdevice --max_threads 1  pp274_des.cmd"
+19:10:22 Feb 10 2020 +++ job 274 <sdevice> done: exit(0)
+19:10:25 Feb 10 2020 <ARCADIA25um_pwell> done (10612 sec)

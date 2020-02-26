@@ -1,0 +1,252 @@
+****************************************************************************
+***                      Sentaurus Structure Editor                      ***
+***                        Version P-2019.03-SP1                         ***
+***                       (1.1250, x86_64, Linux)                        ***
+***                                                                      ***
+***               Copyright (C) 1994-2019 Synopsys, Inc.                 ***
+***        Portions of this software are owned by Spatial Corp.          ***
+***            Copyright (C) 1986-2019. All Rights Reserved.             ***
+***                                                                      ***
+***  This software and the associated documentation are confidential     ***
+***  and proprietary to Synopsys, Inc.  Your use or disclosure of this   ***
+***  software is subject to the terms and conditions of a written        ***
+***  license agreement between you, or your company, and Synopsys, Inc.  ***
+****************************************************************************
+
+Compiled Thu May  2 16:00:55 PDT 2019 on: tcadprod10
+Running on: localhost.localdomain
+Hardware type: x86_64
+OS name: Linux
+OS release: 4.18.0-147.3.1.el8_1.x86_64
+OS version: #1 SMP Fri Jan 3 23:55:26 UTC 2020
+Process ID: 23842
+
+version #3 done.
+Evaluating file n270_dvs.cmd
+
+---> (define TSi 50)
+
+---> (define WSi 25)
+
+---> (define nwW 2.5)
+
+---> (define pwW (- (/ (- WSi nwW) 2) 4.25))
+
+---> (define dpwW 10)
+
+---> (define nwSTART (- (/ WSi 2) (/ nwW 2)))
+
+---> (define nwSTOP (+ (/ WSi 2) (/ nwW 2)))
+
+---> (define TEpi 7)
+
+---> (sdegeo:create-rectangle (position 0 0 0) (position WSi TSi 0) Silicon substrate)
+
+---> (sdegeo:insert-vertex (position 3 0 0))
+
+---> (sdegeo:insert-vertex (position (- (/ WSi 2) 0.5) 0 0))
+
+---> (sdegeo:insert-vertex (position (+ (/ WSi 2) 0.5) 0 0))
+
+---> (sdegeo:insert-vertex (position (- WSi 3) 0 0))
+
+---> (sdegeo:define-contact-set Ptop 4 (color:rgb 1 0 0) ##)
+
+---> (sdegeo:define-contact-set Ntop 4 (color:rgb 0 1 0) ##)
+
+---> (sdegeo:define-contact-set Pbot 4 (color:rgb 0 1 0) ##)
+
+---> (sdegeo:set-current-contact-set Ntop)
+
+---> (sdegeo:set-contact-edges (list (car (find-edge-id (position (/ WSi 2) 0 0)))) Ntop)
+
+(sdegeo:set-contact-edges (list (car (find-edge-id (position 12.5 0 0)))) "Ntop")
+
+---> (sdegeo:set-current-contact-set Ptop)
+
+---> (sdegeo:set-contact-edges (list (car (find-edge-id (position 0.5 0 0)))) Ptop)
+
+(sdegeo:set-contact-edges (list (car (find-edge-id (position 1.5 0 0)))) "Ptop")
+
+---> (sdegeo:set-contact-edges (list (car (find-edge-id (position (- WSi 0.5) 0 0)))) Ptop)
+
+(sdegeo:set-contact-edges (list (car (find-edge-id (position 23.5 0 0)))) "Ptop")
+
+---> (sdegeo:set-current-contact-set Pbot)
+
+---> (sdegeo:set-contact-edges (list (car (find-edge-id (position 0.5 TSi 0)))) Pbot)
+
+(sdegeo:set-contact-edges (list (car (find-edge-id (position 12.5 50 0)))) "Pbot")
+
+---> (sdedr:define-refeval-window WinEpi Rectangle (position -1 -1 0) (position (+ WSi 1) TEpi 0))
+
+---> (sdedr:define-refeval-window WinNtop Line (position nwSTART 0 0) (position nwSTOP 0 0))
+
+---> (sdedr:define-refeval-window WinPtop1 Line (position 0 0 0) (position pwW 0 0))
+
+---> (sdedr:define-refeval-window WinPtop2 Line (position (- WSi pwW) 0 0) (position WSi 0 0))
+
+---> (sdedr:define-refeval-window WinDPtop1 Line (position 0 0 0) (position dpwW 0 0))
+
+---> (sdedr:define-refeval-window WinDPtop2 Line (position (- WSi dpwW) 0 0) (position WSi 0 0))
+
+---> (sdedr:define-refeval-window WinPbot Line (position 0 TSi 0) (position WSi TSi 0))
+
+---> (sdedr:define-constant-profile ProfSub PhosphorusActiveConcentration 2500000000000.0)
+
+---> (sdedr:define-constant-profile ProfEpi PhosphorusActiveConcentration 100000000000000.0)
+
+---> (sdedr:define-1d-external-profile ProfPwell ./pwell.txt Scale 1 Range 0 1.5 Gauss Factor 0)
+
+---> (sdedr:define-1d-external-profile ProfNwell ./nwell.txt Scale 1 Range 0 1.8 Gauss Factor 0)
+
+---> (sdedr:define-1d-external-profile ProfDPwell ./dpwell.txt Scale 1 Range 0 10 Gauss Factor 0)
+
+---> (sdedr:define-gaussian-profile ProfPbot BoronActiveConcentration PeakPos 0 PeakVal 1e+19 ValueAtDepth 2500000000000.0 Depth 0.1 Gauss Factor 0.8)
+
+---> (sdedr:define-constant-profile-region PlacSub ProfSub substrate)
+
+---> (sdedr:define-constant-profile-placement PlacEpi ProfEpi WinEpi 0.3 Replace)
+
+---> (sdedr:define-analytical-profile-placement PlacPwell1 ProfPwell WinPtop1 Both NoReplace Eval)
+
+---> (sdedr:define-analytical-profile-placement PlacPwell2 ProfPwell WinPtop2 Both NoReplace Eval)
+
+---> (sdedr:define-analytical-profile-placement PlacDPwell1 ProfDPwell WinDPtop1 Both NoReplace Eval)
+
+---> (sdedr:define-analytical-profile-placement PlacDPwell2 ProfDPwell WinDPtop2 Both NoReplace Eval)
+
+---> (sdedr:define-analytical-profile-placement PlacNwell ProfNwell WinNtop Both NoReplace Eval)
+
+---> (sdedr:define-analytical-profile-placement PlacPbot ProfPbot WinPbot Both NoReplace Eval)
+
+---> (sdedr:define-refeval-window RefWinGlobal Rectangle (position -1 -1 0) (position (+ WSi 1) (+ TSi 1) 0))
+
+---> (sdedr:define-refinement-size RefDefGlobal 5 2 0 0.2 0.2 0)
+
+---> (sdedr:define-refinement-placement RefPlacGlobal RefDefGlobal RefWinGlobal)
+
+---> (sdedr:define-refinement-function RefDefGlobal DopingConcentration MaxTransDiff 1)
+
+---> (sdedr:define-refeval-window RefWinSurf Rectangle (position 0 0 0) (position WSi 10 0))
+
+---> (sdedr:define-refinement-size RefDefSurf 0.3 0.3 0 0.05 0.05 0)
+
+---> (sdedr:define-refinement-placement RefPlacSurf RefDefSurf RefWinSurf)
+
+---> (sdedr:define-refinement-function RefDefSurf DopingConcentration MaxTransDiff 1)
+
+---> (sdedr:define-refeval-window RefWinBot Rectangle (position 0 (- TSi 2) 0) (position WSi TSi 0))
+
+---> (sdedr:define-refinement-size RefDefBot 10 0.5 0 1 0.02 0)
+
+---> (sdedr:define-refinement-placement RefPlacBot RefDefBot RefWinBot)
+
+---> (sdedr:define-refinement-function RefDefBot DopingConcentration MaxTransDiff 1)
+
+---> (sde:save-model p270)
+
+---> (sde:build-mesh snmesh -a -c boxmethod n270)
+
+****************************************************************************
+***                            Sentaurus Mesh                            ***
+***                        Version P-2019.03-SP1                         ***
+***                       (1.1250, x86_64, Linux)                        ***
+***                                                                      ***
+***                       Copyright (C) 2005-2019                        ***
+***                            Synopsys, Inc.                            ***
+***                                                                      ***
+***  This software and the associated documentation are confidential     ***
+***  and proprietary to Synopsys, Inc.  Your use or disclosure of this   ***
+***  software is subject to the terms and conditions of a written        ***
+***  license agreement between you, or your company, and Synopsys, Inc.  ***
+****************************************************************************
+
+Compiled Thu May  2 14:39:03 PDT 2019 on: tcadprod10
+Running on: localhost.localdomain
+Hardware type: x86_64
+OS name: Linux
+OS release: 4.18.0-147.3.1.el8_1.x86_64
+OS version: #1 SMP Fri Jan 3 23:55:26 UTC 2020
+Process ID: 23853
+
+Flags used: -a -c boxmethod
+
+Loading 1-D profile ./pwell.txt...done
+Loading 1-D profile ./nwell.txt...done
+Loading 1-D profile ./dpwell.txt...done
+** Generating 2d grid **
+
+Creating binary tree...done.
+Imprinting binary tree on the boundary...done.
+Optimizing boundary nodes...done.
+
+Number of vertices after binary tree generation : 
+  8312 (tree) + 350 (boundary)
+
+
+=================================  brep2d quality  =====================================
+minAngle: 90  [near (-0 -0)] at region=substrate
+nVerts = 350  nTris = 350  nRegs = 4
+bmin: -0 -0
+bmax: 25 50
+min area: 0.0244141  max area: 3.125  min edge length : 0.0244141
+total area  : 150 interface area: 0
+total volume: 1250
+Conformal? true
+Are all boundaries on bbox? true
+==================================================================================
+** Delaunizing the mesh **
+
+Creating delaunizer input...done.
+Solving edges...done 
+Optimizing elements...done. (8320 vertices)
+Fixing diagonals...done.
+
+The final mesh has: 
+    8316 points.
+   16280 elements.
+       4 regions.
+Max. connectivity = 7 located at (2.92969;0.0976562)
+
+
+==============================  tri-grid quality  ================================
+    0  10  20  30  40  50  60  70  80  90 100 110 120 130 140 150 160 170 180
+ %   .   .   .    8  .   49   9  .   .   33                                
+---------------------------------------------------------------------------------
+minAngle: 0.447614  maxAngle: 90
+nVerts = 8316  nTris = 16280  nMats = 1
+max connectivity (tris per node): 7
+bmin: -0 -0
+bmax: 25 50
+min edgeLength: 0.0244141  [near (21.875 49.8657)]
+min volume: 0.00343323  max volume: 2.44141  Total volume: 1250
+bbox  volume: 1250
+Are all boundaries on bbox? true
+=================================================================================
+
+Smallest region: substrate  Total volume: 1250
+Interpolating data...done.
+done.
+Saving file n270_msh.tdr...done.
+
+===============================  Timer Report===================================
+              Total Mesh Generation Time:     0.521s       100%
+                       Rate of #Vertices:   1.6e+04
+                          Rate of #Edges:  3.14e+04
+                          Rate of #Faces:  3.12e+04
+                       Rate of #Elements:         0
+
+                            Time Covered:         0s         0%
+
+
+"Meshing successful"
+---> #[end-of-file]
+
+"************************************************************************"
+"Sentaurus Structure Editor "
+"Start Time:    Mon Feb 10 13:04:56 2020"
+"End   Time:    Mon Feb 10 13:04:57 2020"
+"Total Execution Time (sec):    1"
+"Total System calls Time (sec): 0"
+"************************************************************************"

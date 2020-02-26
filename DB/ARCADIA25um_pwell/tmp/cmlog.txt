@@ -1,0 +1,10 @@
+Warning: detection hostname info retrieved a less specific hostname part: initial argument[localhost.localdomain] hostname part[localhost].
+Warning: detection hostname info retrieved a less specific hostname part: initial argument[localhost.localdomain] hostname part[localhost].
+Warning: detection hostname info retrieved a less specific hostname part: initial argument[localhost.localdomain] hostname part[localhost].
+Warning: detection hostname info retrieved a less specific hostname part: initial argument[localhost.localdomain] hostname part[localhost].
+Warning: detection hostname info retrieved a less specific hostname part: initial argument[localhost.localdomain] hostname part[localhost].
+Warning: detection hostname info retrieved a less specific hostname part: initial argument[localhost.localdomain] hostname part[localhost].
+Warning: detection hostname info retrieved a less specific hostname part: initial argument[localhost.localdomain] hostname part[localhost].
+Warning: detection hostname info retrieved a less specific hostname part: initial argument[localhost.localdomain] hostname part[localhost].
+Warning: detection hostname info retrieved a less specific hostname part: initial argument[localhost.localdomain] hostname part[localhost].
+Warning: detection hostname info retrieved a less specific hostname part: initial argument[localhost.localdomain] hostname part[localhost].

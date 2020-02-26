@@ -1,0 +1,125 @@
+Evaluating file n198_dvs.cmd
+---> (define TSi 50)
+TSi
+---> (define WSi 25)
+WSi
+---> (define nwW 2.5)
+nwW
+---> (define pwW (- (/ (- WSi nwW) 2) 2.0))
+pwW
+---> (define dpwW 8)
+dpwW
+---> (define nwSTART (- (/ WSi 2) (/ nwW 2)))
+nwSTART
+---> (define nwSTOP (+ (/ WSi 2) (/ nwW 2)))
+nwSTOP
+---> (define TEpi 7)
+TEpi
+---> (sdegeo:create-rectangle (position 0 0 0) (position WSi TSi 0) Silicon substrate)
+#[body 5 1]
+---> (sdegeo:insert-vertex (position 3 0 0))
+(#[vertex 6 1])
+---> (sdegeo:insert-vertex (position (- (/ WSi 2) 0.5) 0 0))
+(#[vertex 7 1])
+---> (sdegeo:insert-vertex (position (+ (/ WSi 2) 0.5) 0 0))
+(#[vertex 8 1])
+---> (sdegeo:insert-vertex (position (- WSi 3) 0 0))
+(#[vertex 9 1])
+---> (sdegeo:define-contact-set Ptop 4 (color:rgb 1 0 0) ##)
+()
+---> (sdegeo:define-contact-set Ntop 4 (color:rgb 0 1 0) ##)
+()
+---> (sdegeo:define-contact-set Pbot 4 (color:rgb 0 1 0) ##)
+()
+---> (sdegeo:set-current-contact-set Ntop)
+""
+---> (sdegeo:set-contact-edges (list (car (find-edge-id (position (/ WSi 2) 0 0)))) Ntop)
+#t
+---> (sdegeo:set-current-contact-set Ptop)
+"Ntop"
+---> (sdegeo:set-contact-edges (list (car (find-edge-id (position 0.5 0 0)))) Ptop)
+#t
+---> (sdegeo:set-contact-edges (list (car (find-edge-id (position (- WSi 0.5) 0 0)))) Ptop)
+#t
+---> (sdegeo:set-current-contact-set Pbot)
+"Ptop"
+---> (sdegeo:set-contact-edges (list (car (find-edge-id (position 0.5 TSi 0)))) Pbot)
+#t
+---> (sdedr:define-refeval-window WinEpi Rectangle (position -1 -1 0) (position (+ WSi 1) TEpi 0))
+#[body 22 1]
+---> (sdedr:define-refeval-window WinNtop Line (position nwSTART 0 0) (position nwSTOP 0 0))
+#[body 23 1]
+---> (sdedr:define-refeval-window WinPtop1 Line (position 0 0 0) (position pwW 0 0))
+#[body 24 1]
+---> (sdedr:define-refeval-window WinPtop2 Line (position (- WSi pwW) 0 0) (position WSi 0 0))
+#[body 25 1]
+---> (sdedr:define-refeval-window WinDPtop1 Line (position 0 0 0) (position dpwW 0 0))
+#[body 26 1]
+---> (sdedr:define-refeval-window WinDPtop2 Line (position (- WSi dpwW) 0 0) (position WSi 0 0))
+#[body 27 1]
+---> (sdedr:define-refeval-window WinPbot Line (position 0 TSi 0) (position WSi TSi 0))
+#[body 28 1]
+---> (sdedr:define-constant-profile ProfSub PhosphorusActiveConcentration 2500000000000.0)
+#t
+---> (sdedr:define-constant-profile ProfEpi PhosphorusActiveConcentration 100000000000000.0)
+#t
+---> (sdedr:define-1d-external-profile ProfPwell ./pwell.txt Scale 1 Range 0 1.5 Gauss Factor 0)
+#t
+---> (sdedr:define-1d-external-profile ProfNwell ./nwell.txt Scale 1 Range 0 1.8 Gauss Factor 0)
+#t
+---> (sdedr:define-1d-external-profile ProfDPwell ./dpwell.txt Scale 1 Range 0 10 Gauss Factor 0)
+#t
+---> (sdedr:define-gaussian-profile ProfPbot BoronActiveConcentration PeakPos 0 PeakVal 1e+19 ValueAtDepth 2500000000000.0 Depth 0.1 Gauss Factor 0.8)
+#t
+---> (sdedr:define-constant-profile-region PlacSub ProfSub substrate)
+#t
+---> (sdedr:define-constant-profile-placement PlacEpi ProfEpi WinEpi 0.3 Replace)
+#t
+---> (sdedr:define-analytical-profile-placement PlacPwell1 ProfPwell WinPtop1 Both NoReplace Eval)
+#t
+---> (sdedr:define-analytical-profile-placement PlacPwell2 ProfPwell WinPtop2 Both NoReplace Eval)
+#t
+---> (sdedr:define-analytical-profile-placement PlacDPwell1 ProfDPwell WinDPtop1 Both NoReplace Eval)
+#t
+---> (sdedr:define-analytical-profile-placement PlacDPwell2 ProfDPwell WinDPtop2 Both NoReplace Eval)
+#t
+---> (sdedr:define-analytical-profile-placement PlacNwell ProfNwell WinNtop Both NoReplace Eval)
+#t
+---> (sdedr:define-analytical-profile-placement PlacPbot ProfPbot WinPbot Both NoReplace Eval)
+#t
+---> (sdedr:define-refeval-window RefWinGlobal Rectangle (position -1 -1 0) (position (+ WSi 1) (+ TSi 1) 0))
+#[body 29 1]
+---> (sdedr:define-refinement-size RefDefGlobal 5 2 0 0.2 0.2 0)
+#t
+---> (sdedr:define-refinement-placement RefPlacGlobal RefDefGlobal RefWinGlobal)
+#t
+---> (sdedr:define-refinement-function RefDefGlobal DopingConcentration MaxTransDiff 1)
+#t
+---> (sdedr:define-refeval-window RefWinSurf Rectangle (position 0 0 0) (position WSi 10 0))
+#[body 30 1]
+---> (sdedr:define-refinement-size RefDefSurf 0.3 0.3 0 0.05 0.05 0)
+#t
+---> (sdedr:define-refinement-placement RefPlacSurf RefDefSurf RefWinSurf)
+#t
+---> (sdedr:define-refinement-function RefDefSurf DopingConcentration MaxTransDiff 1)
+#t
+---> (sdedr:define-refeval-window RefWinBot Rectangle (position 0 (- TSi 2) 0) (position WSi TSi 0))
+#[body 31 1]
+---> (sdedr:define-refinement-size RefDefBot 10 0.5 0 1 0.02 0)
+#t
+---> (sdedr:define-refinement-placement RefPlacBot RefDefBot RefWinBot)
+#t
+---> (sdedr:define-refinement-function RefDefBot DopingConcentration MaxTransDiff 1)
+#t
+---> (sde:save-model p198)
+#t
+---> (sde:build-mesh snmesh -a -c boxmethod n198)
+#t
+---> #[end-of-file]
+"************************************************************************"
+"Sentaurus Structure Editor "
+"Start Time:    Mon Feb 10 13:04:26 2020"
+"End   Time:    Mon Feb 10 13:04:27 2020"
+"Total Execution Time (sec):    1"
+"Total System calls Time (sec): 0"
+"************************************************************************"
