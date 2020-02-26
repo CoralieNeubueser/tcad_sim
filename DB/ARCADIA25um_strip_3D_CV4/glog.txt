@@ -1,0 +1,111 @@
+
+****************************************************************************
+***                       Sentaurus Workbench gsub                       ***
+***                        Version P-2019.03-SP1                         ***
+***                       (1.1250, x86_64, Linux)                        ***
+***                                                                      ***
+***                Copyright (c) 1994-2019 Synopsys, Inc.                ***
+***                                                                      ***
+***  This software and the associated documentation are confidential     ***
+***  and proprietary to Synopsys, Inc.  Your use or disclosure of this   ***
+***  software is subject to the terms and conditions of a written        ***
+***  license agreement between you, or your company, and Synopsys, Inc.  ***
+****************************************************************************
+
+gsub is running on host 'localhost' by user 'cneubueser'
+Binary '/usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/bin/../lib/gsub0'
+Command line options '-verbose -swb_pid 15525 -q local:default -e 47 /home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4'
+Current directory '/home/cneubueser/tcad_sim'
+Some relevant environment variables:
+	STROOT=/usr/synopsys/sentaurus/P_2019.03-SP1
+	STRELEASE=current
+	STROOT_LIB=/usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/lib
+	STDB=/home/cneubueser/tcad_sim/DB
+	DATEX=/usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/lib/datexcodes.txt
+	DISPLAY=:1
+
+Starting swblm daemon...OK
+Loading global tool database '/usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/lib/glib2/tooldb.tcl'
+Project '/home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4'
+10:31:21 Feb 26 2020 <ARCADIA25um_strip_3D_CV4> submitted to the batch system
+Loading global queue configuration file '/usr/synopsys/sentaurus/P_2019.03-SP1/queues/gqueues.dat'...ok
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/gtree.dat'
+>>>>> Preprocessing the project to run in normal mode
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/gexec.cmd"'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/gtree.dat'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/sde_dvs.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/sdevice_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/sdevice.par
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/sdevice1_des.cmd
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/sdevice1_des.cmd fornode 47
+'@tdr@' creates dependences with the node(s) '43'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/sdevice.par fornode 47
++++Node successfully preprocessed+++
+The node '47' has dependencies to the node(s) '43'
+Writing 'gexec.cmd'
+saving variables
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/gexec.cmd"'
+>>>>>>>>>> job '47' status changed from 'done' to 'queued'
+-----------------------------------------------------------------
+queue "local:default" - 47
+-----------------------------------------------------------------
+>>>>> cleaning the index file from previous simulations 
+                       /home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/.gindex
+>>>>>>>>>> Initializing back-end schedulers...
+>>>>>>>> Loaded Schedulers are ... local
+local% initialize 'local' scheduler data
+>>>>> List of Active Schedulers : local
+<<<<<<<<<<
+>>>>>>>>>> job '47' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/sdevice1_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/sdevice1_des.cmd fornode 47
+'@tdr@' creates dependences with the node(s) '43'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/pp47_des.cmd
+The node '47' has dependencies to the node(s) '43'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/sdevice.par fornode 47
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/pp47_des.par
+The node '47' has dependencies to the node(s) '43'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/n47_des.job
+local% submit job 47 for local execution
+>>>>>>>>>> job '47' status changed from 'ready' to 'pending'
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 47 -swb_pid 15525 -gsub_pid 15911 -gsub_host localhost -gsub_port 38781  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4""
+>>>>>>>>>> job '47' status changed from 'pending' to 'running'
+10:31:21 Feb 26 2020     job 47 <sdevice> started on host 'localhost': "sdevice --max_threads 1  pp47_des.cmd"
+>>>>>>>>>> job '47' status changed from 'running' to 'done'
+10:35:40 Feb 26 2020 +++ job 47 <sdevice> done: exit(0)
+
+SCHEDULING REPORT
++++ done     : 47
+
+10:35:42 Feb 26 2020 <ARCADIA25um_strip_3D_CV4> done (261 sec)
+>>>>>> Writing to status file 261
+gsub exits with status 0

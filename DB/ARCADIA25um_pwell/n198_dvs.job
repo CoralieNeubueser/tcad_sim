@@ -1,0 +1,55 @@
+
+****************************************************************************
+***                       Sentaurus Workbench gjob                       ***
+***                        Version P-2019.03-SP1                         ***
+***                       (1.1250, x86_64, Linux)                        ***
+***                                                                      ***
+***                Copyright (c) 1994-2019 Synopsys, Inc.                ***
+***                                                                      ***
+***  This software and the associated documentation are confidential     ***
+***  and proprietary to Synopsys, Inc.  Your use or disclosure of this   ***
+***  software is subject to the terms and conditions of a written        ***
+***  license agreement between you, or your company, and Synopsys, Inc.  ***
+****************************************************************************
+
+gjob is running on host 'localhost' by user 'cneubueser'
+Binary '/usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/bin/../lib/gjob0'
+Command line options '-verbose -nice 19 -job 198 -swb_pid 22665 -gsub_pid 22749 -gsub_host localhost -gsub_port 45425 /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell'
+Current directory '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell'
+Some relevant environment variables:
+	STROOT=/usr/synopsys/sentaurus/P_2019.03-SP1
+	STRELEASE=current
+	STROOT_LIB=/usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/lib
+	STDB=/home/cneubueser/tcad_sim/DB
+	DATEX=/usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/lib/datexcodes.txt
+	DISPLAY=:1
+
+Project '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell'
+Loading global tool database '/usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/lib/glib2/tooldb.tcl'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sde_dvs.cmd
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sde_dvs.cmd fornode 198
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp198_dvs.cmd
+Start Simulation section
+13:04:26 Feb 10 2020     job 198 <sde> started on host 'localhost': "sde -e -l n198_dvs.cmd"
+13:04:27 Feb 10 2020 +++ job 198 <sde> done: exit(0)
+End Simulation section
+Start Epilogue section
+13:04:27 Feb 10 2020 *** job 198 pre/post execution: eval " gjob::find_extracted_vars "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell" n198_dvs.out 198 "
+End Epilogue section
+Job succeeded
+gjob exits with status 0

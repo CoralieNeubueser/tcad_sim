@@ -1,0 +1,1632 @@
+
+****************************************************************************
+***                       Sentaurus Workbench gsub                       ***
+***                        Version P-2019.03-SP1                         ***
+***                       (1.1250, x86_64, Linux)                        ***
+***                                                                      ***
+***                Copyright (c) 1994-2019 Synopsys, Inc.                ***
+***                                                                      ***
+***  This software and the associated documentation are confidential     ***
+***  and proprietary to Synopsys, Inc.  Your use or disclosure of this   ***
+***  software is subject to the terms and conditions of a written        ***
+***  license agreement between you, or your company, and Synopsys, Inc.  ***
+****************************************************************************
+
+gsub is running on host 'localhost' by user 'cneubueser'
+Binary '/usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/bin/../lib/gsub0'
+Command line options '-verbose -swb_pid 22665 -q local:default -e {173 + 174 + 191 + 192 + 206 + 207 + 221 + 222 + 178 + 179 + 196 + 197 + 211 + 212 + 226 + 227 + 183 + 184 + 201 + 202 + 216 + 217 + 231 + 232 + 237 + 238 + 242 + 243 + 247 + 248 + 252 + 253 + 258 + 259 + 263 + 264 + 268 + 269 + 273 + 274} /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell'
+Current directory '/home/cneubueser/tcad_sim'
+Some relevant environment variables:
+	STROOT=/usr/synopsys/sentaurus/P_2019.03-SP1
+	STRELEASE=current
+	STROOT_LIB=/usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/lib
+	STDB=/home/cneubueser/tcad_sim/DB
+	DATEX=/usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/lib/datexcodes.txt
+	DISPLAY=:1
+
+Starting swblm daemon...OK
+Loading global tool database '/usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/lib/glib2/tooldb.tcl'
+Project '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell'
+16:13:33 Feb 10 2020 <ARCADIA25um_pwell> submitted to the batch system
+Loading global queue configuration file '/usr/synopsys/sentaurus/P_2019.03-SP1/queues/gqueues.dat'...ok
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+>>>>> Preprocessing the project to run in normal mode
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sde_dvs.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 173
+'@tdr@' creates dependences with the node(s) '170'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 173
++++Node successfully preprocessed+++
+The node '173' has dependencies to the node(s) '170'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 174
+'@tdr@' creates dependences with the node(s) '170'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 174
++++Node successfully preprocessed+++
+The node '174' has dependencies to the node(s) '170'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 178
+'@tdr@' creates dependences with the node(s) '175'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 178
++++Node successfully preprocessed+++
+The node '178' has dependencies to the node(s) '175'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 179
+'@tdr@' creates dependences with the node(s) '175'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 179
++++Node successfully preprocessed+++
+The node '179' has dependencies to the node(s) '175'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 183
+'@tdr@' creates dependences with the node(s) '180'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 183
++++Node successfully preprocessed+++
+The node '183' has dependencies to the node(s) '180'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 184
+'@tdr@' creates dependences with the node(s) '180'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 184
++++Node successfully preprocessed+++
+The node '184' has dependencies to the node(s) '180'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 191
+'@tdr@' creates dependences with the node(s) '188'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 191
++++Node successfully preprocessed+++
+The node '191' has dependencies to the node(s) '188'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 192
+'@tdr@' creates dependences with the node(s) '188'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 192
++++Node successfully preprocessed+++
+The node '192' has dependencies to the node(s) '188'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 196
+'@tdr@' creates dependences with the node(s) '193'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 196
++++Node successfully preprocessed+++
+The node '196' has dependencies to the node(s) '193'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 197
+'@tdr@' creates dependences with the node(s) '193'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 197
++++Node successfully preprocessed+++
+The node '197' has dependencies to the node(s) '193'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 201
+'@tdr@' creates dependences with the node(s) '198'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 201
++++Node successfully preprocessed+++
+The node '201' has dependencies to the node(s) '198'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 202
+'@tdr@' creates dependences with the node(s) '198'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 202
++++Node successfully preprocessed+++
+The node '202' has dependencies to the node(s) '198'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 206
+'@tdr@' creates dependences with the node(s) '203'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 206
++++Node successfully preprocessed+++
+The node '206' has dependencies to the node(s) '203'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 207
+'@tdr@' creates dependences with the node(s) '203'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 207
++++Node successfully preprocessed+++
+The node '207' has dependencies to the node(s) '203'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 211
+'@tdr@' creates dependences with the node(s) '208'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 211
++++Node successfully preprocessed+++
+The node '211' has dependencies to the node(s) '208'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 212
+'@tdr@' creates dependences with the node(s) '208'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 212
++++Node successfully preprocessed+++
+The node '212' has dependencies to the node(s) '208'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 216
+'@tdr@' creates dependences with the node(s) '213'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 216
++++Node successfully preprocessed+++
+The node '216' has dependencies to the node(s) '213'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 217
+'@tdr@' creates dependences with the node(s) '213'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 217
++++Node successfully preprocessed+++
+The node '217' has dependencies to the node(s) '213'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 221
+'@tdr@' creates dependences with the node(s) '218'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 221
++++Node successfully preprocessed+++
+The node '221' has dependencies to the node(s) '218'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 222
+'@tdr@' creates dependences with the node(s) '218'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 222
++++Node successfully preprocessed+++
+The node '222' has dependencies to the node(s) '218'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 226
+'@tdr@' creates dependences with the node(s) '223'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 226
++++Node successfully preprocessed+++
+The node '226' has dependencies to the node(s) '223'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 227
+'@tdr@' creates dependences with the node(s) '223'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 227
++++Node successfully preprocessed+++
+The node '227' has dependencies to the node(s) '223'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 231
+'@tdr@' creates dependences with the node(s) '228'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 231
++++Node successfully preprocessed+++
+The node '231' has dependencies to the node(s) '228'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 232
+'@tdr@' creates dependences with the node(s) '228'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 232
++++Node successfully preprocessed+++
+The node '232' has dependencies to the node(s) '228'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 237
+'@tdr@' creates dependences with the node(s) '234'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 237
++++Node successfully preprocessed+++
+The node '237' has dependencies to the node(s) '234'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 238
+'@tdr@' creates dependences with the node(s) '234'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 238
++++Node successfully preprocessed+++
+The node '238' has dependencies to the node(s) '234'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 242
+'@tdr@' creates dependences with the node(s) '239'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 242
++++Node successfully preprocessed+++
+The node '242' has dependencies to the node(s) '239'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 243
+'@tdr@' creates dependences with the node(s) '239'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 243
++++Node successfully preprocessed+++
+The node '243' has dependencies to the node(s) '239'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 247
+'@tdr@' creates dependences with the node(s) '244'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 247
++++Node successfully preprocessed+++
+The node '247' has dependencies to the node(s) '244'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 248
+'@tdr@' creates dependences with the node(s) '244'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 248
++++Node successfully preprocessed+++
+The node '248' has dependencies to the node(s) '244'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 252
+'@tdr@' creates dependences with the node(s) '249'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 252
++++Node successfully preprocessed+++
+The node '252' has dependencies to the node(s) '249'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 253
+'@tdr@' creates dependences with the node(s) '249'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 253
++++Node successfully preprocessed+++
+The node '253' has dependencies to the node(s) '249'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 258
+'@tdr@' creates dependences with the node(s) '255'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 258
++++Node successfully preprocessed+++
+The node '258' has dependencies to the node(s) '255'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 259
+'@tdr@' creates dependences with the node(s) '255'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 259
++++Node successfully preprocessed+++
+The node '259' has dependencies to the node(s) '255'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 263
+'@tdr@' creates dependences with the node(s) '260'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 263
++++Node successfully preprocessed+++
+The node '263' has dependencies to the node(s) '260'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 264
+'@tdr@' creates dependences with the node(s) '260'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 264
++++Node successfully preprocessed+++
+The node '264' has dependencies to the node(s) '260'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 268
+'@tdr@' creates dependences with the node(s) '265'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 268
++++Node successfully preprocessed+++
+The node '268' has dependencies to the node(s) '265'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 269
+'@tdr@' creates dependences with the node(s) '265'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 269
++++Node successfully preprocessed+++
+The node '269' has dependencies to the node(s) '265'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 273
+'@tdr@' creates dependences with the node(s) '270'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 273
++++Node successfully preprocessed+++
+The node '273' has dependencies to the node(s) '270'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 274
+'@tdr@' creates dependences with the node(s) '270'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 274
++++Node successfully preprocessed+++
+The node '274' has dependencies to the node(s) '270'
+Writing 'gexec.cmd'
+saving variables
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+>>>>>>>>>> job '173' status changed from 'none' to 'queued'
+>>>>>>>>>> job '191' status changed from 'none' to 'queued'
+>>>>>>>>>> job '206' status changed from 'none' to 'queued'
+>>>>>>>>>> job '221' status changed from 'none' to 'queued'
+>>>>>>>>>> job '178' status changed from 'none' to 'queued'
+>>>>>>>>>> job '196' status changed from 'none' to 'queued'
+>>>>>>>>>> job '211' status changed from 'none' to 'queued'
+>>>>>>>>>> job '226' status changed from 'none' to 'queued'
+>>>>>>>>>> job '183' status changed from 'none' to 'queued'
+>>>>>>>>>> job '201' status changed from 'none' to 'queued'
+>>>>>>>>>> job '216' status changed from 'none' to 'queued'
+>>>>>>>>>> job '231' status changed from 'none' to 'queued'
+>>>>>>>>>> job '237' status changed from 'none' to 'queued'
+>>>>>>>>>> job '242' status changed from 'none' to 'queued'
+>>>>>>>>>> job '247' status changed from 'none' to 'queued'
+>>>>>>>>>> job '252' status changed from 'none' to 'queued'
+>>>>>>>>>> job '258' status changed from 'none' to 'queued'
+>>>>>>>>>> job '263' status changed from 'none' to 'queued'
+>>>>>>>>>> job '268' status changed from 'none' to 'queued'
+>>>>>>>>>> job '273' status changed from 'none' to 'queued'
+>>>>>>>>>> job '174' status changed from 'none' to 'queued'
+>>>>>>>>>> job '192' status changed from 'none' to 'queued'
+>>>>>>>>>> job '207' status changed from 'none' to 'queued'
+>>>>>>>>>> job '222' status changed from 'none' to 'queued'
+>>>>>>>>>> job '179' status changed from 'none' to 'queued'
+>>>>>>>>>> job '197' status changed from 'none' to 'queued'
+>>>>>>>>>> job '212' status changed from 'none' to 'queued'
+>>>>>>>>>> job '227' status changed from 'none' to 'queued'
+>>>>>>>>>> job '184' status changed from 'none' to 'queued'
+>>>>>>>>>> job '202' status changed from 'none' to 'queued'
+>>>>>>>>>> job '217' status changed from 'none' to 'queued'
+>>>>>>>>>> job '232' status changed from 'none' to 'queued'
+>>>>>>>>>> job '238' status changed from 'none' to 'queued'
+>>>>>>>>>> job '243' status changed from 'none' to 'queued'
+>>>>>>>>>> job '248' status changed from 'none' to 'queued'
+>>>>>>>>>> job '253' status changed from 'none' to 'queued'
+>>>>>>>>>> job '259' status changed from 'none' to 'queued'
+>>>>>>>>>> job '264' status changed from 'none' to 'queued'
+>>>>>>>>>> job '269' status changed from 'none' to 'queued'
+>>>>>>>>>> job '274' status changed from 'none' to 'queued'
+-----------------------------------------------------------------
+queue "local:default" - 173 191 206 221 178 196 211 226 183 201 216 231 237 242 247 252 258 263 268 273 174 192 207 222 179 197 212 227 184 202 217 232 238 243 248 253 259 264 269 274
+-----------------------------------------------------------------
+>>>>> cleaning the index file from previous simulations 
+                       /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/.gindex
+>>>>>>>>>> Initializing back-end schedulers...
+>>>>>>>> Loaded Schedulers are ... local
+local% initialize 'local' scheduler data
+>>>>> List of Active Schedulers : local
+<<<<<<<<<<
+>>>>>>>>>> job '173' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 173
+'@tdr@' creates dependences with the node(s) '170'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp173_des.cmd
+The node '173' has dependencies to the node(s) '170'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 173
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp173_des.par
+The node '173' has dependencies to the node(s) '170'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n173_des.job
+local% submit job 173 for local execution
+>>>>>>>>>> job '173' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '191' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 191
+'@tdr@' creates dependences with the node(s) '188'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp191_des.cmd
+The node '191' has dependencies to the node(s) '188'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 191
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp191_des.par
+The node '191' has dependencies to the node(s) '188'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n191_des.job
+local% submit job 191 for local execution
+>>>>>>>>>> job '191' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '206' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 206
+'@tdr@' creates dependences with the node(s) '203'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp206_des.cmd
+The node '206' has dependencies to the node(s) '203'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 206
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp206_des.par
+The node '206' has dependencies to the node(s) '203'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n206_des.job
+local% submit job 206 for local execution
+>>>>>>>>>> job '206' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '221' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 221
+'@tdr@' creates dependences with the node(s) '218'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp221_des.cmd
+The node '221' has dependencies to the node(s) '218'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 221
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp221_des.par
+The node '221' has dependencies to the node(s) '218'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n221_des.job
+local% submit job 221 for local execution
+>>>>>>>>>> job '221' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '178' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 178
+'@tdr@' creates dependences with the node(s) '175'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp178_des.cmd
+The node '178' has dependencies to the node(s) '175'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 178
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp178_des.par
+The node '178' has dependencies to the node(s) '175'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n178_des.job
+local% submit job 178 for local execution
+>>>>>>>>>> job '178' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '196' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 196
+'@tdr@' creates dependences with the node(s) '193'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp196_des.cmd
+The node '196' has dependencies to the node(s) '193'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 196
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp196_des.par
+The node '196' has dependencies to the node(s) '193'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n196_des.job
+local% submit job 196 for local execution
+>>>>>>>>>> job '196' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '211' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 211
+'@tdr@' creates dependences with the node(s) '208'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp211_des.cmd
+The node '211' has dependencies to the node(s) '208'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 211
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp211_des.par
+The node '211' has dependencies to the node(s) '208'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n211_des.job
+local% submit job 211 for local execution
+>>>>>>>>>> job '211' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '226' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 226
+'@tdr@' creates dependences with the node(s) '223'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp226_des.cmd
+The node '226' has dependencies to the node(s) '223'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 226
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp226_des.par
+The node '226' has dependencies to the node(s) '223'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n226_des.job
+local% submit job 226 for local execution
+>>>>>>>>>> job '226' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '183' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 183
+'@tdr@' creates dependences with the node(s) '180'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp183_des.cmd
+The node '183' has dependencies to the node(s) '180'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 183
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp183_des.par
+The node '183' has dependencies to the node(s) '180'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n183_des.job
+local% submit job 183 for local execution
+>>>>>>>>>> job '183' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '201' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 201
+'@tdr@' creates dependences with the node(s) '198'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp201_des.cmd
+The node '201' has dependencies to the node(s) '198'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 201
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp201_des.par
+The node '201' has dependencies to the node(s) '198'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n201_des.job
+local% submit job 201 for local execution
+>>>>>>>>>> job '201' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '216' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 216
+'@tdr@' creates dependences with the node(s) '213'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp216_des.cmd
+The node '216' has dependencies to the node(s) '213'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 216
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp216_des.par
+The node '216' has dependencies to the node(s) '213'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n216_des.job
+local% submit job 216 for local execution
+>>>>>>>>>> job '216' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '231' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 231
+'@tdr@' creates dependences with the node(s) '228'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp231_des.cmd
+The node '231' has dependencies to the node(s) '228'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 231
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp231_des.par
+The node '231' has dependencies to the node(s) '228'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n231_des.job
+local% submit job 231 for local execution
+>>>>>>>>>> job '231' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '237' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 237
+'@tdr@' creates dependences with the node(s) '234'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp237_des.cmd
+The node '237' has dependencies to the node(s) '234'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 237
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp237_des.par
+The node '237' has dependencies to the node(s) '234'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n237_des.job
+local% submit job 237 for local execution
+>>>>>>>>>> job '237' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '242' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 242
+'@tdr@' creates dependences with the node(s) '239'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp242_des.cmd
+The node '242' has dependencies to the node(s) '239'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 242
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp242_des.par
+The node '242' has dependencies to the node(s) '239'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n242_des.job
+local% submit job 242 for local execution
+>>>>>>>>>> job '242' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '247' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 247
+'@tdr@' creates dependences with the node(s) '244'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp247_des.cmd
+The node '247' has dependencies to the node(s) '244'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 247
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp247_des.par
+The node '247' has dependencies to the node(s) '244'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n247_des.job
+local% submit job 247 for local execution
+>>>>>>>>>> job '247' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '252' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 252
+'@tdr@' creates dependences with the node(s) '249'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp252_des.cmd
+The node '252' has dependencies to the node(s) '249'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 252
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp252_des.par
+The node '252' has dependencies to the node(s) '249'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n252_des.job
+local% submit job 252 for local execution
+>>>>>>>>>> job '252' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '258' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 258
+'@tdr@' creates dependences with the node(s) '255'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp258_des.cmd
+The node '258' has dependencies to the node(s) '255'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 258
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp258_des.par
+The node '258' has dependencies to the node(s) '255'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n258_des.job
+local% submit job 258 for local execution
+>>>>>>>>>> job '258' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '263' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 263
+'@tdr@' creates dependences with the node(s) '260'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp263_des.cmd
+The node '263' has dependencies to the node(s) '260'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 263
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp263_des.par
+The node '263' has dependencies to the node(s) '260'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n263_des.job
+local% submit job 263 for local execution
+>>>>>>>>>> job '263' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '268' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 268
+'@tdr@' creates dependences with the node(s) '265'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp268_des.cmd
+The node '268' has dependencies to the node(s) '265'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 268
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp268_des.par
+The node '268' has dependencies to the node(s) '265'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n268_des.job
+local% submit job 268 for local execution
+>>>>>>>>>> job '268' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '273' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice_des.cmd fornode 273
+'@tdr@' creates dependences with the node(s) '270'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp273_des.cmd
+The node '273' has dependencies to the node(s) '270'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 273
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp273_des.par
+The node '273' has dependencies to the node(s) '270'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n273_des.job
+local% submit job 273 for local execution
+>>>>>>>>>> job '273' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '174' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 174
+'@tdr@' creates dependences with the node(s) '170'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp174_des.cmd
+The node '174' has dependencies to the node(s) '170'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 174
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp174_des.par
+The node '174' has dependencies to the node(s) '170'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n174_des.job
+local% submit job 174 for local execution
+>>>>>>>>>> job '174' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '192' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 192
+'@tdr@' creates dependences with the node(s) '188'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp192_des.cmd
+The node '192' has dependencies to the node(s) '188'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 192
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp192_des.par
+The node '192' has dependencies to the node(s) '188'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n192_des.job
+local% submit job 192 for local execution
+>>>>>>>>>> job '192' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '207' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 207
+'@tdr@' creates dependences with the node(s) '203'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp207_des.cmd
+The node '207' has dependencies to the node(s) '203'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 207
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp207_des.par
+The node '207' has dependencies to the node(s) '203'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n207_des.job
+local% submit job 207 for local execution
+>>>>>>>>>> job '207' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '222' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 222
+'@tdr@' creates dependences with the node(s) '218'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp222_des.cmd
+The node '222' has dependencies to the node(s) '218'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 222
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp222_des.par
+The node '222' has dependencies to the node(s) '218'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n222_des.job
+local% submit job 222 for local execution
+>>>>>>>>>> job '222' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '179' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 179
+'@tdr@' creates dependences with the node(s) '175'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp179_des.cmd
+The node '179' has dependencies to the node(s) '175'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 179
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp179_des.par
+The node '179' has dependencies to the node(s) '175'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n179_des.job
+local% submit job 179 for local execution
+>>>>>>>>>> job '179' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '197' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 197
+'@tdr@' creates dependences with the node(s) '193'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp197_des.cmd
+The node '197' has dependencies to the node(s) '193'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 197
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp197_des.par
+The node '197' has dependencies to the node(s) '193'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n197_des.job
+local% submit job 197 for local execution
+>>>>>>>>>> job '197' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '212' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 212
+'@tdr@' creates dependences with the node(s) '208'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp212_des.cmd
+The node '212' has dependencies to the node(s) '208'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 212
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp212_des.par
+The node '212' has dependencies to the node(s) '208'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n212_des.job
+local% submit job 212 for local execution
+>>>>>>>>>> job '212' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '227' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 227
+'@tdr@' creates dependences with the node(s) '223'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp227_des.cmd
+The node '227' has dependencies to the node(s) '223'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 227
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp227_des.par
+The node '227' has dependencies to the node(s) '223'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n227_des.job
+local% submit job 227 for local execution
+>>>>>>>>>> job '227' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '184' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 184
+'@tdr@' creates dependences with the node(s) '180'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp184_des.cmd
+The node '184' has dependencies to the node(s) '180'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 184
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp184_des.par
+The node '184' has dependencies to the node(s) '180'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n184_des.job
+local% submit job 184 for local execution
+>>>>>>>>>> job '184' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '202' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 202
+'@tdr@' creates dependences with the node(s) '198'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp202_des.cmd
+The node '202' has dependencies to the node(s) '198'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 202
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp202_des.par
+The node '202' has dependencies to the node(s) '198'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n202_des.job
+local% submit job 202 for local execution
+>>>>>>>>>> job '202' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '217' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 217
+'@tdr@' creates dependences with the node(s) '213'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp217_des.cmd
+The node '217' has dependencies to the node(s) '213'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 217
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp217_des.par
+The node '217' has dependencies to the node(s) '213'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n217_des.job
+local% submit job 217 for local execution
+>>>>>>>>>> job '217' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '232' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 232
+'@tdr@' creates dependences with the node(s) '228'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp232_des.cmd
+The node '232' has dependencies to the node(s) '228'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 232
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp232_des.par
+The node '232' has dependencies to the node(s) '228'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n232_des.job
+local% submit job 232 for local execution
+>>>>>>>>>> job '232' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '238' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 238
+'@tdr@' creates dependences with the node(s) '234'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp238_des.cmd
+The node '238' has dependencies to the node(s) '234'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 238
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp238_des.par
+The node '238' has dependencies to the node(s) '234'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n238_des.job
+local% submit job 238 for local execution
+>>>>>>>>>> job '238' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '243' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 243
+'@tdr@' creates dependences with the node(s) '239'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp243_des.cmd
+The node '243' has dependencies to the node(s) '239'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 243
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp243_des.par
+The node '243' has dependencies to the node(s) '239'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n243_des.job
+local% submit job 243 for local execution
+>>>>>>>>>> job '243' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '248' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 248
+'@tdr@' creates dependences with the node(s) '244'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp248_des.cmd
+The node '248' has dependencies to the node(s) '244'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 248
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp248_des.par
+The node '248' has dependencies to the node(s) '244'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n248_des.job
+local% submit job 248 for local execution
+>>>>>>>>>> job '248' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '253' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 253
+'@tdr@' creates dependences with the node(s) '249'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp253_des.cmd
+The node '253' has dependencies to the node(s) '249'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 253
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp253_des.par
+The node '253' has dependencies to the node(s) '249'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n253_des.job
+local% submit job 253 for local execution
+>>>>>>>>>> job '253' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '259' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 259
+'@tdr@' creates dependences with the node(s) '255'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp259_des.cmd
+The node '259' has dependencies to the node(s) '255'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 259
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp259_des.par
+The node '259' has dependencies to the node(s) '255'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n259_des.job
+local% submit job 259 for local execution
+>>>>>>>>>> job '259' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '264' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 264
+'@tdr@' creates dependences with the node(s) '260'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp264_des.cmd
+The node '264' has dependencies to the node(s) '260'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 264
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp264_des.par
+The node '264' has dependencies to the node(s) '260'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n264_des.job
+local% submit job 264 for local execution
+>>>>>>>>>> job '264' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '269' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 269
+'@tdr@' creates dependences with the node(s) '265'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp269_des.cmd
+The node '269' has dependencies to the node(s) '265'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 269
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp269_des.par
+The node '269' has dependencies to the node(s) '265'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n269_des.job
+local% submit job 269 for local execution
+>>>>>>>>>> job '269' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '274' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gtree.dat'
+Loading jobs and dependence graph '"/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gexec.cmd"'
+Loading project variables '/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd
+Reading file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice1_des.cmd fornode 274
+'@tdr@' creates dependences with the node(s) '270'
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp274_des.cmd
+The node '274' has dependencies to the node(s) '270'
+Preprocessing file /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/sdevice.par fornode 274
++++Preprocessing results written to /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/pp274_des.par
+The node '274' has dependencies to the node(s) '270'
+>>>>>>>>>> os_rm /home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell/n274_des.job
+local% submit job 274 for local execution
+>>>>>>>>>> job '274' status changed from 'ready' to 'pending'
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 173 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '173' status changed from 'pending' to 'running'
+16:13:34 Feb 10 2020     job 173 <sdevice> started on host 'localhost': "sdevice pp173_des.cmd"
+>>>>>>>>>> job '173' status changed from 'running' to 'done'
+16:16:35 Feb 10 2020 +++ job 173 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 191 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '191' status changed from 'pending' to 'running'
+16:16:36 Feb 10 2020     job 191 <sdevice> started on host 'localhost': "sdevice pp191_des.cmd"
+>>>>>>>>>> job '191' status changed from 'running' to 'done'
+16:19:35 Feb 10 2020 +++ job 191 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 206 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '206' status changed from 'pending' to 'running'
+16:19:36 Feb 10 2020     job 206 <sdevice> started on host 'localhost': "sdevice pp206_des.cmd"
+>>>>>>>>>> job '206' status changed from 'running' to 'done'
+16:22:37 Feb 10 2020 +++ job 206 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 221 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '221' status changed from 'pending' to 'running'
+16:22:38 Feb 10 2020     job 221 <sdevice> started on host 'localhost': "sdevice pp221_des.cmd"
+>>>>>>>>>> job '221' status changed from 'running' to 'done'
+16:25:35 Feb 10 2020 +++ job 221 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 178 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '178' status changed from 'pending' to 'running'
+16:25:36 Feb 10 2020     job 178 <sdevice> started on host 'localhost': "sdevice pp178_des.cmd"
+>>>>>>>>>> job '178' status changed from 'running' to 'done'
+16:28:43 Feb 10 2020 +++ job 178 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 196 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '196' status changed from 'pending' to 'running'
+16:28:44 Feb 10 2020     job 196 <sdevice> started on host 'localhost': "sdevice pp196_des.cmd"
+>>>>>>>>>> job '196' status changed from 'running' to 'done'
+16:31:52 Feb 10 2020 +++ job 196 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 211 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '211' status changed from 'pending' to 'running'
+16:31:53 Feb 10 2020     job 211 <sdevice> started on host 'localhost': "sdevice pp211_des.cmd"
+>>>>>>>>>> job '211' status changed from 'running' to 'done'
+16:34:57 Feb 10 2020 +++ job 211 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 226 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '226' status changed from 'pending' to 'running'
+16:34:58 Feb 10 2020     job 226 <sdevice> started on host 'localhost': "sdevice pp226_des.cmd"
+>>>>>>>>>> job '226' status changed from 'running' to 'done'
+16:37:54 Feb 10 2020 +++ job 226 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 183 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '183' status changed from 'pending' to 'running'
+16:37:55 Feb 10 2020     job 183 <sdevice> started on host 'localhost': "sdevice pp183_des.cmd"
+>>>>>>>>>> job '183' status changed from 'running' to 'done'
+16:40:50 Feb 10 2020 +++ job 183 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 201 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '201' status changed from 'pending' to 'running'
+16:40:51 Feb 10 2020     job 201 <sdevice> started on host 'localhost': "sdevice pp201_des.cmd"
+>>>>>>>>>> job '201' status changed from 'running' to 'done'
+16:43:45 Feb 10 2020 +++ job 201 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 216 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '216' status changed from 'pending' to 'running'
+16:43:46 Feb 10 2020     job 216 <sdevice> started on host 'localhost': "sdevice pp216_des.cmd"
+>>>>>>>>>> job '216' status changed from 'running' to 'done'
+16:46:37 Feb 10 2020 +++ job 216 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 231 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '231' status changed from 'pending' to 'running'
+16:46:38 Feb 10 2020     job 231 <sdevice> started on host 'localhost': "sdevice pp231_des.cmd"
+>>>>>>>>>> job '231' status changed from 'running' to 'done'
+16:49:30 Feb 10 2020 +++ job 231 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 237 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '237' status changed from 'pending' to 'running'
+16:49:31 Feb 10 2020     job 237 <sdevice> started on host 'localhost': "sdevice pp237_des.cmd"
+>>>>>>>>>> job '237' status changed from 'running' to 'done'
+16:52:29 Feb 10 2020 +++ job 237 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 242 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '242' status changed from 'pending' to 'running'
+16:52:30 Feb 10 2020     job 242 <sdevice> started on host 'localhost': "sdevice pp242_des.cmd"
+>>>>>>>>>> job '242' status changed from 'running' to 'done'
+16:55:24 Feb 10 2020 +++ job 242 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 247 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '247' status changed from 'pending' to 'running'
+16:55:25 Feb 10 2020     job 247 <sdevice> started on host 'localhost': "sdevice pp247_des.cmd"
+>>>>>>>>>> job '247' status changed from 'running' to 'done'
+16:58:17 Feb 10 2020 +++ job 247 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 252 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '252' status changed from 'pending' to 'running'
+16:58:18 Feb 10 2020     job 252 <sdevice> started on host 'localhost': "sdevice pp252_des.cmd"
+>>>>>>>>>> job '252' status changed from 'running' to 'done'
+17:01:09 Feb 10 2020 +++ job 252 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 258 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '258' status changed from 'pending' to 'running'
+17:01:10 Feb 10 2020     job 258 <sdevice> started on host 'localhost': "sdevice pp258_des.cmd"
+>>>>>>>>>> job '258' status changed from 'running' to 'done'
+17:04:03 Feb 10 2020 +++ job 258 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 263 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '263' status changed from 'pending' to 'running'
+17:04:04 Feb 10 2020     job 263 <sdevice> started on host 'localhost': "sdevice pp263_des.cmd"
+>>>>>>>>>> job '263' status changed from 'running' to 'done'
+17:07:05 Feb 10 2020 +++ job 263 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 268 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '268' status changed from 'pending' to 'running'
+17:07:06 Feb 10 2020     job 268 <sdevice> started on host 'localhost': "sdevice pp268_des.cmd"
+>>>>>>>>>> job '268' status changed from 'running' to 'done'
+17:09:57 Feb 10 2020 +++ job 268 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 273 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '273' status changed from 'pending' to 'running'
+17:09:58 Feb 10 2020     job 273 <sdevice> started on host 'localhost': "sdevice pp273_des.cmd"
+>>>>>>>>>> job '273' status changed from 'running' to 'done'
+17:12:43 Feb 10 2020 +++ job 273 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 174 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '174' status changed from 'pending' to 'running'
+17:12:44 Feb 10 2020     job 174 <sdevice> started on host 'localhost': "sdevice pp174_des.cmd"
+>>>>>>>>>> job '174' status changed from 'running' to 'done'
+17:18:54 Feb 10 2020 +++ job 174 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 192 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '192' status changed from 'pending' to 'running'
+17:18:55 Feb 10 2020     job 192 <sdevice> started on host 'localhost': "sdevice pp192_des.cmd"
+>>>>>>>>>> job '192' status changed from 'running' to 'done'
+17:24:51 Feb 10 2020 +++ job 192 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 207 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '207' status changed from 'pending' to 'running'
+17:24:52 Feb 10 2020     job 207 <sdevice> started on host 'localhost': "sdevice pp207_des.cmd"
+>>>>>>>>>> job '207' status changed from 'running' to 'done'
+17:30:44 Feb 10 2020 +++ job 207 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 222 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '222' status changed from 'pending' to 'running'
+17:30:45 Feb 10 2020     job 222 <sdevice> started on host 'localhost': "sdevice pp222_des.cmd"
+>>>>>>>>>> job '222' status changed from 'running' to 'done'
+17:36:38 Feb 10 2020 +++ job 222 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 179 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '179' status changed from 'pending' to 'running'
+17:36:39 Feb 10 2020     job 179 <sdevice> started on host 'localhost': "sdevice pp179_des.cmd"
+>>>>>>>>>> job '179' status changed from 'running' to 'done'
+17:42:42 Feb 10 2020 +++ job 179 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 197 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '197' status changed from 'pending' to 'running'
+17:42:43 Feb 10 2020     job 197 <sdevice> started on host 'localhost': "sdevice pp197_des.cmd"
+>>>>>>>>>> job '197' status changed from 'running' to 'done'
+17:48:52 Feb 10 2020 +++ job 197 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 212 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '212' status changed from 'pending' to 'running'
+17:48:53 Feb 10 2020     job 212 <sdevice> started on host 'localhost': "sdevice pp212_des.cmd"
+>>>>>>>>>> job '212' status changed from 'running' to 'done'
+17:54:46 Feb 10 2020 +++ job 212 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 227 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '227' status changed from 'pending' to 'running'
+17:54:47 Feb 10 2020     job 227 <sdevice> started on host 'localhost': "sdevice pp227_des.cmd"
+>>>>>>>>>> job '227' status changed from 'running' to 'done'
+18:00:54 Feb 10 2020 +++ job 227 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 184 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '184' status changed from 'pending' to 'running'
+18:00:55 Feb 10 2020     job 184 <sdevice> started on host 'localhost': "sdevice pp184_des.cmd"
+>>>>>>>>>> job '184' status changed from 'running' to 'done'
+18:06:49 Feb 10 2020 +++ job 184 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 202 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '202' status changed from 'pending' to 'running'
+18:06:50 Feb 10 2020     job 202 <sdevice> started on host 'localhost': "sdevice pp202_des.cmd"
+>>>>>>>>>> job '202' status changed from 'running' to 'done'
+18:12:35 Feb 10 2020 +++ job 202 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 217 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '217' status changed from 'pending' to 'running'
+18:12:36 Feb 10 2020     job 217 <sdevice> started on host 'localhost': "sdevice pp217_des.cmd"
+>>>>>>>>>> job '217' status changed from 'running' to 'done'
+18:18:12 Feb 10 2020 +++ job 217 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 232 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '232' status changed from 'pending' to 'running'
+18:18:13 Feb 10 2020     job 232 <sdevice> started on host 'localhost': "sdevice pp232_des.cmd"
+>>>>>>>>>> job '232' status changed from 'running' to 'done'
+18:23:55 Feb 10 2020 +++ job 232 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 238 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '238' status changed from 'pending' to 'running'
+18:23:56 Feb 10 2020     job 238 <sdevice> started on host 'localhost': "sdevice pp238_des.cmd"
+>>>>>>>>>> job '238' status changed from 'running' to 'done'
+18:29:49 Feb 10 2020 +++ job 238 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 243 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '243' status changed from 'pending' to 'running'
+18:29:50 Feb 10 2020     job 243 <sdevice> started on host 'localhost': "sdevice pp243_des.cmd"
+>>>>>>>>>> job '243' status changed from 'running' to 'done'
+18:35:44 Feb 10 2020 +++ job 243 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 248 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '248' status changed from 'pending' to 'running'
+18:35:45 Feb 10 2020     job 248 <sdevice> started on host 'localhost': "sdevice pp248_des.cmd"
+>>>>>>>>>> job '248' status changed from 'running' to 'done'
+18:41:38 Feb 10 2020 +++ job 248 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 253 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '253' status changed from 'pending' to 'running'
+18:41:39 Feb 10 2020     job 253 <sdevice> started on host 'localhost': "sdevice pp253_des.cmd"
+>>>>>>>>>> job '253' status changed from 'running' to 'done'
+18:47:27 Feb 10 2020 +++ job 253 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 259 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '259' status changed from 'pending' to 'running'
+18:47:28 Feb 10 2020     job 259 <sdevice> started on host 'localhost': "sdevice pp259_des.cmd"
+>>>>>>>>>> job '259' status changed from 'running' to 'done'
+18:53:07 Feb 10 2020 +++ job 259 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 264 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '264' status changed from 'pending' to 'running'
+18:53:08 Feb 10 2020     job 264 <sdevice> started on host 'localhost': "sdevice pp264_des.cmd"
+>>>>>>>>>> job '264' status changed from 'running' to 'done'
+18:59:13 Feb 10 2020 +++ job 264 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 269 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '269' status changed from 'pending' to 'running'
+18:59:14 Feb 10 2020     job 269 <sdevice> started on host 'localhost': "sdevice pp269_des.cmd"
+>>>>>>>>>> job '269' status changed from 'running' to 'done'
+19:04:45 Feb 10 2020 +++ job 269 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 274 -swb_pid 22665 -gsub_pid 10072 -gsub_host localhost -gsub_port 41663  "/home/cneubueser/tcad_sim/DB/ARCADIA25um_pwell""
+>>>>>>>>>> job '274' status changed from 'pending' to 'running'
+19:04:46 Feb 10 2020     job 274 <sdevice> started on host 'localhost': "sdevice --max_threads 1  pp274_des.cmd"
+>>>>>>>>>> job '274' status changed from 'running' to 'done'
+19:10:22 Feb 10 2020 +++ job 274 <sdevice> done: exit(0)
+
+SCHEDULING REPORT
++++ done     : 173 191 206 221 178 196 211 226 183 201 216 231 237 242 247 252 258 263 268 273 174 192 207 222 179 197 212 227 184 202 217 232 238 243 248 253 259 264 269 274
+
+19:10:25 Feb 10 2020 <ARCADIA25um_pwell> done (10612 sec)
+>>>>>> Writing to status file 10612
+gsub exits with status 0

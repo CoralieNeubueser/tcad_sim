@@ -1,0 +1,158 @@
+###########################################
+# Sentaurus Visual P-2019.03-SP1.
+# Tcl log file.
+#------------------------------------------
+# Date: Feb 10, 2020. 15:25:41.
+# Version: 29.0.1250 (1.1250)
+# Mode: Interactive (GUI).
+# Mesa: enabled.
+# Hostname: localhost.localdomain.
+# Machine: Linux, x86_64, x86_64.
+# Kernel: 4.18.0-147.3.1.el8_1.x86_64.
+###########################################
+
+load_file /home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/n43_msh.tdr
+create_plot -dataset n43_msh
+select_plots {Plot_n43_msh}
+#-> Plot_n43_msh
+#-> Plot_n43_msh
+#-> n43_msh
+rotate_plot -plot Plot_n43_msh -x 138.308 -y 126.974 -z -62.0049 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh -x 154.668 -y -171.44 -z -65.1151 -absolute
+#-> 0
+set_plot_prop -plot {Plot_n43_msh} -show_cube_axes
+#-> 0
+set_plot_prop -plot {Plot_n43_msh} -show_minor_ticks
+#-> 0
+rotate_plot -plot Plot_n43_msh -x 153.986 -y -133.515 -z -64.5849 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh -x 116.352 -y -150.839 -z -75.0929 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh -x 92.3505 -y 172.756 -z -80.0468 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh -x 166.841 -y -104.242 -z -41.2738 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh -x 177.934 -y -127.359 -z -24.6998 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh -x 147.512 -y -179.465 -z -41.557 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh -x 143.781 -y 155.128 -z -41.1116 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh -x -160.835 -y -129.164 -z -26.49 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh -x -156.125 -y -93.0845 -z 1.18094 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh -x -146.321 -y -71.0647 -z -62.5246 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh -x -128.538 -y -22.9119 -z -66.3382 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh -x -113.227 -y -36.9718 -z -71.2428 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh -x -170.277 -y -54.9367 -z -31.473 -absolute
+#-> 0
+zoom_plot -plot Plot_n43_msh -factor 0.953463
+zoom_plot -plot Plot_n43_msh -factor 0.953463
+zoom_plot -plot Plot_n43_msh -factor 0.953463
+zoom_plot -plot Plot_n43_msh -factor 0.953463
+zoom_plot -plot Plot_n43_msh -factor 0.953463
+zoom_plot -plot Plot_n43_msh -factor 0.953463
+zoom_plot -plot Plot_n43_msh -factor 0.953463
+zoom_plot -plot Plot_n43_msh -factor 0.953463
+zoom_plot -plot Plot_n43_msh -factor 0.953463
+zoom_plot -plot Plot_n43_msh -factor 0.953463
+rotate_plot -plot Plot_n43_msh -x 160.946 -y -44.0483 -z -0.300743 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh -x -174.426 -y -24.3088 -z -18.0291 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh -x -172.712 -y -50.3802 -z -13.0308 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh -x -166.642 -y -73.7541 -z -16.1847 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh -x -163.61 -y -99.4572 -z -18.8548 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh -x -165.388 -y -96.7218 -z -22.4649 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh -x -161.931 -y -126.056 -z -18.5157 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh -x 171.249 -y -143.894 -z -43.084 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh -x 158.044 -y 175.513 -z -45.7368 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh -x 167.984 -y -179.586 -z -45.9975 -absolute
+#-> 0
+set_legend_prop -plot Plot_n43_msh -position {0.760993 0.885488} -size {0.241413 0.3}
+#-> 0
+load_file /home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/n46_des.plt
+create_plot -1d
+select_plots {Plot_1}
+#-> Plot_1
+#-> Plot_1
+#-> n46_des
+create_curve -plot Plot_1 -dataset {n46_des} -axisX {Pbot OuterVoltage} -axisY {Ntop TotalCurrent}
+#-> Curve_1
+set_legend_prop -plot Plot_1 -position {0.0896057 0.970588}
+#-> 0
+set_axis_prop -plot Plot_1 -axis y -min 0 -min_fixed
+#-> 0
+set_axis_prop -plot Plot_1 -axis y -min_auto
+#-> 0
+load_file /home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/n43_msh.tdr
+create_plot -dataset n43_msh_2
+select_plots {Plot_n43_msh_2}
+#-> Plot_n43_msh_2
+#-> Plot_n43_msh_2
+#-> n43_msh_2
+rotate_plot -plot Plot_n43_msh_2 -x 135 -y 91.8 -z -60 -absolute
+#-> 0
+windows_style -style max
+#-> 0
+rotate_plot -plot Plot_n43_msh_2 -x 106.132 -y 167.301 -z -44.785 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh_2 -x 149.472 -y -154.243 -z -40.8034 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh_2 -x 156.471 -y 177.853 -z -40.0271 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh_2 -x 147.1 -y 158.932 -z -38.4641 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh_2 -x 115.027 -y 140.269 -z -21.2131 -absolute
+#-> 0
+load_file /home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/cv_n47_ac_des.plt
+#-> cv_n47_ac_des
+load_file /home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/cv_n47_ac_des.plt
+#-> cv_n47_ac_des_2
+rotate_plot -plot Plot_n43_msh_2 -x 109.677 -y 153.912 -z -18.2225 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh_2 -x 124.95 -y 162.815 -z -23.6821 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh_2 -x 126.227 -y -172.282 -z -23.5863 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh_2 -x 126.227 -y -172.282 -z -23.5863 -absolute
+#-> 0
+set_plot_prop -plot {Plot_n43_msh_2} -title "25um strip"
+#-> 0
+set_legend_prop -plot Plot_n43_msh_2 -position {0.8 1.03333} -size {0.323714 0.833333}
+#-> 0
+set_legend_prop -plot Plot_n43_msh_2 -title_font_family arial -title_font_factor 2 -title_font_color #000000 -title_font_att bold
+#-> 0
+set_legend_prop -plot Plot_n43_msh_2 -label_font_family arial -label_font_factor 2 -label_font_color #000000 -label_font_att bold
+#-> 0
+set_legend_prop -plot Plot_n43_msh_2 -position {0.0250859 0.429843} -size {0.464581 0.401957}
+#-> 0
+rotate_plot -plot Plot_n43_msh_2 -x 111.765 -y -173.069 -z -25.6532 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh_2 -x 125.382 -y -149.945 -z -21.2263 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh_2 -x 115.811 -y -158.395 -z -25.5333 -absolute
+#-> 0
+rotate_plot -plot Plot_n43_msh_2 -x 127.36 -y -160.279 -z -21.4599 -absolute
+#-> 0
+zoom_plot -plot Plot_n43_msh_2 -factor 0.953463
+zoom_plot -plot Plot_n43_msh_2 -factor 0.953463
+zoom_plot -plot Plot_n43_msh_2 -factor 0.953463
+set_camera_prop -plot Plot_n43_msh_2 -setup {"12.5 25 12.5" "169.525 -386.565 249.054" "-0.36585 -0.564757 -0.739732" 6.82455 0.831557}
+#-> 0
+export_view /home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4/tmp/doping_50um.png -plots {Plot_n43_msh_2} -format png
+#-> 0
+exit 0
+ 

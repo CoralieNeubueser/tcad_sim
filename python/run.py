@@ -37,6 +37,11 @@ ranges = dict([('cv', [2e-16, 5e-15]),
                ('tran', [0, 1.2])
            ])
 
+if threeDim:
+    ranges['cv']=[0, 2e-14]
+    titles['cv']='C [F]'
+    titles['iv']='I [A]'
+
 
 # write parameter permutations.. 
 arrayParPerm=[]

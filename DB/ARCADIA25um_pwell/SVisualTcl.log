@@ -1,0 +1,25 @@
+###########################################
+# Sentaurus Visual P-2019.03-SP1.
+# Tcl log file.
+#------------------------------------------
+# Date: Feb 03, 2020. 12:20:02.
+# Version: 29.0.1250 (1.1250)
+# Mode: Interactive (GUI).
+# Mesa: enabled.
+# Hostname: localhost.localdomain.
+# Machine: Linux, x86_64, x86_64.
+# Kernel: 4.18.0-147.3.1.el8_1.x86_64.
+###########################################
+
+load_file /home/cneubueser/synopsys/DB/Pixel25um/ARCADIA25um_pwell/n258_des.plt
+create_plot -1d
+select_plots {Plot_1}
+#-> Plot_1
+#-> Plot_1
+#-> n258_des
+create_curve -plot Plot_1 -dataset {n258_des} -axisX {Pbot OuterVoltage} -axisY {Ntop TotalCurrent}
+#-> Curve_1
+export_curves {Curve_1} -plot Plot_1 -filename /home/cneubueser/synopsys/DB/Pixel25um/ARCADIA25um_pwell/tmp/iv_425.csv -format csv
+#-> /home/cneubueser/synopsys/DB/Pixel25um/ARCADIA25um_pwell/tmp/iv_425.csv
+exit 0
+ 

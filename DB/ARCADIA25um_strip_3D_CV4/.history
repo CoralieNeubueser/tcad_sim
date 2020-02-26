@@ -1,0 +1,48 @@
+14:42:01 Feb 10 2020 <ARCADIA25um_strip_3D_CV4> submitted to the batch system
+14:42:01 Feb 10 2020     job 43 <sde> started on host 'localhost': "sde -e -l n43_dvs.cmd"
+14:42:06 Feb 10 2020 +++ job 43 <sde> done: exit(0)
+14:42:08 Feb 10 2020 <ARCADIA25um_strip_3D_CV4> done (7 sec)
+14:46:31 Feb 10 2020 <ARCADIA25um_strip_3D_CV4> submitted to the batch system
+14:46:32 Feb 10 2020     job 46 <sdevice> started on host 'localhost': "sdevice --max_threads 1  pp46_des.cmd"
+14:46:35 Feb 10 2020 --- job 46 <sdevice> exited abnormally: exit()
+14:46:37 Feb 10 2020 <ARCADIA25um_strip_3D_CV4> failed
+14:51:37 Feb 10 2020 <ARCADIA25um_strip_3D_CV4> submitted to the batch system
+14:51:38 Feb 10 2020     job 46 <sdevice> started on host 'localhost': "sdevice --max_threads 1  pp46_des.cmd"
+14:51:40 Feb 10 2020 --- job 46 <sdevice> exited abnormally: exit()
+14:51:42 Feb 10 2020 <ARCADIA25um_strip_3D_CV4> failed
+15:09:42 Feb 10 2020 <ARCADIA25um_strip_3D_CV4> submitted to the batch system
+15:09:43 Feb 10 2020     job 46 <sdevice> started on host 'localhost': "sdevice --max_threads 1  pp46_des.cmd"
+15:09:46 Feb 10 2020 --- job 46 <sdevice> exited abnormally: exit()
+15:09:48 Feb 10 2020 <ARCADIA25um_strip_3D_CV4> failed
+15:11:45 Feb 10 2020 <ARCADIA25um_strip_3D_CV4> submitted to the batch system
+15:11:45 Feb 10 2020     job 43 <sde> started on host 'localhost': "sde -e -l n43_dvs.cmd"
+15:11:49 Feb 10 2020 +++ job 43 <sde> done: exit(0)
+15:11:52 Feb 10 2020 <ARCADIA25um_strip_3D_CV4> done (7 sec)
+15:17:34 Feb 10 2020 <ARCADIA25um_strip_3D_CV4> submitted to the batch system
+15:17:35 Feb 10 2020     job 43 <sde> started on host 'localhost': "sde -e -l n43_dvs.cmd"
+15:17:40 Feb 10 2020 +++ job 43 <sde> done: exit(0)
+15:17:42 Feb 10 2020 <ARCADIA25um_strip_3D_CV4> done (8 sec)
+15:22:14 Feb 10 2020 <ARCADIA25um_strip_3D_CV4> submitted to the batch system
+15:22:14 Feb 10 2020     job 43 <sde> started on host 'localhost': "sde -e -l n43_dvs.cmd"
+15:22:19 Feb 10 2020 +++ job 43 <sde> done: exit(0)
+15:22:21 Feb 10 2020 <ARCADIA25um_strip_3D_CV4> done (7 sec)
+15:23:16 Feb 10 2020 <ARCADIA25um_strip_3D_CV4> submitted to the batch system
+15:23:16 Feb 10 2020     job 46 <sdevice> started on host 'localhost': "sdevice --max_threads 1  pp46_des.cmd"
+15:26:22 Feb 10 2020 +++ job 46 <sdevice> done: exit(0)
+15:26:23 Feb 10 2020     job 47 <sdevice> started on host 'localhost': "sdevice --max_threads 1  pp47_des.cmd"
+15:31:21 Feb 10 2020 +++ job 47 <sdevice> done: exit(0)
+15:31:23 Feb 10 2020 <ARCADIA25um_strip_3D_CV4> done (487 sec)
+15:31:24 Feb 10 2020 <ARCADIA25um_strip_3D_CV4> submitted to the batch system
+15:31:25 Feb 10 2020     job 43 <sde> started on host 'localhost': "sde -e -l n43_dvs.cmd"
+15:31:29 Feb 10 2020 +++ job 43 <sde> done: exit(0)
+15:31:32 Feb 10 2020 <ARCADIA25um_strip_3D_CV4> done (8 sec)
+15:31:40 Feb 10 2020 <ARCADIA25um_strip_3D_CV4> submitted to the batch system
+15:31:41 Feb 10 2020     job 46 <sdevice> started on host 'localhost': "sdevice --max_threads 1  pp46_des.cmd"
+15:34:50 Feb 10 2020 +++ job 46 <sdevice> done: exit(0)
+15:34:51 Feb 10 2020     job 47 <sdevice> started on host 'localhost': "sdevice --max_threads 1  pp47_des.cmd"
+15:39:31 Feb 10 2020 +++ job 47 <sdevice> done: exit(0)
+15:39:34 Feb 10 2020 <ARCADIA25um_strip_3D_CV4> done (474 sec)
+10:31:21 Feb 26 2020 <ARCADIA25um_strip_3D_CV4> submitted to the batch system
+10:31:21 Feb 26 2020     job 47 <sdevice> started on host 'localhost': "sdevice --max_threads 1  pp47_des.cmd"
+10:35:40 Feb 26 2020 +++ job 47 <sdevice> done: exit(0)
+10:35:42 Feb 26 2020 <ARCADIA25um_strip_3D_CV4> done (261 sec)
