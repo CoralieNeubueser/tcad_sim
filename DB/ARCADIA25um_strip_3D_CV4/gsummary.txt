@@ -3,7 +3,7 @@ Project Summary for /home/cneubueser/tcad_sim/DB/ARCADIA25um_strip_3D_CV4
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Project Details :
 		current status		: running
-		was last modified	: 02/10/2020 15:31:48
+		was last modified	: 02/26/2020 10:31:21
 		was modified by		: cneubueser
 		was run on host		: localhost
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -31,12 +31,12 @@ Hosts and Execution Information
  
 Host "localhost" 
 		Number of nodes		: 3
-		Host Time		: 471 sec
+		Host Time		: 449 sec
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-		Total RunTime		: 471 sec
+		Total RunTime		: 449 sec
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Project Summary generated on		: 02/10/2020 15:39:34
+Project Summary generated on		: 02/26/2020 10:35:42
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

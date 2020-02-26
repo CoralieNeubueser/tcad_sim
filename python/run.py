@@ -37,6 +37,11 @@ ranges = dict([('cv', [2e-16, 5e-15]),
                ('tran', [0, 1.2])
            ])
 
+if threeDim:
+    ranges['cv']=[0, 2e-14]
+    titles['cv']='C [F]'
+    titles['iv']='I [A]'
+
 
 # write parameter permutations.. 
 arrayParPerm=[]
@@ -82,20 +87,24 @@ for p1 in args.par1:
 if args.writeCSV:
     for parOption in arrayParPerm:
         print(parOption)
-        if not threeDim:
-            # write and run tcl files to store csv files in tmp/ for
-            # CV ..
-            os.system('python3 python/writeTcl.py --project '+str(args.project)+' --cv '+parOption+' --run')
-            # and IV.
-            os.system('python3 python/writeTcl.py --project '+str(args.project)+' --iv '+parOption+' --run')
-            # and IV of bottom contact.      
-            os.system('python3 python/writeTcl.py --project '+str(args.project)+' --iv_b '+parOption+' --run')
-            # and IV of bottom contact.
-            os.system('python3 python/writeTcl.py --project '+str(args.project)+' --cv_b '+parOption+' --run')
-        else:
-            # transient.
-            print ('python3 python/writeTcl.py --project '+str(args.project)+' --tran '+parOption+' --run')
-            os.system('python3 python/writeTcl.py --project '+str(args.project)+' --tran '+parOption+' --run')
+        # write and run tcl files to store csv files in tmp/ for
+        # CV ..
+        if len(args.measure)>1:
+            for im,m in enumerate(args.measure):
+                if m=='cv':
+                    os.system('python3 python/writeTcl.py --project '+str(args.project)+' --cv '+parOption+' --run')
+                elif m=='iv':
+                    # and IV.
+                    os.system('python3 python/writeTcl.py --project '+str(args.project)+' --iv '+parOption+' --run')
+                elif m=='iv_b':
+                    # and IV of bottom contact.      
+                    os.system('python3 python/writeTcl.py --project '+str(args.project)+' --iv_b '+parOption+' --run')
+                elif m=='cv_b':
+                    # and IV of bottom contact.
+                    os.system('python3 python/writeTcl.py --project '+str(args.project)+' --cv_b '+parOption+' --run')
+                elif m=='tran':
+                    # transient.
+                    os.system('python3 python/writeTcl.py --project '+str(args.project)+' --tran '+parOption+' --run')
             
 # prepare for drawing
 colors = ['#1f77b4', '#aec7e8', '#ff7f0e', '#ffbb78', '#2ca02c',

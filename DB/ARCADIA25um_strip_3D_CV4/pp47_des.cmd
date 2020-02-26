@@ -16,9 +16,8 @@ File 	{
 	Grid  = "n43_msh.tdr"
      	lifetime = "n43_msh.tdr"
      	param   = "pp47_des.par"
-     	current = "n47_des.plt"   # .plt inspect
-     	save	= "n47_initial_condition"
-     	plot    = "n47_des.tdr"   # .dat  tecplot_sv
+     	current = "50.plt"   # .plt inspect
+     	plot    = "50.tdr"   # .dat  tecplot_sv
 }
 
 		
@@ -53,7 +52,7 @@ Plot	{
 
 File {
 	Output = "n47_des.log"
-	ACExtract = "n47_ac_des.plt"
+	ACExtract = "ac_50"
 }
 
 Math 	{

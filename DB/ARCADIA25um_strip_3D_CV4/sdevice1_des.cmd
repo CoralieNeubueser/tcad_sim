@@ -25,9 +25,8 @@ File 	{
 	Grid  = "@tdr@"
      	lifetime = "@tdr@"
      	param   = "@parameter@"
-     	current = "@plot@"   # .plt inspect
-     	save	= "n@node@_initial_condition"
-     	plot    = "@tdrdat@"   # .dat  tecplot_sv
+     	current = "@tsi@.plt"   # .plt inspect
+     	plot    = "@tsi@.tdr"   # .dat  tecplot_sv
 }
 
 		
@@ -63,7 +62,7 @@ Plot	{
 
 File {
 	Output = "@log@"
-	ACExtract = "@acplot@"
+	ACExtract = "ac_@tsi@"
 }
 
 Math 	{

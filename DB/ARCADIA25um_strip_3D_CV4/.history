@@ -42,3 +42,7 @@
 15:34:51 Feb 10 2020     job 47 <sdevice> started on host 'localhost': "sdevice --max_threads 1  pp47_des.cmd"
 15:39:31 Feb 10 2020 +++ job 47 <sdevice> done: exit(0)
 15:39:34 Feb 10 2020 <ARCADIA25um_strip_3D_CV4> done (474 sec)
+10:31:21 Feb 26 2020 <ARCADIA25um_strip_3D_CV4> submitted to the batch system
+10:31:21 Feb 26 2020     job 47 <sdevice> started on host 'localhost': "sdevice --max_threads 1  pp47_des.cmd"
+10:35:40 Feb 26 2020 +++ job 47 <sdevice> done: exit(0)
+10:35:42 Feb 26 2020 <ARCADIA25um_strip_3D_CV4> done (261 sec)
