@@ -14,8 +14,8 @@
 (define DSi 50) ;Silicon Depth
 (define pwW 15)	; pwell Width
 (define pwD 15)	; pwell Depth
-(define dpwW 16) ; deep pwell Width
-(define dpwD 16) ; deep pwell Depth
+(define dpwW 15) ; deep pwell Width
+(define dpwD 15) ; deep pwell Depth
 (define nwW 10)	; nwell Width
 (define nwD 10)	; nwell Depth
 (define nwSTART (- (/ WSi 2) (/ nwW 2) ) )	; nwell start x
@@ -87,7 +87,7 @@
 ;;(sdedr:define-1d-external-profile "ProfDDNwell" "./ddnwellld.txt" "Scale" 1 "Range" 0 10 "Gauss"  "Factor" 0) 
 (sdedr:define-gaussian-profile "ProfPbot" "BoronActiveConcentration" "PeakPos" 0  "PeakVal" 1e+19 "ValueAtDepth" 2.5e+12 "Depth" 0.1 "Gauss"  "Factor" 0.8)  
 (sdedr:define-constant-profile-region "PlacSub" "ProfSub" "substrate")
-(sdedr:define-constant-profile-placement "PlacEpi" "ProfEpi" "WinEpi" 0.3 "Both" "NoReplace" "Eval")
+(sdedr:define-constant-profile-placement "PlacEpi" "ProfEpi" "WinEpi" 0.3 "Replace")
 (sdedr:define-analytical-profile-placement "PlacPwell1" "ProfPwell" "WinPtop1" "Both" "NoReplace" "Eval")
 (sdedr:define-analytical-profile-placement "PlacPwell2" "ProfPwell" "WinPtop2" "Both" "NoReplace" "Eval")
 (sdedr:define-analytical-profile-placement "PlacPwell3" "ProfPwell" "WinPtop3" "Both" "NoReplace" "Eval")

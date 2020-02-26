@@ -23,8 +23,8 @@ File 	{
 	Grid  = "@tdr@"
      	lifetime = "@tdr@"
      	param   = "@parameter@"
-     	current = "@tsi@_@let@.plt"  
-     	plot    = "@tsi@_@let@.tdr"  
+     	current = "@tsi@_@vbot@_@let@.plt"  
+     	plot    = "@tsi@_@vbot@_@let@.tdr"  
 }
 
 		

@@ -31,7 +31,7 @@ titles = dict([('cv', 'C [F/$\mu$m]'),
                ])
 
 ranges = dict([('cv', [2e-16, 5e-15]),
-               ('iv', [7e-17, 2.5e-14]),
+               ('iv', [7e-17, 5e-14]),
                ('iv_b', [1e-18, 1e-5]),
                ('cv_b', [1e-16, 5e-15]),
                ('tran', [0, 1.2])
@@ -82,20 +82,14 @@ for p1 in args.par1:
 if args.writeCSV:
     for parOption in arrayParPerm:
         print(parOption)
-        if not threeDim:
-            # write and run tcl files to store csv files in tmp/ for
-            # CV ..
-            os.system('python3 python/writeTcl.py --project '+str(args.project)+' --cv '+parOption+' --run')
-            # and IV.
-            os.system('python3 python/writeTcl.py --project '+str(args.project)+' --iv '+parOption+' --run')
-            # and IV of bottom contact.      
-            os.system('python3 python/writeTcl.py --project '+str(args.project)+' --iv_b '+parOption+' --run')
-            # and IV of bottom contact.
-            os.system('python3 python/writeTcl.py --project '+str(args.project)+' --cv_b '+parOption+' --run')
+        if len(args.measure)>1:
+            for im,m in enumerate(args.measure):
+                if m=='cv':
+                    # write and run tcl files to store csv files in tmp/ for
+                    os.system('python3 python/writeTcl.py --project '+str(args.project)+' --'+str(m)+' '+parOption+' --run')
         else:
-            # transient.
-            print ('python3 python/writeTcl.py --project '+str(args.project)+' --tran '+parOption+' --run')
-            os.system('python3 python/writeTcl.py --project '+str(args.project)+' --tran '+parOption+' --run')
+            # write and run tcl files to store csv files in tmp/ for
+            os.system('python3 python/writeTcl.py --project '+str(args.project)+' --'+str(args.measure[0])+' '+parOption+' --run')
             
 # prepare for drawing
 colors = ['#1f77b4', '#aec7e8', '#ff7f0e', '#ffbb78', '#2ca02c',

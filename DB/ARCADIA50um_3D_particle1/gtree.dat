@@ -5,10 +5,10 @@
 sde sde "" {}
 sde xpart "-90" {25}
 sde tepi "5" {7}
-sde tsi "100" {100}
+sde tsi "100" {100 50}
 sde zpart "25" {25}
 sdevice sdevice "" {}
-sdevice vbot "200" {-45}
+sdevice vbot "200" {-45 -17}
 sdevice vn "1" {0.8}
 sdevice1 sdevice "" {}
 sdevice1 let "1.28e-5" {1.28e-5 0.67e-5 1.155e-5 1.158e-5 1.202e-5 1.924e-5 3.078e-5}
@@ -46,3 +46,23 @@ scenario default let ""
 10 101 100 {} {default} 0
 9 102 91 {3.078e-5} {default} 0
 10 103 102 {} {default} 0
+3 104 79 {50} {default} 0
+4 105 104 {25} {default} 0
+5 106 105 {} {default} 0
+6 107 106 {-17} {default} 0
+7 108 107 {0.8} {default} 0
+8 109 108 {} {default} 0
+9 110 109 {1.28e-5} {default} 0
+10 111 110 {} {default} 0
+9 112 109 {0.67e-5} {default} 0
+10 113 112 {} {default} 0
+9 114 109 {1.155e-5} {default} 0
+10 115 114 {} {default} 0
+9 116 109 {1.158e-5} {default} 0
+10 117 116 {} {default} 0
+9 118 109 {1.202e-5} {default} 0
+10 119 118 {} {default} 0
+9 120 109 {1.924e-5} {default} 0
+10 121 120 {} {default} 0
+9 122 109 {3.078e-5} {default} 0
+10 123 122 {} {default} 0

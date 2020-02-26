@@ -14,8 +14,8 @@ File 	{
 	Grid  = "n13_msh.tdr"
      	lifetime = "n13_msh.tdr"
      	param   = "pp92_des.par"
-     	current = "100_0.67e-5.plt"  
-     	plot    = "100_0.67e-5.tdr"  
+     	current = "100_-45_0.67e-5.plt"  
+     	plot    = "100_-45_0.67e-5.tdr"  
 }
 
 		

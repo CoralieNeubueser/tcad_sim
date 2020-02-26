@@ -3,22 +3,22 @@ Project Summary for /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_particle1
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Project Details :
 		current status		: running
-		was last modified	: 02/25/2020 11:10:00
+		was last modified	: 02/26/2020 11:26:32
 		was modified by		: neubuser
 		was run on host		: ludwig-boltzmann
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Total Number of Nodes			: 23
+Total Number of Nodes			: 43
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  
  
-		Active Nodes		: 16
-		Virtual Nodes		: 7
+		Active Nodes		: 32
+		Virtual Nodes		: 11
  
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  
 Nodes by status				: 
-		none			: 6
-		done			: 10
+		none			: 20
+		done			: 12
 
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -33,16 +33,16 @@ Host "localhost"
 		Number of nodes		: 1
 		Host Time		: 355 sec
 Host "ludwig-boltzmann" 
-		Number of nodes		: 7
-		Host Time		: 13974 sec
+		Number of nodes		: 9
+		Host Time		: 14351 sec
 Host "localhost.localdomain" 
 		Number of nodes		: 2
 		Host Time		: 50 sec
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-		Total RunTime		: 14379 sec
+		Total RunTime		: 14756 sec
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Project Summary generated on		: 02/25/2020 14:24:55
+Project Summary generated on		: 02/26/2020 11:32:35
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

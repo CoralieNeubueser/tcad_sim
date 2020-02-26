@@ -14,7 +14,7 @@
 
 gjob is running on host 'ludwig-boltzmann' by user 'neubuser'
 Binary '/usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/bin/../lib/gjob0'
-Command line options '-verbose -nice 19 --max_threads 12 -job 94 -swb_pid 102974 -gsub_pid 103069 -gsub_host ludwig-boltzmann -gsub_port 45598 /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_particle1'
+Command line options '-verbose -nice 19 --max_threads 12 -job 94 -swb_pid 102974 -gsub_pid 22991 -gsub_host ludwig-boltzmann -gsub_port 38068 /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_particle1'
 Current directory '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_particle1'
 Some relevant environment variables:
 	STROOT=/usr/synopsys/sentaurus/P_2019.03-SP1
@@ -51,11 +51,11 @@ Preprocessing file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_particle1/sdevice.p
 +++Preprocessing results written to /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_particle1/pp94_des.par
 The node '94' has dependencies to the node(s) '13'
 Start Simulation section
-11:03:01 Feb 25 2020     job 94 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp94_des.cmd"
-11:36:20 Feb 25 2020 +++ job 94 <sdevice> done: exit(0)
+12:51:21 Feb 26 2020     job 94 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp94_des.cmd"
+13:25:09 Feb 26 2020 +++ job 94 <sdevice> done: exit(0)
 End Simulation section
 Start Epilogue section
-11:36:20 Feb 25 2020 *** job 94 pre/post execution: eval " gjob::find_extracted_vars "/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_particle1" n94_des.out 94 "
+13:25:09 Feb 26 2020 *** job 94 pre/post execution: eval " gjob::find_extracted_vars "/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_particle1" n94_des.out 94 "
 End Epilogue section
 Job succeeded
 gjob exits with status 0
