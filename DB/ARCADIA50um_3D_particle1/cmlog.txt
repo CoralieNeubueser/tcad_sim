@@ -1,5 +1,0 @@
-DATE: 02/26/20 - 02/26/20 cmlog.txt
-
-This localhost (server) information:
-	Name:    ludwig-boltzmann
-	Address: fe80::d489:eb75:f48a:ea18
