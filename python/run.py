@@ -116,10 +116,6 @@ if args.writeCSV:
             os.system('python3 python/writeTcl.py --project '+str(args.project)+' --'+str(args.measure[0])+' '+parOption+' --run')
             
 # prepare for drawing
-colors = ['#1f77b4', '#aec7e8', '#ff7f0e', '#ffbb78', '#2ca02c',
-          '#98df8a', '#d62728', '#ff9896', '#9467bd', '#c5b0d5',
-          '#8c564b', '#c49c94', '#e377c2', '#f7b6d2', '#7f7f7f',
-          '#c7c7c7', '#bcbd22', '#dbdb8d', '#17becf', '#9edae5' ]
 mark=','
 lines=['-','--',':','-.']
 
@@ -127,7 +123,11 @@ print(len(args.measure))
 fig, axs = plt.subplots(len(args.measure),1, sharex=True, sharey=False) #, gridspec_kw={'hspace': 0})
 if args.measure[0]=='tran':
     fig, axs = plt.subplots(2,1, sharex=True, sharey=False)
-    
+
+# pick color map
+colormap = plt.cm.nipy_spectral 
+colors = [colormap(i) for i in np.linspace(0, 0.9,len(arrayParPermName))]
+
 # arrays of Vdpl and Cend
 deplVs=np.zeros(len(arrayParPermName), dtype=float)
 capCs=np.zeros(len(arrayParPermName), dtype=float)
