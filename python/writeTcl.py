@@ -66,6 +66,9 @@ workDir=home+args.project+"/tmp/"
 if not os.path.isdir(workDir):
     print("Create output directory /tmp/")
     os.system('mkdir '+home+args.project+"/tmp/")
+if os.path.isfile(csvFile):
+    print("CSV file already exists.")
+    args.run=False
 # set parameters in file names
 for par in args.parStr:
     inFileName+="_"+str(par)
