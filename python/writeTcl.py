@@ -10,6 +10,7 @@ parser.add_argument('--iv', action='store_true', help='Specify if measurement is
 parser.add_argument('--iv_b', action='store_true', help='Specify if measurement is iv.')
 parser.add_argument('--cv_b', action='store_true', help='Specify if measurement is cv.')
 parser.add_argument('--tran', action='store_true', help='Specify if measurement is particle.')
+parser.add_argument('--charge', action='store_true', help='Specify if measurement is particle.')
 parser.add_argument('-pS', '--parStr', action='append', default=[], help='Give parameters as specified in tcad project.')
 parser.add_argument('--run', action='store_true', help='Specify if you want to execute the tcl file.')
 
@@ -44,6 +45,10 @@ elif args.cv_b:
     nameEnd="_ac_des.plt"
 elif args.tran:
     measure='tran'
+    nameBegin="tran"
+    nameEnd=".plt"
+elif args.charge:
+    measure='charge'
     nameBegin="tran"
     nameEnd=".plt"
 
@@ -93,6 +98,8 @@ elif measure=='cv_b':
 
 elif measure=='tran':
     newFile.write('create_curve -plot Plot_1 -dataset {'+str(figName)+'} -axisX time -axisY {Ntop TotalCurrent}\n')
+elif measure=='charge':    
+    newFile.write('create_curve -plot Plot_1 -dataset {'+str(figName)+'} -axisX time -axisY {Ntop Charge}\n')
 
 newFile.write('#-> Curve_1\n')
 newFile.write('export_curves {Curve_1} -plot Plot_1 -filename '+str(csvFile)+' -format csv -overwrite\n')

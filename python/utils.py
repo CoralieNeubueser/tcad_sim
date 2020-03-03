@@ -3,8 +3,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from scipy.stats import linregress
+from scipy import integrate
 import scipy.optimize
 import math
+
+def getIntegral(y, x): #, xMin, xMax):
+#    x_noCut=x
+#    y_noCut=y
+#    x_test = x_noCut[(x_noCut > float(xMin)) & (x_noCut < float(xMax))]
+#    y_test = y_noCut[(x_noCut > float(xMin)) & (x_noCut < float(xMax))]
+    integral=np.trapz(y, x=x)
+    return integral
 
 def drawVdpl(ax,x,y,col):
     ax.plot(x, y, color=col, marker='*')
@@ -158,7 +167,6 @@ def deplVoltageRange(ax,dat,xMin,xMax,*col):
         # returns depletion voltag and capacitance above depletion
         return float(x[idx[0]]), float(capDepl)
 
-
 def drawGraph(axis,arr1,arr2,col,la):
     axis.plot(arr1,arr2, color=col,marker=',', label=la)
 
@@ -176,3 +184,17 @@ def allCurvesName(project, measure, form):
     name=home+project+"/tmp/"+measure
     return name+"_all."+str(form)
 
+def drawCCE(axis,arr1,arr2,norm,col,linestyle,la):
+    eff=np.zeros(len(arr2))
+    current=np.array(arr2) # A
+    time=np.array(arr1) # s
+    
+    for it,t in enumerate(time):
+        dt = t-time[it-1]
+        if it==0:
+            eff[it] = current[it]*dt*pow(10,12)/norm
+            continue
+        # convert to pC and normalise  
+        eff[it] = eff[it-1] + current[it]*dt*pow(10,12)/norm 
+    # time in ns
+    axis.plot(time*pow(10,9),eff,color=col,marker=',',linestyle=linestyle,label=la)
