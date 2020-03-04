@@ -8,10 +8,6 @@ import scipy.optimize
 import math
 
 def getIntegral(y, x): #, xMin, xMax):
-#    x_noCut=x
-#    y_noCut=y
-#    x_test = x_noCut[(x_noCut > float(xMin)) & (x_noCut < float(xMax))]
-#    y_test = y_noCut[(x_noCut > float(xMin)) & (x_noCut < float(xMax))]
     integral=np.trapz(y, x=x)
     return integral
 
@@ -42,6 +38,8 @@ def deplVoltage(ax,dat,*col):
 
     #store lin functions                               
     f=[None]*0
+    xran=[None]*0
+    yran=[None]*0
     cap=[None]*0
 
     trials=10
@@ -51,12 +49,10 @@ def deplVoltage(ax,dat,*col):
             if ind < len(x):
                 slope, intercept, r_value, p_value, std_err = linregress(x[ind:indNZ[indi+1]], y[ind:indNZ[indi+1]])
                 if not math.isnan(slope):
-                    if len(col)==1:
-                        ax.plot(x[ind:indNZ[indi+1]], slope * x[ind:indNZ[indi+1]] + intercept, color=col[0])
-                    else:
-                        ax.plot(x[ind:indNZ[indi+1]], slope * x[ind:indNZ[indi+1]] + intercept, color=col[0], linestyle=col[1])
                     # fill lin fits to lists
                     f.append(slope * x + intercept)
+                    xran.append(x[ind:indNZ[indi+1]])
+                    yran.append(slope * x[ind:indNZ[indi+1]] + intercept)
                     cap.append(intercept)
         
         if len(f)<2:
@@ -69,15 +65,23 @@ def deplVoltage(ax,dat,*col):
             indNZ = np.append(indNZ, len(x))
             indNZ = np.insert(indNZ, 0, 0)
             f.clear()
+            xran.clear()
+            yran.clear()
             trials -= 1
 
     capDepl=cap[len(cap)-1]
     idx=np.array([0])
     # find intersection of last and second to last linear functions   
     for ifunc,func in enumerate(f):
+        # draw found fits
+        if len(col)==1:
+            ax.plot(xran[ifunc], yran[ifunc], color=col[0])
+        else:
+            ax.plot(xran[ifunc], yran[ifunc], color=col[0], linestyle=col[1])
+
         if ifunc!=len(f)-2:
             continue
-
+        # calculate intersection of last and second last fit
         idx = np.argwhere(np.diff(np.sign(np.array(func) - np.array(f[ifunc+1])))).flatten()
         if len(col)==1:
             ax.plot(x[idx], func[idx], color=col[0], marker='*')
@@ -119,6 +123,8 @@ def deplVoltageRange(ax,dat,xMin,xMax,*col):
 
     #store lin functions
     f=[None]*0
+    xran=[None]*0
+    yran=[None]*0
     cap=[None]*0
 
     trials=10
@@ -128,13 +134,12 @@ def deplVoltageRange(ax,dat,xMin,xMax,*col):
             if ind < len(x):
                 slope, intercept, r_value, p_value, std_err = linregress(x[ind:indNZ[indi+1]], y[ind:indNZ[indi+1]])
                 if not math.isnan(slope):
-                    if len(col)==1:
-                        ax.plot(x[ind:indNZ[indi+1]], slope * x[ind:indNZ[indi+1]] + intercept, color=col[0])
-                    else:
-                        ax.plot(x[ind:indNZ[indi+1]], slope * x[ind:indNZ[indi+1]] + intercept, color=col[0], linestyle=col[1])
                     # fill lin fits to lists
                     f.append(slope * x + intercept)
+                    xran.append(x[ind:indNZ[indi+1]])
+                    yran.append(slope * x[ind:indNZ[indi+1]] + intercept)
                     cap.append(intercept)
+
         if len(f)<2:
             print('Found only {} linear fits.. reduce threshold by half.'.format(len(f)))
             threshold = threshold*2.
@@ -145,15 +150,21 @@ def deplVoltageRange(ax,dat,xMin,xMax,*col):
             indNZ = np.append(indNZ, len(x))
             indNZ = np.insert(indNZ, 0, 0)
             f.clear()
+            xran.clear()
+            yran.clear()
             trials -= 1
             
     capDepl=cap[len(cap)-1]
     idx=np.array([0])
     # find intersection of last and second to last linear functions
     for ifunc,func in enumerate(f):
+        # draw found fits
+        if len(col)==1:
+            ax.plot(xran[ifunc], yran[ifunc], color=col[0])
+        else:
+            ax.plot(xran[ifunc], yran[ifunc], color=col[0], linestyle=col[1])
         if ifunc!=len(f)-2:
             continue
-
         idx = np.argwhere(np.diff(np.sign(np.array(func) - np.array(f[ifunc+1])))).flatten()
         if len(col)==1:
             ax.plot(x[idx], func[idx], color=col[0], marker='*')
@@ -179,10 +190,10 @@ def csvFileName(project, measure, pars):
     csvName=csvName+"_"+str(pars)
     return csvName+".csv"
 
-def allCurvesName(project, measure, form):
+def allCurvesName(project, measure, op, form):
     home=os.getcwd()+"/DB/"
     name=home+project+"/tmp/"+measure
-    return name+"_all."+str(form)
+    return name+op+"all."+str(form)
 
 def drawCCE(axis,arr1,arr2,norm,col,linestyle,la):
     eff=np.zeros(len(arr2))

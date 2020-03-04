@@ -10,8 +10,13 @@ parser.add_argument('--writeCSV', action='store_true', help='Convert tcl to csv,
 parser.add_argument('-threeD', '--threeD', action='store_true', help='3D measurement, assumes only particle transient measurement at the moment.')
 parser.add_argument('-m', '--measure', action='append', type=str, default=[], help='Define which plots you want to draw.', choices=['cv','iv','iv_b','cv_b','tran','charge'])
 parser.add_argument('--log', action='store_true', help='Define if y axis on log scale.')
+parser.add_argument('--fit', action='store_true', help='Define if cv curve is fitted.')
+parser.add_argument('--fit_minX', type=int, help='Set fit range minimum.')
+parser.add_argument('--fit_maxX', type=int, help='Set fit range maximum.') 
+parser.add_argument('--free', action='store_true', help='Free y range.')
 parser.add_argument('-numP', '--Parameters', type=int, default=2, help='Define how many parameters are tested.')
 parser.add_argument('-th', '--thickness', type=int, default=100, help='Define silicon thickness for CCE.', required='tran' in sys.argv)
+parser.add_argument('-out', '--output', type=str, default='_', help='Define output file name..')
 parser.add_argument('-p1', '--par1', action='append', default=[], help='Fill arrays with parameter value.')
 parser.add_argument('-p2', '--par2', action='append', default=[], help='Fill arrays with parameter value.')
 parser.add_argument('-p3', '--par3', action='append', default=[], help='Fill arrays with parameter value.')
@@ -40,7 +45,7 @@ titles = dict([('cv', 'C [F/$\mu$m]'),
                ])
 
 ranges = dict([('cv', [2e-16, 5e-15]),
-               ('iv', [7e-17, 5e-14]),
+               ('iv', [7e-17, 5e-13]),
                ('iv_b', [1e-18, 1e-5]),
                ('cv_b', [1e-16, 5e-15]),
                ('tran', [0, 1.2]),
@@ -150,13 +155,17 @@ for i,perm in enumerate(arrayParPermName):
                 
             drawGraphLines(axs[im],-data2.X, data2.Y,colors[i],lines[0],lab)
             axs[im].set_ylabel(titles[m])
-            axs[im].set_ylim(ranges[m][0],ranges[m][1])
+            if not args.free:
+                axs[im].set_ylim(ranges[m][0],ranges[m][1])
             if args.log:
                 axs[im].set_yscale('log')
             
             # if measurement is cv curve, fit and extract the depletion voltage 
-            if m=='cv':
-                deplV,deplC=deplVoltage(axs[im],data2,colors[i])
+            if m=='cv' and args.fit:
+                if args.fit_maxX and args.fit_minX:
+                    deplV,deplC=deplVoltageRange(axs[im],data2,args.fit_minX, args.fit_maxX, colors[i])
+                else:
+                    deplV,deplC=deplVoltage(axs[im],data2,colors[i])
                 print('#############################')
                 print('p1='+str(p1)+', p2='+str(p2))
                 print('Depletion voltage found to be:    {:.1f} V'.format(deplV))
@@ -165,8 +174,8 @@ for i,perm in enumerate(arrayParPermName):
                 deplVs[i]=deplV
                 capCs[i]=deplC
 
-            elif  m=='cv_b':
-                deplV,deplC=deplVoltageRange(axs[im],data2,5,30,colors[i])
+            elif  m=='cv_b' and args.fit:
+                deplV,deplC=deplVoltageRange(axs[im],data2,args.fit_minX,args.fit_maxX,colors[i])
                 print('#############################')
                 print( perm )
                 print('Depletion voltage found to be:    {:.1f} V'.format(deplV))
@@ -175,7 +184,7 @@ for i,perm in enumerate(arrayParPermName):
                 deplVs[i]=deplV
                 capCs[i]=deplC
                 
-            elif m=='iv' and m.find('cv'):
+            elif m=='iv' and m.find('cv') and args.fit:
                 xtmp=np.array(-data2.X)
                 vbin=np.where((xtmp<deplVs[i]+0.2) & (xtmp>deplVs[i]-0.2) )
                 ytmp=np.array(data2.Y)
@@ -200,6 +209,7 @@ for i,perm in enumerate(arrayParPermName):
             final_let=float( re.findall('[+-]?\d+\.\d+', let)[0] ) * pow(10,-5) * thickness
             cce = totalCharge/final_let
             print('#############################')
+            print( perm )
             print('Total charge                :    {:.4f}x10^-5 pC'.format(totalCharge*pow(10,5)))
             print('LET                         :    {:.4f}x10^-5 pC'.format(final_let*pow(10,5)))
             print('Charge collection efficiency:    {:.2f} %'.format(cce))
@@ -211,27 +221,33 @@ for i,perm in enumerate(arrayParPermName):
             axs[1].set_xlabel('time [ns]')
             axs[1].set_ylim(0,1.2)
             axs[0].set_ylabel(titles['tran'])
-            axs[0].set_ylim(ranges['tran'][0],ranges['tran'][1])
+            if not args.free:
+                axs[0].set_ylim(ranges['tran'][0],ranges['tran'][1])
 
         elif args.measure[0]=='charge':
             drawGraphLines(axs,data1.X*pow(10,9), data1.Y*pow(10,12),colors[i],lines[0],lab)
             axs.set_xlabel('time [ns]')
             axs.set_xlim(-2,50)
             axs.set_ylabel(titles[args.measure[0]])
-            axs.set_ylim(ranges[args.measure[0]][0],ranges[args.measure[0]][1])
+            if not args.free:
+                axs.set_ylim(ranges[args.measure[0]][0],ranges[args.measure[0]][1])
 
         else:        
             drawGraphLines(axs,-data1.X, data1.Y,colors[i],lines[0],lab)
             axs.set_xlabel('|V|')
             axs.set_ylabel(titles[args.measure[0]])
-            axs.set_ylim(ranges[args.measure[0]][0],ranges[args.measure[0]][1])
+            if not args.free:
+                axs.set_ylim(ranges[args.measure[0]][0],ranges[args.measure[0]][1])
         
         if args.log:
             axs.set_yscale('log') 
         
         # if measurement is cv curve, fit and extract the depletion voltage
-        if args.measure[0]=='cv':
-            deplV,deplC=deplVoltage(axs,data1,colors[i])
+        if args.measure[0]=='cv' and args.fit:
+            if args.fit_maxX and args.fit_minX:
+                deplV,deplC=deplVoltageRange(axs,data1,args.fit_minX, args.fit_maxX, colors[i])
+            else:
+                deplV,deplC=deplVoltage(axs,data1,colors[i])
             print('#############################')
             print( perm )
             print('Depletion voltage found to be:    {:.1f} V'.format(deplV))
@@ -240,8 +256,8 @@ for i,perm in enumerate(arrayParPermName):
             deplVs[i]=deplV
             capCs[i]=deplC
             
-        elif args.measure[0]=='cv_b':
-            deplV,deplC=deplVoltageRange(axs,data1,5,30,colors[i])
+        elif args.measure[0]=='cv_b' and args.fit:
+            deplV,deplC=deplVoltageRange(axs,data1,args.fit_minX,args.fit_maxX,colors[i])
             print('#############################')
             print( perm )
             print('Depletion voltage found to be:    {:.1f} V'.format(deplV))
@@ -255,7 +271,7 @@ for i,perm in enumerate(arrayParPermName):
 allM=''
 for m in args.measure:
     allM=allM+m
-outName=allCurvesName(args.project, allM, 'pdf')
+outName=allCurvesName(args.project, allM, args.output, 'pdf')
 print(outName)
 
 if len(args.measure)>1 or args.measure[0]=='tran':
