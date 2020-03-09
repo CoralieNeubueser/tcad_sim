@@ -7,13 +7,40 @@ from scipy import integrate
 import scipy.optimize
 import math
 
+# if element is found it returns True else returns False
+def find_element_in_list(element, list_element):
+    try:
+        index_element = list_element.index(element)
+        return True
+    except ValueError:
+        return False
+
 def getIntegral(y, x): #, xMin, xMax):
     integral=np.trapz(y, x=x)
     return integral
 
-def drawVdpl(ax,x,y,col):
-    ax.plot(x, y, color=col, marker='*')
+def drawVoltagePoint(axs,parX,parY,col):
+    axs.plot(parX, parY, color=col,marker='*')
     
+def drawVoltageLine(axs,parX,col):
+    arrY=np.linspace(axs.get_ylim()[0],axs.get_ylim()[1],100)
+    arrX=linFunction(arrY,float(parX))
+    axs.plot(arrX, arrY, color=col, linestyle=':')
+
+def linFit(x,y):
+    # fit of shape x+a
+    fitfunc=lambda params, x: params[0] + x * params[1]
+    errfunc=lambda p,x,y: fitfunc(p, x) -y
+    init_a=0.5
+    init_b=1.
+    init_arr=[init_a,init_b]
+    p1,success=scipy.optimize.leastsq(errfunc,init_arr, args=(x,y))
+    f=fitfunc(p1,x)
+    return p1,f
+
+def linFunction(x,a):
+    return a + x*0
+
 def deplVoltage(ax,dat,*col):
     
     x = np.array(-dat.X)
@@ -26,7 +53,7 @@ def deplVoltage(ax,dat,*col):
     difdif = np.diff(dif)
     
     # define a threshold for the allowed change of the slope          
-    threshold = difdif[0]/10
+    threshold = difdif[5]/100
     
     # get indices where the diff returns value larger than a threshold
     indNZ = np.where(abs(difdif) > threshold)[0]
@@ -57,7 +84,7 @@ def deplVoltage(ax,dat,*col):
         
         if len(f)<2:
             print('Found only {} linear fits.. reduce threshold by half.'.format(len(f)))
-            threshold = threshold*2.
+            threshold = threshold/2.
             print(threshold)
             # reset index and clear list of linear fits
             indNZ = np.where(abs(difdif) > threshold)[0]
@@ -83,10 +110,7 @@ def deplVoltage(ax,dat,*col):
             continue
         # calculate intersection of last and second last fit
         idx = np.argwhere(np.diff(np.sign(np.array(func) - np.array(f[ifunc+1])))).flatten()
-        if len(col)==1:
-            ax.plot(x[idx], func[idx], color=col[0], marker='*')
-        else:
-            ax.plot(x[idx], func[idx], color=col[0], marker='*')
+        ax.plot(x[idx], func[idx], color=col[0], marker='*')
 
     if len(idx)<1:
         print("No intersection found.. returns Vdpl=0.")
@@ -142,7 +166,7 @@ def deplVoltageRange(ax,dat,xMin,xMax,*col):
 
         if len(f)<2:
             print('Found only {} linear fits.. reduce threshold by half.'.format(len(f)))
-            threshold = threshold*2.
+            threshold = threshold/2.
             print(threshold)
             # reset index and clear list of linear fits
             indNZ = np.where(abs(difdif) > threshold)[0]
@@ -163,13 +187,15 @@ def deplVoltageRange(ax,dat,xMin,xMax,*col):
             ax.plot(xran[ifunc], yran[ifunc], color=col[0])
         else:
             ax.plot(xran[ifunc], yran[ifunc], color=col[0], linestyle=col[1])
-        if ifunc!=len(f)-2:
+        if ifunc!=len(f)-1:
             continue
-        idx = np.argwhere(np.diff(np.sign(np.array(func) - np.array(f[ifunc+1])))).flatten()
-        if len(col)==1:
-            ax.plot(x[idx], func[idx], color=col[0], marker='*')
-        else:
-            ax.plot(x[idx], func[idx], color=col[0], marker='*')
+
+        idx = np.argwhere(np.diff(np.sign(np.array(func) - np.array(f[ifunc-1])))).flatten()
+        if not idx:
+            for ifunctions in range(1,len(f)):
+                idx = np.argwhere(np.diff(np.sign(np.array(func) - np.array(f[len(f)-ifunctions])))).flatten()
+
+        ax.plot(x[idx], func[idx], color=col[0], marker='*')
 
     if len(idx)<1:
         print("No intersection found.. returns Vdpl=0.")
@@ -177,6 +203,127 @@ def deplVoltageRange(ax,dat,xMin,xMax,*col):
     else:
         # returns depletion voltag and capacitance above depletion
         return float(x[idx[0]]), float(capDepl)
+
+def punchThrough(ax,datX,datY,yMax,*col):
+
+    x_noCut = np.array(datX)
+    y_noCut = np.array(datY)
+    x1 = x_noCut[(x_noCut > float(2)) & (y_noCut < float(yMax))]
+    y1 = y_noCut[(x_noCut > float(2)) & (y_noCut < float(yMax))]
+
+    # get slope of your data
+    dif = np.diff(y1) / np.diff(x1)
+    
+    # determine the change of the slope
+    difdif = np.diff(dif)
+
+    # define a threshold for the allowed change of the slope
+    thresholdLow = difdif[5]/100
+    thresholdHigh = difdif[5]
+
+    # get indices where the diff returns value larger than a threshold
+    indNZLow = np.where(abs(difdif) > abs(thresholdLow))[0]
+    indNZHigh = np.where(abs(difdif) > abs(thresholdHigh))[0]
+
+    # this makes plotting easier and avoids a couple of if clauses
+    indNZLow += 1
+    indNZLow = np.append(indNZLow, len(x1))
+    indNZLow = np.insert(indNZLow, 0, 0)
+    indNZHigh += 1
+    indNZHigh = np.append(indNZHigh, len(x1))
+    indNZHigh = np.insert(indNZHigh, 0, 0)
+
+    #store lin functions                                    
+    f=[None]*0
+    xran=[None]*0
+    yran=[None]*0
+    Ipt=[None]*0
+
+    trials=10
+
+    while len(f)<2 and trials>1:
+        for indi, ind in enumerate(indNZLow):
+            if ind < len(x1):
+                slope, intercept, r_value, p_value, std_err = linregress(x1[ind:indNZLow[indi+1]], y1[ind:indNZLow[indi+1]])
+                #err, function=linFit(x[ind:indNZ[indi+1]], y[ind:indNZ[indi+1]])
+                #print(err)
+                #print(function)
+                if not math.isnan(slope):
+                    # fill lin fits to lists
+                    f.append(slope * x1 + intercept)
+                    xran.append(x1[ind:indNZLow[indi+1]])
+                    yran.append(slope * x1[ind:indNZLow[indi+1]] + intercept)
+                    Ipt.append(intercept)
+                    indRm = np.where(indNZHigh < indNZLow[ind+1])
+                    np.delete(indNZHigh, indRm)
+                    print('Found first fit.. \n')
+                    break
+                    
+
+        for indi, ind in enumerate(indNZHigh):
+            if ind < len(x1):
+                slope, intercept, r_value, p_value, std_err = linregress(x1[ind:indNZHigh[indi+1]], y1[ind:indNZHigh[indi+1]])
+                if not math.isnan(slope):
+                    # fill lin fits to lists 
+                    f.append(slope * x1 + intercept)
+                    xran.append(x1[ind:indNZHigh[indi+1]])
+                    yran.append(slope * x1[ind:indNZHigh[indi+1]] + intercept)
+                    Ipt.append(intercept)
+                    print('Found second fit.. \n')
+                    #break
+
+        if len(f)<2:
+            print('Found only {} linear fits.. reduce threshold by half.'.format(len(f)))
+            threshold = threshold/2.
+            print(threshold)
+            # reset index and clear list of linear fits
+            indNZLow = np.where(abs(difdif) > abs(threshold))[0]
+            indNZLow += 1
+            indNZLow = np.append(indNZLow, len(x1))
+            indNZLow = np.insert(indNZLow, 0, 0)
+            f.clear()
+            xran.clear()
+            yran.clear()
+            Ipt.clear()
+            trials -= 1
+            
+    if len(Ipt)==0:
+        print("Could not find 2 or more linear fits.")
+        return 0.,0.
+        quit()
+
+    iDepl=Ipt[len(Ipt)-1]
+    idx=np.array([0])
+
+    # find intersection of first and second linear functions
+    for ifunc,func in enumerate(f):
+        # draw found fits
+        if ifunc==0 or ifunc==len(f)-1:
+            if len(col)==1:
+                ax.plot(xran[ifunc], yran[ifunc], color=col[0])
+            else:
+                ax.plot(xran[ifunc], yran[ifunc], color=col[0], linestyle=col[1])
+        
+        if ifunc!=0:
+            continue
+        
+        idx = np.argwhere(np.diff(np.sign(np.array(func) - np.array(f[len(f)-1])))).flatten()
+        if not idx:
+            for ifunctions in range(1,len(f)):
+                idx = np.argwhere(np.diff(np.sign(np.array(func) - np.array(f[len(f)-ifunctions])))).flatten()
+
+        curr_pt=np.linspace(ax.get_ylim()[0],ax.get_ylim()[1],100)
+        print(float(x1[idx]))
+        vol_pt=linFunction(curr_pt,float(x1[idx]))
+        ax.plot(vol_pt, curr_pt, color=col[0], linestyle=':')
+    
+    if len(idx)<1:
+        print("No intersection found.. returns Vdpl=0.")
+        return 0., iDepl
+    else:
+        # returns depletion voltag and current
+        return float(x1[idx[0]]), float(iDepl)
+
 
 def drawGraph(axis,arr1,arr2,col,la):
     axis.plot(arr1,arr2, color=col,marker=',', label=la)

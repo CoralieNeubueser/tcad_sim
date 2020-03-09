@@ -8,7 +8,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--project', type=str, default='ARCADIA25um_surfaceDamage', help='Define patht to project.')
 parser.add_argument('--writeCSV', action='store_true', help='Convert tcl to csv, if not already done.')
 parser.add_argument('-threeD', '--threeD', action='store_true', help='3D measurement, assumes only particle transient measurement at the moment.')
-parser.add_argument('-m', '--measure', action='append', type=str, default=[], help='Define which plots you want to draw.', choices=['cv','iv','iv_b','cv_b','tran','charge'])
+parser.add_argument('-m', '--measure', action='append', type=str, default=[], help='Define which plots you want to draw.', choices=['cv','iv','iv_p','iv_b','cv_b','tran','charge'])
 parser.add_argument('--log', action='store_true', help='Define if y axis on log scale.')
 parser.add_argument('--fit', action='store_true', help='Define if cv curve is fitted.')
 parser.add_argument('--fit_minX', type=int, help='Set fit range minimum.')
@@ -38,6 +38,7 @@ numP=args.Parameters
 
 titles = dict([('cv', 'C [F/$\mu$m]'),
                ('iv', 'I [A/$\mu$m]'),
+               ('iv_p', 'I$_{ptop}$ [A/$\mu$m]'),
                ('iv_b', 'I$_{back}$ [A/$\mu$m]'),
                ('cv_b', 'C$_{back}$ [F/$\mu$m]'),
                ('tran', 'I$_{front}$ [$\mu$A]'),
@@ -46,7 +47,8 @@ titles = dict([('cv', 'C [F/$\mu$m]'),
 
 ranges = dict([('cv', [2e-16, 5e-15]),
                ('iv', [7e-17, 5e-13]),
-               ('iv_b', [1e-18, 1e-5]),
+               ('iv_p', [1e-20, 1e-5]),
+               ('iv_b', [1e-16, 1e-5]),
                ('cv_b', [1e-16, 5e-15]),
                ('tran', [0, 1.2]),
                ('charge', [0, 1.2])
@@ -134,6 +136,8 @@ colormap = plt.cm.nipy_spectral
 colors = [colormap(i) for i in np.linspace(0, 0.9,len(arrayParPermName))]
 
 # arrays of Vdpl and Cend
+ptVs=np.zeros(len(arrayParPermName), dtype=float)
+ptIs=np.zeros(len(arrayParPermName), dtype=float)
 deplVs=np.zeros(len(arrayParPermName), dtype=float)
 capCs=np.zeros(len(arrayParPermName), dtype=float)
 endIs=np.zeros(len(arrayParPermName), dtype=float)
@@ -153,15 +157,43 @@ for i,perm in enumerate(arrayParPermName):
             f2=csvFileName(args.project, m, perm)
             data2 = pd.read_csv(f2, names=["X","Y"], skiprows=1)
                 
-            drawGraphLines(axs[im],-data2.X, data2.Y,colors[i],lines[0],lab)
+            drawGraphLines(axs[im],abs(data2.X), abs(data2.Y),colors[i],lines[0],lab)
             axs[im].set_ylabel(titles[m])
             if not args.free:
                 axs[im].set_ylim(ranges[m][0],ranges[m][1])
             if args.log:
                 axs[im].set_yscale('log')
             
+            # if measurement is iv curve, fit and extract the punch through voltage
+            if m=='iv_b':
+                # set maximum current to be fitted for detemining punch through.. keep low for set-off
+                ptV,Ipt=punchThrough(axs[im],abs(data2.X),abs(data2.Y),1e-13,colors[i])
+                print('#############################')
+                print( perm )
+                print('Punch-through voltage found to be:  {:.1f} V'.format(ptV))
+                print('Current at punch through voltage:   {:.4f} uA'.format(Ipt*pow(10,6)))
+                print('#############################')
+                ptVs[i]=ptV
+                ptIs[i]=Ipt
+
+            elif m=='iv_p':
+                # set maximum current to be fitted for detemining punch through.. keep low for set-off     
+                newDat1x=np.array(abs(data2.X[ abs(data2.X) > float(3) ]))
+                newDat1y=np.array(abs(data2.Y[ abs(data2.X) > float(3) ]))
+                indMin=np.where(newDat1y == newDat1y.min())
+                ptV = newDat1x[int(indMin[0])]
+                Ipt = newDat1y[int(indMin[0])]
+                drawVoltageLine(axs[im],ptV,colors[i])
+                print('#############################')
+                print( perm )
+                print('Punch-through voltage found to be:  {:.1f} V'.format(ptV))
+                print('Current at punch through voltage:   {:.4f} uA'.format(Ipt*pow(10,6)))
+                print('#############################')
+                ptVs[i]=ptV
+                ptIs[i]=Ipt
+
             # if measurement is cv curve, fit and extract the depletion voltage 
-            if m=='cv' and args.fit:
+            elif m=='cv' and args.fit:
                 if args.fit_maxX and args.fit_minX:
                     deplV,deplC=deplVoltageRange(axs[im],data2,args.fit_minX, args.fit_maxX, colors[i])
                 else:
@@ -184,14 +216,24 @@ for i,perm in enumerate(arrayParPermName):
                 deplVs[i]=deplV
                 capCs[i]=deplC
                 
-            elif m=='iv' and m.find('cv') and args.fit:
-                xtmp=np.array(-data2.X)
-                vbin=np.where((xtmp<deplVs[i]+0.2) & (xtmp>deplVs[i]-0.2) )
-                ytmp=np.array(data2.Y)
+        for im,m in enumerate(args.measure):
+            f2=csvFileName(args.project, m, perm)
+            data2 = pd.read_csv(f2, names=["X","Y"], skiprows=1)
+            # check if punch-through/depletion voltage is detemined
+            if (m=='iv' or m=='iv_b' or m=='iv_p') and find_element_in_list('cv',args.measure) and args.fit:
+                xtmp=np.array(abs(data2.X))
+                vbin=np.where((xtmp<deplVs[i]+0.5) & (xtmp>deplVs[i]-0.5) )
+                ytmp=np.array(abs(data2.Y))
                 idpl=float(ytmp[vbin])
                 print('Current at depletion voltage:    {:.4f} pA'.format(idpl*pow(10,12)))
                 print('#############################')
-                drawVdpl(axs[im],deplVs[i],idpl,colors[i])
+                drawVoltagePoint(axs[im],deplVs[i],idpl,colors[i])
+                
+            elif m=='cv' and ( find_element_in_list('iv_p',args.measure) or find_element_in_list('iv_b',args.measure) ) and args.fit:
+                print('#############################')
+                print('Draw punch-through.. ', ptVs[i])
+                drawVoltageLine(axs[im],ptVs[i],colors[i])
+
                 
     # if only one measurement, draw in one canvas
     else:
@@ -232,8 +274,39 @@ for i,perm in enumerate(arrayParPermName):
             if not args.free:
                 axs.set_ylim(ranges[args.measure[0]][0],ranges[args.measure[0]][1])
 
-        else:        
-            drawGraphLines(axs,-data1.X, data1.Y,colors[i],lines[0],lab)
+        else:
+            dat1x=abs(data1.X)
+            dat1y=abs(data1.Y)
+
+            if args.measure[0]=='iv_b' or args.measure[0]=='iv_p' or args.measure[0]=='iv':
+                drawGraphLines(axs,dat1x,dat1y,colors[i],lines[0],lab)
+                # if measure current at back, determine punch through voltage
+                if args.measure[0]=='iv_b' and args.fit:
+                    # set maximum current to be fitted for detemining punch through.. keep low for set-off
+                    ptV,Ipt=punchThrough(axs,dat1x,dat1y,1e-14,colors[i])
+                    print('#############################')
+                    print( perm )
+                    print('Punch-through voltage found to be:  {:.1f} V'.format(ptV))
+                    print('Current at punch through voltage:   {:.4f} uA'.format(Ipt*pow(10,6)))
+                    print('#############################')
+
+                # if measure current at p well, determine punch through voltage
+                elif args.measure[0]=='iv_p' and args.fit:
+                    # set maximum current to be fitted for detemining punch through.. keep low for set-off     
+                    newDat1x=np.array(dat1x[ dat1x > float(3) ])
+                    newDat1y=np.array(dat1y[ dat1x > float(3) ])
+                    indMin=np.where(newDat1y == newDat1y.min())
+                    ptV = newDat1x[int(indMin[0])]
+                    Ipt = newDat1y[int(indMin[0])]
+                    drawVoltageLine(axs,ptV,colors[i])
+
+                    print('#############################')
+                    print( perm )
+                    print('Punch-through voltage found to be:  {:.1f} V'.format(ptV))
+                    print('Current at punch through voltage:   {:.4f} uA'.format(Ipt*pow(10,6)))
+                    print('#############################')
+            else:
+                drawGraphLines(axs,abs(data1.X), data1.Y,colors[i],lines[0],lab)
             axs.set_xlabel('|V|')
             axs.set_ylabel(titles[args.measure[0]])
             if not args.free:
@@ -275,12 +348,10 @@ outName=allCurvesName(args.project, allM, args.output, 'pdf')
 print(outName)
 
 if len(args.measure)>1 or args.measure[0]=='tran':
-    axs[0].legend(title=legTitle, loc='center left', bbox_to_anchor=(1, 0.5), fancybox=True)
+    axs[0].legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.5), fancybox=True)
     if not args.measure[0]=='tran':
         axs[len(args.measure)-1].set_xlabel('|V|')
 else:
-    if args.log:
-        axs.set_yscale('log')
     axs.legend(title=legTitle, loc='center left', bbox_to_anchor=(1, 0.5), fancybox=True)
     
 if numP>3:

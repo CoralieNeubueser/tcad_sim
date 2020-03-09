@@ -7,6 +7,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--project', type=str, default='ARCADIA25um_surfaceDamage', help='Define patht to project.')
 parser.add_argument('--cv', action='store_true', help='Specify if measurement is cv.')
 parser.add_argument('--iv', action='store_true', help='Specify if measurement is iv.')
+parser.add_argument('--iv_p', action='store_true', help='Specify if measurement is iv on pwell.')
 parser.add_argument('--iv_b', action='store_true', help='Specify if measurement is iv.')
 parser.add_argument('--cv_b', action='store_true', help='Specify if measurement is cv.')
 parser.add_argument('--tran', action='store_true', help='Specify if measurement is particle.')
@@ -33,6 +34,10 @@ if args.cv:
     nameEnd="_ac_des.plt"
 elif args.iv:
     measure='iv'
+    nameBegin="iv"
+    nameEnd=".plt"
+elif args.iv_p:
+    measure='iv_p'
     nameBegin="iv"
     nameEnd=".plt"
 elif args.iv_b:
@@ -93,8 +98,11 @@ if measure=='cv':
 elif measure=='iv':
     newFile.write('create_curve -plot Plot_1 -dataset {'+str(figName)+'} -axisX {Pbot OuterVoltage} -axisY {Ntop TotalCurrent}\n')
 
-elif measure=='iv_b':
+elif measure=='iv_p':
     newFile.write('create_curve -plot Plot_1 -dataset {'+str(figName)+'} -axisX {Pbot OuterVoltage} -axisY {Ptop TotalCurrent}\n')
+
+elif measure=='iv_b':
+    newFile.write('create_curve -plot Plot_1 -dataset {'+str(figName)+'} -axisX {Pbot OuterVoltage} -axisY {Pbot TotalCurrent}\n')
 
 elif measure=='cv_b':
     newFile.write('create_curve -plot Plot_1 -dataset {'+str(figName)+'} -axisX v(Pbot) -axisY c(Ptop,Ptop)\n')
