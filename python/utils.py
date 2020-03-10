@@ -135,7 +135,7 @@ def deplVoltageRange(ax,dat,xMin,xMax,*col):
     difdif = np.diff(dif)
 
     # define a threshold for the allowed change of the slope
-    threshold = difdif[0]/10
+    threshold = abs(difdif[0]/10.)
 
     # get indices where the diff returns value larger than a threshold
     indNZ = np.where(abs(difdif) > threshold)[0]
@@ -165,8 +165,8 @@ def deplVoltageRange(ax,dat,xMin,xMax,*col):
                     cap.append(intercept)
 
         if len(f)<2:
-            print('Found only {} linear fits.. reduce threshold by half.'.format(len(f)))
-            threshold = threshold/2.
+            print('Found only {} linear fits.. reduce threshold to minimum.'.format(len(f)))
+            threshold = abs(difdif.min())
             print(threshold)
             # reset index and clear list of linear fits
             indNZ = np.where(abs(difdif) > threshold)[0]
