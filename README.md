@@ -37,8 +37,9 @@ python python/run.py -p1 0.0 -p1 0.5 -p1 2.0 -p1 4.25 -p1Name 'gap [$\mu$m]' -p2
 - !!ATTENTION!! It is always assumed a tree structure for tested parameters, thus you are testing all p2s for each p1 ect.
 
 2. make sure that the TCAD output files feature parameters "_@par@_" to command files of CV/IV measurements
-- see [*DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd#24*](DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd#24)
-- see [*DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd#77*](DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd#77)
+- see [*DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd#24*](https://github.com/CoralieNeubueser/tcad_sim/blob/master/DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd#24)
+- see [*DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd#77*](https://github.com/CoralieNeubueser/tcad_sim/blob/master/DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd#L77)
+
 Run the simulation using the workbench: 
 ~~~
 swb&
@@ -53,7 +54,7 @@ python3 python/run.py --project ARCADIA25um_surfaceDamage -m 'cv' -p1 0.0 -p1 0.
 
 - when you have run once with flag --writeCSV, you can leave it out the next time if you want to plot only.
 
-- possible choices for measurements are: 'cv', 'iv', 'cv_b', 'iv_b', 'iv_p', 'tran', 'charge' and 'tran_4'. The measurements are defined in [*python/writeTcl.py#L95*](python/writeTcl.py#L95).
+- possible choices for measurements are: 'cv', 'iv', 'cv_b', 'iv_b', 'iv_p', 'tran', 'charge' and 'tran_4'. The measurements are defined in [*python/writeTcl.py#L95*](https://github.com/CoralieNeubueser/tcad_sim/blob/master/python/writeTcl.py#L95).
 
 ## 'cv' and 'iv' measurements
 
