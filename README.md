@@ -20,7 +20,7 @@ git clone https://github.com/CoralieNeubueser/tcad_sim.git .
 ~~~
 python python/run.py -p1 0.0 -p1 0.5 -p1 2.0 -p1 4.25 -p1Name 'gap [$\mu$m]' -p2 100 -p2Name 'S0 [cm/s]' ...
 ~~~
-- ATTENTION! It is always assumed the you are testing all p2s for each p1 ect.
+- !!ATTENTION!! It is always assumed the you are testing all p2s for each p1 ect.
 
 2. make sure that the TCAD output files feature parameters "_@par@_" to command files of CV/IV measurements
 - see line 24/25 of DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd
@@ -58,14 +58,14 @@ python3 python/run.py --project ARCADIA25um_surfaceDamage -m 'cv' -p1 0.0 -p1 0.
 
 ## Output
 
-- the output csv files and plots are stored in:
+- the output csv files and plot/s are stored in:
 ```
 _workingDir_/tcad/DB/_projectName_/tmp/
 ```
 as:
 ```
-_measurement_parameters.csv
+_measurement_p1_..._p5.csv
 _measurement_option_all.pdf
 ```
-if you are testing e.g. one specific parameter, add ```--out _nwell_10um_``` and this is included in output string as *option*.
+if you are testing e.g. one specific parameter, add ```--out _nwell_10um_``` and this is included in output string as *option*. !!ATTENTION!! Keep format *_comment_*.
 
