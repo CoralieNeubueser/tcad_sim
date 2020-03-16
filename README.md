@@ -16,17 +16,28 @@ git clone https://github.com/CoralieNeubueser/tcad_sim.git .
 ~~~
 
 # Directory structure
---working_directory 
+--working_directory
+
 ----|--python
+
 --------|
+
 --------|--run.py
+
 --------|--utils.py
+
 --------|--writeTcl.py
+
 ----|--DB
+
 --------|  
+
 --------|--_projects_
+
 ----|--scripts
---------|  
+
+--------|
+
 --------|--_running_examples_
 
 # Prepare TCAD outputs
