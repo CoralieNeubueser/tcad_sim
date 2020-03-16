@@ -15,12 +15,26 @@ Clone the git repository:
 git clone https://github.com/CoralieNeubueser/tcad_sim.git .
 ~~~
 
+# Directory structure
+--working_directory 
+----|--python
+--------|
+--------|--run.py
+--------|--utils.py
+--------|--writeTcl.py
+----|--DB
+--------|  
+--------|--_projects_
+----|--scripts
+--------|  
+--------|--_running_examples_
+
 # Prepare TCAD outputs
 1. define parameter that you want to study. You will be able to parse them through the command line when running python/run.py, like e.g. 
 ~~~
 python python/run.py -p1 0.0 -p1 0.5 -p1 2.0 -p1 4.25 -p1Name 'gap [$\mu$m]' -p2 100 -p2Name 'S0 [cm/s]' ...
 ~~~
-- !!ATTENTION!! It is always assumed the you are testing all p2s for each p1 ect.
+- !!ATTENTION!! It is always assumed a tree structure for tested parameters, thus you are testing all p2s for each p1 ect.
 
 2. make sure that the TCAD output files feature parameters "_@par@_" to command files of CV/IV measurements
 - see line 24/25 of DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd
