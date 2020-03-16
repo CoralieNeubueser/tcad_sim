@@ -17,17 +17,17 @@ git clone https://github.com/CoralieNeubueser/tcad_sim.git .
 
 # Directory structure
 --working_directory 
-----|--python 
---------| 
---------|--run.py 
---------|--utils.py 
---------|--writeTcl.py  
-----|--DB 
---------|  
---------|--_projects_ 
-----|--scripts  
---------| 
---------|--_running_examples_ 
+----|--python\
+--------|\
+--------|--run.py\ 
+--------|--utils.py\ 
+--------|--writeTcl.py\  
+----|--DB\
+--------|\  
+--------|--_projects_\ 
+----|--scripts\
+--------|\
+--------|--_running_examples_\ 
 
 # Prepare TCAD outputs
 1. define parameter that you want to study. You will be able to parse them through the command line when running python/run.py, like e.g. 
