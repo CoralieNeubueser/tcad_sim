@@ -37,8 +37,8 @@ python python/run.py -p1 0.0 -p1 0.5 -p1 2.0 -p1 4.25 -p1Name 'gap [$\mu$m]' -p2
 - !!ATTENTION!! It is always assumed a tree structure for tested parameters, thus you are testing all p2s for each p1 ect.
 
 2. make sure that the TCAD output files feature parameters "_@par@_" to command files of CV/IV measurements
-- see line 24/25 of DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd
-- see line 77 of DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd
+- see [*DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd#24*](DB/ARCADIA25um_surfaceDamage/sdevice_des.cmd#24)
+- see [*DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd#77*](DB/ARCADIA25um_surfaceDamage/sdevice1_des.cmd#77)
 Run the simulation using the workbench: 
 ~~~
 swb&
@@ -53,7 +53,7 @@ python3 python/run.py --project ARCADIA25um_surfaceDamage -m 'cv' -p1 0.0 -p1 0.
 
 - when you have run once with flag --writeCSV, you can leave it out the next time if you want to plot only.
 
-- possible choices for measurements are: 'cv', 'iv', 'cv_b', 'iv_b', 'iv_p', 'tran', 'charge' and 'tran_4'. The measurements are defined in [*here*](python/writeTcl.py#L95).
+- possible choices for measurements are: 'cv', 'iv', 'cv_b', 'iv_b', 'iv_p', 'tran', 'charge' and 'tran_4'. The measurements are defined in [*python/writeTcl.py#L95*](python/writeTcl.py#L95).
 
 ## 'cv' and 'iv' measurements
 
@@ -61,7 +61,7 @@ python3 python/run.py --project ARCADIA25um_surfaceDamage -m 'cv' -p1 0.0 -p1 0.
 
 - add ```--fit``` flag to fit the curves for determining the depletion and punch-through voltage. The methods are defines in *python/utils.py*
 
-- add ```--free``` flag to keep the y-axis range adjusting autmatically, otherwise the range is fixe to [*link*](python/run.py#48).
+- add ```--free``` flag to keep the y-axis range adjusting autmatically, otherwise the range is fixe to [*python/run.py#48*](python/run.py#48).
 
 ## 'tran' 'charge' 'tran_4' measurements
 
