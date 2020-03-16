@@ -67,5 +67,5 @@ as:
 _measurement_p1_..._p5.csv
 _measurement_option_all.pdf
 ```
-if you are testing e.g. one specific parameter, add ```--out _nwell_10um_``` and this is included in output string as *option*. !!ATTENTION!! Keep format *_comment_*.
+if you are testing e.g. one specific parameter, add ```--out _nwell_10um_``` and this is included in output string as *option*. !!ATTENTION!! Keep format ```_comment_```.
 
