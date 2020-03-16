@@ -39,30 +39,33 @@ python3 python/run.py --project ARCADIA25um_surfaceDamage -m 'cv' -p1 0.0 -p1 0.
 
 - when you have run once with flag --writeCSV, you can leave it out the next time if you want to plot only.
 
--> csv and pdf files are stored in DB/<--project-->/tmp/
-
 - possible choices for measurements are: 'cv', 'iv', 'cv_b', 'iv_b', 'iv_p', 'tran', 'charge' and 'tran_4'. The measurements are defined in [*here*](python/writeTcl.py#L95).
 
 ## 'cv' and 'iv' measurements
 
 - measurements are by default the capacitance and current measurements at the n+ electrode. Adding '_b' or '_p' means, the values belong to the back side or top pwell contacts.
 
-- add ** --fit ** flag to fit the curves for determining the depletion and punch-through voltage. The methods are defines in *python/utils.py*
+- add ```--fit``` flag to fit the curves for determining the depletion and punch-through voltage. The methods are defines in *python/utils.py*
 
-- add ** --free ** flag to keep the y-axis range adjusting autmatically, otherwise the range is fixe to [*link*](python/run.py#48).
+- add ```--free``` flag to keep the y-axis range adjusting autmatically, otherwise the range is fixe to [*link*](python/run.py#48).
 
 ## 'tran' 'charge' 'tran_4' measurements
 
 - these are measurements of the current signals at the front side n+ electrode over time
-- usually, you will define an induced signal charge, using e.g. the 'HeavyIonModel' defining the induced charges as pC/&mu;m in the LET value. An examplaratory project is given in 'DB/ARCADIA50um_3D_particle1'.
+- usually, you will define an induced signal charge, using e.g. the **HeavyIonModel** defining the induced charges as pC/&mu;m in the LET value. An examplaratory project is given in 'DB/ARCADIA50um_3D_particle1'.
 - the measurements output the current signal over time, and the estimated Charge Collection Efficiency (CCE) as a function of time. This value is determined as ![CCE=\frac{\int{I}}{LET}](https://latex.codecogs.com/gif.latex?CCE=\frac{\int{I}}{LET}).
-- !!ATTENTION!! the LET value is given as pC/&mu;m, thus needs the information of the thickness of your device under test. By defalut the thickness is assumed to be 100&mu;m. Use e.g. ** --thickness 50 ** to set the value to 50&mu;.  
+- !!ATTENTION!! the LET value is given as pC/&mu;m, thus needs the information of the thickness of your device under test. By defalut the thickness is assumed to be 100&mu;m. Use e.g. ```--thickness 50``` to set the value to 50&mu;.  
 
 ## Output
 
-- the output plot/s is/are stored as:
+- the output csv files and plots are stored in:
 ```
-_workingDir_/tcad/DB/_projectName_/tmp/_measurement_option_all.pdf
+_workingDir_/tcad/DB/_projectName_/tmp/
 ```
-if you are testing e.g. one specific parameter, add ** --out _nwell_10um_ ** and this is included in output string as *option*.
+as:
+```
+_measurement_parameters.csv
+_measurement_option_all.pdf
+```
+if you are testing e.g. one specific parameter, add ```--out _nwell_10um_``` and this is included in output string as *option*.
 
