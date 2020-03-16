@@ -16,29 +16,18 @@ git clone https://github.com/CoralieNeubueser/tcad_sim.git .
 ~~~
 
 # Directory structure
---working_directory
-
-----|--python
-
---------|
-
---------|--run.py
-
---------|--utils.py
-
---------|--writeTcl.py
-
-----|--DB
-
+--working_directory 
+----|--python 
+--------| 
+--------|--run.py 
+--------|--utils.py 
+--------|--writeTcl.py  
+----|--DB 
 --------|  
-
---------|--_projects_
-
-----|--scripts
-
---------|
-
---------|--_running_examples_
+--------|--_projects_ 
+----|--scripts  
+--------| 
+--------|--_running_examples_ 
 
 # Prepare TCAD outputs
 1. define parameter that you want to study. You will be able to parse them through the command line when running python/run.py, like e.g. 
@@ -92,5 +81,5 @@ as:
 _measurement_p1_..._p5.csv
 _measurement_option_all.pdf
 ```
-if you are testing e.g. one specific parameter, add ```--out _nwell_10um_``` and this is included in output string as *option*. !!ATTENTION!! Keep format ```_comment_```.
+if you are testing e.g. one specific parameter, add ```--out _nwell_10um_``` and this is included in output string as *option*. !!ATTENTION!! Keep format ```_option_```.
 
