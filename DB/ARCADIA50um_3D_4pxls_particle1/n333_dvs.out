@@ -1,0 +1,327 @@
+****************************************************************************
+***                      Sentaurus Structure Editor                      ***
+***                        Version P-2019.03-SP1                         ***
+***                       (1.1250, x86_64, Linux)                        ***
+***                                                                      ***
+***               Copyright (C) 1994-2019 Synopsys, Inc.                 ***
+***        Portions of this software are owned by Spatial Corp.          ***
+***            Copyright (C) 1986-2019. All Rights Reserved.             ***
+***                                                                      ***
+***  This software and the associated documentation are confidential     ***
+***  and proprietary to Synopsys, Inc.  Your use or disclosure of this   ***
+***  software is subject to the terms and conditions of a written        ***
+***  license agreement between you, or your company, and Synopsys, Inc.  ***
+****************************************************************************
+
+Compiled Thu May  2 16:00:55 PDT 2019 on: tcadprod10
+Running on: ludwig-boltzmann
+Hardware type: x86_64
+OS name: Linux
+OS release: 3.10.0-1062.9.1.el7.x86_64
+OS version: #1 SMP Fri Dec 6 15:49:49 UTC 2019
+Process ID: 77620
+
+version #3 done.
+Evaluating file n333_dvs.cmd
+
+---> (define TSi 100)
+
+---> (define WSi 50)
+
+---> (define DSi 50)
+
+---> (define pwW 15)
+
+---> (define pwD 15)
+
+---> (define dpwW 15)
+
+---> (define dpwD 15)
+
+---> (define nwW 10)
+
+---> (define nwD 10)
+
+---> (define nwSTART (- (/ WSi 2) (/ nwW 2)))
+
+---> (define nwSTOP (+ (/ WSi 2) (/ nwW 2)))
+
+---> (define TEpi 7)
+
+---> (sdegeo:create-cuboid (position 0 0 0) (position (* WSi 2) TSi (* DSi 2)) Silicon substrate)
+
+---> (sdegeo:imprint-rectangular-wire (position 0 0 0) (position (* 2 WSi) 0 (* 2 DSi)))
+
+---> (do ((l 0 (+ l 1))) ((= l 2)) (begin (do ((k 0 (+ k 1))) ((= k 2)) (begin (display The value of l is ) (display l) (newline) (display The value of k is ) (display k) (newline) (display The value of l is ) (display (* l WSi)) (newline) (display The value of k is ) (display (* k DSi)) (newline) (sdegeo:imprint-rectangular-wire (position (+ (+ nwSTART (* l WSi)) 0.5) 0 (+ (+ nwSTART (* k DSi)) 0.5)) (position (- (+ nwSTOP (* l WSi)) 0.5) 0 (- (+ nwSTOP (* k DSi)) 0.5))) (sdegeo:imprint-rectangular-wire (position (+ (- pwW 3) (* l WSi)) 0 (+ (- pwD 3) (* k DSi))) (position (+ (+ (- WSi pwW) 3) (* l WSi)) 0 (+ (+ (- DSi pwD) 3) (* k DSi))))))))
+
+The value of l is 0
+The value of k is 0
+The value of l is 0
+The value of k is 0
+The value of l is 0
+The value of k is 1
+The value of l is 0
+The value of k is 50
+The value of l is 1
+The value of k is 0
+The value of l is 50
+The value of k is 0
+The value of l is 1
+The value of k is 1
+The value of l is 50
+The value of k is 50
+---> (define NAMES (list 0_0 0_1 1_0 1_1))
+
+---> (define LS (list 0 0 1 1))
+
+---> (define KS (list 0 1 0 1))
+
+---> (for-each (lambda (NAME L K) (begin (define NTOP (string-append Ntop_ NAME)) (define PTOP (string-append Ptop_ NAME)) (sdegeo:define-contact-set PTOP 4 (color:rgb 1 0 0) ##) (sdegeo:define-contact-set NTOP 4 (color:rgb 0 1 0) ##) (sdegeo:set-current-contact-set NTOP) (sdegeo:define-3d-contact (find-face-id (position (+ (/ WSi 2) (* L WSi)) 0 (+ (/ DSi 2) (* K DSi)))) NTOP))) NAMES LS KS)
+
+---> (sdegeo:set-current-contact-set Ptop)
+
+---> (sdegeo:set-contact-faces (list (car (find-face-id (position (+ 10 WSi) 0 (+ 7.5 DSi))))) Ptop)
+
+(sdegeo:define-3d-contact (list (car (find-face-id (position 75 0 6)))) "Ptop")
+
+---> (sdegeo:set-current-contact-set Pbot)
+
+---> (sdegeo:set-contact-faces (list (car (find-face-id (position 0.5 TSi 0.5)))) Pbot)
+
+(sdegeo:define-3d-contact (list (car (find-face-id (position 50 100 50)))) "Pbot")
+
+---> (sdedr:define-refeval-window WinEpi Cuboid (position -1 -1 -1) (position (+ (* 2 WSi) 1) TEpi (+ (* 2 DSi) 1)))
+
+---> (sdedr:define-refeval-window WinPbot Rectangle (position 0 TSi 0) (position (* 2 WSi) TSi (* 2 DSi)))
+
+---> (sdedr:define-constant-profile ProfSub PhosphorusActiveConcentration 2500000000000.0)
+
+---> (sdedr:define-constant-profile ProfEpi PhosphorusActiveConcentration 100000000000000.0)
+
+---> (sdedr:define-gaussian-profile ProfPbot BoronActiveConcentration PeakPos 0 PeakVal 1e+19 ValueAtDepth 2500000000000.0 Depth 0.1 Gauss Factor 0.8)
+
+---> (sdedr:define-1d-external-profile ProfPwell ./pwell.txt Scale 1 Range 0 1.5 Gauss Factor 0)
+
+---> (sdedr:define-1d-external-profile ProfNwell ./nwell.txt Scale 1 Range 0 1.8 Gauss Factor 0)
+
+---> (sdedr:define-1d-external-profile ProfDPwell ./dpwell.txt Scale 1 Range 0 10 Gauss Factor 0)
+
+---> (sdedr:define-constant-profile-region PlacSub ProfSub substrate)
+
+---> (sdedr:define-constant-profile-placement PlacEpi ProfEpi WinEpi 0.3 Replace)
+
+---> (sdedr:define-analytical-profile-placement PlacPbot ProfPbot WinPbot Both NoReplace Eval)
+
+---> (define NAMES (list 0_0 0_1 1_0 1_1))
+
+---> (define LS (list 0 0 1 1))
+
+---> (define KS (list 0 1 0 1))
+
+---> (for-each (lambda (NAME L K) (begin (display The value of L is ) (display L) (newline) (display The value of K is ) (display K) (newline) (define L1 (+ L 1)) (define K1 (+ K 1)) (define WINNTOP (string-append WinNtop_ NAME)) (define WINPTOP1 (string-append WinPtop1_ NAME)) (define WINPTOP2 (string-append WinPtop2_ NAME)) (define WINPTOP3 (string-append WinPtop3_ NAME)) (define WINPTOP4 (string-append WinPtop4_ NAME)) (define WINDPTOP1 (string-append WinDPtop1_ NAME)) (define WINDPTOP2 (string-append WinDPtop2_ NAME)) (define WINDPTOP3 (string-append WinDPtop3_ NAME)) (define WINDPTOP4 (string-append WinDPtop4_ NAME)) (define PLACNTOP (string-append PlacNtop_ NAME)) (define PLACPTOP1 (string-append PlacPtop1_ NAME)) (define PLACPTOP2 (string-append PlacPtop2_ NAME)) (define PLACPTOP3 (string-append PlacPtop3_ NAME)) (define PLACPTOP4 (string-append PlacPtop4_ NAME)) (define PLACDPTOP1 (string-append PlacDPtop1_ NAME)) (define PLACDPTOP2 (string-append PlacDPtop2_ NAME)) (define PLACDPTOP3 (string-append PlacDPtop3_ NAME)) (define PLACDPTOP4 (string-append PlacDPtop4_ NAME)) (sdedr:define-refeval-window WINNTOP Rectangle (position (+ nwSTART (* L WSi)) 0 (+ nwSTART (* K DSi))) (position (+ nwSTOP (* L WSi)) 0 (+ nwSTOP (* K DSi)))) (sdedr:define-refeval-window WINPTOP1 Rectangle (position (* L WSi) 0 (* K DSi)) (position (+ pwW (* L WSi)) 0 (+ DSi (* K DSi)))) (sdedr:define-refeval-window WINPTOP2 Rectangle (position (- (* L1 WSi) pwW) 0 (* K DSi)) (position (* L1 WSi) 0 (* K1 DSi))) (sdedr:define-refeval-window WINPTOP3 Rectangle (position (+ pwW (* L WSi)) 0 (* K DSi)) (position (- (* L1 WSi) pwW) 0 (+ pwD (* K DSi)))) (sdedr:define-refeval-window WINPTOP4 Rectangle (position (+ pwW (* L WSi)) 0 (- (* K1 DSi) pwD)) (position (- (* L1 WSi) pwW) 0 (+ DSi (* K DSi)))) (sdedr:define-refeval-window WINDPTOP1 Rectangle (position (* L WSi) 0 (* K DSi)) (position (+ dpwW (* L WSi)) 0 (+ DSi (* K DSi)))) (sdedr:define-refeval-window WINDPTOP2 Rectangle (position (- (* L1 WSi) dpwW) 0 (* K DSi)) (position (+ WSi (* L WSi)) 0 (+ DSi (* K DSi)))) (sdedr:define-refeval-window WINDPTOP3 Rectangle (position (+ dpwW (* L WSi)) 0 (* K DSi)) (position (- (* L1 WSi) dpwW) 0 (+ dpwD (* K DSi)))) (sdedr:define-refeval-window WINDPTOP4 Rectangle (position (+ dpwW (* L WSi)) 0 (- (* K1 DSi) dpwD)) (position (- (* L1 WSi) dpwW) 0 (+ DSi (* K DSi)))) (sdedr:define-analytical-profile-placement PLACPTOP1 ProfPwell WINPTOP1 Both NoReplace Eval) (sdedr:define-analytical-profile-placement PLACPTOP2 ProfPwell WINPTOP2 Both NoReplace Eval) (sdedr:define-analytical-profile-placement PLACPTOP3 ProfPwell WINPTOP3 Both NoReplace Eval) (sdedr:define-analytical-profile-placement PLACPTOP4 ProfPwell WINPTOP4 Both NoReplace Eval) (sdedr:define-analytical-profile-placement PLACDPTOP1 ProfDPwell WINDPTOP1 Both NoReplace Eval) (sdedr:define-analytical-profile-placement PLACDPTOP2 ProfDPwell WINDPTOP2 Both NoReplace Eval) (sdedr:define-analytical-profile-placement PLACDPTOP3 ProfDPwell WINDPTOP3 Both NoReplace Eval) (sdedr:define-analytical-profile-placement PLACDPTOP4 ProfDPwell WINDPTOP4 Both NoReplace Eval) (sdedr:define-analytical-profile-placement PLACNTOP ProfNwell WINNTOP Both NoReplace Eval))) NAMES LS KS)
+
+The value of L is 0
+The value of K is 0
+The value of L is 0
+The value of K is 1
+The value of L is 1
+The value of K is 0
+The value of L is 1
+The value of K is 1
+---> (sdedr:define-refeval-window RefWinGlobal Cuboid (position -1 -1 -1) (position (+ (* 2 WSi) 1) (+ TSi 1) (+ (* 2 DSi) 1)))
+
+---> (sdedr:define-refinement-size RefDefGlobal 20 5 20 4 4 4)
+
+---> (sdedr:define-refinement-placement RefPlacGlobal RefDefGlobal RefWinGlobal)
+
+---> (sdedr:define-refinement-function RefDefGlobal DopingConcentration MaxTransDiff 1)
+
+---> (sdedr:define-refeval-window RefWinSurf Cuboid (position 0 0 0) (position (* 2 WSi) 10 (* 2 DSi)))
+
+---> (sdedr:define-refinement-size RefDefSurf 2.5 2.5 2.5 0.5 0.5 0.5)
+
+---> (sdedr:define-refinement-placement RefPlacSurf RefDefSurf RefWinSurf)
+
+---> (sdedr:define-refinement-function RefDefSurf DopingConcentration MaxTransDiff 1)
+
+---> (sdedr:define-refeval-window RefWinBot Cuboid (position 0 (- TSi 2) 0) (position (* 2 WSi) TSi (* 2 DSi)))
+
+---> (sdedr:define-refinement-size RefDefBot 10 2 10 4 1 4)
+
+---> (sdedr:define-refinement-placement RefPlacBot RefDefBot RefWinBot)
+
+---> (sdedr:define-refinement-function RefDefBot DopingConcentration MaxTransDiff 1)
+
+---> (sdedr:define-refeval-window RefWinPart Cuboid (position (- 0 2) 0 (- 0 2)) (position (+ 0 2) TSi (+ 0 2)))
+
+---> (sdedr:define-refinement-size RefDefPart 0.4 5 0.4 0.15 0.25 0.15)
+
+---> (sdedr:define-refinement-placement RefPlacPart RefDefPart RefWinPart)
+
+---> (sde:save-model p333)
+
+---> (sde:build-mesh snmesh -a -c boxmethod n333)
+
+****************************************************************************
+***                            Sentaurus Mesh                            ***
+***                        Version P-2019.03-SP1                         ***
+***                       (1.1250, x86_64, Linux)                        ***
+***                                                                      ***
+***                       Copyright (C) 2005-2019                        ***
+***                            Synopsys, Inc.                            ***
+***                                                                      ***
+***  This software and the associated documentation are confidential     ***
+***  and proprietary to Synopsys, Inc.  Your use or disclosure of this   ***
+***  software is subject to the terms and conditions of a written        ***
+***  license agreement between you, or your company, and Synopsys, Inc.  ***
+****************************************************************************
+
+Compiled Thu May  2 14:39:03 PDT 2019 on: tcadprod10
+Running on: ludwig-boltzmann
+Hardware type: x86_64
+OS name: Linux
+OS release: 3.10.0-1062.9.1.el7.x86_64
+OS version: #1 SMP Fri Dec 6 15:49:49 UTC 2019
+Process ID: 77632
+
+Flags used: -a -c boxmethod
+
+Loading 1-D profile ./pwell.txt...done
+Loading 1-D profile ./nwell.txt...done
+Loading 1-D profile ./dpwell.txt...done
+
+===============================  brep quality  ===================================
+minAngle: 6.57151  [near (100 -0 100)]
+maxAngle: 162.474  [near (100 -0 100)]
+minDihedralAngle: 90  [near (-0 -0 -0),(-0 100 -0)] at region=substrate
+nVerts = 40  nTris = 76  nRegs = 7
+bmin: -0 -0 -0
+bmax: 100 100 100
+min edgeLength: 9  [near (75 -0 70.5)]
+min area: 38.25  max area: 5000  total area: 60000 interface area: 0
+volume: 1e+06
+Conformal? true
+Are all boundaries on bbox? true
+==================================================================================
+** Generating 3d grid **
+
+
+===============================  brep quality  ===================================
+minAngle: 6.57151  [near (100 -0 100)]
+maxAngle: 162.474  [near (100 -0 100)]
+minDihedralAngle: 90  [near (-0 100 100),(-0 100 -0)] at region=substrate
+nVerts = 40  nTris = 76  nRegs = 7
+bmin: -0 -0 -0
+bmax: 100 100 100
+min edgeLength: 9  [near (75 -0 70.5)]
+min area: 38.25  max area: 5000  total area: 60000 interface area: 0
+volume: 1e+06
+Conformal? true
+Are all boundaries on bbox? true
+==================================================================================
+Creating binary tree...done.
+Smoothing out binary tree...done.
+Imprinting binary tree on the boundary...done.
+Optimizing boundary nodes...done.
+
+===============================  brep quality  ===================================
+minAngle: 6.84277  [near (25 0 20.5)]
+maxAngle: 127.235  [near (79.6875 0 70.3125)]
+minDihedralAngle: 90  [near (100 96.875 100),(100 98.4375 100)] at region=substrate
+nVerts = 10087  nTris = 20170  nRegs = 7
+bmin: 0 0 0
+bmax: 100 100 100
+min edgeLength: 0.1875  [near (78.125 0 70.4062)]
+min area: 0.0762939  max area: 19.5312  total area: 60000 interface area: 0
+volume: 1e+06
+Conformal? true
+Are all boundaries on bbox? true
+==================================================================================
+Number of vertices after binary tree generation : 
+  61402 (tree) + 10087 (boundary)
+
+** Delaunizing the mesh **
+
+Creating delaunizer input...done.
+Fixing diagonals...done.
+Building a generic Delaunay triangulation of the 61786 input vertices ...done.
+Setting up planar patches...done.
+Initializing protection spheres...done.
+Flipping edges...done. (61794 vertices, 360069 elements)
+Solving ridges...done. (65160 vertices, 379655 elements)
+Solving faces...done. (66441 vertices, 386975 elements)
+Optimizing elements...done. (66441 vertices)
+Recovering faces...done. (66441 vertices)
+Eliminating slivers...done.(164.98deg 5e-05um^2)
+
+============================Report Non-Delaunay elements ============================
+Found 0 non-Delaunay elements
+Found 0 non-Delaunay boundary faces
+Found 0 non-Delaunay ridges
+==================================================================================
+
+Assign regions...done.
+Store Delaunay weight.
+
+The final mesh has: 
+   66433 points.
+  364949 elements.
+       7 regions.
+Max. connectivity = 48 located at (89.0625;0.78125;51.5625)
+
+Smallest region: Ntop_0_0  Total volume: 0
+        MeshGen3DNew::getDelaunizerInput:        21s
+                 MeshGen3DNew::delaunize:      31.1s
+
+==============================  tet-grid quality  ================================
+    0  10  20  30  40  50  60  70  80  90 100 110 120 130 140 150 160 170 180
+ %       .    4   4   7  22   6  11   1  34  .    7   1   2  .   .   .     
+---------------------------------------------------------------------------------
+minAngle: 5.05115  maxAngle: 164.98
+nVerts = 66433  nTets = 364949  nMats = 1
+max connectivity (tets per node): 48
+bmin: 0 0 0
+bmax: 100 100 100
+min edgeLength: 0.1875  [near (20.4062 0.195312 27.7344)]
+min volume: 0.00457764  max volume: 20.3451  Total volume: 1e+06
+bbox  volume: 1e+06
+Are all boundaries on bbox? true
+=================================================================================
+
+Smallest region: substrate  Total volume: 1e+06
+Interpolating data...done.
+Adding region interfaces...done
+done.
+Saving file n333_msh.tdr...done.
+
+===============================  Timer Report===================================
+              Total Mesh Generation Time:      65.2s       100%
+                       Rate of #Vertices:  1.02e+03
+                          Rate of #Edges:         0
+                          Rate of #Faces:  5.47e+03
+                       Rate of #Elements:   5.6e+03
+
+                              BinaryTree:      8.64s      13.2%
+                                 Imprint:      1.66s      2.55%
+                           DelaunayInput:      13.6s      20.9%
+                           DiagonalFixer:  0.000164s  0.000252%
+                          InsertVertices:      7.34s      11.3%
+                              Delaunizer:        13s        20%
+                        SphereProtection:      2.01s      3.08%
+                        SolveConstraints:      9.73s      14.9%
+                        OptimizeElements:      1.77s      2.72%
+                            RecoverFaces:      1.12s      1.72%
+                           SliverRemover:      3.43s      5.25%
+                            Time Covered:      62.4s      95.7%
+
+
+"Meshing successful"
+---> #[end-of-file]
+
+"************************************************************************"
+"Sentaurus Structure Editor "
+"Start Time:    Mon Mar 16 17:27:18 2020"
+"End   Time:    Mon Mar 16 17:28:34 2020"
+"Total Execution Time (sec):    76"
+"Total System calls Time (sec): 0"
+"************************************************************************"

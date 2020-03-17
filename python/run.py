@@ -2,13 +2,13 @@ import os, sys, argparse, re
 from utils import * 
 import pandas as pd
 import numpy as np
-
+from matplotlib import ticker
 parser = argparse.ArgumentParser()
 
 parser.add_argument('--project', type=str, default='ARCADIA25um_surfaceDamage', help='Define patht to project.')
 parser.add_argument('--writeCSV', action='store_true', help='Convert tcl to csv, if not already done.')
 parser.add_argument('-threeD', '--threeD', action='store_true', help='3D measurement, assumes only particle transient measurement at the moment.')
-parser.add_argument('-m', '--measure', action='append', type=str, default=[], help='Define which plots you want to draw.', choices=['cv','iv','iv_p','iv_b','cv_b','tran','charge'])
+parser.add_argument('-m', '--measure', action='append', type=str, default=[], help='Define which plots you want to draw.', choices=['cv','iv','iv_p','iv_b','cv_b','tran','tran_4','charge'])
 parser.add_argument('--log', action='store_true', help='Define if y axis on log scale.')
 parser.add_argument('--fit', action='store_true', help='Define if cv curve is fitted.')
 parser.add_argument('--fit_minX', type=int, help='Set fit range minimum.')
@@ -35,6 +35,8 @@ if threeDim:
     print('Running on 3D simulation..')
 thickness = args.thickness
 numP=args.Parameters
+if args.log:
+    args.output += 'log_'
 
 titles = dict([('cv', 'C [F/$\mu$m]'),
                ('iv', 'I [A/$\mu$m]'),
@@ -42,6 +44,7 @@ titles = dict([('cv', 'C [F/$\mu$m]'),
                ('iv_b', 'I$_{back}$ [A/$\mu$m]'),
                ('cv_b', 'C$_{back}$ [F/$\mu$m]'),
                ('tran', 'I$_{front}$ [$\mu$A]'),
+               ('tran_4', 'I$_{front}$ [$\mu$A]'),
                ('charge', 'charge [pC]')
                ])
 
@@ -51,6 +54,7 @@ ranges = dict([('cv', [2e-16, 5e-15]),
                ('iv_b', [1e-16, 1e-5]),
                ('cv_b', [1e-16, 5e-15]),
                ('tran', [0, 1.2]),
+               ('tran_4', [0, 0.2]),
                ('charge', [0, 1.2])
            ])
 
@@ -92,6 +96,9 @@ for p1 in args.par1:
                                 for p5 in args.par5:
                                     parOption='-pS '+p1+' -pS '+p2+' -pS '+p3+' -pS '+p4+' -pS '+p5
                                     parPermName=p1+'_'+p2+'_'+p3+'_'+p4+'_'+p5
+                                    print(parOption)
+                                    arrayParPerm.append(parOption)
+                                    arrayParPermName.append(parPermName)
                             else:
                                 print(parOption)
                                 arrayParPerm.append(parOption)
@@ -126,9 +133,10 @@ if args.writeCSV:
 mark=','
 lines=['-','--',':','-.']
 
+# create canvas
 print(len(args.measure))
 fig, axs = plt.subplots(len(args.measure),1, sharex=True, sharey=False) #, gridspec_kw={'hspace': 0})
-if args.measure[0]=='tran':
+if args.measure[0]=='tran' or args.measure[0]=='tran_4':
     fig, axs = plt.subplots(2,1, sharex=True, sharey=False)
 
 # pick color map
@@ -139,16 +147,20 @@ colors = [colormap(i) for i in np.linspace(0, 0.9,len(arrayParPermName))]
 ptVs=np.zeros(len(arrayParPermName), dtype=float)
 ptIs=np.zeros(len(arrayParPermName), dtype=float)
 deplVs=np.zeros(len(arrayParPermName), dtype=float)
-capCs=np.zeros(len(arrayParPermName), dtype=float)
-endIs=np.zeros(len(arrayParPermName), dtype=float)
-CCEs=np.zeros(len(arrayParPermName), dtype=float)
+capCs=np.zeros(len(arrayParPermName), dtype=[])
+endIs=np.zeros(len(arrayParPermName), dtype=[])
+CCEs1=[[0 for x in range(len(arrayParPermName))] for y in range(100)] 
+CCEs2=[[0 for x in range(len(arrayParPermName))] for y in range(100)] 
+CCEs3=[[0 for x in range(len(arrayParPermName))] for y in range(100)] 
+CCEs4=[[0 for x in range(len(arrayParPermName))] for y in range(100)] 
+times=[[0 for x in range(len(arrayParPermName))] for y in range(100)]
 
 # read csv files and analyse
 for i,perm in enumerate(arrayParPermName):
 
     f1=csvFileName(args.project, args.measure[0], perm)
     print(f1)
-    data1 = pd.read_csv(f1, names=["X","Y"], skiprows=1)
+    data1 = pd.read_csv(f1, names=["X","Y","X1","Y1","X2","Y2","X3","Y3"], skiprows=1)
     lab=str(perm)
 
     # if multiple measurements are analysed draw in multiple subplots
@@ -194,7 +206,7 @@ for i,perm in enumerate(arrayParPermName):
 
             # if measurement is cv curve, fit and extract the depletion voltage 
             elif m=='cv' and args.fit:
-                if args.fit_maxX and args.fit_minX:
+                if args.fit_maxX or args.fit_minX:
                     deplV,deplC=deplVoltageRange(axs[im],data2,args.fit_minX, args.fit_maxX, colors[i])
                 else:
                     deplV,deplC=deplVoltage(axs[im],data2,colors[i])
@@ -237,34 +249,59 @@ for i,perm in enumerate(arrayParPermName):
                 
     # if only one measurement, draw in one canvas
     else:
-        if args.measure[0]=='tran':
-            drawGraphLines(axs[0],data1.X*pow(10,9), data1.Y*pow(10,6),colors[i],lines[0],lab)
-            axs[0].set_xlim(-2,15)
+        if args.measure[0]=='tran' or args.measure[0]=='tran_4':
+            if args.measure[0]=='tran':
+                drawGraphLines(axs[0],data1.X*pow(10,9), data1.Y*pow(10,6),colors[i],lines[0],lab)
+            elif args.measure[0]=='tran_4':
+                drawMultiGraphLines(axs[0],data1.X*pow(10,9), data1.Y*pow(10,6), data1.Y1*pow(10,6), data1.Y2*pow(10,6), data1.Y3*pow(10,6),lines[0])
+           # set x range
+            axs[0].set_xlim(-2,100)
+
+            # fill array with time bins for hit maps
+            times[i]=data1.X*pow(10,9)
 
             # integrate current over 200ns
             # C=A*s
-            totalCharge=getIntegral(data1.Y,data1.X)* pow(10,12) #,0,10*pow(10,-9)) * pow(10,12)
+            totalCharge=abs(getIntegral(data1.Y,data1.X)* pow(10,12)) #,0,10*pow(10,-9)) * pow(10,12)
             # search for the LET value in string                                                               
             index=perm.find('e-5')
             let=perm[-8:index]
             # transform from pC/um to pC
             final_let=float( re.findall('[+-]?\d+\.\d+', let)[0] ) * pow(10,-5) * thickness
+            # normalise to 1/4 when running in 4 pixel domain, assumes particle in 0,0
+            if args.measure[0]=='tran_4':
+                final_let = final_let / 4.
             cce = totalCharge/final_let
             print('#############################')
             print( perm )
             print('Total charge                :    {:.4f}x10^-5 pC'.format(totalCharge*pow(10,5)))
             print('LET                         :    {:.4f}x10^-5 pC'.format(final_let*pow(10,5)))
-            print('Charge collection efficiency:    {:.2f} %'.format(cce))
+            print('Charge collection efficiency:    {:.2f} %'.format(cce*100))
             print('#############################')
             
             # draw CCE over time
-            drawCCE(axs[1],data1.X,data1.Y,final_let,colors[i],lines[0],lab)
-            axs[1].set_ylabel('CCE')
+            if args.measure[0]=='tran':
+                CCEs1[i] = drawCCE(axs[1],data1.X,data1.Y,final_let,colors[i],lines[0],lab)
+                axs[1].set_ylabel('CCE')
+
+            # draw CCEs over time and return arrays
+            elif args.measure[0]=='tran_4':
+                CCEs1[i], CCEs2[i], CCEs3[i], CCEs4[i] = drawMultiCCE(axs[1],data1.X,data1.Y,data1.Y1,data1.Y2,data1.Y3,final_let,lines[0])
+                axs[1].set_ylabel(r'CCE $\times 4$')
+            
             axs[1].set_xlabel('time [ns]')
-            axs[1].set_ylim(0,1.2)
             axs[0].set_ylabel(titles['tran'])
             if not args.free:
+                
                 axs[0].set_ylim(ranges['tran'][0],ranges['tran'][1])
+                axs[1].set_ylim(0,1.2)
+
+            if args.log:
+                axs[0].set_yscale('log')
+                axs[1].set_yscale('log')
+                axs[1].set_xticks(np.arange(0, 100., 10.))
+                #axs[1].set_yticks(np.arange(0, 1.5, 0.1))
+                plt.grid(True)
 
         elif args.measure[0]=='charge':
             drawGraphLines(axs,data1.X*pow(10,9), data1.Y*pow(10,12),colors[i],lines[0],lab)
@@ -311,13 +348,11 @@ for i,perm in enumerate(arrayParPermName):
             axs.set_ylabel(titles[args.measure[0]])
             if not args.free:
                 axs.set_ylim(ranges[args.measure[0]][0],ranges[args.measure[0]][1])
-        
-        if args.log:
-            axs.set_yscale('log') 
-        
+            if args.log:
+                axs.set_yscale('log')
         # if measurement is cv curve, fit and extract the depletion voltage
         if args.measure[0]=='cv' and args.fit:
-            if args.fit_maxX and args.fit_minX:
+            if args.fit_maxX or args.fit_minX:
                 deplV,deplC=deplVoltageRange(axs,data1,args.fit_minX, args.fit_maxX, colors[i])
             else:
                 deplV,deplC=deplVoltage(axs,data1,colors[i])
@@ -340,16 +375,18 @@ for i,perm in enumerate(arrayParPermName):
             capCs[i]=deplC
 
         
-# draw all CV curves
+# draw all measured curves
 allM=''
 for m in args.measure:
     allM=allM+m
 outName=allCurvesName(args.project, allM, args.output, 'pdf')
 print(outName)
 
-if len(args.measure)>1 or args.measure[0]=='tran':
+if len(args.measure)>1 or args.measure[0]=='tran' or args.measure[0]=='tran_4':
+    if args.measure[0]=='tran_4':
+        legTitle=legTitle+'\n'+arrayParPermName[0]
     axs[0].legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.5), fancybox=True)
-    if not args.measure[0]=='tran':
+    if not args.measure[0]=='tran' and not args.measure[0]=='tran_4':
         axs[len(args.measure)-1].set_xlabel('|V|')
 else:
     axs.legend(title=legTitle, loc='center left', bbox_to_anchor=(1, 0.5), fancybox=True)
@@ -359,3 +396,49 @@ if numP>3:
 else:
     plt.subplots_adjust(right=0.65)
 fig.savefig(outName)
+
+# draw hit maps for trans_4 measurements 
+if args.measure[0]=='tran_4':
+    timeBin=math.floor(len(times[0])/10.)
+    for t in range(1,11):
+        timeValue=int(times[0][t*timeBin])
+        plotOutName=allCurvesName(args.project, 'CCE_map_'+str(timeValue)+'ns_'+allM, args.output, 'pdf')
+        print(plotOutName)
+        arrXY=[1,0,0,1]
+        arrXYZ=[[0 for x in range(4)] for y in range(4)]
+        for pixX in range(0,4):
+            for pixY in range(0,4):
+                weight=0
+                if (pixX==0 and pixY==0) or (pixX==3 and pixY==3) or (pixX==0 and pixY==3) or (pixX==3 and pixY==0):
+                    weight=CCEs4[0][t*timeBin]
+                elif (pixX==1 or pixX==2) and (pixY==2 or pixY==1):
+                    weight=CCEs1[0][t*timeBin]
+                else:
+                    weight=CCEs2[0][t*timeBin]
+                #print(pixX,pixY)
+                #print(weight)
+                arrXYZ[pixX][pixY]=weight*100./4.
+
+        fig, ax = plt.subplots()
+        im = ax.imshow(arrXYZ, cmap='viridis')
+        ax.set_xticks(np.arange(4))
+        ax.set_yticks(np.arange(4))
+        # ... and label them with the respective list entries
+        ax.set_xticklabels(arrXY)
+        ax.set_yticklabels(arrXY)
+        #ax.imshow(arrXYZ)
+        ax.set_xticks(np.arange(len(arrXYZ)+1)-.5, minor=True)
+        ax.set_yticks(np.arange(len(arrXYZ[0])+1)-.5, minor=True)
+        ax.grid(which="minor", color="w", linestyle='-', linewidth=3)
+        ax.tick_params(which="minor", bottom=False, left=False)
+        
+        for pixX in range(0,4):
+            for pixY in range(0,4):
+                text = ax.text(pixX, pixY, int(arrXYZ[pixX][pixY]),
+                               ha="center", va="center", color="w")
+        
+        # Create colorbar
+        cbar = ax.figure.colorbar(im, ax=ax, cmap="viridis")
+        cbar.ax.set_ylabel('CCE [%] $\Delta$t='+str(timeValue)+'ns', rotation=-90, va="bottom")
+        fig.tight_layout()
+        fig.savefig(plotOutName)

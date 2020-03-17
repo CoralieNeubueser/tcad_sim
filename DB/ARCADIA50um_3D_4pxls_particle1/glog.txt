@@ -1,0 +1,292 @@
+
+****************************************************************************
+***                       Sentaurus Workbench gsub                       ***
+***                        Version P-2019.03-SP1                         ***
+***                       (1.1250, x86_64, Linux)                        ***
+***                                                                      ***
+***                Copyright (c) 1994-2019 Synopsys, Inc.                ***
+***                                                                      ***
+***  This software and the associated documentation are confidential     ***
+***  and proprietary to Synopsys, Inc.  Your use or disclosure of this   ***
+***  software is subject to the terms and conditions of a written        ***
+***  license agreement between you, or your company, and Synopsys, Inc.  ***
+****************************************************************************
+
+gsub is running on host 'ludwig-boltzmann' by user 'neubuser'
+Binary '/usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/bin/../lib/gsub0'
+Command line options '-verbose -swb_pid 12005 -q local:default -e 430 /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1'
+Current directory '/home/neubuser/tcad_sim'
+Some relevant environment variables:
+	STROOT=/usr/synopsys/sentaurus/P_2019.03-SP1
+	STRELEASE=current
+	STROOT_LIB=/usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/lib
+	STDB=/home/neubuser/tcad_sim/DB
+	DATEX=/usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/lib/datexcodes.txt
+	DISPLAY=localhost:11.0
+
+Starting swblm daemon...OK
+Loading global tool database '/usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/lib/glib2/tooldb.tcl'
+Project '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1'
+09:26:45 Mar 17 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+Loading global queue configuration file '/usr/synopsys/sentaurus/P_2019.03-SP1/queues/gqueues.dat'...ok
+Loading project tree '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gtree.dat'
+>>>>> Preprocessing the project to run in normal mode
+Loading jobs and dependence graph '"/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gexec.cmd"'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gtree.dat'
+Loading project variables '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sde_dvs.cmd
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice_des.cmd
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice.par
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice1_des.cmd
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/inspect_ins.cmd
+PREPROCESSING STEP 2:
+Preprocessing file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice_des.cmd fornode 430
+'@tdr@' creates dependences with the node(s) '362'
+Preprocessing file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice.par fornode 430
++++Node successfully preprocessed+++
+The node '430' has dependencies to the node(s) '362'
+Writing 'gexec.cmd'
+saving variables
+Loading jobs and dependence graph '"/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gexec.cmd"'
+>>>>>>>>>> job '430' status changed from 'none' to 'queued'
+-----------------------------------------------------------------
+queue "local:default" - 430
+-----------------------------------------------------------------
+>>>>> cleaning the index file from previous simulations 
+                       /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/.gindex
+>>>>>>>>>> Initializing back-end schedulers...
+>>>>>>>> Loaded Schedulers are ... local
+local% initialize 'local' scheduler data
+>>>>> List of Active Schedulers : local
+<<<<<<<<<<
+>>>>>>>>>> job '430' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gtree.dat'
+Loading jobs and dependence graph '"/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gexec.cmd"'
+Loading project variables '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice_des.cmd
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice_des.cmd fornode 430
+'@tdr@' creates dependences with the node(s) '362'
++++Preprocessing results written to /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/pp430_des.cmd
+The node '430' has dependencies to the node(s) '362'
+Preprocessing file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice.par fornode 430
++++Preprocessing results written to /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/pp430_des.par
+The node '430' has dependencies to the node(s) '362'
+>>>>>>>>>> os_rm /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/n430_des.job
+local% submit job 430 for local execution
+>>>>>>>>>> job '430' status changed from 'ready' to 'pending'
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 430 -swb_pid 12005 -gsub_pid 15409 -gsub_host ludwig-boltzmann -gsub_port 37338  "/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1""
+>>>>>>>>>> job '430' status changed from 'pending' to 'running'
+09:26:46 Mar 17 2020     job 430 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 1  pp430_des.cmd"
+Loading project tree '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gtree.dat'
+Loading jobs and dependence graph '"/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gexec.cmd"'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gtree.dat'
+Loading project variables '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sde_dvs.cmd
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice_des.cmd
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice.par
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice1_des.cmd
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/inspect_ins.cmd
+PREPROCESSING STEP 2:
+Preprocessing file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice_des.cmd fornode 443
+'@tdr@' creates dependences with the node(s) '333'
+Preprocessing file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice.par fornode 443
++++Node successfully preprocessed+++
+The node '443' has dependencies to the node(s) '333'
+Writing 'gexec.cmd'
+saving variables
+Loading jobs and dependence graph '"/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gexec.cmd"'
+>>>>>>>>>> job '443' status changed from 'none' to 'queued'
+>>>>>>>>>> job '443' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gtree.dat'
+Loading jobs and dependence graph '"/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gexec.cmd"'
+Loading project variables '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice_des.cmd
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice_des.cmd fornode 443
+'@tdr@' creates dependences with the node(s) '333'
++++Preprocessing results written to /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/pp443_des.cmd
+The node '443' has dependencies to the node(s) '333'
+Preprocessing file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice.par fornode 443
++++Preprocessing results written to /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/pp443_des.par
+The node '443' has dependencies to the node(s) '333'
+>>>>>>>>>> os_rm /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/n443_des.job
+local% submit job 443 for local execution
+>>>>>>>>>> job '443' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '430' status changed from 'running' to 'done'
+09:48:16 Mar 17 2020 +++ job 430 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 1  -job 443 -swb_pid 12005 -gsub_pid 15409 -gsub_host ludwig-boltzmann -gsub_port 37338  "/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1""
+>>>>>>>>>> job '443' status changed from 'pending' to 'running'
+09:48:17 Mar 17 2020     job 443 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 1  pp443_des.cmd"
+Loading project tree '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gtree.dat'
+Loading jobs and dependence graph '"/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gexec.cmd"'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gtree.dat'
+Loading project variables '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sde_dvs.cmd
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice_des.cmd
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice.par
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice1_des.cmd
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/inspect_ins.cmd
+PREPROCESSING STEP 2:
+Preprocessing file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice1_des.cmd fornode 432
+'@tdr@' creates dependences with the node(s) '362'
+Preprocessing file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice.par fornode 432
++++Node successfully preprocessed+++
+The node '432' has dependencies to the node(s) '362'
+Writing 'gexec.cmd'
+saving variables
+Loading jobs and dependence graph '"/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gexec.cmd"'
+>>>>>>>>>> job '432' status changed from 'none' to 'queued'
+>>>>>>>>>> job '432' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gtree.dat'
+Loading jobs and dependence graph '"/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gexec.cmd"'
+Loading project variables '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice1_des.cmd
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice1_des.cmd fornode 432
+'@tdr@' creates dependences with the node(s) '362'
++++Preprocessing results written to /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/pp432_des.cmd
+The node '432' has dependencies to the node(s) '362'
+Preprocessing file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice.par fornode 432
++++Preprocessing results written to /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/pp432_des.par
+The node '432' has dependencies to the node(s) '362'
+>>>>>>>>>> os_rm /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/n432_des.job
+local% submit job 432 for local execution
+>>>>>>>>>> job '432' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '443' status changed from 'running' to 'done'
+10:15:06 Mar 17 2020 +++ job 443 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 12  -job 432 -swb_pid 12005 -gsub_pid 15409 -gsub_host ludwig-boltzmann -gsub_port 37338  "/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1""
+>>>>>>>>>> job '432' status changed from 'pending' to 'running'
+10:15:07 Mar 17 2020     job 432 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp432_des.cmd"
+Loading project tree '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gtree.dat'
+Loading jobs and dependence graph '"/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gexec.cmd"'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gtree.dat'
+Loading project variables '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sde_dvs.cmd
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice_des.cmd
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice.par
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice1_des.cmd
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/inspect_ins.cmd
+PREPROCESSING STEP 2:
+Preprocessing file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice1_des.cmd fornode 445
+'@tdr@' creates dependences with the node(s) '333'
+Preprocessing file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice.par fornode 445
++++Node successfully preprocessed+++
+The node '445' has dependencies to the node(s) '333'
+Writing 'gexec.cmd'
+saving variables
+Loading jobs and dependence graph '"/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gexec.cmd"'
+>>>>>>>>>> job '445' status changed from 'none' to 'queued'
+>>>>>>>>>> job '445' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gtree.dat'
+Loading jobs and dependence graph '"/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gexec.cmd"'
+Loading project variables '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice1_des.cmd
+Reading file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice.par
+PREPROCESSING STEP 2:
+Preprocessing file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice1_des.cmd fornode 445
+'@tdr@' creates dependences with the node(s) '333'
++++Preprocessing results written to /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/pp445_des.cmd
+The node '445' has dependencies to the node(s) '333'
+Preprocessing file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/sdevice.par fornode 445
++++Preprocessing results written to /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/pp445_des.par
+The node '445' has dependencies to the node(s) '333'
+>>>>>>>>>> os_rm /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/n445_des.job
+local% submit job 445 for local execution
+>>>>>>>>>> job '445' status changed from 'ready' to 'pending'
+>>>>>>>>>> job '432' status changed from 'running' to 'done'
+11:06:47 Mar 17 2020 +++ job 432 <sdevice> done: exit(0)
+local% exec "/usr/synopsys/sentaurus/P_2019.03-SP1/bin/gjob -verbose -nice 19 --max_threads 12  -job 445 -swb_pid 12005 -gsub_pid 15409 -gsub_host ludwig-boltzmann -gsub_port 37338  "/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1""
+>>>>>>>>>> job '445' status changed from 'pending' to 'running'
+11:06:48 Mar 17 2020     job 445 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp445_des.cmd"

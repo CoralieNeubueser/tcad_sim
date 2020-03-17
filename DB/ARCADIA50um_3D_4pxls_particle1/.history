@@ -1,0 +1,715 @@
+11:07:31 Mar 03 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+11:07:32 Mar 03 2020     job 100 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp100_des.cmd"
+11:40:08 Mar 03 2020 +++ job 100 <sdevice> done: exit(0)
+11:40:09 Mar 03 2020     job 102 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp102_des.cmd"
+12:17:26 Mar 03 2020 +++ job 102 <sdevice> done: exit(0)
+12:17:27 Mar 03 2020     job 110 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp110_des.cmd"
+12:26:56 Mar 03 2020 <ARCADIA50um_3D_particle1> aborted: aborted
+09:54:02 Mar 04 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+09:54:03 Mar 04 2020     job 125 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 1  pp125_des.cmd"
+10:03:44 Mar 04 2020 +++ job 125 <sdevice> done: exit(0)
+10:03:46 Mar 04 2020     job 142 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp142_des.cmd"
+10:10:40 Mar 04 2020 +++ job 142 <sdevice> done: exit(0)
+10:10:41 Mar 04 2020     job 127 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp127_des.cmd"
+10:46:17 Mar 04 2020 +++ job 127 <sdevice> done: exit(0)
+10:46:19 Mar 04 2020     job 131 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp131_des.cmd"
+11:22:31 Mar 04 2020 +++ job 131 <sdevice> done: exit(0)
+11:22:32 Mar 04 2020     job 133 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp133_des.cmd"
+11:54:27 Mar 04 2020 +++ job 133 <sdevice> done: exit(0)
+11:54:28 Mar 04 2020     job 137 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp137_des.cmd"
+12:29:25 Mar 04 2020 +++ job 137 <sdevice> done: exit(0)
+12:29:26 Mar 04 2020     job 135 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp135_des.cmd"
+13:04:38 Mar 04 2020 +++ job 135 <sdevice> done: exit(0)
+13:04:40 Mar 04 2020     job 144 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp144_des.cmd"
+13:23:26 Mar 04 2020 +++ job 144 <sdevice> done: exit(0)
+13:23:27 Mar 04 2020     job 150 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp150_des.cmd"
+13:45:36 Mar 04 2020 +++ job 150 <sdevice> done: exit(0)
+13:45:37 Mar 04 2020     job 152 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp152_des.cmd"
+14:05:08 Mar 04 2020 +++ job 152 <sdevice> done: exit(0)
+14:05:09 Mar 04 2020     job 148 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp148_des.cmd"
+14:24:11 Mar 04 2020 +++ job 148 <sdevice> done: exit(0)
+14:24:12 Mar 04 2020     job 154 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp154_des.cmd"
+14:43:32 Mar 04 2020 +++ job 154 <sdevice> done: exit(0)
+14:43:34 Mar 04 2020 <ARCADIA50um_3D_particle1> done (17372 sec)
+18:10:01 Mar 04 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+18:10:03 Mar 04 2020     job 129 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp129_des.cmd"
+18:44:07 Mar 04 2020 +++ job 129 <sdevice> done: exit(0)
+18:44:09 Mar 04 2020     job 139 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp139_des.cmd"
+19:18:42 Mar 04 2020 +++ job 139 <sdevice> done: exit(0)
+19:18:43 Mar 04 2020     job 110 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp110_des.cmd"
+19:39:22 Mar 04 2020 +++ job 110 <sdevice> done: exit(0)
+19:39:23 Mar 04 2020     job 112 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp112_des.cmd"
+19:58:05 Mar 04 2020 +++ job 112 <sdevice> done: exit(0)
+19:58:06 Mar 04 2020     job 114 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp114_des.cmd"
+20:18:24 Mar 04 2020 +++ job 114 <sdevice> done: exit(0)
+20:18:26 Mar 04 2020     job 116 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp116_des.cmd"
+20:38:26 Mar 04 2020 +++ job 116 <sdevice> done: exit(0)
+20:38:28 Mar 04 2020     job 118 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp118_des.cmd"
+20:59:18 Mar 04 2020 +++ job 118 <sdevice> done: exit(0)
+20:59:19 Mar 04 2020     job 120 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp120_des.cmd"
+21:18:47 Mar 04 2020 +++ job 120 <sdevice> done: exit(0)
+21:18:48 Mar 04 2020     job 122 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp122_des.cmd"
+21:39:12 Mar 04 2020 +++ job 122 <sdevice> done: exit(0)
+21:39:13 Mar 04 2020     job 146 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp146_des.cmd"
+22:00:41 Mar 04 2020 +++ job 146 <sdevice> done: exit(0)
+22:00:42 Mar 04 2020     job 156 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp156_des.cmd"
+22:21:03 Mar 04 2020 +++ job 156 <sdevice> done: exit(0)
+22:21:04 Mar 04 2020     job 93 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp93_ins.cmd"
+22:21:06 Mar 04 2020 --- job 93 <inspect> exited abnormally: exit()
+22:21:07 Mar 04 2020     job 95 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp95_ins.cmd"
+22:21:08 Mar 04 2020 --- job 95 <inspect> exited abnormally: exit()
+22:21:09 Mar 04 2020     job 97 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp97_ins.cmd"
+22:21:10 Mar 04 2020 --- job 97 <inspect> exited abnormally: exit()
+22:21:11 Mar 04 2020     job 99 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp99_ins.cmd"
+22:21:12 Mar 04 2020 --- job 99 <inspect> exited abnormally: exit()
+22:21:13 Mar 04 2020     job 101 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp101_ins.cmd"
+22:21:14 Mar 04 2020 --- job 101 <inspect> exited abnormally: exit()
+22:21:15 Mar 04 2020     job 103 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp103_ins.cmd"
+22:21:16 Mar 04 2020 --- job 103 <inspect> exited abnormally: exit()
+22:21:17 Mar 04 2020     job 128 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp128_ins.cmd"
+22:21:18 Mar 04 2020 --- job 128 <inspect> exited abnormally: exit()
+22:21:19 Mar 04 2020     job 132 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp132_ins.cmd"
+22:21:20 Mar 04 2020 --- job 132 <inspect> exited abnormally: exit()
+22:21:21 Mar 04 2020     job 134 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp134_ins.cmd"
+22:21:22 Mar 04 2020 --- job 134 <inspect> exited abnormally: exit()
+22:21:23 Mar 04 2020     job 136 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp136_ins.cmd"
+22:21:24 Mar 04 2020 --- job 136 <inspect> exited abnormally: exit()
+22:21:25 Mar 04 2020     job 138 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp138_ins.cmd"
+22:21:26 Mar 04 2020 --- job 138 <inspect> exited abnormally: exit()
+22:21:27 Mar 04 2020     job 145 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp145_ins.cmd"
+22:21:28 Mar 04 2020 --- job 145 <inspect> exited abnormally: exit()
+22:21:29 Mar 04 2020     job 149 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp149_ins.cmd"
+22:21:30 Mar 04 2020 --- job 149 <inspect> exited abnormally: exit()
+22:21:31 Mar 04 2020     job 151 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp151_ins.cmd"
+22:21:32 Mar 04 2020 --- job 151 <inspect> exited abnormally: exit()
+22:21:33 Mar 04 2020     job 153 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp153_ins.cmd"
+22:21:34 Mar 04 2020 --- job 153 <inspect> exited abnormally: exit()
+22:21:35 Mar 04 2020     job 155 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp155_ins.cmd"
+22:21:36 Mar 04 2020 --- job 155 <inspect> exited abnormally: exit()
+22:21:37 Mar 04 2020     job 130 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp130_ins.cmd"
+22:21:38 Mar 04 2020 --- job 130 <inspect> exited abnormally: exit()
+22:21:39 Mar 04 2020     job 140 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp140_ins.cmd"
+22:21:40 Mar 04 2020 --- job 140 <inspect> exited abnormally: exit()
+22:21:41 Mar 04 2020     job 111 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp111_ins.cmd"
+22:21:42 Mar 04 2020 --- job 111 <inspect> exited abnormally: exit()
+22:21:43 Mar 04 2020     job 113 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp113_ins.cmd"
+22:21:44 Mar 04 2020 --- job 113 <inspect> exited abnormally: exit()
+22:21:45 Mar 04 2020     job 115 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp115_ins.cmd"
+22:21:46 Mar 04 2020 --- job 115 <inspect> exited abnormally: exit()
+22:21:47 Mar 04 2020     job 117 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp117_ins.cmd"
+22:21:48 Mar 04 2020 --- job 117 <inspect> exited abnormally: exit()
+22:21:49 Mar 04 2020     job 119 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp119_ins.cmd"
+22:21:50 Mar 04 2020 --- job 119 <inspect> exited abnormally: exit()
+22:21:51 Mar 04 2020     job 121 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp121_ins.cmd"
+22:21:52 Mar 04 2020 --- job 121 <inspect> exited abnormally: exit()
+22:21:53 Mar 04 2020     job 123 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp123_ins.cmd"
+22:21:54 Mar 04 2020 --- job 123 <inspect> exited abnormally: exit()
+22:21:55 Mar 04 2020     job 147 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp147_ins.cmd"
+22:21:56 Mar 04 2020 --- job 147 <inspect> exited abnormally: exit()
+22:21:57 Mar 04 2020     job 157 <inspect> started on host 'ludwig-boltzmann': "inspect -batch -f pp157_ins.cmd"
+22:21:58 Mar 04 2020 --- job 157 <inspect> exited abnormally: exit()
+22:22:00 Mar 04 2020 <ARCADIA50um_3D_particle1> failed
+11:36:57 Mar 10 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+11:36:59 Mar 10 2020 <ARCADIA50um_3D_particle1> done (2 sec)
+11:37:39 Mar 10 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+11:37:40 Mar 10 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+11:38:02 Mar 10 2020 +++ job 190 <sde> done: exit(0)
+11:38:03 Mar 10 2020     job 302 <sde> started on host 'ludwig-boltzmann': "sde -e -l n302_dvs.cmd"
+11:38:27 Mar 10 2020 +++ job 302 <sde> done: exit(0)
+11:38:28 Mar 10 2020     job 362 <sde> started on host 'ludwig-boltzmann': "sde -e -l n362_dvs.cmd"
+11:38:50 Mar 10 2020 +++ job 362 <sde> done: exit(0)
+11:38:51 Mar 10 2020     job 418 <sde> started on host 'ludwig-boltzmann': "sde -e -l n418_dvs.cmd"
+11:39:13 Mar 10 2020 +++ job 418 <sde> done: exit(0)
+11:39:16 Mar 10 2020 <ARCADIA50um_3D_particle1> done (97 sec)
+11:45:51 Mar 10 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+11:45:52 Mar 10 2020     job 193 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp193_des.cmd"
+11:52:53 Mar 10 2020 +++ job 193 <sdevice> done: exit(0)
+11:52:54 Mar 10 2020     job 206 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp206_des.cmd"
+11:59:52 Mar 10 2020 +++ job 206 <sdevice> done: exit(0)
+11:59:53 Mar 10 2020     job 305 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp305_des.cmd"
+12:07:02 Mar 10 2020 +++ job 305 <sdevice> done: exit(0)
+12:07:04 Mar 10 2020     job 318 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 1  pp318_des.cmd"
+12:13:59 Mar 10 2020 +++ job 318 <sdevice> done: exit(0)
+12:14:01 Mar 10 2020 <ARCADIA50um_3D_particle1> done (1690 sec)
+13:27:56 Mar 10 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+13:27:57 Mar 10 2020     job 365 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp365_des.cmd"
+13:35:01 Mar 10 2020 +++ job 365 <sdevice> done: exit(0)
+13:35:02 Mar 10 2020     job 378 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp378_des.cmd"
+13:41:42 Mar 10 2020 +++ job 378 <sdevice> done: exit(0)
+13:41:43 Mar 10 2020     job 421 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp421_des.cmd"
+13:48:42 Mar 10 2020 +++ job 421 <sdevice> done: exit(0)
+13:48:43 Mar 10 2020     job 434 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp434_des.cmd"
+13:55:42 Mar 10 2020 +++ job 434 <sdevice> done: exit(0)
+13:55:44 Mar 10 2020     job 195 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp195_des.cmd"
+14:14:18 Mar 10 2020 +++ job 195 <sdevice> done: exit(0)
+14:14:19 Mar 10 2020     job 197 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp197_des.cmd"
+14:32:23 Mar 10 2020 +++ job 197 <sdevice> done: exit(0)
+14:32:24 Mar 10 2020     job 199 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp199_des.cmd"
+14:50:06 Mar 10 2020 +++ job 199 <sdevice> done: exit(0)
+14:50:07 Mar 10 2020     job 201 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp201_des.cmd"
+15:08:31 Mar 10 2020 +++ job 201 <sdevice> done: exit(0)
+15:08:33 Mar 10 2020     job 203 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp203_des.cmd"
+15:27:16 Mar 10 2020 +++ job 203 <sdevice> done: exit(0)
+15:27:17 Mar 10 2020     job 208 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp208_des.cmd"
+15:47:17 Mar 10 2020 +++ job 208 <sdevice> done: exit(0)
+15:47:18 Mar 10 2020     job 210 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp210_des.cmd"
+16:08:12 Mar 10 2020 +++ job 210 <sdevice> done: exit(0)
+16:08:13 Mar 10 2020     job 212 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp212_des.cmd"
+16:29:03 Mar 10 2020 +++ job 212 <sdevice> done: exit(0)
+16:29:04 Mar 10 2020     job 214 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp214_des.cmd"
+16:50:12 Mar 10 2020 +++ job 214 <sdevice> done: exit(0)
+16:50:13 Mar 10 2020     job 216 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp216_des.cmd"
+17:14:45 Mar 10 2020 +++ job 216 <sdevice> done: exit(0)
+17:14:47 Mar 10 2020     job 307 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp307_des.cmd"
+17:31:56 Mar 10 2020 +++ job 307 <sdevice> done: exit(0)
+17:31:57 Mar 10 2020     job 309 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp309_des.cmd"
+17:39:39 Mar 10 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+17:40:04 Mar 10 2020 +++ job 190 <sde> done: exit(0)
+17:40:07 Mar 10 2020 <ARCADIA50um_3D_particle1> done (15131 sec)
+09:44:43 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+09:44:44 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+09:44:46 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+09:44:48 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+09:49:07 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+09:49:08 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+09:49:33 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+09:49:35 Mar 11 2020 <ARCADIA50um_3D_particle1> done (28 sec)
+10:03:16 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+10:03:17 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+10:03:19 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+10:03:21 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+10:07:55 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+10:07:56 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+10:07:58 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+10:08:00 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+10:14:47 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+10:14:48 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+10:15:12 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+10:15:14 Mar 11 2020 <ARCADIA50um_3D_particle1> done (27 sec)
+10:25:32 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+10:25:33 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+10:25:35 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+10:25:37 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+10:28:11 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+10:28:12 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+10:28:37 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+10:28:39 Mar 11 2020 <ARCADIA50um_3D_particle1> done (28 sec)
+10:36:19 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+10:36:20 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+10:36:45 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+10:36:48 Mar 11 2020 <ARCADIA50um_3D_particle1> done (29 sec)
+10:42:19 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+10:42:20 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+10:42:41 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+10:42:43 Mar 11 2020 <ARCADIA50um_3D_particle1> done (24 sec)
+10:50:21 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+10:50:22 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+10:50:24 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+10:50:26 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+10:51:23 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+10:51:24 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+10:51:25 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+10:51:28 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+10:52:42 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+10:52:43 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+10:53:07 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+10:53:09 Mar 11 2020 <ARCADIA50um_3D_particle1> done (27 sec)
+11:11:56 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+11:11:57 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+11:12:21 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+11:12:24 Mar 11 2020 <ARCADIA50um_3D_particle1> done (28 sec)
+11:16:44 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+11:16:45 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+11:17:06 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+11:17:09 Mar 11 2020 <ARCADIA50um_3D_particle1> done (25 sec)
+11:24:34 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+11:24:35 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+11:25:00 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+11:25:02 Mar 11 2020 <ARCADIA50um_3D_particle1> done (28 sec)
+11:31:55 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+11:31:56 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+11:32:19 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+11:32:21 Mar 11 2020 <ARCADIA50um_3D_particle1> done (26 sec)
+11:35:23 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+11:35:24 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+11:35:48 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+11:35:51 Mar 11 2020 <ARCADIA50um_3D_particle1> done (28 sec)
+11:38:39 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+11:38:40 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+11:39:01 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+11:39:03 Mar 11 2020 <ARCADIA50um_3D_particle1> done (24 sec)
+11:47:39 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+11:47:40 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+11:48:03 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+11:48:05 Mar 11 2020 <ARCADIA50um_3D_particle1> done (26 sec)
+11:50:50 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+11:50:51 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+11:51:16 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+11:51:19 Mar 11 2020 <ARCADIA50um_3D_particle1> done (29 sec)
+12:03:36 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+12:03:37 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+12:03:38 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+12:03:41 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+12:06:10 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+12:06:11 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+12:06:37 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+12:06:40 Mar 11 2020 <ARCADIA50um_3D_particle1> done (30 sec)
+12:23:11 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+12:23:12 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+12:23:14 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+12:23:16 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+12:27:22 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+12:27:22 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+12:27:24 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+12:27:27 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+12:28:44 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+12:28:45 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+12:28:47 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+12:28:49 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+12:29:45 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+12:29:46 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+12:29:47 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+12:29:50 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+12:30:39 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+12:30:40 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+12:30:42 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+12:30:44 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+12:37:21 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+12:37:22 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+12:37:24 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+12:37:26 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+12:42:02 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+12:42:03 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+12:42:05 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+12:42:07 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+12:46:54 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+12:46:55 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+12:46:57 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+12:46:59 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+14:12:56 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+14:12:57 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+14:12:59 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+14:13:01 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+14:29:12 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+14:29:13 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+14:29:14 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+14:29:17 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+14:30:55 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+14:30:56 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+14:30:58 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+14:31:00 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+14:32:19 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+14:32:20 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+14:32:22 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+14:32:24 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+14:33:18 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+14:33:19 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+14:33:41 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+14:33:43 Mar 11 2020 <ARCADIA50um_3D_particle1> done (25 sec)
+14:43:26 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+14:43:27 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+14:43:53 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+14:43:56 Mar 11 2020 <ARCADIA50um_3D_particle1> done (30 sec)
+14:46:50 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+14:46:51 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+14:46:53 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+14:46:55 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+14:48:22 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+14:48:23 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+14:48:25 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+14:48:27 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+14:49:32 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+14:49:33 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+14:49:56 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+14:49:59 Mar 11 2020 <ARCADIA50um_3D_particle1> done (27 sec)
+15:08:49 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+15:08:50 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+15:08:52 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+15:08:54 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+15:11:43 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+15:11:44 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+15:12:01 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+15:12:04 Mar 11 2020 <ARCADIA50um_3D_particle1> done (21 sec)
+15:23:25 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+15:23:26 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+15:23:28 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+15:23:30 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+15:25:54 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+15:25:55 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+15:26:14 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+15:26:17 Mar 11 2020 <ARCADIA50um_3D_particle1> done (23 sec)
+15:32:00 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+15:32:01 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+15:32:22 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+15:32:25 Mar 11 2020 <ARCADIA50um_3D_particle1> done (25 sec)
+15:40:02 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+15:40:03 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+15:40:05 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+15:40:07 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+15:41:01 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+15:41:02 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+15:42:07 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+15:42:10 Mar 11 2020 <ARCADIA50um_3D_particle1> done (69 sec)
+15:49:17 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+15:49:18 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+15:49:20 Mar 11 2020 --- job 190 <sde> exited abnormally: exit()
+15:49:22 Mar 11 2020 <ARCADIA50um_3D_particle1> failed
+15:52:24 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+15:52:25 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+15:53:22 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+15:53:26 Mar 11 2020 <ARCADIA50um_3D_particle1> done (62 sec)
+15:56:35 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+15:56:36 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+15:57:31 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+15:57:34 Mar 11 2020 <ARCADIA50um_3D_particle1> done (59 sec)
+16:03:55 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+16:03:56 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+16:04:56 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+16:04:58 Mar 11 2020 <ARCADIA50um_3D_particle1> done (63 sec)
+16:15:38 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+16:15:39 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+16:16:36 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+16:16:40 Mar 11 2020 <ARCADIA50um_3D_particle1> done (62 sec)
+16:23:24 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+16:23:25 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+16:24:27 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+16:24:29 Mar 11 2020 <ARCADIA50um_3D_particle1> done (65 sec)
+16:39:44 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+16:39:45 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+16:40:51 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+16:40:53 Mar 11 2020 <ARCADIA50um_3D_particle1> done (69 sec)
+16:53:26 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+16:53:27 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+16:54:30 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+16:54:32 Mar 11 2020 <ARCADIA50um_3D_particle1> done (66 sec)
+17:05:22 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+17:05:23 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+17:06:27 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+17:06:30 Mar 11 2020 <ARCADIA50um_3D_particle1> done (68 sec)
+17:20:08 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+17:20:09 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+17:21:20 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+17:21:23 Mar 11 2020 <ARCADIA50um_3D_particle1> done (75 sec)
+17:24:47 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+17:24:48 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+17:25:46 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+17:25:49 Mar 11 2020 <ARCADIA50um_3D_particle1> done (62 sec)
+17:34:08 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+17:34:09 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+17:35:08 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+17:35:10 Mar 11 2020 <ARCADIA50um_3D_particle1> done (62 sec)
+17:40:14 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+17:40:15 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+17:41:15 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+17:41:18 Mar 11 2020 <ARCADIA50um_3D_particle1> done (64 sec)
+17:47:29 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+17:47:30 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+17:48:27 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+17:48:31 Mar 11 2020 <ARCADIA50um_3D_particle1> done (62 sec)
+17:50:16 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+17:50:17 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+17:51:19 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+17:51:21 Mar 11 2020 <ARCADIA50um_3D_particle1> done (65 sec)
+18:44:44 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+18:44:45 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+18:45:46 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+18:45:48 Mar 11 2020 <ARCADIA50um_3D_particle1> done (64 sec)
+18:49:54 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+18:49:55 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+18:51:06 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+18:51:08 Mar 11 2020 <ARCADIA50um_3D_particle1> done (74 sec)
+18:55:12 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+18:55:13 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+18:56:18 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+18:56:21 Mar 11 2020 <ARCADIA50um_3D_particle1> done (69 sec)
+18:58:20 Mar 11 2020 <ARCADIA50um_3D_particle1> submitted to the batch system
+18:58:21 Mar 11 2020     job 190 <sde> started on host 'ludwig-boltzmann': "sde -e -l n190_dvs.cmd"
+18:59:43 Mar 11 2020 +++ job 190 <sde> done: exit(0)
+18:59:45 Mar 11 2020 <ARCADIA50um_3D_particle1> done (85 sec)
+09:25:15 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+09:25:16 Mar 12 2020     job 362 <sde> started on host 'ludwig-boltzmann': "sde -e -l n362_dvs.cmd"
+09:26:25 Mar 12 2020 +++ job 362 <sde> done: exit(0)
+09:26:26 Mar 12 2020     job 333 <sde> started on host 'ludwig-boltzmann': "sde -e -l n333_dvs.cmd"
+09:27:56 Mar 12 2020 +++ job 333 <sde> done: exit(0)
+09:27:58 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> done (163 sec)
+09:36:57 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+09:36:58 Mar 12 2020     job 378 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 1  pp378_des.cmd"
+09:37:19 Mar 12 2020 --- job 378 <sdevice> exited abnormally: exit()
+09:37:21 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+09:43:15 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+09:43:16 Mar 12 2020     job 378 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 1  pp378_des.cmd"
+09:43:38 Mar 12 2020 --- job 378 <sdevice> exited abnormally: exit()
+09:43:40 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+09:52:48 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+09:52:49 Mar 12 2020     job 362 <sde> started on host 'ludwig-boltzmann': "sde -e -l n362_dvs.cmd"
+09:52:50 Mar 12 2020 --- job 362 <sde> exited abnormally: exit()
+09:52:53 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+09:54:27 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+09:54:28 Mar 12 2020     job 362 <sde> started on host 'ludwig-boltzmann': "sde -e -l n362_dvs.cmd"
+09:54:30 Mar 12 2020 --- job 362 <sde> exited abnormally: exit()
+09:54:32 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+09:55:52 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+09:55:53 Mar 12 2020     job 362 <sde> started on host 'ludwig-boltzmann': "sde -e -l n362_dvs.cmd"
+09:57:02 Mar 12 2020 +++ job 362 <sde> done: exit(0)
+09:57:05 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> done (73 sec)
+09:59:54 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+09:59:55 Mar 12 2020     job 362 <sde> started on host 'ludwig-boltzmann': "sde -e -l n362_dvs.cmd"
+09:59:57 Mar 12 2020 --- job 362 <sde> exited abnormally: exit()
+09:59:59 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+10:04:55 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+10:04:56 Mar 12 2020     job 362 <sde> started on host 'ludwig-boltzmann': "sde -e -l n362_dvs.cmd"
+10:06:11 Mar 12 2020 +++ job 362 <sde> done: exit(0)
+10:06:13 Mar 12 2020     job 378 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 1  pp378_des.cmd"
+10:06:42 Mar 12 2020 --- job 378 <sdevice> exited abnormally: exit()
+10:06:44 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+10:10:34 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+10:10:35 Mar 12 2020     job 378 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 1  pp378_des.cmd"
+10:11:05 Mar 12 2020 --- job 378 <sdevice> exited abnormally: exit()
+10:11:07 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+10:16:11 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+10:16:12 Mar 12 2020     job 362 <sde> started on host 'ludwig-boltzmann': "sde -e -l n362_dvs.cmd"
+10:17:24 Mar 12 2020 +++ job 362 <sde> done: exit(0)
+10:17:25 Mar 12 2020     job 378 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 1  pp378_des.cmd"
+10:17:52 Mar 12 2020 --- job 378 <sdevice> exited abnormally: exit()
+10:17:54 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+10:19:04 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+10:19:05 Mar 12 2020     job 362 <sde> started on host 'ludwig-boltzmann': "sde -e -l n362_dvs.cmd"
+10:20:26 Mar 12 2020 +++ job 362 <sde> done: exit(0)
+10:20:28 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> done (84 sec)
+10:23:22 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+10:23:23 Mar 12 2020     job 362 <sde> started on host 'ludwig-boltzmann': "sde -e -l n362_dvs.cmd"
+10:24:30 Mar 12 2020 +++ job 362 <sde> done: exit(0)
+10:24:31 Mar 12 2020     job 378 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 1  pp378_des.cmd"
+10:24:55 Mar 12 2020 --- job 378 <sdevice> exited abnormally: exit()
+10:24:57 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+10:37:25 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+10:37:26 Mar 12 2020     job 362 <sde> started on host 'ludwig-boltzmann': "sde -e -l n362_dvs.cmd"
+10:38:38 Mar 12 2020 +++ job 362 <sde> done: exit(0)
+10:38:40 Mar 12 2020     job 378 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 1  pp378_des.cmd"
+10:39:05 Mar 12 2020 --- job 378 <sdevice> exited abnormally: exit()
+10:39:07 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+10:42:10 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+10:42:11 Mar 12 2020     job 378 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 1  pp378_des.cmd"
+10:42:33 Mar 12 2020 --- job 378 <sdevice> exited abnormally: exit()
+10:42:34 Mar 12 2020     job 362 <sde> started on host 'ludwig-boltzmann': "sde -e -l n362_dvs.cmd"
+10:43:40 Mar 12 2020 +++ job 362 <sde> done: exit(0)
+10:43:43 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+10:46:35 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+10:46:36 Mar 12 2020     job 378 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 1  pp378_des.cmd"
+11:09:36 Mar 12 2020 +++ job 378 <sdevice> done: exit(0)
+11:09:38 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> done (1383 sec)
+11:22:00 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+11:22:01 Mar 12 2020     job 362 <sde> started on host 'ludwig-boltzmann': "sde -e -l n362_dvs.cmd"
+11:23:25 Mar 12 2020 +++ job 362 <sde> done: exit(0)
+11:23:28 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> done (88 sec)
+11:29:16 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+11:29:17 Mar 12 2020     job 362 <sde> started on host 'ludwig-boltzmann': "sde -e -l n362_dvs.cmd"
+11:29:18 Mar 12 2020 --- job 362 <sde> exited abnormally: exit()
+11:29:21 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+11:30:58 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+11:30:59 Mar 12 2020     job 362 <sde> started on host 'ludwig-boltzmann': "sde -e -l n362_dvs.cmd"
+11:32:16 Mar 12 2020 +++ job 362 <sde> done: exit(0)
+11:32:20 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> done (82 sec)
+11:40:15 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+11:40:16 Mar 12 2020     job 362 <sde> started on host 'ludwig-boltzmann': "sde -e -l n362_dvs.cmd"
+11:41:31 Mar 12 2020 +++ job 362 <sde> done: exit(0)
+11:41:34 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> done (79 sec)
+11:43:58 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+11:43:58 Mar 12 2020     job 362 <sde> started on host 'ludwig-boltzmann': "sde -e -l n362_dvs.cmd"
+11:45:07 Mar 12 2020 +++ job 362 <sde> done: exit(0)
+11:45:11 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> done (73 sec)
+11:49:26 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+11:49:27 Mar 12 2020     job 362 <sde> started on host 'ludwig-boltzmann': "sde -e -l n362_dvs.cmd"
+11:50:45 Mar 12 2020 +++ job 362 <sde> done: exit(0)
+11:50:47 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> done (81 sec)
+11:52:27 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+11:52:28 Mar 12 2020     job 378 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 1  pp378_des.cmd"
+12:15:31 Mar 12 2020 +++ job 378 <sdevice> done: exit(0)
+12:15:32 Mar 12 2020     job 362 <sde> started on host 'ludwig-boltzmann': "sde -e -l n362_dvs.cmd"
+12:15:34 Mar 12 2020 --- job 362 <sde> exited abnormally: exit()
+12:15:36 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+12:18:19 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+12:18:20 Mar 12 2020     job 362 <sde> started on host 'ludwig-boltzmann': "sde -e -l n362_dvs.cmd"
+12:19:28 Mar 12 2020 +++ job 362 <sde> done: exit(0)
+12:19:31 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> done (72 sec)
+12:24:15 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+12:24:16 Mar 12 2020     job 378 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 1  pp378_des.cmd"
+12:46:51 Mar 12 2020 +++ job 378 <sdevice> done: exit(0)
+12:46:54 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> done (1359 sec)
+13:36:03 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+13:36:05 Mar 12 2020     job 380 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp380_des.cmd"
+14:22:31 Mar 12 2020 +++ job 380 <sdevice> done: exit(0)
+14:22:34 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> done (2791 sec)
+14:31:58 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+14:31:59 Mar 12 2020     job 365 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 1  pp365_des.cmd"
+14:54:57 Mar 12 2020 +++ job 365 <sdevice> done: exit(0)
+14:54:59 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> done (1381 sec)
+14:56:13 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+14:56:14 Mar 12 2020     job 367 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp367_des.cmd"
+15:38:24 Mar 12 2020 +++ job 367 <sdevice> done: exit(0)
+15:38:27 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> done (2534 sec)
+16:30:13 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+16:30:14 Mar 12 2020     job 333 <sde> started on host 'ludwig-boltzmann': "sde -e -l n333_dvs.cmd"
+16:31:34 Mar 12 2020 +++ job 333 <sde> done: exit(0)
+16:31:35 Mar 12 2020     job 336 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp336_des.cmd"
+16:57:53 Mar 12 2020 +++ job 336 <sdevice> done: exit(0)
+16:57:54 Mar 12 2020     job 349 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp349_des.cmd"
+17:24:21 Mar 12 2020 +++ job 349 <sdevice> done: exit(0)
+17:24:22 Mar 12 2020     job 338 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp338_des.cmd"
+18:27:49 Mar 12 2020 +++ job 338 <sdevice> done: exit(0)
+18:27:50 Mar 12 2020     job 351 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp351_des.cmd"
+18:40:37 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> done (7824 sec)
+18:45:14 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+18:45:15 Mar 12 2020     job 351 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp351_des.cmd"
+19:40:45 Mar 12 2020 +++ job 351 <sdevice> done: exit(0)
+19:40:47 Mar 12 2020 <ARCADIA50um_3D_4pxls_particle1> done (3333 sec)
+12:57:03 Mar 13 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+12:57:04 Mar 13 2020     job 404 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 1  pp404_des.cmd"
+13:20:35 Mar 13 2020 +++ job 404 <sdevice> done: exit(0)
+13:20:36 Mar 13 2020     job 406 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp406_des.cmd"
+13:59:50 Mar 13 2020 +++ job 406 <sdevice> done: exit(0)
+13:59:51 Mar 13 2020     job 391 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp391_des.cmd"
+14:26:46 Mar 13 2020 +++ job 391 <sdevice> done: exit(0)
+14:26:47 Mar 13 2020     job 393 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp393_des.cmd"
+15:29:49 Mar 13 2020 +++ job 393 <sdevice> done: exit(0)
+15:29:51 Mar 13 2020 <ARCADIA50um_3D_4pxls_particle1> done (9168 sec)
+17:53:44 Mar 13 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+17:53:45 Mar 13 2020     job 375 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp375_des.cmd"
+18:35:29 Mar 13 2020 +++ job 375 <sdevice> done: exit(0)
+18:35:30 Mar 13 2020     job 388 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp388_des.cmd"
+18:42:27 Mar 13 2020 --- job 388 <sdevice> exited abnormally: exit()
+18:42:28 Mar 13 2020     job 430 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp430_des.cmd"
+19:04:18 Mar 13 2020 +++ job 430 <sdevice> done: exit(0)
+19:04:20 Mar 13 2020     job 417 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp417_des.cmd"
+19:31:30 Mar 13 2020 +++ job 417 <sdevice> done: exit(0)
+19:31:31 Mar 13 2020     job 419 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp419_des.cmd"
+19:40:09 Mar 13 2020 --- job 419 <sdevice> exited abnormally: exit()
+19:40:11 Mar 13 2020     job 427 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp427_des.cmd"
+19:48:57 Mar 13 2020 --- job 427 <sdevice> exited abnormally: exit()
+19:48:58 Mar 13 2020     job 432 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp432_des.cmd"
+19:55:44 Mar 13 2020 --- job 432 <sdevice> exited abnormally: exit()
+19:55:45 Mar 13 2020     job 440 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp440_des.cmd"
+20:02:15 Mar 13 2020 --- job 440 <sdevice> exited abnormally: exit()
+20:02:17 Mar 13 2020     job 414 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp414_des.cmd"
+20:08:42 Mar 13 2020 --- job 414 <sdevice> exited abnormally: exit()
+20:08:43 Mar 13 2020     job 401 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp401_des.cmd"
+20:17:51 Mar 13 2020 --- job 401 <sdevice> exited abnormally: exit()
+20:17:52 Mar 13 2020     job 359 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp359_des.cmd"
+20:26:22 Mar 13 2020 --- job 359 <sdevice> exited abnormally: exit()
+20:26:23 Mar 13 2020     job 346 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp346_des.cmd"
+20:35:09 Mar 13 2020 --- job 346 <sdevice> exited abnormally: exit()
+20:35:12 Mar 13 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+11:54:59 Mar 14 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+11:55:00 Mar 14 2020     job 432 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp432_des.cmd"
+12:01:18 Mar 14 2020 --- job 432 <sdevice> exited abnormally: exit()
+12:01:19 Mar 14 2020     job 419 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp419_des.cmd"
+12:09:15 Mar 14 2020 --- job 419 <sdevice> exited abnormally: exit()
+12:09:16 Mar 14 2020     job 432 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp432_des.cmd"
+12:18:08 Mar 14 2020 --- job 432 <sdevice> exited abnormally: exit()
+12:18:10 Mar 14 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+12:46:17 Mar 14 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+12:46:18 Mar 14 2020     job 432 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp432_des.cmd"
+12:55:13 Mar 14 2020 --- job 432 <sdevice> exited abnormally: exit()
+12:55:16 Mar 14 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+13:01:17 Mar 14 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+13:01:18 Mar 14 2020     job 406 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp406_des.cmd"
+13:10:27 Mar 14 2020 --- job 406 <sdevice> exited abnormally: exit()
+13:10:29 Mar 14 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+13:16:47 Mar 14 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+13:16:49 Mar 14 2020     job 406 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp406_des.cmd"
+13:23:12 Mar 14 2020 --- job 406 <sdevice> exited abnormally: exit()
+13:23:14 Mar 14 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+13:58:50 Mar 14 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+13:58:51 Mar 14 2020     job 430 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 1  pp430_des.cmd"
+14:20:07 Mar 14 2020 +++ job 430 <sdevice> done: exit(0)
+14:20:10 Mar 14 2020 <ARCADIA50um_3D_4pxls_particle1> done (1280 sec)
+14:47:46 Mar 14 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+14:47:47 Mar 14 2020     job 406 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp406_des.cmd"
+14:53:57 Mar 14 2020 --- job 406 <sdevice> exited abnormally: exit()
+14:53:59 Mar 14 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+15:11:59 Mar 14 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+15:12:01 Mar 14 2020     job 406 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp406_des.cmd"
+15:21:09 Mar 14 2020 --- job 406 <sdevice> exited abnormally: exit()
+15:21:11 Mar 14 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+15:24:35 Mar 14 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+15:24:36 Mar 14 2020     job 406 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp406_des.cmd"
+15:31:23 Mar 14 2020 --- job 406 <sdevice> exited abnormally: exit()
+15:31:25 Mar 14 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+15:36:33 Mar 14 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+15:36:35 Mar 14 2020     job 406 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp406_des.cmd"
+15:43:13 Mar 14 2020 --- job 406 <sdevice> exited abnormally: exit()
+15:43:15 Mar 14 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+11:23:05 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+11:23:06 Mar 16 2020     job 406 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp406_des.cmd"
+11:29:27 Mar 16 2020 --- job 406 <sdevice> exited abnormally: exit()
+11:29:29 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+11:32:16 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+11:32:17 Mar 16 2020     job 406 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp406_des.cmd"
+11:42:54 Mar 16 2020 --- job 406 <sdevice> exited abnormally: exit()
+11:42:56 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+11:43:58 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+11:43:59 Mar 16 2020     job 406 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp406_des.cmd"
+11:50:22 Mar 16 2020 --- job 406 <sdevice> exited abnormally: exit()
+11:50:24 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+11:54:24 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+11:54:25 Mar 16 2020     job 406 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp406_des.cmd"
+12:00:58 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> done (394 sec)
+12:05:28 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+12:05:29 Mar 16 2020     job 406 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp406_des.cmd"
+12:13:23 Mar 16 2020 +++ job 406 <sdevice> done: exit(0)
+12:13:25 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> done (477 sec)
+14:26:41 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+14:26:42 Mar 16 2020     job 432 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp432_des.cmd"
+14:34:19 Mar 16 2020 +++ job 432 <sdevice> done: exit(0)
+14:34:22 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> done (461 sec)
+14:34:43 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+14:34:44 Mar 16 2020     job 419 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp419_des.cmd"
+14:50:21 Mar 16 2020 --- job 419 <sdevice> exited abnormally: exit()
+14:50:22 Mar 16 2020     job 432 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp432_des.cmd"
+16:38:23 Mar 16 2020 +++ job 432 <sdevice> done: exit(0)
+16:38:24 Mar 16 2020     job 419 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp419_des.cmd"
+16:53:59 Mar 16 2020 --- job 419 <sdevice> exited abnormally: exit()
+16:54:01 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+16:59:37 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+16:59:38 Mar 16 2020     job 419 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp419_des.cmd"
+17:15:31 Mar 16 2020 --- job 419 <sdevice> exited abnormally: exit()
+17:15:33 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+17:17:03 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+17:17:04 Mar 16 2020     job 419 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp419_des.cmd"
+17:22:56 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> done (353 sec)
+17:23:13 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+17:23:14 Mar 16 2020     job 419 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp419_des.cmd"
+17:25:21 Mar 16 2020 --- job 419 <sdevice> exited abnormally: exit()
+17:25:22 Mar 16 2020     job 432 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp432_des.cmd"
+17:27:01 Mar 16 2020 --- job 432 <sdevice> exited abnormally: exit()
+17:27:03 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+17:27:16 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+17:27:17 Mar 16 2020 --- job 418 <sde> exited abnormally: exit(Cannot open file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/pp418_des.cmd: couldn't open "/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/pp418_des.cmd": no such file or directory)
+17:27:17 Mar 16 2020     job 333 <sde> started on host 'ludwig-boltzmann': "sde -e -l n333_dvs.cmd"
+17:28:38 Mar 16 2020 +++ job 333 <sde> done: exit(0)
+17:28:39 Mar 16 2020     job 336 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp336_des.cmd"
+17:55:15 Mar 16 2020 +++ job 336 <sdevice> done: exit(0)
+17:55:16 Mar 16 2020     job 349 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp349_des.cmd"
+18:21:31 Mar 16 2020 +++ job 349 <sdevice> done: exit(0)
+18:21:32 Mar 16 2020     job 391 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp391_des.cmd"
+18:48:17 Mar 16 2020 +++ job 391 <sdevice> done: exit(0)
+18:48:18 Mar 16 2020     job 417 <sdevice> started on host 'ludwig-boltzmann': "sdevice pp417_des.cmd"
+19:14:52 Mar 16 2020 +++ job 417 <sdevice> done: exit(0)
+19:14:53 Mar 16 2020     job 432 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp432_des.cmd"
+19:30:31 Mar 16 2020 --- job 432 <sdevice> exited abnormally: exit()
+19:30:33 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+19:43:36 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+19:43:37 Mar 16 2020 --- job 418 <sde> exited abnormally: exit(Cannot open file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/pp418_des.cmd: couldn't open "/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/pp418_des.cmd": no such file or directory)
+19:43:38 Mar 16 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+08:49:46 Mar 17 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+08:49:47 Mar 17 2020     job 432 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp432_des.cmd"
+09:05:02 Mar 17 2020 --- job 432 <sdevice> exited abnormally: exit()
+09:05:04 Mar 17 2020 <ARCADIA50um_3D_4pxls_particle1> failed
+09:26:45 Mar 17 2020 <ARCADIA50um_3D_4pxls_particle1> submitted to the batch system
+09:26:46 Mar 17 2020     job 430 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 1  pp430_des.cmd"
+09:48:16 Mar 17 2020 +++ job 430 <sdevice> done: exit(0)
+09:48:17 Mar 17 2020     job 443 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 1  pp443_des.cmd"
+10:15:06 Mar 17 2020 +++ job 443 <sdevice> done: exit(0)
+10:15:07 Mar 17 2020     job 432 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp432_des.cmd"
+11:06:47 Mar 17 2020 +++ job 432 <sdevice> done: exit(0)
+11:06:48 Mar 17 2020     job 445 <sdevice> started on host 'ludwig-boltzmann': "sdevice --max_threads 12  pp445_des.cmd"

@@ -145,7 +145,7 @@ def deplVoltageRange(ax,dat,xMin,xMax,*col):
     indNZ = np.append(indNZ, len(x))
     indNZ = np.insert(indNZ, 0, 0)
 
-    #store lin functions
+    # store lin functions, ranges, and capacitances
     f=[None]*0
     xran=[None]*0
     yran=[None]*0
@@ -165,9 +165,14 @@ def deplVoltageRange(ax,dat,xMin,xMax,*col):
                     cap.append(intercept)
 
         if len(f)<2:
-            print('Found only {} linear fits.. reduce threshold to minimum.'.format(len(f)))
-            threshold = abs(difdif.min())
-            print(threshold)
+            if trials>2:
+                print('Found only {} linear fits.. reduce threshold by half.'.format(len(f)))
+                threshold = threshold/2.
+                print(threshold)
+            else:
+                print('Found only {} linear fits.. last try, reduce threshold to minimum.'.format(len(f)))
+                threshold = abs(difdif.min())
+                print(threshold)
             # reset index and clear list of linear fits
             indNZ = np.where(abs(difdif) > threshold)[0]
             indNZ += 1
@@ -176,31 +181,37 @@ def deplVoltageRange(ax,dat,xMin,xMax,*col):
             f.clear()
             xran.clear()
             yran.clear()
+            cap.clear()
             trials -= 1
             
-    capDepl=cap[len(cap)-1]
     idx=np.array([0])
+    print ("Found {} linear fits. ".format(len(f)))
     # find intersection of last and second to last linear functions
     for ifunc,func in enumerate(f):
         # draw found fits
         if len(col)==1:
-            ax.plot(xran[ifunc], yran[ifunc], color=col[0])
+            ax.plot(xran[ifunc], yran[ifunc], color='black') #col[0])
         else:
             ax.plot(xran[ifunc], yran[ifunc], color=col[0], linestyle=col[1])
         if ifunc!=len(f)-1:
             continue
-
+        # find intersection of last and second last fit
         idx = np.argwhere(np.diff(np.sign(np.array(func) - np.array(f[ifunc-1])))).flatten()
         if not idx:
+            print ("Find intersection between last and x to last fit..")
             for ifunctions in range(1,len(f)):
                 idx = np.argwhere(np.diff(np.sign(np.array(func) - np.array(f[len(f)-ifunctions])))).flatten()
-
+                print (idx)
         ax.plot(x[idx], func[idx], color=col[0], marker='*')
 
-    if len(idx)<1:
+    if len(f)<1:
+        print("No fits found.. returns Vdpl=0.")
+        return 0., 0.
+    elif len(idx)<1:
         print("No intersection found.. returns Vdpl=0.")
-        return 0., capDepl
+        return 0., 0.
     else:
+        capDepl=cap[len(cap)-1]
         # returns depletion voltag and capacitance above depletion
         return float(x[idx[0]]), float(capDepl)
 
@@ -331,6 +342,12 @@ def drawGraph(axis,arr1,arr2,col,la):
 def drawGraphLines(axis,arr1,arr2,col,linestyle,la):
     axis.plot(arr1,arr2, color=col,marker=',', linestyle=linestyle, label=la)
 
+def drawMultiGraphLines(axis,arr1,arr2,arr3,arr4,arr5,linestyle):
+    axis.plot(arr1,arr2, color='black',marker=',', linestyle=linestyle, label="Ntop_0_0")
+    axis.plot(arr1,arr3, color='red',marker=',', linestyle=linestyle, label="Ntop_0_1")
+    axis.plot(arr1,arr4, color='blue',marker=',', linestyle=linestyle, label="Ntop_1_0")
+    axis.plot(arr1,arr5, color='orange',marker=',', linestyle=linestyle, label="Ntop_1_1")
+
 def csvFileName(project, measure, pars):
     home=os.getcwd()+"/DB/"
     csvName=home+project+"/tmp/"+measure
@@ -350,9 +367,46 @@ def drawCCE(axis,arr1,arr2,norm,col,linestyle,la):
     for it,t in enumerate(time):
         dt = t-time[it-1]
         if it==0:
+            dt=time[it+1]-t
             eff[it] = current[it]*dt*pow(10,12)/norm
             continue
         # convert to pC and normalise  
         eff[it] = eff[it-1] + current[it]*dt*pow(10,12)/norm 
     # time in ns
     axis.plot(time*pow(10,9),eff,color=col,marker=',',linestyle=linestyle,label=la)
+    return eff
+
+def drawMultiCCE(axis,arr1,arr2,arr3,arr4,arr5,norm,linestyle):
+    eff1=np.zeros(len(arr2))
+    eff2=np.zeros(len(arr3))
+    eff3=np.zeros(len(arr4))
+    eff4=np.zeros(len(arr5))
+    current1=np.array(arr2) # A                 
+    # print(current1)
+    current2=np.array(arr3) # A
+    current3=np.array(arr4) # A
+    current4=np.array(arr5) # A
+    time=np.array(arr1) # s              
+    # print(time)
+    for it,t in enumerate(time):
+        dt = t-time[it-1]
+        if it==0:
+            dt=time[it+1]-t
+            eff1[it] = current1[it]*dt*pow(10,12)/norm
+            eff2[it] = current2[it]*dt*pow(10,12)/norm
+            eff3[it] = current3[it]*dt*pow(10,12)/norm
+            eff4[it] = current4[it]*dt*pow(10,12)/norm
+            continue
+        # convert to pC and normalise  
+        eff1[it] = eff1[it-1] + (current1[it]*dt*pow(10,12))/norm
+        print(eff1[it])
+        eff2[it] = eff2[it-1] + (current2[it]*dt*pow(10,12))/norm
+        eff3[it] = eff3[it-1] + (current3[it]*dt*pow(10,12))/norm
+        eff4[it] = eff4[it-1] + (current4[it]*dt*pow(10,12))/norm
+    # time in ns
+    axis.plot(time*pow(10,9),eff1,color='black',marker=',',linestyle=linestyle,label="Ntop_0_0")
+    axis.plot(time*pow(10,9),eff2,color='red',marker=',',linestyle=linestyle,label="Ntop_0_1")
+    axis.plot(time*pow(10,9),eff3,color='blue',marker=',',linestyle=linestyle,label="Ntop_1_0")
+    axis.plot(time*pow(10,9),eff4,color='orange',marker=',',linestyle=linestyle,label="Ntop_1_1")
+    
+    return eff1, eff2, eff3, eff4

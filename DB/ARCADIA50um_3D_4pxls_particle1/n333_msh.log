@@ -1,0 +1,152 @@
+****************************************************************************
+***                            Sentaurus Mesh                            ***
+***                        Version P-2019.03-SP1                         ***
+***                       (1.1250, x86_64, Linux)                        ***
+***                                                                      ***
+***                       Copyright (C) 2005-2019                        ***
+***                            Synopsys, Inc.                            ***
+***                                                                      ***
+***  This software and the associated documentation are confidential     ***
+***  and proprietary to Synopsys, Inc.  Your use or disclosure of this   ***
+***  software is subject to the terms and conditions of a written        ***
+***  license agreement between you, or your company, and Synopsys, Inc.  ***
+****************************************************************************
+
+Compiled Thu May  2 14:39:03 PDT 2019 on: tcadprod10
+Running on: ludwig-boltzmann
+Hardware type: x86_64
+OS name: Linux
+OS release: 3.10.0-1062.9.1.el7.x86_64
+OS version: #1 SMP Fri Dec 6 15:49:49 UTC 2019
+Process ID: 77632
+
+Flags used: -a -c boxmethod
+
+Loading 1-D profile ./pwell.txt...done
+Loading 1-D profile ./nwell.txt...done
+Loading 1-D profile ./dpwell.txt...done
+
+===============================  brep quality  ===================================
+minAngle: 6.57151  [near (100 -0 100)]
+maxAngle: 162.474  [near (100 -0 100)]
+minDihedralAngle: 90  [near (-0 -0 -0),(-0 100 -0)] at region=substrate
+nVerts = 40  nTris = 76  nRegs = 7
+bmin: -0 -0 -0
+bmax: 100 100 100
+min edgeLength: 9  [near (75 -0 70.5)]
+min area: 38.25  max area: 5000  total area: 60000 interface area: 0
+volume: 1e+06
+Conformal? true
+Are all boundaries on bbox? true
+==================================================================================
+** Generating 3d grid **
+
+
+===============================  brep quality  ===================================
+minAngle: 6.57151  [near (100 -0 100)]
+maxAngle: 162.474  [near (100 -0 100)]
+minDihedralAngle: 90  [near (-0 100 100),(-0 100 -0)] at region=substrate
+nVerts = 40  nTris = 76  nRegs = 7
+bmin: -0 -0 -0
+bmax: 100 100 100
+min edgeLength: 9  [near (75 -0 70.5)]
+min area: 38.25  max area: 5000  total area: 60000 interface area: 0
+volume: 1e+06
+Conformal? true
+Are all boundaries on bbox? true
+==================================================================================
+Creating binary tree...done.
+Smoothing out binary tree...done.
+Imprinting binary tree on the boundary...done.
+Optimizing boundary nodes...done.
+
+===============================  brep quality  ===================================
+minAngle: 6.84277  [near (25 0 20.5)]
+maxAngle: 127.235  [near (79.6875 0 70.3125)]
+minDihedralAngle: 90  [near (100 96.875 100),(100 98.4375 100)] at region=substrate
+nVerts = 10087  nTris = 20170  nRegs = 7
+bmin: 0 0 0
+bmax: 100 100 100
+min edgeLength: 0.1875  [near (78.125 0 70.4062)]
+min area: 0.0762939  max area: 19.5312  total area: 60000 interface area: 0
+volume: 1e+06
+Conformal? true
+Are all boundaries on bbox? true
+==================================================================================
+Number of vertices after binary tree generation : 
+  61402 (tree) + 10087 (boundary)
+
+** Delaunizing the mesh **
+
+Creating delaunizer input...done.
+Fixing diagonals...done.
+Building a generic Delaunay triangulation of the 61786 input vertices ...done.
+Setting up planar patches...done.
+Initializing protection spheres...done.
+Flipping edges...done. (61794 vertices, 360069 elements)
+Solving ridges...done. (65160 vertices, 379655 elements)
+Solving faces...done. (66441 vertices, 386975 elements)
+Optimizing elements...done. (66441 vertices)
+Recovering faces...done. (66441 vertices)
+Eliminating slivers...done.(164.98deg 5e-05um^2)
+
+============================Report Non-Delaunay elements ============================
+Found 0 non-Delaunay elements
+Found 0 non-Delaunay boundary faces
+Found 0 non-Delaunay ridges
+==================================================================================
+
+Assign regions...done.
+Store Delaunay weight.
+
+The final mesh has: 
+   66433 points.
+  364949 elements.
+       7 regions.
+Max. connectivity = 48 located at (89.0625;0.78125;51.5625)
+
+Smallest region: Ntop_0_0  Total volume: 0
+        MeshGen3DNew::getDelaunizerInput:        21s
+                 MeshGen3DNew::delaunize:      31.1s
+
+==============================  tet-grid quality  ================================
+    0  10  20  30  40  50  60  70  80  90 100 110 120 130 140 150 160 170 180
+ %       .    4   4   7  22   6  11   1  34  .    7   1   2  .   .   .     
+---------------------------------------------------------------------------------
+minAngle: 5.05115  maxAngle: 164.98
+nVerts = 66433  nTets = 364949  nMats = 1
+max connectivity (tets per node): 48
+bmin: 0 0 0
+bmax: 100 100 100
+min edgeLength: 0.1875  [near (20.4062 0.195312 27.7344)]
+min volume: 0.00457764  max volume: 20.3451  Total volume: 1e+06
+bbox  volume: 1e+06
+Are all boundaries on bbox? true
+=================================================================================
+
+Smallest region: substrate  Total volume: 1e+06
+Interpolating data...done.
+Adding region interfaces...done
+done.
+Saving file n333_msh.tdr...done.
+
+===============================  Timer Report===================================
+              Total Mesh Generation Time:      65.2s       100%
+                       Rate of #Vertices:  1.02e+03
+                          Rate of #Edges:         0
+                          Rate of #Faces:  5.47e+03
+                       Rate of #Elements:   5.6e+03
+
+                              BinaryTree:      8.64s      13.2%
+                                 Imprint:      1.66s      2.55%
+                           DelaunayInput:      13.6s      20.9%
+                           DiagonalFixer:  0.000164s  0.000252%
+                          InsertVertices:      7.34s      11.3%
+                              Delaunizer:        13s        20%
+                        SphereProtection:      2.01s      3.08%
+                        SolveConstraints:      9.73s      14.9%
+                        OptimizeElements:      1.77s      2.72%
+                            RecoverFaces:      1.12s      1.72%
+                           SliverRemover:      3.43s      5.25%
+                            Time Covered:      62.4s      95.7%
+

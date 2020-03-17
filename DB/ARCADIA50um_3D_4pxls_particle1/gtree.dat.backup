@@ -1,0 +1,139 @@
+# Copyright (C) 1994-2019 Synopsys Inc.
+# swbtree vcurrent
+
+# --- simulation flow
+sde sde "" {}
+sde tepi "5" {7}
+sde tsi "100" {100 50}
+sde xpart "12.5" {0}
+sde zpart "25" {0}
+sdevice sdevice "" {}
+sdevice vbot "200" {-45 -17 -34 -11 -23 -51 -20 -7}
+sdevice vn "1" {0.8}
+sdevice1 sdevice "" {}
+sdevice1 let "1.28e-5" {1.28e-5 1.155e-5 1.158e-5 1.202e-5 1.924e-5}
+inspect inspect "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default tepi ""
+scenario default tsi ""
+scenario default xpart ""
+scenario default zpart ""
+scenario default vbot ""
+scenario default vn ""
+scenario default let ""
+# --- simulation tree
+0 1 0 {} {default} 0
+1 159 1 {7} {default} 0
+2 330 159 {100} {default} 0
+3 332 330 {0} {default} 0
+4 333 332 {0} {default} 0
+5 334 333 {} {default} 0
+6 335 334 {-45} {default} 0
+7 336 335 {0.8} {default} 0
+8 337 336 {} {default} 0
+9 338 337 {1.28e-5} {default} 0
+10 339 338 {} {default} 0
+9 340 337 {1.155e-5} {default} 0
+10 341 340 {} {default} 0
+9 342 337 {1.158e-5} {default} 0
+10 343 342 {} {default} 0
+9 344 337 {1.202e-5} {default} 0
+10 345 344 {} {default} 0
+9 346 337 {1.924e-5} {default} 0
+10 347 346 {} {default} 0
+6 348 334 {-34} {default} 0
+7 349 348 {0.8} {default} 0
+8 350 349 {} {default} 0
+9 351 350 {1.28e-5} {default} 0
+10 352 351 {} {default} 0
+9 353 350 {1.155e-5} {default} 0
+10 354 353 {} {default} 0
+9 355 350 {1.158e-5} {default} 0
+10 356 355 {} {default} 0
+9 357 350 {1.202e-5} {default} 0
+10 358 357 {} {default} 0
+9 359 350 {1.924e-5} {default} 0
+10 360 359 {} {default} 0
+6 390 334 {-51} {default} 0
+7 391 390 {0.8} {default} 0
+8 392 391 {} {default} 0
+9 393 392 {1.28e-5} {default} 0
+10 394 393 {} {default} 0
+9 395 392 {1.155e-5} {default} 0
+10 396 395 {} {default} 0
+9 397 392 {1.158e-5} {default} 0
+10 398 397 {} {default} 0
+9 399 392 {1.202e-5} {default} 0
+10 400 399 {} {default} 0
+9 401 392 {1.924e-5} {default} 0
+10 402 401 {} {default} 0
+6 416 334 {-20} {default} 0
+7 417 416 {0.8} {default} 0
+8 418 417 {} {default} 0
+9 419 418 {1.28e-5} {default} 0
+10 420 419 {} {default} 0
+9 421 418 {1.155e-5} {default} 0
+10 422 421 {} {default} 0
+9 423 418 {1.158e-5} {default} 0
+10 424 423 {} {default} 0
+9 425 418 {1.202e-5} {default} 0
+10 426 425 {} {default} 0
+9 427 418 {1.924e-5} {default} 0
+10 428 427 {} {default} 0
+2 331 159 {50} {default} 0
+3 361 331 {0} {default} 0
+4 362 361 {0} {default} 0
+5 363 362 {} {default} 0
+6 364 363 {-17} {default} 0
+7 365 364 {0.8} {default} 0
+8 366 365 {} {default} 0
+9 367 366 {1.28e-5} {default} 0
+10 368 367 {} {default} 0
+9 369 366 {1.155e-5} {default} 0
+10 370 369 {} {default} 0
+9 371 366 {1.158e-5} {default} 0
+10 372 371 {} {default} 0
+9 373 366 {1.202e-5} {default} 0
+10 374 373 {} {default} 0
+9 375 366 {1.924e-5} {default} 0
+10 376 375 {} {default} 0
+6 377 363 {-11} {default} 0
+7 378 377 {0.8} {default} 0
+8 379 378 {} {default} 0
+9 380 379 {1.28e-5} {default} 0
+10 381 380 {} {default} 0
+9 382 379 {1.155e-5} {default} 0
+10 383 382 {} {default} 0
+9 384 379 {1.158e-5} {default} 0
+10 385 384 {} {default} 0
+9 386 379 {1.202e-5} {default} 0
+10 387 386 {} {default} 0
+9 388 379 {1.924e-5} {default} 0
+10 389 388 {} {default} 0
+6 403 363 {-23} {default} 0
+7 404 403 {0.8} {default} 0
+8 405 404 {} {default} 0
+9 406 405 {1.28e-5} {default} 0
+10 407 406 {} {default} 0
+9 408 405 {1.155e-5} {default} 0
+10 409 408 {} {default} 0
+9 410 405 {1.158e-5} {default} 0
+10 411 410 {} {default} 0
+9 412 405 {1.202e-5} {default} 0
+10 413 412 {} {default} 0
+9 414 405 {1.924e-5} {default} 0
+10 415 414 {} {default} 0
+6 429 363 {-7} {default} 0
+7 430 429 {0.8} {default} 0
+8 431 430 {} {default} 0
+9 432 431 {1.28e-5} {default} 0
+10 433 432 {} {default} 0
+9 434 431 {1.155e-5} {default} 0
+10 435 434 {} {default} 0
+9 436 431 {1.158e-5} {default} 0
+10 437 436 {} {default} 0
+9 438 431 {1.202e-5} {default} 0
+10 439 438 {} {default} 0
+9 440 431 {1.924e-5} {default} 0
+10 441 440 {} {default} 0

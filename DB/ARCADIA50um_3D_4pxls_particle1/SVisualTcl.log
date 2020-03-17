@@ -1,0 +1,29 @@
+###########################################
+# Sentaurus Visual P-2019.03-SP1.
+# Tcl log file.
+#------------------------------------------
+# Date: Mar 16, 2020. 18:41:47.
+# Version: 29.0.1250 (1.1250)
+# Mode: Interactive (GUI).
+# Mesa: enabled.
+# Hostname: ludwig-boltzmann.
+# Machine: Linux, x86_64, x86_64.
+# Kernel: 3.10.0-1062.9.1.el7.x86_64.
+###########################################
+
+load_file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/n333_bnd.tdr
+create_plot -dataset n333_bnd
+select_plots {Plot_n333_bnd}
+#-> Plot_n333_bnd
+#-> Plot_n333_bnd
+#-> n333_bnd
+load_file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/n333_msh.tdr
+create_plot -dataset n333_msh
+select_plots {Plot_n333_msh}
+#-> Plot_n333_msh
+#-> Plot_n333_msh
+#-> n333_msh
+rotate_plot -plot Plot_n333_msh -x 83.7527 -y 126.806 -z -35.6642 -absolute
+#-> 0
+exit 0
+ 

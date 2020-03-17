@@ -1,0 +1,1656 @@
+****************************************************************************
+***                           Sentaurus Device                           ***
+***                        Version P-2019.03-SP1                         ***
+***                       (1.1250, x86_64, Linux)                        ***
+***                                                                      ***
+***                       Copyright (C) 1994-2019                        ***
+***                            Synopsys, Inc.                            ***
+***                                                                      ***
+***  This software and the associated documentation are confidential     ***
+***  and proprietary to Synopsys, Inc.  Your use or disclosure of this   ***
+***  software is subject to the terms and conditions of a written        ***
+***  license agreement between you, or your company, and Synopsys, Inc.  ***
+****************************************************************************
+
+Compiled Thu May  2 16:18:54 PDT 2019 on tcadprod10 (x86_64, Linux)
+
+	Running on machine with the following configuration:
+	Host Name: ludwig-boltzmann
+	Operating System: Linux rel. 3.10.0-1062.9.1.el7.x86_64 ver. #1 SMP Fri Dec 6 15:49:49 UTC 2019
+	Machine Type: x86_64
+	Process ID: 15483
+	Number of processors: 64
+	Domain Name: (none)
+	Date: Tue Mar 17 09:26:47 2020  (CEST)
+
+Parsing "/usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/lib/Molefraction.txt"
+Tue Mar 17 09:26:47 2020: checked out 1 sdevice license(s)
+Parsing circuit file /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/sdevice-29.0.1250/sd_hb_vsource.ccf
+Parsing circuit file /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/sdevice-29.0.1250/sd_hb_vsource2.ccf
+Parsing circuit file /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/sdevice-29.0.1250/sd_SRL1.ccf
+Parsing circuit file /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/sdevice-29.0.1250/bs_psource.ccf
+Parsing circuit file /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/sdevice-29.0.1250/sd_hb_pGC.ccf
+Parsing circuit file /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/sdevice-29.0.1250/sd_hb_isource.ccf
+Parsing circuit file /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/sdevice-29.0.1250/sd_hb_sRL.ccf
+Parsing circuit file /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/sdevice-29.0.1250/sd_hb_isource2.ccf
+Parsing circuit file /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/scm/ferroelectric.ccf
+Parsing circuit file /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/scm/MOS_harness.ccf
+Loading shared object file /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/scm/MOS_harness.so.linux64
+Loading shared object file /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/scm/ferroelectric.so.linux64
+Loading shared object file /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/sdevice-29.0.1250/sd_hb_isource2.so.linux64
+Loading shared object file /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/sdevice-29.0.1250/sd_hb_sRL.so.linux64
+Loading shared object file /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/sdevice-29.0.1250/sd_hb_isource.so.linux64
+Loading shared object file /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/sdevice-29.0.1250/sd_hb_pGC.so.linux64
+Loading shared object file /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/sdevice-29.0.1250/bs_psource.so.linux64
+Loading shared object file /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/sdevice-29.0.1250/sd_SRL1.so.linux64
+Loading shared object file /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/sdevice-29.0.1250/sd_hb_vsource2.so.linux64
+Loading shared object file /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/sdevice-29.0.1250/sd_hb_vsource.so.linux64
+
+Input source: pp430_des.cmd
+
+===============================
+
+no Output file
+
+
+GlobalParameter {
+}
+no ACExtract file
+
+PMIPath file: /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/sdevice-29.0.1250 /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/sdevice
+
+CMIPath file: /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/sdevice-29.0.1250 /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/linux64/lib/scm
+
+SPICEPath file: /usr/synopsys/sentaurus/P_2019.03-SP1/tcad/current/lib/sdevice-29.0.1250/spice
+
+no DevicePath file
+
+no CIRCUITSAVENAME file
+
+no CIRCUITLOADNAME file
+
+Numerical parameters:
+  Absolute error : 
+    Poisson : 1.0000e-03
+    eqPoisson : 1.0000e-03
+    Electron : 1.0000e-05
+    Hole : 1.0000e-05
+    Photon-Rate-Equation : 1.0000e-07
+    Photon-Phase-Equation : 1.0000e-05
+    Rate-Stabilize-Equation : 1.0000e-07
+    QW-Scattering-Equations : 1.0000e-05
+    QW-eScattering-Equation : 1.0000e-05
+    QW-hScattering-Equation : 1.0000e-05
+    Optical Problem : 1.0000e-03
+    Wavelength : 1.0000e-03
+    Bandstructure : 1.0000e-03
+    EmissionTable : 1.0000e-03
+    DephasingRates : 1.0000e-03
+    Photon Recycling : 1.0000e-03
+    Electron-Temperature : 1.0000e-04
+    Hole-Temperature : 1.0000e-04
+    Lattice-Hole-Electron-Temperature : 1.0000e-03
+    Circuit : 1.0000e-03
+    TCircuit : 1.0000e-03
+    Contact : 1.0000e-03
+    TContact : 1.0000e-03
+    Continuation : 1.0000e-03
+    eLaplace : 1.0000e-03
+    hLaplace : 1.0000e-03
+    tLaplace : 1.0000e-03
+    MonteCarlo : 1.0000e-03
+    MCPoissonPDE : 1.0000e-03
+    eQuantumPotential : 1.0000e-03
+    hQuantumPotential : 1.0000e-03
+    quasi-fermi-potential : 1.0000e-03
+    ConductiveInsulator : 1.0000e-03
+    ContactAndConductiveInsulator : 1.0000e-03
+    SingletExciton : 1.0000e-05
+    FEPolarization : 1.0000e-05
+    FEPolarizationX : 1.0000e-05
+    FEPolarizationY : 1.0000e-05
+    FEPolarizationZ : 1.0000e-05
+    eHopping : 1.0000e-03
+    hHopping : 1.0000e-03
+    HydrogenAtom : 1.0000e-03
+    HydrogenMolecule : 1.0000e-03
+    HydrogenIon : 1.0000e-03
+    HydrogenSiliconBondOccupation : 1.0000e-03
+    TrapPDE : 1.0000e-03
+    eSHEDistribution : 1.0000e-03
+    hSHEDistribution : 1.0000e-03
+    Landau-Lifshitz-Gilbert[theta] : 1.0000e-03
+    Landau-Lifshitz-Gilbert[phi] : 1.0000e-03
+    Landau-Lifshitz-Gilbert[x] : 1.0000e-03
+    Landau-Lifshitz-Gilbert[y] : 1.0000e-03
+    Landau-Lifshitz-Gilbert[z] : 1.0000e-03
+    Mechanics : 1.0000e-03
+    ExternalTransportSolver : 1.0000e-03
+    ReactionDiffusionPDE : 1.0000e-03
+  RelErrControl (Reference error): 
+    Poisson : 0.025852
+    eqPoisson : 1
+    Electron : 1.0000e+10
+    Hole : 1.0000e+10
+    Photon-Rate-Equation : 1.0000e-07
+    Photon-Phase-Equation : 1
+    Rate-Stabilize-Equation : 1.0000e-07
+    QW-Scattering-Equations : 1.0000e+10
+    QW-eScattering-Equation : 1.0000e+10
+    QW-hScattering-Equation : 1.0000e+10
+    Optical Problem : 1
+    Wavelength : 1
+    Bandstructure : 1
+    EmissionTable : 1
+    DephasingRates : 1
+    Photon Recycling : 1
+    Electron-Temperature : 3.0000e+02
+    Hole-Temperature : 3.0000e+02
+    Lattice-Hole-Electron-Temperature : 3.0000e+02
+    Circuit : 1
+    TCircuit : 1
+    Contact : 0.025852
+    TContact : 1
+    Continuation : 1
+    eLaplace : 1
+    hLaplace : 1
+    tLaplace : 1
+    MonteCarlo : 1
+    MCPoissonPDE : 1
+    eQuantumPotential : 0.025852
+    hQuantumPotential : 0.025852
+    quasi-fermi-potential : 0.025852
+    ConductiveInsulator : 1
+    ContactAndConductiveInsulator : 1
+    SingletExciton : 1.0000e+10
+    FEPolarization : 0.025852
+    FEPolarizationX : 0.025852
+    FEPolarizationY : 0.025852
+    FEPolarizationZ : 0.025852
+    eHopping : 0.025852
+    hHopping : 0.025852
+    HydrogenAtom : 1.0000e+10
+    HydrogenMolecule : 1.0000e+10
+    HydrogenIon : 1.0000e+10
+    HydrogenSiliconBondOccupation : 1
+    TrapPDE : 1.0000e-05
+    eSHEDistribution : 0.025852
+    hSHEDistribution : 0.025852
+    Landau-Lifshitz-Gilbert[theta] : 1
+    Landau-Lifshitz-Gilbert[phi] : 1
+    Landau-Lifshitz-Gilbert[x] : 1
+    Landau-Lifshitz-Gilbert[y] : 1
+    Landau-Lifshitz-Gilbert[z] : 1
+    Mechanics : 1
+    ExternalTransportSolver : 1
+    ReactionDiffusionPDE : 1
+  Relative error : 5 digits
+  Without checked transient error
+  Max. #iterations : 30
+  LineSearchDamping=1
+  #undamped iterations : 100
+  No incomplete Newton
+  transient method : TR-BDF
+  Linear solver : blocked decomposition
+  Linear solver for AC analysis : blocked decomposition
+  Linear solver for SHEDistribution Model : Super
+  use linear extrapolation in transient/quasistationary computations
+  use complex supernodal in ac-analysis (if possible)
+  do not use smoothed PDE's in transient/quasistationary computations
+  use automatic coupling of contact/circuit stuff
+  Spice temperature: 3.0015e+02
+  Spice nominal temperature of parameter measurements: 3.0015e+02
+  Spice minimum conductance gmin: 1.0000e-12
+  Use 64 bit (double) normal precision floating point arithmetic.
+  Mininum |rhs| : 1.0000e-05
+  Maximum |rhs| (transient): 1.0000e+15
+  Maximum |rhs| (non-transient): 1.0000e+100
+  Maximum |rhs| factor : 1.0000e+10
+  Maximum |rhs| factor1 : 1.0000e+10
+  Lattice Temperature Range : (50,5.0000e+03)
+  Carrier Temperature Range : (10,8.0000e+04)
+  Simplified first order SHE of BTE will be solved
+  SHERefinementCutoff : 20
+  No user dependencies.
+  Number of assembly threads: 1 (command line max_threads)
+  Number of solver threads: 1 (command line max_threads)
+  Thread stacksize: 1000000 bytes (default)
+  Go serial if not enough parallel licenses are available.
+
+Default device parameters:
+  Electrodes:
+    "Ntop_0_0" : 0.0000e+00 V (Ohmic), area factor : 1
+    "Ntop_0_1" : 0.0000e+00 V (Ohmic), area factor : 1
+    "Ntop_1_0" : 0.0000e+00 V (Ohmic), area factor : 1
+    "Ntop_1_1" : 0.0000e+00 V (Ohmic), area factor : 1
+    "Ptop" : 0.0000e+00 V (Ohmic), area factor : 1
+    "Pbot" : 0.0000e+00 V (Ohmic), area factor : 1
+  RayTrace Boundaries:
+  Files:
+    no Boundary file
+    Grid file: n362_msh.tdr
+    no Doping file
+    no MobilityDoping file
+    MIMCurrent file: pp430_des_mimcur_des.plt
+    MIMBand file: pp430_des_mimband_des.tdr
+    no Load file
+    no Save file
+    Plot file: n430_des.tdr
+    no DevFieldsName file
+    AutoNewtonPlot file: n430_des_%d_des.tdr
+    no Path file
+    Lifetime file: n362_msh.tdr
+    no Temperature file
+    Current file: n430_des.plt
+    no PMIUserFields file
+    no Extraction file
+    ModelParameters file: pp430_des.par
+    ParameterPath directories: 
+    no Piezo file
+    no mcDOS file
+    no ModeGain file
+    no Optical emission table for stimulated emission file
+    no Optical emission table for spontaneous emission file
+    no Optical emission table for photon phase change coefficient file
+    no EmissionTable file
+    no DephasingRates file
+    no OpticalFarField file
+    no OpticalIntensityPattern file
+    no SaveOpticalIntensityPattern file
+    no IlluminationSpectrum file
+    no SpectralPlot file
+    no OpticalSolverInput file
+    no OpticalGenerationInput file
+    no OpticalGenerationOutuput file
+    no OptGenTransientScaling file
+    no MonteCarloInput file
+    no MonteCarloOutput file
+    no ACPlot file
+-----------------------------------------------
+  Numerical parameters:
+    With avalanche derivatives
+    Using old wavelength search algorithm
+    Do not reinitialize quasi Fermi potentials in quasi-stationary simulations
+    Ignore ionization integral constraints
+    Without diagonal preconditioning
+    With Scharfetter-Gummel Discretization
+    Relative error : 5 digits
+    Delta for numerical tunnelling derivatives : 1.0000e-03
+    Do not compute breakdown paths and ionization integrals
+    QuasiFermiPotential is used for Contact Equation
+    Break if contact current (Pbot) exceeds bounds:
+        absval = 1.0000e-03
+    With usage of best vertex in element (maximum element-vertex volume angle) for impact ionization models
+-----------------------------------------------
+-----------------------------------------------
+  Physical models:
+    Without incomplete ionization
+    Use Si parameters
+    TATNonlocalPathNC = 0.0000e+00
+    With SRH-Recombination
+      Without field dependent lifetimes
+      With doping dependent lifetimes
+      Without temperature dependent lifetimes
+    Without CDL-Recombination
+    With optical generation computation 
+    With Band-to-Band Tunneling
+      Model: A2*E^2*exp(-B2/E)
+    Without Auger-Recombination
+    Without Radiative Recombination
+    Without Surface-Recombination
+    Without Trap-Assisted-Auger-Recombination
+    PMI recombination models: none
+    Without thermal resistance interfaces
+    Without distributed resistance interfaces for electrons
+    Without distributed resistance interfaces for holes
+    Without Piezo
+    Without Anisotropic Material Properties
+    Without Avalanche-Generation 
+    Without Alpha Particle
+    Without Heavy Ion
+    Without polarization
+    Volume charge density: 0.0000e+00 cm^-3
+    Device Temperature = 3.0000e+02 K
+    Electron Quasi Fermi Potential: 0.0000e+00 V
+    Hole Quasi Fermi Potential: 0.0000e+00 V
+    Without MagneticField
+    With SingletExciton Barrier Type
+    Fermi Statistic 
+    Intrinsic density models:
+      default bandgap model
+      Bandgap narrowing model: OldSlotboom with bandgap narrowing (Fermi)
+    default affinity model
+    default effective mass model
+    Electron mobility:
+      Doping dependence:
+        Default
+      no Carrier-Carrier scattering
+      no bulk trap Coulomb scattering 
+      E_normal dependence:
+        Lombardi
+      Without ThinLayer mobility model
+      High-field mobility: Caughey-Thomas saturation model, using gradient quasi-Fermi potential.
+      Einstein relation for diffusivity-mobility ratio.
+    Hole mobility:
+      Doping dependence:
+        Default
+      no Carrier-Carrier scattering
+      no bulk trap Coulomb scattering 
+      E_normal dependence:
+        Lombardi
+      Without ThinLayer mobility model
+      High-field mobility: Caughey-Thomas saturation model, using gradient quasi-Fermi potential.
+      Einstein relation for diffusivity-mobility ratio.
+    Energy relaxation time model: according to formula in parameter file
+    Schottky resistance model: default bult-in model
+    Lattice thermal conductivity model: according to formula in parameter file
+    Metal Resistivity model: according to formula in parameter file
+    Thermo Electric Power model: extraploted Si data
+    Metal Thermo Electric Power model: MetalThermoElectricPower model not defined
+    Lattice heat capacity model: temperature dependent
+    no piezoelectric polarization model
+    Without default parameters from file (use built-in default parameters)
+-----------------------------------------------
+  Process information for extraction purposes:
+    none
+  Plot variables:
+    eDensity
+    hDensity
+    TotalCurrentDensity/Vector
+    eCurrentDensity/Vector
+    hCurrentDensity/Vector
+    ElectricField/Vector
+    ElectrostaticPotential
+    SpaceCharge
+    DopingConcentration
+    SRHRecombination
+    AugerRecombination
+    eLifetime
+    hLifetime
+
+------------------------------------------------
+  NoisePlot variables:
+    none
+  Plot groups:
+    none
+
+------------------------------------------------
+  CurrentPlot variables:
+    none
+Devices:
+Systems:
+Solve :
+ Poisson
+Coupled ( Digits : 5, Max. #iterations : 30, 
+    Solver : blocked decomposition,
+    #undamped iterations : 100 
+    )
+    { Poisson Electron Hole } 
+Quasistationary ( Digits : 5, Max. #iterations : 30, 
+      Initial step in t : 0.1, 
+      Minimum step in t : 1.0000e-06, Maximum step in t : 0.1, 
+      Increment : 1.41, Decrement : 2, 
+      Goal values :
+        Contact Ntop_1_1 : 0.8V,
+        Contact Ntop_1_0 : 0.8V,
+        Contact Ntop_0_1 : 0.8V,
+        Contact Ntop_0_0 : 0.8V
+    )
+  {
+    Coupled ( Digits : 5, Max. #iterations : 30, 
+        Solver : blocked decomposition,
+        #undamped iterations : 100 
+        )
+        { Poisson Electron Hole } 
+  }
+Quasistationary ( Digits : 5, Max. #iterations : 30, 
+      Initial step in t : 0.1, 
+      Minimum step in t : 1.0000e-08, Maximum step in t : 0.1, 
+      Increment : 1.41, Decrement : 2, 
+      Goal values :
+        Contact Pbot : -7.0000e+00V
+      Plot at [ t=0.0000e+00, t=1 ]
+    )
+  {
+    Coupled ( Digits : 5, Max. #iterations : 30, 
+        Solver : blocked decomposition,
+        #undamped iterations : 100 
+        )
+        { Poisson Electron Hole } 
+  }
+
+===============================
+
+Reading grid 'n362_msh.tdr' ... 
+  coordinate system: UCS, 3d_sprocess (x is device down direction)
+  use coordinate system as is (no transformation)
+  TDR format
+  Number of grid points is 60801.
+done.
+
+Adding interfaces and contacts .... done.
+
+Computing edges ...
+  Number of edges: 409295
+done.
+Computing boxes ...
+
+  CVPL_AverageBoxMethod = TRUE 
+   
+  Boxmethod Parallel Computing: nbThreads = 1 
+
+  Computing Voronoi faces, coefficients, and measures ... 
+  CVPL_Algorithm = TRUE 
+
+    Computing Obtuse Elements ... 
+     Obtuse Elements time:  tcpu = 1.47 s
+      New Parameters time: (wallclock = 2.83 s, tcpu = 2.83 s)
+
+Info for all regions (NumberOfRegions = 1):
+        ElementWithMinVolume(321065) Vertex0(59370)( 7.968750e+01, 0.000000e+00, 7.050000e+01) Volume = 4.577637e-03 um3 (9.16e-09 from TotalVolume)
+          ElementWithMinEdge(   502) Vertex0(11646)( 7.812500e+01, 7.812500e-01, 7.968750e+01) Length = 1.875000e-01 um
+              MaxFlatElement(153992) Vertex0(49441)( 2.050000e+01, 0.000000e+00, 7.656250e+01)  Angle = 1.510260e+01 degrees
+   ElementWithMaxQualityEdge( 60300) Vertex0(39039)( 7.050000e+01, 0.000000e+00, 7.656250e+01)    R/L = 4.685231e+00 
+ ElementWithMaxQualityHeight(322398) Vertex0(59795)( 2.031250e+01, 0.000000e+00, 2.050000e+01)    R/H = 1.847124e+02 
+
+Info for semiconductor regions (NumberOfRegions = 1):
+        ElementWithMinVolume(321065) Vertex0(59370)( 7.968750e+01, 0.000000e+00, 7.050000e+01) Volume = 4.577637e-03 um3 (9.16e-09 from TotalVolume)
+          ElementWithMinEdge(   502) Vertex0(11646)( 7.812500e+01, 7.812500e-01, 7.968750e+01) Length = 1.875000e-01 um
+              MaxFlatElement( 60298) Vertex0(39039)( 7.050000e+01, 0.000000e+00, 7.656250e+01)  Angle = 1.510260e+01 degrees
+   ElementWithMaxQualityEdge( 60300) Vertex0(39039)( 7.050000e+01, 0.000000e+00, 7.656250e+01)    R/L = 4.685231e+00 
+ ElementWithMaxQualityHeight(322398) Vertex0(59795)( 2.031250e+01, 0.000000e+00, 2.050000e+01)    R/H = 1.847124e+02 
+
+   NumberOfEdges              = 409295 
+   NumberOfGeometricalEdges   = 405341 
+   NumberOfDoubleEdges        =      0 
+   MaxNumberOfEdgesPerVertex  =     26; vertex(48357) = ( 4.843750e+01,  7.812500e-01,  9.375000e+01) [um]
+   MaxNumberOfElementsPerEdge =      8; edge(1479) = (5812, 10007) 
+                                        vertex(5812) = ( 7.500000e+01,  1.562500e+00,  6.718750e+01) [um]
+                                        vertex(10007) = ( 7.343750e+01,  1.562500e+00,  6.718750e+01) [um]
+
+                        NumberOfVertices =  64755 
+                        NumberOfElements = 334997 
+                    NumberOfTetrahedrons = 334997  (100.0 %)
+                  NumberOfObtuseElements = 110110  (32.87 %)
+             NumberOfNonDelaunayElements =      0  ( 0.00 %)
+
+  VertexWithMaxMeasure(59600)( 5.625000e+01, 3.125000e+01, 6.250000e+01)
+  MaxVertMeasure(1.220703e+02)/VertVolume(2.034505e+01) = 6.00e+00
+
+
+/-------- Region non-Delaunay elements -------------------------------------------------------------------
+ Region        Volume      BoxMethodVolume  DeltaVolume  Elements  non-Delaunay      non-DelaunayVolume 
+  name          [um3]          [um3]           [%]                   Elements              [um3]   [%]   
+ ---------------------------------------------------------------------------------------------------------
+ substrate  5.0000000e+05  5.0000000e+05     2.8e-10    334997       0 ( 0.00 %)   0.0000000e+00 ( 0.0000) 
+ .........................................................................................................
+ Total      5.0000000e+05  5.0000000e+05     2.8e-10    334997       0 ( 0.00 %)   0.0000000e+00 ( 0.0000) 
+\---------------------------------------------------------------------------------------------------------
+    done.
+  done.
+  (times: wallclock = 5.11 s, tcpu = 5.11 s)
+done.
+Reading doping 'n362_msh.tdr' (TDR format) ...
+done.
+done.
+Reading parameter file 'pp430_des.par' ...
+---------------------------------------------------
+ Reading parameters for default parameter set
+---------------------------------------------------
+
+	Differences compared with default parameters:
+	ComplexRefractiveIndex: Ck_carr_e = 0.0000e+00, instead of: 3.7100e-18 [cm^2]
+	ComplexRefractiveIndex: Ck_carr_h = 0.0000e+00, instead of: 3.3300e-18 [cm^2]
+	ComplexRefractiveIndex: Gamma_k_carr_e = 1, instead of: 3 [cm^2]
+	ComplexRefractiveIndex: Gamma_k_carr_h = 1, instead of: 3 [cm^2]
+	ComplexRefractiveIndex: Formula = 3, instead of: 1 [1]
+	SchroedingerParameters: me = 0.07, instead of: 0.0000e+00 [1]
+	Scharfetter(elec): tau_max = 1.0000e-03, instead of: 1.0000e-05 [s]
+	Scharfetter(hole): tau_max = 1.0000e-03, instead of: 3.0000e-06 [s]
+	Band2BandTunneling: Using parameter set (APath,BPath,Rpath,Ppath,Dcpath,Dvpath)
+	SchottkyResistance(hole): mt = 0.16, instead of: 0.19 [1]
+	absorption: A0 = 1.2107e+15, instead of: 1.2107e+15 [cm-1]
+
+	Electron valleys are changed:
+	eValley(0.914, 0.196, 0.196, 0.0000e+00, 2, 0.5) 	 #[1,1,1,eV,1,eV^-1] 
+	eValley(0.196, 0.914, 0.196, 0.0000e+00, 2, 0.5) 	 #[1,1,1,eV,1,eV^-1] 
+	eValley(0.196, 0.196, 0.914, 0.0000e+00, 2, 0.5) 	 #[1,1,1,eV,1,eV^-1] 
+
+	Hole valleys are changed:
+	hValley(0.16, 0.16, 0.16, 0.0000e+00, 1, 0.0000e+00) 	 #[1,1,1,eV,1,eV^-1] 
+	hValley(0.49, 0.49, 0.49, 0.0000e+00, 1, 0.0000e+00) 	 #[1,1,1,eV,1,eV^-1] 
+	piezoelectric polarization: c33 = 1, instead of: 0.0000e+00 [Pa]
+
+
+=======
+Region: "substrate"
+  (material is "Silicon")
+=======
+  Model: "Absorption"
+    Parameter "A0" is modified from 1.21073e+15 to 1.2107e+15
+  Model: "ComplexRefractiveIndex"
+    Parameter "Ck_carr_e" is modified from 3.71e-18 to 0
+    Parameter "Ck_carr_h" is modified from 3.33e-18 to 0
+    Parameter "Gamma_k_carr_e" is modified from 3 to 1
+    Parameter "Gamma_k_carr_h" is modified from 3 to 1
+  Model: "EnormalDependence_electron_100"
+    Parameter "A" is new with value equal to 2
+    Parameter "B" is new with value equal to 4.75e+07
+    Parameter "C" is new with value equal to 580
+    Parameter "N0" is new with value equal to 1
+    Parameter "N1" is new with value equal to 1
+    Parameter "N2" is new with value equal to 1
+    Parameter "a_ac" is new with value equal to 1
+    Parameter "a_sr" is new with value equal to 1
+    Parameter "alpha" is new with value equal to 0
+    Parameter "aother" is new with value equal to 0
+    Parameter "delta" is new with value equal to 5.82e+14
+    Parameter "eta" is new with value equal to 5.82e+30
+    Parameter "k" is new with value equal to 1
+    Parameter "l_crit" is new with value equal to 1e-06
+    Parameter "lambda" is new with value equal to 0.125
+    Parameter "maxexp" is new with value equal to 1e+100
+    Parameter "nu" is new with value equal to 1
+  Model: "EnormalDependence_electron_110"
+    Parameter "A" is new with value equal to 2
+    Parameter "B" is new with value equal to 4.75e+07
+    Parameter "C" is new with value equal to 580
+    Parameter "N0" is new with value equal to 1
+    Parameter "N1" is new with value equal to 1
+    Parameter "N2" is new with value equal to 1
+    Parameter "a_ac" is new with value equal to 1
+    Parameter "a_sr" is new with value equal to 1
+    Parameter "alpha" is new with value equal to 0
+    Parameter "aother" is new with value equal to 0
+    Parameter "delta" is new with value equal to 5.82e+14
+    Parameter "eta" is new with value equal to 5.82e+30
+    Parameter "k" is new with value equal to 1
+    Parameter "l_crit" is new with value equal to 1e-06
+    Parameter "lambda" is new with value equal to 0.125
+    Parameter "maxexp" is new with value equal to 1e+100
+    Parameter "nu" is new with value equal to 1
+  Model: "EnormalDependence_electron_111"
+    Parameter "A" is new with value equal to 2
+    Parameter "B" is new with value equal to 4.75e+07
+    Parameter "C" is new with value equal to 580
+    Parameter "N0" is new with value equal to 1
+    Parameter "N1" is new with value equal to 1
+    Parameter "N2" is new with value equal to 1
+    Parameter "a_ac" is new with value equal to 1
+    Parameter "a_sr" is new with value equal to 1
+    Parameter "alpha" is new with value equal to 0
+    Parameter "aother" is new with value equal to 0
+    Parameter "delta" is new with value equal to 5.82e+14
+    Parameter "eta" is new with value equal to 5.82e+30
+    Parameter "k" is new with value equal to 1
+    Parameter "l_crit" is new with value equal to 1e-06
+    Parameter "lambda" is new with value equal to 0.125
+    Parameter "maxexp" is new with value equal to 1e+100
+    Parameter "nu" is new with value equal to 1
+  Model: "EnormalDependence_electron_aniso_100"
+    Parameter "A" is new with value equal to 2
+    Parameter "B" is new with value equal to 4.75e+07
+    Parameter "C" is new with value equal to 580
+    Parameter "N0" is new with value equal to 1
+    Parameter "N1" is new with value equal to 1
+    Parameter "N2" is new with value equal to 1
+    Parameter "a_ac" is new with value equal to 1
+    Parameter "a_sr" is new with value equal to 1
+    Parameter "alpha" is new with value equal to 0
+    Parameter "aother" is new with value equal to 0
+    Parameter "delta" is new with value equal to 5.82e+14
+    Parameter "eta" is new with value equal to 5.82e+30
+    Parameter "k" is new with value equal to 1
+    Parameter "l_crit" is new with value equal to 1e-06
+    Parameter "lambda" is new with value equal to 0.125
+    Parameter "maxexp" is new with value equal to 1e+100
+    Parameter "nu" is new with value equal to 1
+  Model: "EnormalDependence_electron_aniso_110"
+    Parameter "A" is new with value equal to 2
+    Parameter "B" is new with value equal to 4.75e+07
+    Parameter "C" is new with value equal to 580
+    Parameter "N0" is new with value equal to 1
+    Parameter "N1" is new with value equal to 1
+    Parameter "N2" is new with value equal to 1
+    Parameter "a_ac" is new with value equal to 1
+    Parameter "a_sr" is new with value equal to 1
+    Parameter "alpha" is new with value equal to 0
+    Parameter "aother" is new with value equal to 0
+    Parameter "delta" is new with value equal to 5.82e+14
+    Parameter "eta" is new with value equal to 5.82e+30
+    Parameter "k" is new with value equal to 1
+    Parameter "l_crit" is new with value equal to 1e-06
+    Parameter "lambda" is new with value equal to 0.125
+    Parameter "maxexp" is new with value equal to 1e+100
+    Parameter "nu" is new with value equal to 1
+  Model: "EnormalDependence_electron_aniso_111"
+    Parameter "A" is new with value equal to 2
+    Parameter "B" is new with value equal to 4.75e+07
+    Parameter "C" is new with value equal to 580
+    Parameter "N0" is new with value equal to 1
+    Parameter "N1" is new with value equal to 1
+    Parameter "N2" is new with value equal to 1
+    Parameter "a_ac" is new with value equal to 1
+    Parameter "a_sr" is new with value equal to 1
+    Parameter "alpha" is new with value equal to 0
+    Parameter "aother" is new with value equal to 0
+    Parameter "delta" is new with value equal to 5.82e+14
+    Parameter "eta" is new with value equal to 5.82e+30
+    Parameter "k" is new with value equal to 1
+    Parameter "l_crit" is new with value equal to 1e-06
+    Parameter "lambda" is new with value equal to 0.125
+    Parameter "maxexp" is new with value equal to 1e+100
+    Parameter "nu" is new with value equal to 1
+  Model: "EnormalDependence_hole_100"
+    Parameter "A" is new with value equal to 2
+    Parameter "B" is new with value equal to 9.925e+06
+    Parameter "C" is new with value equal to 2947
+    Parameter "N0" is new with value equal to 1
+    Parameter "N1" is new with value equal to 1
+    Parameter "N2" is new with value equal to 1
+    Parameter "a_ac" is new with value equal to 1
+    Parameter "a_sr" is new with value equal to 1
+    Parameter "alpha" is new with value equal to 0
+    Parameter "aother" is new with value equal to 0
+    Parameter "delta" is new with value equal to 2.0546e+14
+    Parameter "eta" is new with value equal to 2.0546e+30
+    Parameter "k" is new with value equal to 1
+    Parameter "l_crit" is new with value equal to 1e-06
+    Parameter "lambda" is new with value equal to 0.0317
+    Parameter "maxexp" is new with value equal to 1e+100
+    Parameter "nu" is new with value equal to 1
+  Model: "EnormalDependence_hole_110"
+    Parameter "A" is new with value equal to 2
+    Parameter "B" is new with value equal to 9.925e+06
+    Parameter "C" is new with value equal to 2947
+    Parameter "N0" is new with value equal to 1
+    Parameter "N1" is new with value equal to 1
+    Parameter "N2" is new with value equal to 1
+    Parameter "a_ac" is new with value equal to 1
+    Parameter "a_sr" is new with value equal to 1
+    Parameter "alpha" is new with value equal to 0
+    Parameter "aother" is new with value equal to 0
+    Parameter "delta" is new with value equal to 2.0546e+14
+    Parameter "eta" is new with value equal to 2.0546e+30
+    Parameter "k" is new with value equal to 1
+    Parameter "l_crit" is new with value equal to 1e-06
+    Parameter "lambda" is new with value equal to 0.0317
+    Parameter "maxexp" is new with value equal to 1e+100
+    Parameter "nu" is new with value equal to 1
+  Model: "EnormalDependence_hole_111"
+    Parameter "A" is new with value equal to 2
+    Parameter "B" is new with value equal to 9.925e+06
+    Parameter "C" is new with value equal to 2947
+    Parameter "N0" is new with value equal to 1
+    Parameter "N1" is new with value equal to 1
+    Parameter "N2" is new with value equal to 1
+    Parameter "a_ac" is new with value equal to 1
+    Parameter "a_sr" is new with value equal to 1
+    Parameter "alpha" is new with value equal to 0
+    Parameter "aother" is new with value equal to 0
+    Parameter "delta" is new with value equal to 2.0546e+14
+    Parameter "eta" is new with value equal to 2.0546e+30
+    Parameter "k" is new with value equal to 1
+    Parameter "l_crit" is new with value equal to 1e-06
+    Parameter "lambda" is new with value equal to 0.0317
+    Parameter "maxexp" is new with value equal to 1e+100
+    Parameter "nu" is new with value equal to 1
+  Model: "EnormalDependence_hole_aniso_100"
+    Parameter "A" is new with value equal to 2
+    Parameter "B" is new with value equal to 9.925e+06
+    Parameter "C" is new with value equal to 2947
+    Parameter "N0" is new with value equal to 1
+    Parameter "N1" is new with value equal to 1
+    Parameter "N2" is new with value equal to 1
+    Parameter "a_ac" is new with value equal to 1
+    Parameter "a_sr" is new with value equal to 1
+    Parameter "alpha" is new with value equal to 0
+    Parameter "aother" is new with value equal to 0
+    Parameter "delta" is new with value equal to 2.0546e+14
+    Parameter "eta" is new with value equal to 2.0546e+30
+    Parameter "k" is new with value equal to 1
+    Parameter "l_crit" is new with value equal to 1e-06
+    Parameter "lambda" is new with value equal to 0.0317
+    Parameter "maxexp" is new with value equal to 1e+100
+    Parameter "nu" is new with value equal to 1
+  Model: "EnormalDependence_hole_aniso_110"
+    Parameter "A" is new with value equal to 2
+    Parameter "B" is new with value equal to 9.925e+06
+    Parameter "C" is new with value equal to 2947
+    Parameter "N0" is new with value equal to 1
+    Parameter "N1" is new with value equal to 1
+    Parameter "N2" is new with value equal to 1
+    Parameter "a_ac" is new with value equal to 1
+    Parameter "a_sr" is new with value equal to 1
+    Parameter "alpha" is new with value equal to 0
+    Parameter "aother" is new with value equal to 0
+    Parameter "delta" is new with value equal to 2.0546e+14
+    Parameter "eta" is new with value equal to 2.0546e+30
+    Parameter "k" is new with value equal to 1
+    Parameter "l_crit" is new with value equal to 1e-06
+    Parameter "lambda" is new with value equal to 0.0317
+    Parameter "maxexp" is new with value equal to 1e+100
+    Parameter "nu" is new with value equal to 1
+  Model: "EnormalDependence_hole_aniso_111"
+    Parameter "A" is new with value equal to 2
+    Parameter "B" is new with value equal to 9.925e+06
+    Parameter "C" is new with value equal to 2947
+    Parameter "N0" is new with value equal to 1
+    Parameter "N1" is new with value equal to 1
+    Parameter "N2" is new with value equal to 1
+    Parameter "a_ac" is new with value equal to 1
+    Parameter "a_sr" is new with value equal to 1
+    Parameter "alpha" is new with value equal to 0
+    Parameter "aother" is new with value equal to 0
+    Parameter "delta" is new with value equal to 2.0546e+14
+    Parameter "eta" is new with value equal to 2.0546e+30
+    Parameter "k" is new with value equal to 1
+    Parameter "l_crit" is new with value equal to 1e-06
+    Parameter "lambda" is new with value equal to 0.0317
+    Parameter "maxexp" is new with value equal to 1e+100
+    Parameter "nu" is new with value equal to 1
+  Model: "SHEDistribution"
+    Parameter "dac_cl_e" is modified from 0 to 1.027e-05
+    Parameter "dac_cl_h" is modified from 0 to 6.29e-06
+    Parameter "dop_e" is modified from 0 to 1.25e+09
+    Parameter "dop_h" is modified from 0 to 8.7e+08
+  Model: "Scharfetter"
+    Parameter "taumax_e" is modified from 1e-05 to 0.001
+    Parameter "taumax_h" is modified from 3e-06 to 0.001
+  Model: "SchottkyResistance"
+    Parameter "mt_h" is modified from 0.19 to 0.16
+  Model: "SchroedingerParameters"
+    Parameter "me" is modified from 0 to 0.07
+  Using lattice crystal coordinate system from parameter file:
+    effective LatticeParameters:
+      X = (1, 0.0000e+00, 0.0000e+00)
+      Y = (0.0000e+00, 1, 0.0000e+00)
+      Z = (0.0000e+00, 0.0000e+00, 1)
+
+==========
+Electrode: "Ntop_0_0"
+==========
+  Model: "Bandgap"
+    Parameter "Chi0" is modified from 15.95 to 4.05
+    Parameter "Chi0_300" is modified from 15.95 to 4.07274
+    Parameter "Eg0" is modified from 0 to 1.16964
+    Parameter "Eg0_300" is modified from 0 to 1.12416
+    Parameter "EgMin" is modified from -10 to 0
+    Parameter "alpha" is modified from 0 to 0.000473
+    Parameter "beta" is modified from 0 to 636
+    Parameter "dEg0(OldSlotboom)" is modified from 0 to -0.01595
+    Parameter "dEg0(Slotboom)" is modified from 0 to -0.004795
+    Parameter "dEg0(delAlamo)" is modified from 0 to -0.01407
+    Parameter "dEgMin" is modified from 0 to 0.01
+  Model: "SchottkyResistance"
+    Parameter "mt_h" is modified from 0.19 to 0.16
+  Model: "SchroedingerParameters"
+    Parameter "me" is modified from 0 to 0.07
+
+==========
+Electrode: "Ntop_0_1"
+==========
+  Model: "Bandgap"
+    Parameter "Chi0" is modified from 15.95 to 4.05
+    Parameter "Chi0_300" is modified from 15.95 to 4.07274
+    Parameter "Eg0" is modified from 0 to 1.16964
+    Parameter "Eg0_300" is modified from 0 to 1.12416
+    Parameter "EgMin" is modified from -10 to 0
+    Parameter "alpha" is modified from 0 to 0.000473
+    Parameter "beta" is modified from 0 to 636
+    Parameter "dEg0(OldSlotboom)" is modified from 0 to -0.01595
+    Parameter "dEg0(Slotboom)" is modified from 0 to -0.004795
+    Parameter "dEg0(delAlamo)" is modified from 0 to -0.01407
+    Parameter "dEgMin" is modified from 0 to 0.01
+  Model: "SchottkyResistance"
+    Parameter "mt_h" is modified from 0.19 to 0.16
+  Model: "SchroedingerParameters"
+    Parameter "me" is modified from 0 to 0.07
+
+==========
+Electrode: "Ntop_1_0"
+==========
+  Model: "Bandgap"
+    Parameter "Chi0" is modified from 15.95 to 4.05
+    Parameter "Chi0_300" is modified from 15.95 to 4.07274
+    Parameter "Eg0" is modified from 0 to 1.16964
+    Parameter "Eg0_300" is modified from 0 to 1.12416
+    Parameter "EgMin" is modified from -10 to 0
+    Parameter "alpha" is modified from 0 to 0.000473
+    Parameter "beta" is modified from 0 to 636
+    Parameter "dEg0(OldSlotboom)" is modified from 0 to -0.01595
+    Parameter "dEg0(Slotboom)" is modified from 0 to -0.004795
+    Parameter "dEg0(delAlamo)" is modified from 0 to -0.01407
+    Parameter "dEgMin" is modified from 0 to 0.01
+  Model: "SchottkyResistance"
+    Parameter "mt_h" is modified from 0.19 to 0.16
+  Model: "SchroedingerParameters"
+    Parameter "me" is modified from 0 to 0.07
+
+==========
+Electrode: "Ntop_1_1"
+==========
+  Model: "Bandgap"
+    Parameter "Chi0" is modified from 15.95 to 4.05
+    Parameter "Chi0_300" is modified from 15.95 to 4.07274
+    Parameter "Eg0" is modified from 0 to 1.16964
+    Parameter "Eg0_300" is modified from 0 to 1.12416
+    Parameter "EgMin" is modified from -10 to 0
+    Parameter "alpha" is modified from 0 to 0.000473
+    Parameter "beta" is modified from 0 to 636
+    Parameter "dEg0(OldSlotboom)" is modified from 0 to -0.01595
+    Parameter "dEg0(Slotboom)" is modified from 0 to -0.004795
+    Parameter "dEg0(delAlamo)" is modified from 0 to -0.01407
+    Parameter "dEgMin" is modified from 0 to 0.01
+  Model: "SchottkyResistance"
+    Parameter "mt_h" is modified from 0.19 to 0.16
+  Model: "SchroedingerParameters"
+    Parameter "me" is modified from 0 to 0.07
+
+==========
+Electrode: "Pbot"
+==========
+  Model: "Bandgap"
+    Parameter "Chi0" is modified from 15.95 to 4.05
+    Parameter "Chi0_300" is modified from 15.95 to 4.07274
+    Parameter "Eg0" is modified from 0 to 1.16964
+    Parameter "Eg0_300" is modified from 0 to 1.12416
+    Parameter "EgMin" is modified from -10 to 0
+    Parameter "alpha" is modified from 0 to 0.000473
+    Parameter "beta" is modified from 0 to 636
+    Parameter "dEg0(OldSlotboom)" is modified from 0 to -0.01595
+    Parameter "dEg0(Slotboom)" is modified from 0 to -0.004795
+    Parameter "dEg0(delAlamo)" is modified from 0 to -0.01407
+    Parameter "dEgMin" is modified from 0 to 0.01
+  Model: "SchottkyResistance"
+    Parameter "mt_h" is modified from 0.19 to 0.16
+  Model: "SchroedingerParameters"
+    Parameter "me" is modified from 0 to 0.07
+
+==========
+Electrode: "Ptop"
+==========
+  Model: "Bandgap"
+    Parameter "Chi0" is modified from 15.95 to 4.05
+    Parameter "Chi0_300" is modified from 15.95 to 4.07274
+    Parameter "Eg0" is modified from 0 to 1.16964
+    Parameter "Eg0_300" is modified from 0 to 1.12416
+    Parameter "EgMin" is modified from -10 to 0
+    Parameter "alpha" is modified from 0 to 0.000473
+    Parameter "beta" is modified from 0 to 636
+    Parameter "dEg0(OldSlotboom)" is modified from 0 to -0.01595
+    Parameter "dEg0(Slotboom)" is modified from 0 to -0.004795
+    Parameter "dEg0(delAlamo)" is modified from 0 to -0.01407
+    Parameter "dEgMin" is modified from 0 to 0.01
+  Model: "SchottkyResistance"
+    Parameter "mt_h" is modified from 0.19 to 0.16
+  Model: "SchroedingerParameters"
+    Parameter "me" is modified from 0 to 0.07
+
+
+Acceptor and donor concentrations (AcceptorConcentration, DonorConcentration):
+    computed based on the following species from the doping file:
+        PhosphorusActiveConcentration (donor)
+        BoronActiveConcentration (acceptor)
+Net doping concentration (DopingConcentration):
+    obtained from doping file
+Total doping concentration (TotalConcentration):
+    recomputed from acceptor and donor concentrations
+
+Reading Lifetime 'n362_msh.tdr' (TDR format) ...
+done.
+
+Tue Mar 17 09:27:31 2020: checked out 1 sdevice-3d license(s)
+
+With Constant Reference Potential:
+  Parameters of Reference Semiconductor:
+    The Electron Affinity: 4.07274
+    The Band Gap: 1.10821
+    The Electron DOS: 2.8583e+19
+    The Hole DOS: 3.1046e+19
+  The Constant Reference Potential: 4.62578
+
+===============================
+Starting solve of next problem:
+ Poisson
+===============================
+
+Computing poisson-equation 
+using Bank/Rose nonlinear solver.
+
+Iteration   |Rhs|      factor     |step|     error   #inner  #iterative  time
+------------------------------------------------------------------------------
+    0      1.74e+01                                                      0.36
+    1      2.33e+00   1.00e+00   1.89e+00   3.40e+04    0         8      1.81
+    2      6.13e-01   1.00e+00   1.37e+00   6.61e+04    0         7      2.63
+    3      1.45e-01   1.00e+00   2.56e-01   1.10e+04    0         8      3.52
+    4      2.40e-02   1.00e+00   4.19e-02   1.69e+03    0         8      4.42
+    5      8.60e-04   1.00e+00   2.39e-03   4.62e+01    0         7      5.30
+    6      1.09e-06   1.00e+00   7.75e-05   8.01e-01    0         5      6.17
+Finished, because...
+Error smaller than 1 ( 8.0146E-01 ).
+
+Accumulated times:
+Rhs time:        2.64 s
+Jacobian time:   0.96 s
+Solve time:      2.57 s
+Total time:      6.17 s
+
+contact        voltage     electron current    hole current  conduction current
+ Ntop_0_0     0.000E+00       1.146E-21        -2.939E-21       -1.793E-21
+ Ntop_0_1     0.000E+00      -1.263E-21        -1.023E-20       -1.150E-20
+ Ntop_1_0     0.000E+00       1.679E-22         2.424E-18        2.424E-18
+ Ntop_1_1     0.000E+00      -5.068E-23         9.298E-19        9.298E-19
+ Pbot         0.000E+00      -3.057E-29        -3.380E-18       -3.380E-18
+ Ptop         0.000E+00      -2.510E-26         3.984E-20        3.984E-20
+
+
+===============================
+Starting solve of next problem:
+Coupled ( Digits : 5, Max. #iterations : 30, 
+    Solver : blocked decomposition,
+    #undamped iterations : 100 
+    )
+    { Poisson Electron Hole } 
+===============================
+
+Computing Coupled( 1 poisson-equation(s) , 1 electron-equation(s) , 
+                   1 hole-equation(s) ) 
+using Bank/Rose nonlinear solver.
+
+Iteration   |Rhs|      factor     |step|     error   #inner  #iterative  time
+------------------------------------------------------------------------------
+    0      1.29e-06                                                      5.98
+    1      3.86e-07   1.00e+00   9.53e-08   5.53e-03    0        15     19.71
+Finished, because...
+Error smaller than 1 ( 5.5271E-03 ).
+
+Accumulated times:
+Rhs time:       13.26 s
+Jacobian time:   1.31 s
+Solve time:      5.09 s
+Total time:     19.71 s
+
+contact        voltage     electron current    hole current  conduction current
+ Ntop_0_0     0.000E+00      -8.485E-22        -1.048E-17       -1.048E-17
+ Ntop_0_1     0.000E+00       2.195E-21        -1.048E-17       -1.047E-17
+ Ntop_1_0     0.000E+00       1.777E-21        -1.047E-17       -1.047E-17
+ Ntop_1_1     0.000E+00      -3.125E-21        -1.047E-17       -1.048E-17
+ Pbot         0.000E+00      -9.835E-29        -6.102E-21       -6.102E-21
+ Ptop         0.000E+00       1.176E-24         4.190E-17        4.190E-17
+
+
+===============================
+Starting solve of next problem:
+Quasistationary ( Digits : 5, Max. #iterations : 30, 
+      Initial step in t : 0.1, 
+      Minimum step in t : 1.0000e-06, Maximum step in t : 0.1, 
+      Increment : 1.41, Decrement : 2, 
+      Goal values :
+        Contact Ntop_1_1 : 0.8V,
+        Contact Ntop_1_0 : 0.8V,
+        Contact Ntop_0_1 : 0.8V,
+        Contact Ntop_0_0 : 0.8V
+    )
+  {
+    Coupled ( Digits : 5, Max. #iterations : 30, 
+        Solver : blocked decomposition,
+        #undamped iterations : 100 
+        )
+        { Poisson Electron Hole } 
+  }
+===============================
+
+Computing step from t=0.0000e+00 to t=0.1 (Stepsize: 0.1) :
+Computing Coupled( 1 poisson-equation(s) , 1 electron-equation(s) , 
+                   1 hole-equation(s) ) 
+using Bank/Rose nonlinear solver.
+
+Iteration   |Rhs|      factor     |step|     error   #inner  #iterative  time
+------------------------------------------------------------------------------
+    0      1.10e+08                                                      7.12
+    1      1.79e+07   1.00e+00   3.24e+00   1.59e+06    0        32     21.57
+    2      8.29e+05   1.00e+00   1.26e+00   1.78e+04    0        30     35.49
+    3      2.25e+03   1.00e+00   1.96e-01   9.09e+02    0        30     49.78
+    4      1.60e-02   1.00e+00   8.91e-04   2.72e+00    0        29     63.18
+    5      1.81e-07   1.00e+00   9.17e-09   3.84e-06    0        31     76.95
+Finished, because...
+Error smaller than 1 ( 3.8359E-06 ).
+
+Accumulated times:
+Rhs time:       45.38 s
+Jacobian time:   6.53 s
+Solve time:     24.79 s
+Total time:     76.95 s
+
+contact        voltage     electron current    hole current  conduction current
+ Ntop_0_0     8.000E-02       1.567E-14         1.986E-17        1.569E-14
+ Ntop_0_1     8.000E-02       1.563E-14         1.986E-17        1.565E-14
+ Ntop_1_0     8.000E-02       1.561E-14         1.985E-17        1.563E-14
+ Ntop_1_1     8.000E-02       1.557E-14         1.986E-17        1.559E-14
+ Pbot         0.000E+00      -8.074E-15        -4.574E-14       -5.381E-14
+ Ptop         0.000E+00      -1.358E-15        -7.400E-15       -8.759E-15
+
+Computing step from t=0.1 to t=0.2 (Stepsize: 0.1) :
+Extrapolating values for t = 0.2 ... done.
+Computing Coupled( 1 poisson-equation(s) , 1 electron-equation(s) , 
+                   1 hole-equation(s) ) 
+using Bank/Rose nonlinear solver.
+
+Iteration   |Rhs|      factor     |step|     error   #inner  #iterative  time
+------------------------------------------------------------------------------
+    0      4.51e-02                                                      7.80
+    1      6.86e+01   1.00e+00   3.04e-01   4.10e+03    0        25     23.71
+    2      7.40e-02   1.00e+00   5.31e-03   3.25e+02    0        28     37.89
+    3      1.36e-07   1.00e+00   5.58e-06   9.45e-02    0        28     51.07
+Finished, because...
+Error smaller than 1 ( 9.4548E-02 ).
+
+Accumulated times:
+Rhs time:       31.79 s
+Jacobian time:   4.10 s
+Solve time:     14.99 s
+Total time:     51.07 s
+
+contact        voltage     electron current    hole current  conduction current
+ Ntop_0_0     1.600E-01       2.217E-14         2.068E-17        2.219E-14
+ Ntop_0_1     1.600E-01       2.212E-14         2.069E-17        2.215E-14
+ Ntop_1_0     1.600E-01       2.210E-14         2.066E-17        2.212E-14
+ Ntop_1_1     1.600E-01       2.206E-14         2.067E-17        2.208E-14
+ Pbot         0.000E+00      -8.465E-15        -6.913E-14       -7.760E-14
+ Ptop         0.000E+00      -1.414E-15        -9.528E-15       -1.094E-14
+
+Computing step from t=0.2 to t=0.3 (Stepsize: 0.1) :
+Extrapolating values for t = 0.3 ... done.
+Computing Coupled( 1 poisson-equation(s) , 1 electron-equation(s) , 
+                   1 hole-equation(s) ) 
+using Bank/Rose nonlinear solver.
+
+Iteration   |Rhs|      factor     |step|     error   #inner  #iterative  time
+------------------------------------------------------------------------------
+    0      3.22e-02                                                      7.67
+    1      4.69e+01   1.00e+00   4.06e-01   2.15e+03    0        24     22.42
+    2      3.95e-02   1.00e+00   7.35e-03   8.90e+01    0        28     37.28
+    3      1.53e-07   1.00e+00   6.75e-06   3.26e-02    0        27     50.79
+Finished, because...
+Error smaller than 1 ( 3.2608E-02 ).
+
+Accumulated times:
+Rhs time:       31.49 s
+Jacobian time:   4.20 s
+Solve time:     14.93 s
+Total time:     50.79 s
+
+contact        voltage     electron current    hole current  conduction current
+ Ntop_0_0     2.400E-01       2.692E-14         2.072E-17        2.694E-14
+ Ntop_0_1     2.400E-01       2.687E-14         2.073E-17        2.689E-14
+ Ntop_1_0     2.400E-01       2.685E-14         2.075E-17        2.687E-14
+ Ntop_1_1     2.400E-01       2.680E-14         2.074E-17        2.683E-14
+ Pbot         0.000E+00      -8.508E-15        -8.590E-14       -9.440E-14
+ Ptop         0.000E+00      -1.415E-15        -1.171E-14       -1.313E-14
+
+Computing step from t=0.3 to t=0.4 (Stepsize: 0.1) :
+Extrapolating values for t = 0.4 ... done.
+Computing Coupled( 1 poisson-equation(s) , 1 electron-equation(s) , 
+                   1 hole-equation(s) ) 
+using Bank/Rose nonlinear solver.
+
+Iteration   |Rhs|      factor     |step|     error   #inner  #iterative  time
+------------------------------------------------------------------------------
+    0      3.07e-02                                                      7.68
+    1      3.99e+01   1.00e+00   6.73e-01   1.81e+03    0        24     21.80
+    2      2.81e-02   1.00e+00   9.77e-03   6.67e+01    0        28     36.05
+    3      1.54e-07   1.00e+00   7.92e-06   2.34e-02    0        26     49.17
+Finished, because...
+Error smaller than 1 ( 2.3378E-02 ).
+
+Accumulated times:
+Rhs time:       30.98 s
+Jacobian time:   3.92 s
+Solve time:     14.11 s
+Total time:     49.17 s
+
+contact        voltage     electron current    hole current  conduction current
+ Ntop_0_0     3.200E-01       3.167E-14         2.073E-17        3.169E-14
+ Ntop_0_1     3.200E-01       3.162E-14         2.073E-17        3.165E-14
+ Ntop_1_0     3.200E-01       3.160E-14         2.074E-17        3.162E-14
+ Ntop_1_1     3.200E-01       3.156E-14         2.075E-17        3.158E-14
+ Pbot         0.000E+00      -8.534E-15        -1.010E-13       -1.096E-13
+ Ptop         0.000E+00      -1.415E-15        -1.555E-14       -1.696E-14
+
+Computing step from t=0.4 to t=0.5 (Stepsize: 0.1) :
+Extrapolating values for t = 0.5 ... done.
+Computing Coupled( 1 poisson-equation(s) , 1 electron-equation(s) , 
+                   1 hole-equation(s) ) 
+using Bank/Rose nonlinear solver.
+
+Iteration   |Rhs|      factor     |step|     error   #inner  #iterative  time
+------------------------------------------------------------------------------
+    0      2.65e-02                                                      7.77
+    1      4.64e+01   1.00e+00   3.66e-01   1.93e+03    0        24     21.99
+    2      2.42e-02   1.00e+00   7.53e-03   5.63e+01    0        28     37.61
+    3      2.52e-07   1.00e+00   5.27e-06   1.37e-02    0        27     52.00
+Finished, because...
+Error smaller than 1 ( 1.3668E-02 ).
+
+Accumulated times:
+Rhs time:       32.60 s
+Jacobian time:   4.22 s
+Solve time:     14.97 s
+Total time:     52.00 s
+
+contact        voltage     electron current    hole current  conduction current
+ Ntop_0_0     4.000E-01       3.619E-14         2.073E-17        3.621E-14
+ Ntop_0_1     4.000E-01       3.614E-14         2.073E-17        3.616E-14
+ Ntop_1_0     4.000E-01       3.612E-14         2.070E-17        3.614E-14
+ Ntop_1_1     4.000E-01       3.607E-14         2.072E-17        3.609E-14
+ Pbot         0.000E+00      -8.560E-15        -1.152E-13       -1.237E-13
+ Ptop         0.000E+00      -1.415E-15        -1.948E-14       -2.089E-14
+
+Computing step from t=0.5 to t=0.6 (Stepsize: 0.1) :
+Extrapolating values for t = 0.6 ... done.
+Computing Coupled( 1 poisson-equation(s) , 1 electron-equation(s) , 
+                   1 hole-equation(s) ) 
+using Bank/Rose nonlinear solver.
+
+Iteration   |Rhs|      factor     |step|     error   #inner  #iterative  time
+------------------------------------------------------------------------------
+    0      2.14e-02                                                      8.53
+    1      3.35e+01   1.00e+00   2.13e-01   2.49e+03    0        24     24.09
+    2      1.37e-02   1.00e+00   5.33e-03   5.86e+01    0        28     39.78
+    3      2.48e-07   1.00e+00   2.91e-06   1.83e-02    0        28     54.22
+Finished, because...
+Error smaller than 1 ( 1.8324E-02 ).
+
+Accumulated times:
+Rhs time:       34.20 s
+Jacobian time:   4.99 s
+Solve time:     14.86 s
+Total time:     54.22 s
+
+contact        voltage     electron current    hole current  conduction current
+ Ntop_0_0     4.800E-01       3.974E-14         2.073E-17        3.976E-14
+ Ntop_0_1     4.800E-01       3.969E-14         2.073E-17        3.971E-14
+ Ntop_1_0     4.800E-01       3.967E-14         2.069E-17        3.969E-14
+ Ntop_1_1     4.800E-01       3.962E-14         2.073E-17        3.964E-14
+ Pbot         0.000E+00      -8.586E-15        -1.272E-13       -1.358E-13
+ Ptop         0.000E+00      -1.415E-15        -2.162E-14       -2.304E-14
+
+Computing step from t=0.6 to t=0.7 (Stepsize: 0.1) :
+Extrapolating values for t = 0.7 ... done.
+Computing Coupled( 1 poisson-equation(s) , 1 electron-equation(s) , 
+                   1 hole-equation(s) ) 
+using Bank/Rose nonlinear solver.
+
+Iteration   |Rhs|      factor     |step|     error   #inner  #iterative  time
+------------------------------------------------------------------------------
+    0      2.19e-02                                                      8.57
+    1      2.76e+01   1.00e+00   1.44e-01   3.90e+03    0        23     24.27
+    2      1.35e-02   1.00e+00   4.13e-03   1.35e+02    0        27     39.93
+    3      2.32e-07   1.00e+00   6.21e-06   8.51e-02    0        27     54.16
+Finished, because...
+Error smaller than 1 ( 8.5119E-02 ).
+
+Accumulated times:
+Rhs time:       34.10 s
+Jacobian time:   5.06 s
+Solve time:     14.79 s
+Total time:     54.16 s
+
+contact        voltage     electron current    hole current  conduction current
+ Ntop_0_0     5.600E-01       4.314E-14         2.074E-17        4.316E-14
+ Ntop_0_1     5.600E-01       4.309E-14         2.074E-17        4.311E-14
+ Ntop_1_0     5.600E-01       4.307E-14         2.051E-17        4.309E-14
+ Ntop_1_1     5.600E-01       4.302E-14         2.064E-17        4.304E-14
+ Pbot         0.000E+00      -8.611E-15        -1.396E-13       -1.482E-13
+ Ptop         0.000E+00      -1.415E-15        -2.277E-14       -2.419E-14
+
+Computing step from t=0.7 to t=0.8 (Stepsize: 0.1) :
+Extrapolating values for t = 0.8 ... done.
+Computing Coupled( 1 poisson-equation(s) , 1 electron-equation(s) , 
+                   1 hole-equation(s) ) 
+using Bank/Rose nonlinear solver.
+
+Iteration   |Rhs|      factor     |step|     error   #inner  #iterative  time
+------------------------------------------------------------------------------
+    0      1.92e-02                                                      8.52
+    1      2.95e+01   1.00e+00   1.35e-01   6.64e+03    0        22     24.18
+    2      1.51e-02   1.00e+00   6.07e-03   4.11e+02    0        26     38.45
+    3      2.19e-07   1.00e+00   3.00e-05   4.25e-01    0        26     52.91
+Finished, because...
+Error smaller than 1 ( 4.2548E-01 ).
+
+Accumulated times:
+Rhs time:       34.05 s
+Jacobian time:   4.85 s
+Solve time:     13.81 s
+Total time:     52.91 s
+
+contact        voltage     electron current    hole current  conduction current
+ Ntop_0_0     6.400E-01       4.642E-14         2.073E-17        4.644E-14
+ Ntop_0_1     6.400E-01       4.636E-14         2.074E-17        4.638E-14
+ Ntop_1_0     6.400E-01       4.634E-14         1.867E-17        4.636E-14
+ Ntop_1_1     6.400E-01       4.629E-14         1.994E-17        4.631E-14
+ Pbot         0.000E+00      -8.637E-15        -1.517E-13       -1.603E-13
+ Ptop         0.000E+00      -1.415E-15        -2.377E-14       -2.518E-14
+
+Computing step from t=0.8 to t=0.9 (Stepsize: 0.1) :
+Extrapolating values for t = 0.9 ... done.
+Computing Coupled( 1 poisson-equation(s) , 1 electron-equation(s) , 
+                   1 hole-equation(s) ) 
+using Bank/Rose nonlinear solver.
+
+Iteration   |Rhs|      factor     |step|     error   #inner  #iterative  time
+------------------------------------------------------------------------------
+    0      1.81e-02                                                      8.73
+    1      2.63e+01   1.00e+00   1.74e-01   1.03e+04    0        21     24.02
+    2      1.47e-02   1.00e+00   1.27e-02   9.74e+02    0        24     38.41
+    3      2.27e-07   1.00e+00   1.76e-04   1.20e+00    0        24     52.71
+Finished, because...
+|RHS| less than 1.0000E-05.
+
+Accumulated times:
+Rhs time:       34.68 s
+Jacobian time:   4.97 s
+Solve time:     12.86 s
+Total time:     52.71 s
+
+contact        voltage     electron current    hole current  conduction current
+ Ntop_0_0     7.200E-01       4.944E-14         2.072E-17        4.946E-14
+ Ntop_0_1     7.200E-01       4.938E-14         2.074E-17        4.940E-14
+ Ntop_1_0     7.200E-01       4.937E-14         1.609E-17        4.939E-14
+ Ntop_1_1     7.200E-01       4.932E-14         1.899E-17        4.934E-14
+ Pbot         0.000E+00      -8.662E-15        -1.623E-13       -1.710E-13
+ Ptop         0.000E+00      -1.415E-15        -2.521E-14       -2.662E-14
+
+Computing step from t=0.9 to t=1 (Stepsize: 0.1) :
+Extrapolating values for t = 1 ... done.
+Computing Coupled( 1 poisson-equation(s) , 1 electron-equation(s) , 
+                   1 hole-equation(s) ) 
+using Bank/Rose nonlinear solver.
+
+Iteration   |Rhs|      factor     |step|     error   #inner  #iterative  time
+------------------------------------------------------------------------------
+    0      1.68e-02                                                      8.52
+    1      2.46e+01   1.00e+00   2.22e-01   1.15e+04    0        20     24.20
+    2      2.01e-02   1.00e+00   1.61e-02   1.22e+03    0        22     39.22
+    3      2.54e-07   1.00e+00   3.44e-04   1.36e+00    0        21     52.52
+Finished, because...
+|RHS| less than 1.0000E-05.
+
+Accumulated times:
+Rhs time:       33.70 s
+Jacobian time:   5.01 s
+Solve time:     13.64 s
+Total time:     52.52 s
+
+contact        voltage     electron current    hole current  conduction current
+ Ntop_0_0     8.000E-01       5.304E-14         2.074E-17        5.306E-14
+ Ntop_0_1     8.000E-01       5.299E-14         2.074E-17        5.301E-14
+ Ntop_1_0     8.000E-01       5.296E-14         1.895E-17        5.298E-14
+ Ntop_1_1     8.000E-01       5.291E-14         1.995E-17        5.293E-14
+ Pbot         0.000E+00      -8.687E-15        -1.731E-13       -1.818E-13
+ Ptop         0.000E+00      -1.415E-15        -2.877E-14       -3.019E-14
+
+
+Finished, because of...
+Curve trace finished.
+
+
+===============================
+Starting solve of next problem:
+Quasistationary ( Digits : 5, Max. #iterations : 30, 
+      Initial step in t : 0.1, 
+      Minimum step in t : 1.0000e-08, Maximum step in t : 0.1, 
+      Increment : 1.41, Decrement : 2, 
+      Goal values :
+        Contact Pbot : -7.0000e+00V
+      Plot at [ t=0.0000e+00, t=1 ]
+    )
+  {
+    Coupled ( Digits : 5, Max. #iterations : 30, 
+        Solver : blocked decomposition,
+        #undamped iterations : 100 
+        )
+        { Poisson Electron Hole } 
+  }
+===============================
+
+Computing solution for t=0 :
+Computing Coupled( 1 poisson-equation(s) , 1 electron-equation(s) , 
+                   1 hole-equation(s) ) 
+using Bank/Rose nonlinear solver.
+
+Iteration   |Rhs|      factor     |step|     error   #inner  #iterative  time
+------------------------------------------------------------------------------
+    0      2.54e-07                                                      0.25
+    1      2.28e-07   1.00e+00   8.94e-10   1.62e-06    0        22     14.43
+Finished, because...
+Error smaller than 1 ( 1.6243E-06 ).
+
+Accumulated times:
+Rhs time:        8.36 s
+Jacobian time:   1.34 s
+Solve time:      4.69 s
+Total time:     14.43 s
+
+contact        voltage     electron current    hole current  conduction current
+ Ntop_0_0     8.000E-01       5.304E-14         2.074E-17        5.306E-14
+ Ntop_0_1     8.000E-01       5.299E-14         2.074E-17        5.301E-14
+ Ntop_1_0     8.000E-01       5.296E-14         2.075E-17        5.298E-14
+ Ntop_1_1     8.000E-01       5.291E-14         2.075E-17        5.293E-14
+ Pbot         0.000E+00      -8.687E-15        -1.731E-13       -1.818E-13
+ Ptop         0.000E+00      -1.415E-15        -2.877E-14       -3.019E-14
+
+Writing plot 'n430_000000_des.tdr' (TDR format) ... done.
+Computing step from t=0.0000e+00 to t=0.1 (Stepsize: 0.1) :
+Computing Coupled( 1 poisson-equation(s) , 1 electron-equation(s) , 
+                   1 hole-equation(s) ) 
+using Bank/Rose nonlinear solver.
+
+Iteration   |Rhs|      factor     |step|     error   #inner  #iterative  time
+------------------------------------------------------------------------------
+    0      4.11e+05                                                      8.68
+    1      1.70e+05   1.00e+00   2.42e+00   7.21e+05    0        18     23.96
+    2      3.27e+04   1.00e+00   5.15e-01   4.47e+04    0        20     39.28
+    3      1.95e+03   1.00e+00   4.77e-01   4.41e+03    0        21     54.01
+    4      8.28e+00   1.00e+00   2.45e-01   8.66e+01    0        22     69.63
+    5      1.80e-04   1.00e+00   2.62e-04   1.14e-01    0        19     83.18
+Finished, because...
+Error smaller than 1 ( 1.1416E-01 ).
+
+Accumulated times:
+Rhs time:       51.44 s
+Jacobian time:   7.98 s
+Solve time:     23.45 s
+Total time:     83.18 s
+
+contact        voltage     electron current    hole current  conduction current
+ Ntop_0_0     8.000E-01       7.522E-14        -8.438E-16        7.438E-14
+ Ntop_0_1     8.000E-01       7.516E-14         2.074E-17        7.519E-14
+ Ntop_1_0     8.000E-01       7.514E-14        -2.124E-13       -1.373E-13
+ Ntop_1_1     8.000E-01       7.508E-14        -6.686E-14        8.218E-15
+ Pbot        -7.000E-01      -8.906E-15         1.835E-14        9.444E-15
+ Ptop         0.000E+00      -1.415E-15        -2.854E-14       -2.995E-14
+
+Computing step from t=0.1 to t=0.2 (Stepsize: 0.1) :
+Extrapolating values for t = 0.2 ... done.
+Computing Coupled( 1 poisson-equation(s) , 1 electron-equation(s) , 
+                   1 hole-equation(s) ) 
+using Bank/Rose nonlinear solver.
+
+Iteration   |Rhs|      factor     |step|     error   #inner  #iterative  time
+------------------------------------------------------------------------------
+    0      3.06e-01                                                      8.53
+    1      2.45e+02   1.00e+00   8.19e-01   3.11e+05    0        20     23.73
+    2      1.47e+01   1.00e+00   8.11e-01   7.63e+03    0        21     38.22
+    3      2.60e-02   1.00e+00   8.22e-01   5.41e+02    0        21     51.08
+    4      2.31e-07   1.00e+00   8.71e-04   7.72e-01    0        21     63.76
+Finished, because...
+Error smaller than 1 ( 7.7183E-01 ).
+
+Accumulated times:
+Rhs time:       41.37 s
+Jacobian time:   5.85 s
+Solve time:     16.31 s
+Total time:     63.76 s
+
+contact        voltage     electron current    hole current  conduction current
+ Ntop_0_0     8.000E-01       9.463E-14         2.074E-17        9.465E-14
+ Ntop_0_1     8.000E-01       9.455E-14         2.074E-17        9.457E-14
+ Ntop_1_0     8.000E-01       9.452E-14         1.968E-17        9.454E-14
+ Ntop_1_1     8.000E-01       9.446E-14         2.036E-17        9.448E-14
+ Pbot        -1.400E+00      -9.125E-15        -3.381E-13       -3.472E-13
+ Ptop         0.000E+00      -1.415E-15        -2.963E-14       -3.104E-14
+
+Computing step from t=0.2 to t=0.3 (Stepsize: 0.1) :
+Extrapolating values for t = 0.3 ... done.
+Computing Coupled( 1 poisson-equation(s) , 1 electron-equation(s) , 
+                   1 hole-equation(s) ) 
+using Bank/Rose nonlinear solver.
+
+Iteration   |Rhs|      factor     |step|     error   #inner  #iterative  time
+------------------------------------------------------------------------------
+    0      1.87e-01                                                      8.07
+    1      9.28e+01   1.00e+00   1.41e+00   8.53e+05    0        19     22.76
+    2      1.57e+01   1.00e+00   1.66e+00   1.92e+04    0        19     37.37
+    3      9.32e-03   1.00e+00   1.61e+00   2.17e+03    0        18     52.00
+    4      2.18e-07   1.00e+00   3.04e-03   1.76e+00    0        18     66.07
+Finished, because...
+|RHS| less than 1.0000E-05.
+
+Accumulated times:
+Rhs time:       41.72 s
+Jacobian time:   5.92 s
+Solve time:     18.24 s
+Total time:     66.07 s
+
+contact        voltage     electron current    hole current  conduction current
+ Ntop_0_0     8.000E-01       1.146E-13         2.074E-17        1.146E-13
+ Ntop_0_1     8.000E-01       1.145E-13         2.074E-17        1.145E-13
+ Ntop_1_0     8.000E-01       1.144E-13         2.076E-17        1.144E-13
+ Ntop_1_1     8.000E-01       1.144E-13         2.073E-17        1.144E-13
+ Pbot        -2.100E+00      -9.351E-15        -4.089E-13       -4.182E-13
+ Ptop         0.000E+00      -1.415E-15        -3.825E-14       -3.966E-14
+
+Computing step from t=0.3 to t=0.4 (Stepsize: 0.1) :
+Extrapolating values for t = 0.4 ... done.
+Computing Coupled( 1 poisson-equation(s) , 1 electron-equation(s) , 
+                   1 hole-equation(s) ) 
+using Bank/Rose nonlinear solver.
+
+Iteration   |Rhs|      factor     |step|     error   #inner  #iterative  time
+------------------------------------------------------------------------------
+    0      1.37e-01                                                      8.70
+    1      2.87e+02   1.00e+00   1.58e+00   2.55e+05    0        18     23.11
+    2      3.51e+00   1.00e+00   1.22e+00   1.15e+04    0        16     37.35
+    3      3.50e-04   1.00e+00   7.75e-01   2.40e+02    0        16     51.92
+    4      2.14e-07   1.00e+00   1.00e-03   9.62e-03    0        16     64.50
+Finished, because...
+Error smaller than 1 ( 9.6168E-03 ).
+
+Accumulated times:
+Rhs time:       42.07 s
+Jacobian time:   6.33 s
+Solve time:     15.89 s
+Total time:     64.50 s
+
+contact        voltage     electron current    hole current  conduction current
+ Ntop_0_0     8.000E-01       1.274E-13         2.074E-17        1.275E-13
+ Ntop_0_1     8.000E-01       1.274E-13         2.074E-17        1.274E-13
+ Ntop_1_0     8.000E-01       1.273E-13         2.076E-17        1.274E-13
+ Ntop_1_1     8.000E-01       1.273E-13         2.076E-17        1.273E-13
+ Pbot        -2.800E+00      -9.605E-15        -4.565E-13       -4.661E-13
+ Ptop         0.000E+00      -1.415E-15        -4.193E-14       -4.335E-14
+
+Computing step from t=0.4 to t=0.5 (Stepsize: 0.1) :
+Extrapolating values for t = 0.5 ... done.
+Computing Coupled( 1 poisson-equation(s) , 1 electron-equation(s) , 
+                   1 hole-equation(s) ) 
+using Bank/Rose nonlinear solver.
+
+Iteration   |Rhs|      factor     |step|     error   #inner  #iterative  time
+------------------------------------------------------------------------------
+    0      1.26e-01                                                      7.93
+    1      1.53e+02   1.00e+00   4.57e-01   9.15e+03    0        16     22.19
+    2      4.33e-01   1.00e+00   1.45e-01   1.49e+03    0        15     35.84
+    3      6.68e-07   1.00e+00   2.54e-03   3.77e+00    0        13     48.44
+Finished, because...
+|RHS| less than 1.0000E-05.
+
+Accumulated times:
+Rhs time:       32.92 s
+Jacobian time:   4.58 s
+Solve time:     10.72 s
+Total time:     48.44 s
+
+contact        voltage     electron current    hole current  conduction current
+ Ntop_0_0     8.000E-01       1.304E-13         2.074E-17        1.304E-13
+ Ntop_0_1     8.000E-01       1.303E-13         2.074E-17        1.303E-13
+ Ntop_1_0     8.000E-01       1.303E-13         1.882E-17        1.303E-13
+ Ntop_1_1     8.000E-01       1.302E-13         2.001E-17        1.302E-13
+ Pbot        -3.500E+00      -9.912E-15        -4.717E-13       -4.816E-13
+ Ptop         0.000E+00      -1.415E-15        -3.826E-14       -3.968E-14
+
+Computing step from t=0.5 to t=0.6 (Stepsize: 0.1) :
+Extrapolating values for t = 0.6 ... done.
+Computing Coupled( 1 poisson-equation(s) , 1 electron-equation(s) , 
+                   1 hole-equation(s) ) 
+using Bank/Rose nonlinear solver.
+
+Iteration   |Rhs|      factor     |step|     error   #inner  #iterative  time
+------------------------------------------------------------------------------
+    0      1.27e-01                                                      7.91
+    1      1.09e+02   1.00e+00   3.74e-01   3.21e+03    0        15     20.97
+    2      2.73e-01   1.00e+00   2.32e-02   2.95e+02    0        15     34.17
+    3      9.65e-07   1.00e+00   1.94e-04   5.85e-01    0        14     46.62
+Finished, because...
+Error smaller than 1 ( 5.8516E-01 ).
+
+Accumulated times:
+Rhs time:       32.58 s
+Jacobian time:   4.20 s
+Solve time:      9.70 s
+Total time:     46.62 s
+
+contact        voltage     electron current    hole current  conduction current
+ Ntop_0_0     8.000E-01       1.314E-13         2.074E-17        1.314E-13
+ Ntop_0_1     8.000E-01       1.313E-13         2.074E-17        1.313E-13
+ Ntop_1_0     8.000E-01       1.313E-13         1.793E-17        1.313E-13
+ Ntop_1_1     8.000E-01       1.312E-13         1.967E-17        1.312E-13
+ Pbot        -4.200E+00      -1.029E-14        -4.783E-13       -4.886E-13
+ Ptop         0.000E+00      -1.415E-15        -3.534E-14       -3.675E-14
+
+Computing step from t=0.6 to t=0.7 (Stepsize: 0.1) :
+Extrapolating values for t = 0.7 ... done.
+Computing Coupled( 1 poisson-equation(s) , 1 electron-equation(s) , 
+                   1 hole-equation(s) ) 
+using Bank/Rose nonlinear solver.
+
+Iteration   |Rhs|      factor     |step|     error   #inner  #iterative  time
+------------------------------------------------------------------------------
+    0      1.21e-01                                                      8.76
+    1      8.86e+01   1.00e+00   5.16e-01   2.07e+03    0        15     23.33
+    2      2.33e-01   1.00e+00   7.96e-03   1.40e+02    0        15     37.75
+    3      7.26e-07   1.00e+00   2.93e-05   2.66e-01    0        14     51.56
+Finished, because...
+Error smaller than 1 ( 2.6601E-01 ).
+
+Accumulated times:
+Rhs time:       35.80 s
+Jacobian time:   5.21 s
+Solve time:     10.34 s
+Total time:     51.56 s
+
+contact        voltage     electron current    hole current  conduction current
+ Ntop_0_0     8.000E-01       1.320E-13         2.074E-17        1.320E-13
+ Ntop_0_1     8.000E-01       1.319E-13         2.074E-17        1.319E-13
+ Ntop_1_0     8.000E-01       1.318E-13         2.045E-17        1.319E-13
+ Ntop_1_1     8.000E-01       1.318E-13         2.063E-17        1.318E-13
+ Pbot        -4.900E+00      -1.075E-14        -4.820E-13       -4.928E-13
+ Ptop         0.000E+00      -1.415E-15        -3.336E-14       -3.477E-14
+
+Computing step from t=0.7 to t=0.8 (Stepsize: 0.1) :
+Extrapolating values for t = 0.8 ... done.
+Computing Coupled( 1 poisson-equation(s) , 1 electron-equation(s) , 
+                   1 hole-equation(s) ) 
+using Bank/Rose nonlinear solver.
+
+Iteration   |Rhs|      factor     |step|     error   #inner  #iterative  time
+------------------------------------------------------------------------------
+    0      1.02e-01                                                      9.10
+    1      6.14e+01   1.00e+00   4.07e-01   1.57e+03    0        15     22.87
+    2      1.30e-01   1.00e+00   5.63e-03   8.60e+01    0        15     36.14
+    3      3.12e-07   1.00e+00   1.47e-05   1.76e-01    0        14     48.80
+Finished, because...
+Error smaller than 1 ( 1.7618E-01 ).
+
+Accumulated times:
+Rhs time:       34.25 s
+Jacobian time:   4.61 s
+Solve time:      9.78 s
+Total time:     48.80 s
+
+contact        voltage     electron current    hole current  conduction current
+ Ntop_0_0     8.000E-01       1.324E-13         2.074E-17        1.325E-13
+ Ntop_0_1     8.000E-01       1.324E-13         2.074E-17        1.324E-13
+ Ntop_1_0     8.000E-01       1.323E-13         2.074E-17        1.323E-13
+ Ntop_1_1     8.000E-01       1.323E-13         2.075E-17        1.323E-13
+ Pbot        -5.600E+00      -1.128E-14        -4.849E-13       -4.962E-13
+ Ptop         0.000E+00      -1.415E-15        -3.191E-14       -3.332E-14
+
+Computing step from t=0.8 to t=0.9 (Stepsize: 0.1) :
+Extrapolating values for t = 0.9 ... done.
+Computing Coupled( 1 poisson-equation(s) , 1 electron-equation(s) , 
+                   1 hole-equation(s) ) 
+using Bank/Rose nonlinear solver.
+
+Iteration   |Rhs|      factor     |step|     error   #inner  #iterative  time
+------------------------------------------------------------------------------
+    0      7.05e-02                                                      8.54
+    1      8.19e+01   1.00e+00   2.82e-01   1.41e+03    0        15     21.49
+    2      1.76e-01   1.00e+00   4.91e-03   8.00e+01    0        15     33.22
+    3      3.88e-07   1.00e+00   1.35e-05   1.41e-01    0        14     45.24
+Finished, because...
+Error smaller than 1 ( 1.4084E-01 ).
+
+Accumulated times:
+Rhs time:       32.68 s
+Jacobian time:   4.25 s
+Solve time:      8.16 s
+Total time:     45.24 s
+
+contact        voltage     electron current    hole current  conduction current
+ Ntop_0_0     8.000E-01       1.329E-13         2.075E-17        1.330E-13
+ Ntop_0_1     8.000E-01       1.329E-13         2.074E-17        1.329E-13
+ Ntop_1_0     8.000E-01       1.328E-13         2.074E-17        1.328E-13
+ Ntop_1_1     8.000E-01       1.327E-13         2.074E-17        1.328E-13
+ Pbot        -6.300E+00      -1.187E-14        -4.875E-13       -4.994E-13
+ Ptop         0.000E+00      -1.415E-15        -3.060E-14       -3.201E-14
+
+Computing step from t=0.9 to t=1 (Stepsize: 0.1) :
+Extrapolating values for t = 1 ... done.
+Computing Coupled( 1 poisson-equation(s) , 1 electron-equation(s) , 
+                   1 hole-equation(s) ) 
+using Bank/Rose nonlinear solver.
+
+Iteration   |Rhs|      factor     |step|     error   #inner  #iterative  time
+------------------------------------------------------------------------------
+    0      3.99e-02                                                      8.29
+    1      6.85e+01   1.00e+00   1.66e-01   1.38e+03    0        15     20.17
+    2      1.22e-01   1.00e+00   2.77e-03   8.34e+01    0        15     32.74
+    3      2.43e-07   1.00e+00   1.38e-05   1.06e-01    0        14     45.53
+Finished, because...
+Error smaller than 1 ( 1.0570E-01 ).
+
+Accumulated times:
+Rhs time:       32.31 s
+Jacobian time:   4.03 s
+Solve time:      9.02 s
+Total time:     45.53 s
+
+contact        voltage     electron current    hole current  conduction current
+ Ntop_0_0     8.000E-01       1.335E-13         2.074E-17        1.336E-13
+ Ntop_0_1     8.000E-01       1.334E-13         2.075E-17        1.335E-13
+ Ntop_1_0     8.000E-01       1.334E-13         2.074E-17        1.334E-13
+ Ntop_1_1     8.000E-01       1.333E-13         2.074E-17        1.333E-13
+ Pbot        -7.000E+00      -1.247E-14        -4.914E-13       -5.038E-13
+ Ptop         0.000E+00      -1.415E-15        -2.851E-14       -2.993E-14
+
+Writing plot 'n430_000001_des.tdr' (TDR format) ... done.
+
+Finished, because of...
+Curve trace finished.
+
+Writing plot 'n430_des.tdr' (TDR format) ... done.
+
+Tue Mar 17 09:48:11 2020: checked in 1 sdevice-3d license(s)
+Tue Mar 17 09:48:11 2020: checked in 1 sdevice license(s)
+
+******************************************************************************
+Sentaurus Device process size: 1515 megabytes
+Sentaurus Device simulation times:
+  wallclock: 1284.30 s (0 h:21 m:24 s)
+  total cpu: 1284.15 s (0 h:21 m:24 s)
+Sentaurus Device simulation finished (Date: Tue Mar 17 09:48:11 2020  (CEST)).
+********************************* Good Bye ! *********************************

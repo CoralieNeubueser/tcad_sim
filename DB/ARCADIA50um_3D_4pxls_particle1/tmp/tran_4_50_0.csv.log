@@ -1,0 +1,20 @@
+###########################################
+# Sentaurus Visual P-2019.03-SP1.
+# Tcl log file.
+#------------------------------------------
+# Date: Mar 13, 2020. 12:52:03.
+# Version: 29.0.1250 (1.1250)
+# Mode: Batch.
+# Hostname: ludwig-boltzmann.
+# Machine: Linux, x86_64, x86_64.
+# Kernel: 3.10.0-1062.9.1.el7.x86_64.
+###########################################
+
+load_script_file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/tmp/tran_4_50_0.csv.tcl
+cd /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/tmp
+  load_file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/tran_50_0.plt
+#!--> Error: File '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/tran_50_0.plt' could not be loaded.
+#!-> Error: File '/home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/tran_50_0.plt' could not be loaded.. (line 1)
+# Exit status: 222
+#--> 0
+ 

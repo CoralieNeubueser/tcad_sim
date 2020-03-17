@@ -1,0 +1,83 @@
+###########################################
+# Sentaurus Visual P-2019.03-SP1.
+# Tcl log file.
+#------------------------------------------
+# Date: Mar 14, 2020. 12:57:57.
+# Version: 29.0.1250 (1.1250)
+# Mode: Interactive (GUI).
+# Mesa: enabled.
+# Hostname: ludwig-boltzmann.
+# Machine: Linux, x86_64, x86_64.
+# Kernel: 3.10.0-1062.9.1.el7.x86_64.
+###########################################
+
+load_file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/n430_000000_des.tdr
+create_plot -dataset n430_000000_des
+select_plots {Plot_n430_000000_des}
+#-> Plot_n430_000000_des
+#-> Plot_n430_000000_des
+#-> n430_000000_des
+load_file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/n430_000001_des.tdr
+create_plot -dataset n430_000001_des
+select_plots {Plot_n430_000001_des}
+#-> Plot_n430_000001_des
+#-> Plot_n430_000001_des
+#-> n430_000001_des
+load_file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/n430_des.plt
+create_plot -1d
+select_plots {Plot_1}
+#-> Plot_1
+#-> Plot_1
+#-> n430_des
+load_file /home/neubuser/tcad_sim/DB/ARCADIA50um_3D_4pxls_particle1/n430_des.tdr
+create_plot -dataset n430_des_2
+select_plots {Plot_n430_des_2}
+#-> Plot_n430_des_2
+#-> Plot_n430_des_2
+#-> n430_des_2
+rotate_plot -plot Plot_n430_des_2 -x 101.529 -y 106.43 -z 12.3307 -absolute
+#-> 0
+rotate_plot -plot Plot_n430_des_2 -x 124.724 -y 160.566 -z 3.76367 -absolute
+#-> 0
+rotate_plot -plot Plot_n430_des_2 -x 103.804 -y 138.593 -z 21.3399 -absolute
+#-> 0
+rotate_plot -plot Plot_n430_des_2 -x 120.824 -y 54.2901 -z 44.3139 -absolute
+#-> 0
+set_field_prop -plot Plot_n430_des_2 -geom n430_des_2 srhRecombination -show_bands
+#-> 0
+set_field_prop -plot Plot_n430_des_2 -geom n430_des_2 hQuasiFermiPotential -show_bands
+#-> 0
+set_field_prop -plot Plot_n430_des_2 -geom n430_des_2 hLifetime -show_bands
+#-> 0
+set_field_prop -plot Plot_n430_des_2 -geom n430_des_2 hDensity -show_bands
+#-> 0
+set_field_prop -plot Plot_n430_des_2 -geom n430_des_2 hCurrentDensity-Z -show_bands
+#-> 0
+set_field_prop -plot Plot_n430_des_2 -geom n430_des_2 hCurrentDensity-Y -show_bands
+#-> 0
+set_field_prop -plot Plot_n430_des_2 -geom n430_des_2 eQuasiFermiPotential -show_bands
+#-> 0
+set_field_prop -plot Plot_n430_des_2 -geom n430_des_2 eLifetime -show_bands
+#-> 0
+set_field_prop -plot Plot_n430_des_2 -geom n430_des_2 eDensity -show_bands
+#-> 0
+set_field_prop -plot Plot_n430_des_2 -geom n430_des_2 eCurrentDensity-Z -show_bands
+#-> 0
+set_field_prop -plot Plot_n430_des_2 -geom n430_des_2 eCurrentDensity-Y -show_bands
+#-> 0
+set_field_prop -plot Plot_n430_des_2 -geom n430_des_2 eCurrentDensity-X -show_bands
+#-> 0
+set_field_prop -plot Plot_n430_des_2 -geom n430_des_2 Z -show_bands
+#-> 0
+set_field_prop -plot Plot_n430_des_2 -geom n430_des_2 TotalCurrentDensity-Z -show_bands
+#-> 0
+set_material_prop {DepletionRegion} -plot Plot_n430_des_2 -geom n430_des_2 -on
+#-> 0
+rotate_plot -plot Plot_n430_des_2 -x 126.066 -y 104.165 -z 27.3085 -absolute
+#-> 0
+set_field_prop -plot Plot_n430_des_2 -geom n430_des_2 Abs(ElectricField-V) -show_bands
+#-> 0
+set_field_prop -plot Plot_n430_des_2 -geom n430_des_2 srhRecombination -show_bands
+#-> 0
+exit 0
+ 
