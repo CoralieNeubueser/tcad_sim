@@ -136,6 +136,7 @@ lines=['-','--',':','-.']
 # create canvas
 print(len(args.measure))
 fig, axs = plt.subplots(len(args.measure),1, sharex=True, sharey=False) #, gridspec_kw={'hspace': 0})
+# need two canvas' to include CCE
 if args.measure[0]=='tran' or args.measure[0]=='tran_4':
     fig, axs = plt.subplots(2,1, sharex=True, sharey=False)
 
@@ -254,8 +255,8 @@ for i,perm in enumerate(arrayParPermName):
                 drawGraphLines(axs[0],data1.X*pow(10,9), data1.Y*pow(10,6),colors[i],lines[0],lab)
             elif args.measure[0]=='tran_4':
                 drawMultiGraphLines(axs[0],data1.X*pow(10,9), data1.Y*pow(10,6), data1.Y1*pow(10,6), data1.Y2*pow(10,6), data1.Y3*pow(10,6),lines[0])
-           # set x range
-            axs[0].set_xlim(-2,100)
+            #set x range
+            axs[0].set_xlim(-2, axs[0].get_xlim()[1])
 
             # fill array with time bins for hit maps
             times[i]=data1.X*pow(10,9)
@@ -266,8 +267,12 @@ for i,perm in enumerate(arrayParPermName):
             # search for the LET value in string                                                               
             index=perm.find('e-5')
             let=perm[-8:index]
+            let=let.replace("_","")
             # transform from pC/um to pC
-            final_let=float( re.findall('[+-]?\d+\.\d+', let)[0] ) * pow(10,-5) * thickness
+            # print("Found LET of: ", let)
+            final_let=float( let ) * pow(10,-5) * thickness
+            # print("Convert to LET*thickness: ", final_let)
+
             # normalise to 1/4 when running in 4 pixel domain, assumes particle in 0,0
             if args.measure[0]=='tran_4':
                 final_let = final_let / 4.
@@ -289,19 +294,24 @@ for i,perm in enumerate(arrayParPermName):
                 CCEs1[i], CCEs2[i], CCEs3[i], CCEs4[i] = drawMultiCCE(axs[1],data1.X,data1.Y,data1.Y1,data1.Y2,data1.Y3,final_let,lines[0])
                 axs[1].set_ylabel(r'CCE $\times 4$')
             
+            time95 = getTime(times[i],CCEs1[i],95)
+            time99 = getTime(times[i],CCEs1[i],99)
+            print('Time of 95% collection:    {} ns'.format(time95))
+            print('Time of 99% collection:    {} ns'.format(time99))
+            print('#############################')
+
             axs[1].set_xlabel('time [ns]')
             axs[0].set_ylabel(titles['tran'])
             if not args.free:
-                
-                axs[0].set_ylim(ranges['tran'][0],ranges['tran'][1])
+                #axs[0].set_ylim(ranges['tran'][0],ranges['tran'][1])
                 axs[1].set_ylim(0,1.2)
 
             if args.log:
                 axs[0].set_yscale('log')
                 axs[1].set_yscale('log')
-                axs[1].set_xticks(np.arange(0, 100., 10.))
-                #axs[1].set_yticks(np.arange(0, 1.5, 0.1))
-                plt.grid(True)
+            axs[1].set_xticks(np.arange(0, int(axs[1].get_xlim()[1]),  int(axs[1].get_xlim()[1]/10.) ))
+            #axs[1].set_yticks(np.arange(0, 1.5, 0.1))
+            plt.grid(True)
 
         elif args.measure[0]=='charge':
             drawGraphLines(axs,data1.X*pow(10,9), data1.Y*pow(10,12),colors[i],lines[0],lab)
@@ -385,23 +395,34 @@ print(outName)
 if len(args.measure)>1 or args.measure[0]=='tran' or args.measure[0]=='tran_4':
     if args.measure[0]=='tran_4':
         legTitle=legTitle+'\n'+arrayParPermName[0]
-    axs[0].legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.5), fancybox=True)
-    if not args.measure[0]=='tran' and not args.measure[0]=='tran_4':
+        plt.subplots_adjust(top=0.8)
+        axs[0].legend(loc='upper center', bbox_to_anchor=(.5, 1.5), fancybox=True, ncol=4, title=legTitle)
+    else:
+        axs[0].legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.5), fancybox=True)
         axs[len(args.measure)-1].set_xlabel('|V|')
 else:
     axs.legend(title=legTitle, loc='center left', bbox_to_anchor=(1, 0.5), fancybox=True)
-    
-if numP>3:
-    plt.subplots_adjust(right=0.5)
-else:
-    plt.subplots_adjust(right=0.65)
+if not args.measure[0]=='tran_4':
+    if numP>3:
+        plt.subplots_adjust(right=0.5)
+    else:
+        plt.subplots_adjust(right=0.65)
+# print out 
 fig.savefig(outName)
 
 # draw hit maps for trans_4 measurements 
 if args.measure[0]=='tran_4':
     timeBin=math.floor(len(times[0])/10.)
-    for t in range(1,11):
-        timeValue=int(times[0][t*timeBin])
+    # sample time in 10 
+    for t in range(1,10):
+        timeValue=int(0)
+        realTime=t*timeBin
+        # for last time bin, use the highest entry
+        if t==9:
+            timeValue=int(times[0][len(times[0])-1])
+        else:
+            timeValue=int(times[0][realTime])
+
         plotOutName=allCurvesName(args.project, 'CCE_map_'+str(timeValue)+'ns_'+allM, args.output, 'pdf')
         print(plotOutName)
         arrXY=[1,0,0,1]
@@ -410,17 +431,17 @@ if args.measure[0]=='tran_4':
             for pixY in range(0,4):
                 weight=0
                 if (pixX==0 and pixY==0) or (pixX==3 and pixY==3) or (pixX==0 and pixY==3) or (pixX==3 and pixY==0):
-                    weight=CCEs4[0][t*timeBin]
+                    weight=CCEs4[0][realTime]
                 elif (pixX==1 or pixX==2) and (pixY==2 or pixY==1):
-                    weight=CCEs1[0][t*timeBin]
+                    weight=CCEs1[0][realTime]
                 else:
-                    weight=CCEs2[0][t*timeBin]
+                    weight=CCEs2[0][realTime]
                 #print(pixX,pixY)
                 #print(weight)
                 arrXYZ[pixX][pixY]=weight*100./4.
 
         fig, ax = plt.subplots()
-        im = ax.imshow(arrXYZ, cmap='viridis')
+        im = ax.imshow(arrXYZ, cmap='viridis', vmin=0, vmax=30)
         ax.set_xticks(np.arange(4))
         ax.set_yticks(np.arange(4))
         # ... and label them with the respective list entries
@@ -431,14 +452,15 @@ if args.measure[0]=='tran_4':
         ax.set_yticks(np.arange(len(arrXYZ[0])+1)-.5, minor=True)
         ax.grid(which="minor", color="w", linestyle='-', linewidth=3)
         ax.tick_params(which="minor", bottom=False, left=False)
-        
+        # write values in pixel
         for pixX in range(0,4):
             for pixY in range(0,4):
-                text = ax.text(pixX, pixY, int(arrXYZ[pixX][pixY]),
+                text = ax.text(pixX, pixY, "{0:.1f}".format(arrXYZ[pixX][pixY]),
                                ha="center", va="center", color="w")
         
         # Create colorbar
         cbar = ax.figure.colorbar(im, ax=ax, cmap="viridis")
         cbar.ax.set_ylabel('CCE [%] $\Delta$t='+str(timeValue)+'ns', rotation=-90, va="bottom")
+        #cbar.ax.set_ylim(0,30)
         fig.tight_layout()
         fig.savefig(plotOutName)

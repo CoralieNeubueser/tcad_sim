@@ -376,6 +376,18 @@ def drawCCE(axis,arr1,arr2,norm,col,linestyle,la):
     axis.plot(time*pow(10,9),eff,color=col,marker=',',linestyle=linestyle,label=la)
     return eff
 
+def getTime(vecTime,vecCCEs,perc):
+    time = np.array(vecTime)
+    cces = np.array(vecCCEs)
+    maxCCE = float(vecCCEs[len(vecCCEs)-1])
+    ccePerc = maxCCE*perc/100.
+    print("{}% are in absolut values: {:.2f}".format(perc, ccePerc))
+    timesWithPerc = time[cces > ccePerc]
+    if len(timesWithPerc)>1:
+        return int(timesWithPerc[0])
+    else:
+        return int(timesWithPerc[0])
+
 def drawMultiCCE(axis,arr1,arr2,arr3,arr4,arr5,norm,linestyle):
     eff1=np.zeros(len(arr2))
     eff2=np.zeros(len(arr3))
@@ -391,7 +403,7 @@ def drawMultiCCE(axis,arr1,arr2,arr3,arr4,arr5,norm,linestyle):
     for it,t in enumerate(time):
         dt = t-time[it-1]
         if it==0:
-            dt=time[it+1]-t
+            dt=t
             eff1[it] = current1[it]*dt*pow(10,12)/norm
             eff2[it] = current2[it]*dt*pow(10,12)/norm
             eff3[it] = current3[it]*dt*pow(10,12)/norm
@@ -399,7 +411,7 @@ def drawMultiCCE(axis,arr1,arr2,arr3,arr4,arr5,norm,linestyle):
             continue
         # convert to pC and normalise  
         eff1[it] = eff1[it-1] + (current1[it]*dt*pow(10,12))/norm
-        print(eff1[it])
+        #print(eff1[it])
         eff2[it] = eff2[it-1] + (current2[it]*dt*pow(10,12))/norm
         eff3[it] = eff3[it-1] + (current3[it]*dt*pow(10,12))/norm
         eff4[it] = eff4[it-1] + (current4[it]*dt*pow(10,12))/norm
