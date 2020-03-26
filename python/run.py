@@ -16,7 +16,7 @@ parser.add_argument('--fit_maxX', type=int, help='Set fit range maximum.')
 parser.add_argument('--free', action='store_true', help='Free y range.')
 parser.add_argument('-numP', '--Parameters', type=int, default=2, help='Define how many parameters are tested.')
 parser.add_argument('-th', '--thickness', type=int, default=100, help='Define silicon thickness for CCE.', required=['tran_4', 'tran', 'tran_3'] in sys.argv)
-parser.add_argument('--scaleLET', type=int, default=1, help='Scaling of the LET for CCE.', required='tran_4' in sys.argv)
+parser.add_argument('--scaleLET', type=int, default=1, help='Scaling of the LET for CCE.', required=['tran_4', 'tran_3'] in sys.argv)
 parser.add_argument('--drawMap', action='store_true', help='Print out CCE per pixel in map.')
 parser.add_argument('-out', '--output', type=str, default='_', help='Define output file name..')
 parser.add_argument('-p1', '--par1', action='append', default=[], help='Fill arrays with parameter value.')
@@ -413,7 +413,7 @@ if len(args.measure)>1 or args.measure[0]=='tran_4' or args.measure[0]=='tran_3'
         axs[len(args.measure)-1].set_xlabel('|V|')
 else:
     axs.legend(title=legTitle, loc='center left', bbox_to_anchor=(1, 0.5), fancybox=True)
-if not args.measure[0]=='tran_4' or not args.measure[0]=='tran_3':
+if not args.measure[0]=='tran_4' and not args.measure[0]=='tran_3':
     if numP>3:
         plt.subplots_adjust(right=0.5)
     else:
