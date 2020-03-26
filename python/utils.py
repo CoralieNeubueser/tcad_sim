@@ -342,7 +342,12 @@ def drawGraph(axis,arr1,arr2,col,la):
 def drawGraphLines(axis,arr1,arr2,col,linestyle,la):
     axis.plot(arr1,arr2, color=col,marker=',', linestyle=linestyle, label=la)
 
-def drawMultiGraphLines(axis,arr1,arr2,arr3,arr4,arr5,linestyle):
+def draw3MultiGraphLines(axis,arr1,arr2,arr3,arr4,linestyle):
+    axis.plot(arr1,arr2, color='black',marker=',', linestyle=linestyle, label="Ntop1")
+    axis.plot(arr1,arr3, color='red',marker=',', linestyle=linestyle, label="Ntop2")
+    axis.plot(arr1,arr4, color='blue',marker=',', linestyle=linestyle, label="Ntop3")
+    
+def draw4MultiGraphLines(axis,arr1,arr2,arr3,arr4,arr5,linestyle):
     axis.plot(arr1,arr2, color='black',marker=',', linestyle=linestyle, label="Ntop_0_0")
     axis.plot(arr1,arr3, color='red',marker=',', linestyle=linestyle, label="Ntop_0_1")
     axis.plot(arr1,arr4, color='blue',marker=',', linestyle=linestyle, label="Ntop_1_0")
@@ -368,10 +373,10 @@ def drawCCE(axis,arr1,arr2,norm,col,linestyle,la):
         dt = t-time[it-1]
         if it==0:
             dt=time[it+1]-t
-            eff[it] = current[it]*dt*pow(10,12)/norm
+            eff[it] = abs(current[it])*dt*pow(10,12)/norm
             continue
         # convert to pC and normalise  
-        eff[it] = eff[it-1] + current[it]*dt*pow(10,12)/norm 
+        eff[it] = eff[it-1] + abs(current[it])*dt*pow(10,12)/norm 
     # time in ns
     axis.plot(time*pow(10,9),eff,color=col,marker=',',linestyle=linestyle,label=la)
     return eff
@@ -388,7 +393,7 @@ def getTime(vecTime,vecCCEs,perc):
     else:
         return int(timesWithPerc[0])
 
-def drawMultiCCE(axis,arr1,arr2,arr3,arr4,arr5,norm,linestyle):
+def draw4MultiCCE(axis,arr1,arr2,arr3,arr4,arr5,norm,linestyle):
     eff1=np.zeros(len(arr2))
     eff2=np.zeros(len(arr3))
     eff3=np.zeros(len(arr4))
@@ -422,3 +427,33 @@ def drawMultiCCE(axis,arr1,arr2,arr3,arr4,arr5,norm,linestyle):
     axis.plot(time*pow(10,9),eff4,color='orange',marker=',',linestyle=linestyle,label="Ntop_1_1")
     
     return eff1, eff2, eff3, eff4
+
+def draw3MultiCCE(axis,arr1,arr2,arr3,arr4,norm,linestyle):
+    eff1=np.zeros(len(arr2))
+    eff2=np.zeros(len(arr3))
+    eff3=np.zeros(len(arr4))
+    current1=np.array(arr2) # A
+    # print(current1)          
+    current2=np.array(arr3) # A
+    current3=np.array(arr4) # A
+    time=np.array(arr1) # s
+    # print(time)                                                
+    for it,t in enumerate(time):
+        dt = t-time[it-1]
+        if it==0:
+            dt=t
+            eff1[it] = current1[it]*dt*pow(10,12)/norm
+            eff2[it] = current2[it]*dt*pow(10,12)/norm
+            eff3[it] = current3[it]*dt*pow(10,12)/norm
+            continue
+        # convert to pC and normalise
+        eff1[it] = eff1[it-1] + (current1[it]*dt*pow(10,12))/norm
+        #print(eff1[it])             
+        eff2[it] = eff2[it-1] + (current2[it]*dt*pow(10,12))/norm
+        eff3[it] = eff3[it-1] + (current3[it]*dt*pow(10,12))/norm
+    # time in ns                     
+    axis.plot(time*pow(10,9),eff1,color='black',marker=',',linestyle=linestyle,label="Ntop1")
+    axis.plot(time*pow(10,9),eff2,color='red',marker=',',linestyle=linestyle,label="Ntop2")
+    axis.plot(time*pow(10,9),eff3,color='blue',marker=',',linestyle=linestyle,label="Ntop3")
+    
+    return eff1, eff2, eff3

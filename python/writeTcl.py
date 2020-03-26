@@ -11,6 +11,7 @@ parser.add_argument('--iv_p', action='store_true', help='Specify if measurement 
 parser.add_argument('--iv_b', action='store_true', help='Specify if measurement is iv.')
 parser.add_argument('--cv_b', action='store_true', help='Specify if measurement is cv.')
 parser.add_argument('--tran', action='store_true', help='Specify if measurement is particle.')
+parser.add_argument('--tran_3', action='store_true', help='Specify if measurement is particle.')
 parser.add_argument('--tran_4', action='store_true', help='Specify if measurement is particle.')
 parser.add_argument('--charge', action='store_true', help='Specify if measurement is particle.')
 parser.add_argument('-pS', '--parStr', action='append', default=[], help='Give parameters as specified in tcad project.')
@@ -53,6 +54,10 @@ elif args.tran:
     measure='tran'
     nameBegin="tran"
     nameEnd=".plt"
+elif args.tran_3:
+    measure='tran_3'
+    nameBegin="tran"
+    nameEnd=".plt"
 elif args.tran_4:
     measure='tran_4'
     nameBegin="tran"
@@ -78,7 +83,8 @@ if not os.path.isdir(workDir):
     os.system('mkdir '+home+args.project+"/tmp/")
 if os.path.isfile(csvFile):
     print("CSV file already exists.")
-    args.run=False
+    os.system('rm '+csvFile)
+    args.run=True
 # set parameters in file names
 for par in args.parStr:
     inFileName+="_"+str(par)
@@ -125,6 +131,12 @@ if measure=='tran_4':
     newFile.write('create_curve -plot Plot_1 -dataset {'+str(figName)+'} -axisX time -axisY {Ntop_1_1 TotalCurrent}\n')
     newFile.write('#-> Curve_1\n')
     newFile.write('export_curves {Curve_1 Curve_2 Curve_3 Curve_4} -plot Plot_1 -filename '+str(csvFile)+' -format csv -overwrite\n')
+elif measure=='tran_3':
+    newFile.write('create_curve -plot Plot_1 -dataset {'+str(figName)+'} -axisX time -axisY {Ntop1 TotalCurrent}\n')
+    newFile.write('create_curve -plot Plot_1 -dataset {'+str(figName)+'} -axisX time -axisY {Ntop2 TotalCurrent}\n')
+    newFile.write('create_curve -plot Plot_1 -dataset {'+str(figName)+'} -axisX time -axisY {Ntop3 TotalCurrent}\n')
+    newFile.write('#-> Curve_1\n')
+    newFile.write('export_curves {Curve_1 Curve_2 Curve_3} -plot Plot_1 -filename '+str(csvFile)+' -format csv -overwrite\n')
 
 else:
     newFile.write('#-> Curve_1\n')

@@ -8,14 +8,16 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--project', type=str, default='ARCADIA25um_surfaceDamage', help='Define patht to project.')
 parser.add_argument('--writeCSV', action='store_true', help='Convert tcl to csv, if not already done.')
 parser.add_argument('-threeD', '--threeD', action='store_true', help='3D measurement, assumes only particle transient measurement at the moment.')
-parser.add_argument('-m', '--measure', action='append', type=str, default=[], help='Define which plots you want to draw.', choices=['cv','iv','iv_p','iv_b','cv_b','tran','tran_4','charge'])
+parser.add_argument('-m', '--measure', action='append', type=str, default=[], help='Define which plots you want to draw.', choices=['cv','iv','iv_p','iv_b','cv_b','tran','tran_3','tran_4','charge'])
 parser.add_argument('--log', action='store_true', help='Define if y axis on log scale.')
 parser.add_argument('--fit', action='store_true', help='Define if cv curve is fitted.')
 parser.add_argument('--fit_minX', type=int, help='Set fit range minimum.')
 parser.add_argument('--fit_maxX', type=int, help='Set fit range maximum.') 
 parser.add_argument('--free', action='store_true', help='Free y range.')
 parser.add_argument('-numP', '--Parameters', type=int, default=2, help='Define how many parameters are tested.')
-parser.add_argument('-th', '--thickness', type=int, default=100, help='Define silicon thickness for CCE.', required='tran' in sys.argv)
+parser.add_argument('-th', '--thickness', type=int, default=100, help='Define silicon thickness for CCE.', required=['tran_4', 'tran', 'tran_3'] in sys.argv)
+parser.add_argument('--scaleLET', type=int, default=1, help='Scaling of the LET for CCE.', required='tran_4' in sys.argv)
+parser.add_argument('--drawMap', action='store_true', help='Print out CCE per pixel in map.')
 parser.add_argument('-out', '--output', type=str, default='_', help='Define output file name..')
 parser.add_argument('-p1', '--par1', action='append', default=[], help='Fill arrays with parameter value.')
 parser.add_argument('-p2', '--par2', action='append', default=[], help='Fill arrays with parameter value.')
@@ -44,6 +46,7 @@ titles = dict([('cv', 'C [F/$\mu$m]'),
                ('iv_b', 'I$_{back}$ [A/$\mu$m]'),
                ('cv_b', 'C$_{back}$ [F/$\mu$m]'),
                ('tran', 'I$_{front}$ [$\mu$A]'),
+               ('tran_3', 'I$_{front}$ [$\mu$A]'),
                ('tran_4', 'I$_{front}$ [$\mu$A]'),
                ('charge', 'charge [pC]')
                ])
@@ -54,6 +57,7 @@ ranges = dict([('cv', [2e-16, 5e-15]),
                ('iv_b', [1e-16, 1e-5]),
                ('cv_b', [1e-16, 5e-15]),
                ('tran', [0, 1.2]),
+               ('tran_3', [0, 0.2]),
                ('tran_4', [0, 0.2]),
                ('charge', [0, 1.2])
            ])
@@ -137,7 +141,7 @@ lines=['-','--',':','-.']
 print(len(args.measure))
 fig, axs = plt.subplots(len(args.measure),1, sharex=True, sharey=False) #, gridspec_kw={'hspace': 0})
 # need two canvas' to include CCE
-if args.measure[0]=='tran' or args.measure[0]=='tran_4':
+if args.measure[0]=='tran' or args.measure[0]=='tran_4' or  args.measure[0]=='tran_3':
     fig, axs = plt.subplots(2,1, sharex=True, sharey=False)
 
 # pick color map
@@ -250,11 +254,13 @@ for i,perm in enumerate(arrayParPermName):
                 
     # if only one measurement, draw in one canvas
     else:
-        if args.measure[0]=='tran' or args.measure[0]=='tran_4':
+        if args.measure[0]=='tran' or args.measure[0]=='tran_3' or args.measure[0]=='tran_4':
             if args.measure[0]=='tran':
                 drawGraphLines(axs[0],data1.X*pow(10,9), data1.Y*pow(10,6),colors[i],lines[0],lab)
+            elif args.measure[0]=='tran_3':
+                draw3MultiGraphLines(axs[0],data1.X*pow(10,9), data1.Y*pow(10,6), data1.Y1*pow(10,6), data1.Y2*pow(10,6), lines[0])
             elif args.measure[0]=='tran_4':
-                drawMultiGraphLines(axs[0],data1.X*pow(10,9), data1.Y*pow(10,6), data1.Y1*pow(10,6), data1.Y2*pow(10,6), data1.Y3*pow(10,6),lines[0])
+                draw4MultiGraphLines(axs[0],data1.X*pow(10,9), data1.Y*pow(10,6), data1.Y1*pow(10,6), data1.Y2*pow(10,6), data1.Y3*pow(10,6),lines[0])
             #set x range
             axs[0].set_xlim(-2, axs[0].get_xlim()[1])
 
@@ -274,8 +280,8 @@ for i,perm in enumerate(arrayParPermName):
             # print("Convert to LET*thickness: ", final_let)
 
             # normalise to 1/4 when running in 4 pixel domain, assumes particle in 0,0
-            if args.measure[0]=='tran_4':
-                final_let = final_let / 4.
+            if args.scaleLET != 1:
+                final_let = final_let / float(args.scaleLET)
             cce = totalCharge/final_let
             print('#############################')
             print( perm )
@@ -290,9 +296,14 @@ for i,perm in enumerate(arrayParPermName):
                 axs[1].set_ylabel('CCE')
 
             # draw CCEs over time and return arrays
+            elif args.measure[0]=='tran_3':
+                CCEs1[i], CCEs2[i], CCEs3[i] = draw3MultiCCE(axs[1],data1.X,data1.Y,data1.Y1,data1.Y2,final_let,lines[0])
+                axs[1].set_ylabel(r'CCE $\times$ '+str(args.scaleLET))
+
+            # draw CCEs over time and return arrays
             elif args.measure[0]=='tran_4':
-                CCEs1[i], CCEs2[i], CCEs3[i], CCEs4[i] = drawMultiCCE(axs[1],data1.X,data1.Y,data1.Y1,data1.Y2,data1.Y3,final_let,lines[0])
-                axs[1].set_ylabel(r'CCE $\times 4$')
+                CCEs1[i], CCEs2[i], CCEs3[i], CCEs4[i] = draw4MultiCCE(axs[1],data1.X,data1.Y,data1.Y1,data1.Y2,data1.Y3,final_let,lines[0])
+                axs[1].set_ylabel(r'CCE $\times$ '+str(args.scaleLET))
             
             time95 = getTime(times[i],CCEs1[i],95)
             time99 = getTime(times[i],CCEs1[i],99)
@@ -392,8 +403,8 @@ for m in args.measure:
 outName=allCurvesName(args.project, allM, args.output, 'pdf')
 print(outName)
 
-if len(args.measure)>1 or args.measure[0]=='tran' or args.measure[0]=='tran_4':
-    if args.measure[0]=='tran_4':
+if len(args.measure)>1 or args.measure[0]=='tran_4' or args.measure[0]=='tran_3':
+    if args.measure[0]=='tran_4' or args.measure[0]=='tran_3':
         legTitle=legTitle+'\n'+arrayParPermName[0]
         plt.subplots_adjust(top=0.8)
         axs[0].legend(loc='upper center', bbox_to_anchor=(.5, 1.5), fancybox=True, ncol=4, title=legTitle)
@@ -402,7 +413,7 @@ if len(args.measure)>1 or args.measure[0]=='tran' or args.measure[0]=='tran_4':
         axs[len(args.measure)-1].set_xlabel('|V|')
 else:
     axs.legend(title=legTitle, loc='center left', bbox_to_anchor=(1, 0.5), fancybox=True)
-if not args.measure[0]=='tran_4':
+if not args.measure[0]=='tran_4' or not args.measure[0]=='tran_3':
     if numP>3:
         plt.subplots_adjust(right=0.5)
     else:
@@ -411,7 +422,7 @@ if not args.measure[0]=='tran_4':
 fig.savefig(outName)
 
 # draw hit maps for trans_4 measurements 
-if args.measure[0]=='tran_4':
+if args.measure[0]=='tran_4' and args.drawMap:
     timeBin=math.floor(len(times[0])/10.)
     # sample time in 10 
     for t in range(1,10):
@@ -425,25 +436,46 @@ if args.measure[0]=='tran_4':
 
         plotOutName=allCurvesName(args.project, 'CCE_map_'+str(timeValue)+'ns_'+allM, args.output, 'pdf')
         print(plotOutName)
-        arrXY=[1,0,0,1]
-        arrXYZ=[[0 for x in range(4)] for y in range(4)]
-        for pixX in range(0,4):
-            for pixY in range(0,4):
-                weight=0
-                if (pixX==0 and pixY==0) or (pixX==3 and pixY==3) or (pixX==0 and pixY==3) or (pixX==3 and pixY==0):
-                    weight=CCEs4[0][realTime]
-                elif (pixX==1 or pixX==2) and (pixY==2 or pixY==1):
-                    weight=CCEs1[0][realTime]
-                else:
-                    weight=CCEs2[0][realTime]
-                #print(pixX,pixY)
-                #print(weight)
-                arrXYZ[pixX][pixY]=weight*100./4.
+
+        matrix = 0
+        # draw map in 4x4 if --scaleLET 4
+        if args.scaleLET==4:
+            matrix = 4
+            arrXY=[1,0,0,1]
+            arrXYZ=[[0 for x in range(4)] for y in range(4)]
+            for pixX in range(0,4):
+                for pixY in range(0,4):
+                    weight=0
+                    if (pixX==0 and pixY==0) or (pixX==3 and pixY==3) or (pixX==0 and pixY==3) or (pixX==3 and pixY==0):
+                        weight=CCEs4[0][realTime]
+                    elif (pixX==1 or pixX==2) and (pixY==2 or pixY==1):
+                        weight=CCEs1[0][realTime]
+                    else:
+                        weight=CCEs2[0][realTime]
+                    #print(pixX,pixY)
+                    #print(weight)
+                    arrXYZ[pixX][pixY]=weight*100./4.
+
+        # draw map in 3x3 if --scaleLET 1
+        if args.scaleLET==1:
+            matrix = 3
+            arrXY=[1,0,1]
+            arrXYZ=[[0 for x in range(3)] for y in range(3)]
+            for pixX in range(0,3):
+                for pixY in range(0,3):
+                    weight=0
+                    if (pixX==1 and pixY==1): # or (pixX==3 and pixY==3) or (pixX==0 and pixY==3) or (pixX==3 and pixY==0):
+                        weight=CCEs1[0][realTime]
+                    elif (pixX==1 or pixY==1):
+                        weight=CCEs2[0][realTime]
+                    else:
+                        weight=CCEs4[0][realTime]
+                    arrXYZ[pixX][pixY]=weight*100.
 
         fig, ax = plt.subplots()
-        im = ax.imshow(arrXYZ, cmap='viridis', vmin=0, vmax=30)
-        ax.set_xticks(np.arange(4))
-        ax.set_yticks(np.arange(4))
+        im = ax.imshow(arrXYZ, cmap='viridis', vmin=0, vmax=int(120/float(args.scaleLET)))
+        ax.set_xticks(np.arange(matrix))
+        ax.set_yticks(np.arange(matrix))
         # ... and label them with the respective list entries
         ax.set_xticklabels(arrXY)
         ax.set_yticklabels(arrXY)
@@ -453,8 +485,8 @@ if args.measure[0]=='tran_4':
         ax.grid(which="minor", color="w", linestyle='-', linewidth=3)
         ax.tick_params(which="minor", bottom=False, left=False)
         # write values in pixel
-        for pixX in range(0,4):
-            for pixY in range(0,4):
+        for pixX in range(0,matrix):
+            for pixY in range(0,matrix):
                 text = ax.text(pixX, pixY, "{0:.1f}".format(arrXYZ[pixX][pixY]),
                                ha="center", va="center", color="w")
         
