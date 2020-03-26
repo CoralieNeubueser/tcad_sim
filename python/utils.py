@@ -391,35 +391,26 @@ def getTime(vecTime,vecCCEs,perc):
     if len(timesWithPerc)>1:
         return int(timesWithPerc[0])
     else:
-        return int(timesWithPerc[0])
+        return int(timesWithPerc)
 
 def draw4MultiCCE(axis,arr1,arr2,arr3,arr4,arr5,norm,linestyle):
     eff1=np.zeros(len(arr2))
     eff2=np.zeros(len(arr3))
     eff3=np.zeros(len(arr4))
     eff4=np.zeros(len(arr5))
-    current1=np.array(arr2) # A                 
-    # print(current1)
-    current2=np.array(arr3) # A
-    current3=np.array(arr4) # A
-    current4=np.array(arr5) # A
+    current1=abs(np.array(arr2)) # A                 
+    current2=abs(np.array(arr3)) # A
+    current3=abs(np.array(arr4)) # A
+    current4=abs(np.array(arr5)) # A
     time=np.array(arr1) # s              
+    
     # print(time)
     for it,t in enumerate(time):
-        dt = t-time[it-1]
-        if it==0:
-            dt=t
-            eff1[it] = current1[it]*dt*pow(10,12)/norm
-            eff2[it] = current2[it]*dt*pow(10,12)/norm
-            eff3[it] = current3[it]*dt*pow(10,12)/norm
-            eff4[it] = current4[it]*dt*pow(10,12)/norm
-            continue
         # convert to pC and normalise  
-        eff1[it] = eff1[it-1] + (current1[it]*dt*pow(10,12))/norm
-        #print(eff1[it])
-        eff2[it] = eff2[it-1] + (current2[it]*dt*pow(10,12))/norm
-        eff3[it] = eff3[it-1] + (current3[it]*dt*pow(10,12))/norm
-        eff4[it] = eff4[it-1] + (current4[it]*dt*pow(10,12))/norm
+        eff1[it] = np.trapz(current1[time<t], x=time[time<t]) *pow(10,12)/norm
+        eff2[it] = np.trapz(current2[time<t], x=time[time<t]) *pow(10,12)/norm
+        eff3[it] = np.trapz(current3[time<t], x=time[time<t]) *pow(10,12)/norm
+        eff4[it] = np.trapz(current4[time<t], x=time[time<t]) *pow(10,12)/norm
     # time in ns
     axis.plot(time*pow(10,9),eff1,color='black',marker=',',linestyle=linestyle,label="Ntop_0_0")
     axis.plot(time*pow(10,9),eff2,color='red',marker=',',linestyle=linestyle,label="Ntop_0_1")
@@ -432,25 +423,17 @@ def draw3MultiCCE(axis,arr1,arr2,arr3,arr4,norm,linestyle):
     eff1=np.zeros(len(arr2))
     eff2=np.zeros(len(arr3))
     eff3=np.zeros(len(arr4))
-    current1=np.array(arr2) # A
-    # print(current1)          
-    current2=np.array(arr3) # A
-    current3=np.array(arr4) # A
+    current1=abs(np.array(arr2)) # A
+    current2=abs(np.array(arr3)) # A
+    current3=abs(np.array(arr4)) # A
     time=np.array(arr1) # s
     # print(time)                                                
     for it,t in enumerate(time):
-        dt = t-time[it-1]
-        if it==0:
-            dt=t
-            eff1[it] = current1[it]*dt*pow(10,12)/norm
-            eff2[it] = current2[it]*dt*pow(10,12)/norm
-            eff3[it] = current3[it]*dt*pow(10,12)/norm
-            continue
-        # convert to pC and normalise
-        eff1[it] = eff1[it-1] + (current1[it]*dt*pow(10,12))/norm
-        #print(eff1[it])             
-        eff2[it] = eff2[it-1] + (current2[it]*dt*pow(10,12))/norm
-        eff3[it] = eff3[it-1] + (current3[it]*dt*pow(10,12))/norm
+        # convert to pC and normalise 
+        eff1[it] = np.trapz(current1[time<t], x=time[time<t]) *pow(10,12)/norm
+        eff2[it] = np.trapz(current2[time<t], x=time[time<t]) *pow(10,12)/norm
+        eff3[it] = np.trapz(current3[time<t], x=time[time<t]) *pow(10,12)/norm
+
     # time in ns                     
     axis.plot(time*pow(10,9),eff1,color='black',marker=',',linestyle=linestyle,label="Ntop1")
     axis.plot(time*pow(10,9),eff2,color='red',marker=',',linestyle=linestyle,label="Ntop2")
