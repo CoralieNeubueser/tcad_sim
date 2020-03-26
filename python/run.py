@@ -278,7 +278,6 @@ for i,perm in enumerate(arrayParPermName):
             # print("Found LET of: ", let)
             final_let=float( let ) * pow(10,-5) * thickness
             # print("Convert to LET*thickness: ", final_let)
-
             # normalise to 1/4 when running in 4 pixel domain, assumes particle in 0,0
             if args.scaleLET != 1:
                 final_let = final_let / float(args.scaleLET)
@@ -287,7 +286,7 @@ for i,perm in enumerate(arrayParPermName):
             print( perm )
             print('Total charge                :    {:.4f}x10^-5 pC'.format(totalCharge*pow(10,5)))
             print('LET                         :    {:.4f}x10^-5 pC'.format(final_let*pow(10,5)))
-            print('Charge collection efficiency:    {:.2f} %'.format(cce*100))
+            print('Charge collection efficiency:    {:.1f} %'.format(cce*100))
             print('#############################')
             
             # draw CCE over time
@@ -307,21 +306,19 @@ for i,perm in enumerate(arrayParPermName):
             
             time95 = getTime(times[i],CCEs1[i],95)
             time99 = getTime(times[i],CCEs1[i],99)
-            print('Time of 95% collection:    {} ns'.format(time95))
-            print('Time of 99% collection:    {} ns'.format(time99))
+            print('Time of 95% collection:    {:.1f} ns'.format(time95))
+            print('Time of 99% collection:    {:.1f} ns'.format(time99))
             print('#############################')
 
             axs[1].set_xlabel('time [ns]')
             axs[0].set_ylabel(titles['tran'])
             if not args.free:
-                #axs[0].set_ylim(ranges['tran'][0],ranges['tran'][1])
                 axs[1].set_ylim(0,1.2)
 
             if args.log:
                 axs[0].set_yscale('log')
                 axs[1].set_yscale('log')
             axs[1].set_xticks(np.arange(0, int(axs[1].get_xlim()[1]),  int(axs[1].get_xlim()[1]/10.) ))
-            #axs[1].set_yticks(np.arange(0, 1.5, 0.1))
             plt.grid(True)
 
         elif args.measure[0]=='charge':
@@ -493,6 +490,10 @@ if args.measure[0]=='tran_4' and args.drawMap:
         # Create colorbar
         cbar = ax.figure.colorbar(im, ax=ax, cmap="viridis")
         cbar.ax.set_ylabel('CCE [%] $\Delta$t='+str(timeValue)+'ns', rotation=-90, va="bottom")
-        #cbar.ax.set_ylim(0,30)
+        # add impinging point
+        x = matrix/2. - 0.5 #math.floor(matrix/2.)
+        y = matrix/2. - 0.5 #math.floor(matrix/2.)
+        # print(x,y)
+        ax.scatter(x,y,color='r')
         fig.tight_layout()
         fig.savefig(plotOutName)

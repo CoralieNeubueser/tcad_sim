@@ -389,9 +389,9 @@ def getTime(vecTime,vecCCEs,perc):
     print("{}% are in absolut values: {:.2f}".format(perc, ccePerc))
     timesWithPerc = time[cces > ccePerc]
     if len(timesWithPerc)>1:
-        return int(timesWithPerc[0])
+        return float(timesWithPerc[0])
     else:
-        return int(timesWithPerc)
+        return float(timesWithPerc)
 
 def draw4MultiCCE(axis,arr1,arr2,arr3,arr4,arr5,norm,linestyle):
     eff1=np.zeros(len(arr2))
