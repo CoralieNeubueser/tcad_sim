@@ -14,6 +14,7 @@ parser.add_argument('--fit', action='store_true', help='Define if cv curve is fi
 parser.add_argument('--fit_minX', type=int, help='Set fit range minimum.')
 parser.add_argument('--fit_maxX', type=int, help='Set fit range maximum.') 
 parser.add_argument('--free', action='store_true', help='Free y range.')
+parser.add_argument('--maxX', type=int, help='Set draw range maximum.')
 parser.add_argument('-numP', '--Parameters', type=int, default=2, help='Define how many parameters are tested.')
 parser.add_argument('-th', '--thickness', type=int, default=100, help='Define silicon thickness for CCE.', required= 'tran_4' in sys.argv or 'tran' in sys.argv or 'tran_3' in sys.argv)
 parser.add_argument('--scaleLET', type=int, default=1, help='Scaling of the LET for CCE.', required= 'tran_4' in sys.argv or 'tran_3' in sys.argv)
@@ -33,6 +34,7 @@ parser.add_argument('-p5Name', '--par5Name', type=str, default="par5", help='Set
 args,_=parser.parse_known_args()
 
 threeDim = args.threeD
+xmax = args.maxX
 if threeDim:
     print('Running on 3D simulation..')
 thickness = args.thickness
@@ -66,7 +68,6 @@ if threeDim:
     ranges['cv']=[0, 2e-14]
     titles['cv']='C [F]'
     titles['iv']='I [A]'
-
 
 # write parameter permutations.. 
 arrayParPerm=[]
@@ -180,6 +181,8 @@ for i,perm in enumerate(arrayParPermName):
                 axs[im].set_ylim(ranges[m][0],ranges[m][1])
             if args.log:
                 axs[im].set_yscale('log')
+            if args.maxX:
+                axs[im].set_xlim(-2, xmax)
             
             # if measurement is iv curve, fit and extract the punch through voltage
             if m=='iv_b':
@@ -263,6 +266,9 @@ for i,perm in enumerate(arrayParPermName):
                 draw4MultiGraphLines(axs[0],data1.X*pow(10,9), data1.Y*pow(10,6), data1.Y1*pow(10,6), data1.Y2*pow(10,6), data1.Y3*pow(10,6),lines[0])
             #set x range
             axs[0].set_xlim(-2, axs[0].get_xlim()[1])
+            if args.maxX:
+                axs[1].set_xlim(-2, xmax)
+                axs[0].set_xlim(-2, xmax)
 
             # fill array with time bins for hit maps
             times[i]=data1.X*pow(10,9)
@@ -294,12 +300,12 @@ for i,perm in enumerate(arrayParPermName):
                 CCEs1[i] = drawCCE(axs[1],data1.X,data1.Y,final_let,colors[i],lines[0],lab)
                 axs[1].set_ylabel('CCE')
 
-            # draw CCEs over time and return arrays
+            # draw CCEs over time and return 3 arrays
             elif args.measure[0]=='tran_3':
                 CCEs1[i], CCEs2[i], CCEs3[i] = draw3MultiCCE(axs[1],data1.X,data1.Y,data1.Y1,data1.Y2,final_let,lines[0])
                 axs[1].set_ylabel(r'CCE $\times$ '+str(args.scaleLET))
 
-            # draw CCEs over time and return arrays
+            # draw CCEs over time and return 4 arrays
             elif args.measure[0]=='tran_4':
                 CCEs1[i], CCEs2[i], CCEs3[i], CCEs4[i] = draw4MultiCCE(axs[1],data1.X,data1.Y,data1.Y1,data1.Y2,data1.Y3,final_let,lines[0])
                 axs[1].set_ylabel(r'CCE $\times$ '+str(args.scaleLET))
@@ -311,13 +317,21 @@ for i,perm in enumerate(arrayParPermName):
             print('#############################')
 
             axs[1].set_xlabel('time [ns]')
+            startY=0.05
+            deltaY=0.2*i
+            if args.log:
+                startY=1E-6
+                deltaY=pow(10,-6+i)
+            axs[1].text( axs[0].get_xlim()[1]/2., startY+deltaY, '$t_{95}=$'+str("{:.1f}ns").format(time95)+', $t_{99}=$'+str("{:.1f}ns").format(time99), color=colors[i])
             axs[0].set_ylabel(titles['tran'])
+
             if not args.free:
                 axs[1].set_ylim(0,1.2)
 
             if args.log:
                 axs[0].set_yscale('log')
                 axs[1].set_yscale('log')
+
             axs[1].set_xticks(np.arange(0, int(axs[1].get_xlim()[1]),  int(axs[1].get_xlim()[1]/10.) ))
             plt.grid(True)
 
@@ -402,9 +416,14 @@ print(outName)
 
 if len(args.measure)>1 or args.measure[0]=='tran_4' or args.measure[0]=='tran_3' or args.measure[0]=='tran':
     if args.measure[0]=='tran_4' or args.measure[0]=='tran_3' or args.measure[0]=='tran':
-        legTitle=legTitle+'\n'+arrayParPermName[0]
         plt.subplots_adjust(top=0.8)
-        axs[0].legend(loc='upper center', bbox_to_anchor=(.5, 1.5), fancybox=True, ncol=4, title=legTitle)
+        colmn=4
+        if len(arrayParPermName)>1:
+            colmn=int(len(arrayParPermName)/2.)
+        else:
+            legTitle=legTitle+'\n'+arrayParPermName[0]
+
+        axs[0].legend(loc='upper center', bbox_to_anchor=(.5, 1.5), fancybox=True, ncol=colmn, title=legTitle)
     else:
         axs[0].legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.5), fancybox=True)
         axs[len(args.measure)-1].set_xlabel('|V|')
@@ -418,6 +437,8 @@ if not args.measure[0]=='tran_4' and not args.measure[0]=='tran_3' and not args.
 # print out 
 fig.savefig(outName)
 
+
+# to be moved outside
 # draw hit maps for trans_4 measurements 
 if args.measure[0]=='tran_4' and args.drawMap:
     timeBin=math.floor(len(times[0])/10.)
