@@ -298,12 +298,13 @@ for i,perm in enumerate(arrayParPermName):
             elif args.measure[0]=='tran_3':
                 CCEs1[i], CCEs2[i], CCEs3[i] = draw3MultiCCE(axs[1],data1.X,data1.Y,data1.Y1,data1.Y2,final_let,lines[0])
                 axs[1].set_ylabel(r'CCE $\times$ '+str(args.scaleLET))
-
+                #axs[0].set_xlim(-1,10) #lorenzo
+                
             # draw CCEs over time and return arrays
             elif args.measure[0]=='tran_4':
                 CCEs1[i], CCEs2[i], CCEs3[i], CCEs4[i] = draw4MultiCCE(axs[1],data1.X,data1.Y,data1.Y1,data1.Y2,data1.Y3,final_let,lines[0])
                 axs[1].set_ylabel(r'CCE $\times$ '+str(args.scaleLET))
-            
+                
             time95 = getTime(times[i],CCEs1[i],95)
             time99 = getTime(times[i],CCEs1[i],99)
             print('Time of 95% collection:    {:.1f} ns'.format(time95))
@@ -320,6 +321,8 @@ for i,perm in enumerate(arrayParPermName):
                 axs[1].set_yscale('log')
             axs[1].set_xticks(np.arange(0, int(axs[1].get_xlim()[1]),  int(axs[1].get_xlim()[1]/10.) ))
             plt.grid(True)
+
+            #axs[1].set_ylim(10e-5,2) #lorenzo
 
         elif args.measure[0]=='charge':
             drawGraphLines(axs,data1.X*pow(10,9), data1.Y*pow(10,12),colors[i],lines[0],lab)
@@ -522,3 +525,77 @@ if args.measure[0]=='tran_4' and args.drawMap:
         ax.scatter(x,y,color='r')
         fig.tight_layout()
         fig.savefig(plotOutName)
+
+
+
+
+
+# draw hit maps for trans_4 measurements
+if args.measure[0]=='tran_3' and args.drawMap:
+    timeBin=math.floor(len(times[0])/10.)
+    # sample time in 10
+    
+    for t in range(1,10):
+        timeValue=int(0)
+        realTime=t*timeBin
+        # for last time bin, use the highest entry
+        if t==9:
+            timeValue=int(times[0][len(times[0])-1])
+        else:
+            timeValue=int(times[0][realTime])
+    
+        plotOutName=allCurvesName(args.project, 'CCE_map_'+str(timeValue)+'ns_'+allM, args.output, 'pdf')
+        print(plotOutName)
+    
+        matrix = 0
+        # draw map in 4x4 if --scaleLET 4
+        if args.scaleLET==4:
+            matrix = 5
+            arrX=[20,10,0,10,20]
+            arrY=[0]
+            arrXYZ=[[0 for x in range(0,5)] for y in range(0,1)]
+            #print(arrXYZ)
+            for pixX in range(0,5):
+                for pixY in range(0,1):
+                    weight=0
+                    if (pixX==0 and pixY==0) or (pixX==4 and pixY==0):
+                        weight=CCEs3[0][realTime]
+                    elif (pixX==1 or pixX==3) and (pixY==0):
+                        weight=CCEs2[0][realTime]
+                    else:
+                        weight=CCEs1[0][realTime]
+                    #print(pixX,pixY)
+                    #print(weight)
+                    arrXYZ[pixY][pixX]=weight*100./4.
+                    #print(arrXYZ)
+                    #print(len(arrXYZ))
+
+        fig, ax = plt.subplots()
+        im = ax.imshow(arrXYZ, cmap='viridis', vmin=0, vmax=int(120/float(args.scaleLET)), aspect=5)
+        ax.set_xticks(np.arange(5)) #np.arange(matrix)
+        ax.set_yticks(np.arange(1)) #np.arange(matrix)
+        # ... and label them with the respective list entries
+        ax.set_xticklabels(arrX)
+        ax.set_yticklabels(arrY)
+        #ax.imshow(arrXYZ)
+        ax.set_xticks(np.arange(len(arrXYZ[0])+1)-.5, minor=True)
+        ax.set_yticks(np.arange(len(arrXYZ)+1)-.5, minor=True)
+        ax.grid(which="minor", color="w", linestyle='-', linewidth=3)
+        ax.tick_params(which="minor", bottom=False, left=False)
+        # write values in pixel
+        for pixX in range(0,matrix):
+            for pixY in range(0,1):
+                text = ax.text(pixX, pixY, "{0:.1f}".format(arrXYZ[pixY][pixX]),
+                               ha="center", va="bottom", color="w")
+        
+        # Create colorbar
+        cbar = ax.figure.colorbar(im, ax=ax, cmap="viridis")
+        cbar.ax.set_ylabel('CCE [%] $\Delta$t='+str(timeValue)+'ns', rotation=-90, va="bottom")
+        # add impinging point
+        x = matrix/2. - 0.5 #math.floor(matrix/2.)
+        y = 0 #matrix/2. - 0.5 #math.floor(matrix/2.)
+        # print(x,y)
+        ax.scatter(x,y,color='r')
+        fig.tight_layout()
+        fig.savefig(plotOutName)
+    
