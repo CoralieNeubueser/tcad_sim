@@ -131,6 +131,7 @@ if measure=='tran_4':
     newFile.write('create_curve -plot Plot_1 -dataset {'+str(figName)+'} -axisX time -axisY {Ntop_1_1 TotalCurrent}\n')
     newFile.write('#-> Curve_1\n')
     newFile.write('export_curves {Curve_1 Curve_2 Curve_3 Curve_4} -plot Plot_1 -filename '+str(csvFile)+' -format csv -overwrite\n')
+
 elif measure=='tran_3':
     newFile.write('create_curve -plot Plot_1 -dataset {'+str(figName)+'} -axisX time -axisY {Ntop1 TotalCurrent}\n')
     newFile.write('create_curve -plot Plot_1 -dataset {'+str(figName)+'} -axisX time -axisY {Ntop2 TotalCurrent}\n')

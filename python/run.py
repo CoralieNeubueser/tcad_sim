@@ -15,8 +15,8 @@ parser.add_argument('--fit_minX', type=int, help='Set fit range minimum.')
 parser.add_argument('--fit_maxX', type=int, help='Set fit range maximum.') 
 parser.add_argument('--free', action='store_true', help='Free y range.')
 parser.add_argument('-numP', '--Parameters', type=int, default=2, help='Define how many parameters are tested.')
-parser.add_argument('-th', '--thickness', type=int, default=100, help='Define silicon thickness for CCE.', required=['tran_4', 'tran', 'tran_3'] in sys.argv)
-parser.add_argument('--scaleLET', type=int, default=1, help='Scaling of the LET for CCE.', required=['tran_4', 'tran_3'] in sys.argv)
+parser.add_argument('-th', '--thickness', type=int, default=100, help='Define silicon thickness for CCE.', required= 'tran_4' in sys.argv or 'tran' in sys.argv or 'tran_3' in sys.argv)
+parser.add_argument('--scaleLET', type=int, default=1, help='Scaling of the LET for CCE.', required= 'tran_4' in sys.argv or 'tran_3' in sys.argv)
 parser.add_argument('--drawMap', action='store_true', help='Print out CCE per pixel in map.')
 parser.add_argument('-out', '--output', type=str, default='_', help='Define output file name..')
 parser.add_argument('-p1', '--par1', action='append', default=[], help='Fill arrays with parameter value.')
@@ -403,8 +403,8 @@ for m in args.measure:
 outName=allCurvesName(args.project, allM, args.output, 'pdf')
 print(outName)
 
-if len(args.measure)>1 or args.measure[0]=='tran_4' or args.measure[0]=='tran_3':
-    if args.measure[0]=='tran_4' or args.measure[0]=='tran_3':
+if len(args.measure)>1 or args.measure[0]=='tran_4' or args.measure[0]=='tran_3' or args.measure[0]=='tran':
+    if args.measure[0]=='tran_4' or args.measure[0]=='tran_3' or args.measure[0]=='tran':
         legTitle=legTitle+'\n'+arrayParPermName[0]
         plt.subplots_adjust(top=0.8)
         axs[0].legend(loc='upper center', bbox_to_anchor=(.5, 1.5), fancybox=True, ncol=4, title=legTitle)
@@ -413,7 +413,7 @@ if len(args.measure)>1 or args.measure[0]=='tran_4' or args.measure[0]=='tran_3'
         axs[len(args.measure)-1].set_xlabel('|V|')
 else:
     axs.legend(title=legTitle, loc='center left', bbox_to_anchor=(1, 0.5), fancybox=True)
-if not args.measure[0]=='tran_4' and not args.measure[0]=='tran_3':
+if not args.measure[0]=='tran_4' and not args.measure[0]=='tran_3' and not args.measure[0]=='tran':
     if numP>3:
         plt.subplots_adjust(right=0.5)
     else:
@@ -437,11 +437,14 @@ if args.measure[0]=='tran_4' and args.drawMap:
         plotOutName=allCurvesName(args.project, 'CCE_map_'+str(timeValue)+'ns_'+allM, args.output, 'pdf')
         print(plotOutName)
 
-        matrix = 0
+        matrix_X = 0
+        matrix_Y = 0
         # draw map in 4x4 if --scaleLET 4
         if args.scaleLET==4:
-            matrix = 4
-            arrXY=[1,0,0,1]
+            matrix_X = 4
+            matrix_Y = 4
+            arrX=[1,0,0,1]
+            arrY=[1,0,0,1]
             arrXYZ=[[0 for x in range(4)] for y in range(4)]
             for pixX in range(0,4):
                 for pixY in range(0,4):
@@ -454,12 +457,34 @@ if args.measure[0]=='tran_4' and args.drawMap:
                         weight=CCEs2[0][realTime]
                     #print(pixX,pixY)
                     #print(weight)
-                    arrXYZ[pixX][pixY]=weight*100./4.
+                    arrXYZ[pixY][pixX]=weight*100./4.
+
+        # draw map in 3x4 if --scaleLET 4
+        if args.scaleLET==2:
+            matrix_X = 4
+            matrix_Y = 3
+            arrX=[1,0,0,1]
+            arrY=[1,0,1]
+            arrXYZ=[[0 for x in range(4)] for y in range(3)]
+            for pixX in range(0,4):
+                for pixY in range(0,3):
+                    weight=0
+                    if (pixX==1 or pixX==2) and pixY==1:
+                        weight=CCEs1[0][realTime]
+                    elif (pixX==0 and pixY==0) or (pixX==3 and pixY==2) or (pixX==0 and pixY==2) or (pixX==3 and pixY==0):
+                        weight=CCEs4[0][realTime]
+                    elif (pixX==0 and pixY==1) or (pixX==3 and pixY==1):
+                        weight=CCEs3[0][realTime]
+                    else:
+                        weight=CCEs2[0][realTime]
+                    arrXYZ[pixY][pixX]=weight*100./2.
 
         # draw map in 3x3 if --scaleLET 1
         if args.scaleLET==1:
-            matrix = 3
-            arrXY=[1,0,1]
+            matrix_X = 3
+            matrix_Y = 3
+            arrX=[1,0,1]
+            arrY=[1,0,1]
             arrXYZ=[[0 for x in range(3)] for y in range(3)]
             for pixX in range(0,3):
                 for pixY in range(0,3):
@@ -474,28 +499,28 @@ if args.measure[0]=='tran_4' and args.drawMap:
 
         fig, ax = plt.subplots()
         im = ax.imshow(arrXYZ, cmap='viridis', vmin=0, vmax=int(120/float(args.scaleLET)))
-        ax.set_xticks(np.arange(matrix))
-        ax.set_yticks(np.arange(matrix))
+        ax.set_xticks(np.arange(matrix_X))
+        ax.set_yticks(np.arange(matrix_Y))
         # ... and label them with the respective list entries
-        ax.set_xticklabels(arrXY)
-        ax.set_yticklabels(arrXY)
+        ax.set_xticklabels(arrX)
+        ax.set_yticklabels(arrY)
         #ax.imshow(arrXYZ)
-        ax.set_xticks(np.arange(len(arrXYZ)+1)-.5, minor=True)
-        ax.set_yticks(np.arange(len(arrXYZ[0])+1)-.5, minor=True)
+        ax.set_xticks(np.arange(matrix_X+1)-.5, minor=True)
+        ax.set_yticks(np.arange(matrix_Y+1)-.5, minor=True)
         ax.grid(which="minor", color="w", linestyle='-', linewidth=3)
         ax.tick_params(which="minor", bottom=False, left=False)
         # write values in pixel
-        for pixX in range(0,matrix):
-            for pixY in range(0,matrix):
-                text = ax.text(pixX, pixY, "{0:.1f}".format(arrXYZ[pixX][pixY]),
+        for pixX in range(0,matrix_X):
+            for pixY in range(0,matrix_Y):
+                text = ax.text(pixX, pixY, "{0:.1f}".format(arrXYZ[pixY][pixX]),
                                ha="center", va="center", color="w")
         
         # Create colorbar
         cbar = ax.figure.colorbar(im, ax=ax, cmap="viridis")
         cbar.ax.set_ylabel('CCE [%] $\Delta$t='+str(timeValue)+'ns', rotation=-90, va="bottom")
         # add impinging point
-        x = matrix/2. - 0.5 #math.floor(matrix/2.)
-        y = matrix/2. - 0.5 #math.floor(matrix/2.)
+        x = matrix_X/2. - 0.5 #math.floor(matrix/2.)
+        y = matrix_Y/2. - 0.5 #math.floor(matrix/2.)
         # print(x,y)
         ax.scatter(x,y,color='r')
         fig.tight_layout()
