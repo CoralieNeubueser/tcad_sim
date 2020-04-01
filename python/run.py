@@ -298,7 +298,7 @@ for i,perm in enumerate(arrayParPermName):
             elif args.measure[0]=='tran_3':
                 CCEs1[i], CCEs2[i], CCEs3[i] = draw3MultiCCE(axs[1],data1.X,data1.Y,data1.Y1,data1.Y2,final_let,lines[0])
                 axs[1].set_ylabel(r'CCE $\times$ '+str(args.scaleLET))
-                #axs[0].set_xlim(-1,10) #lorenzo
+                axs[0].set_xlim(-1,10) #lorenzo
                 
             # draw CCEs over time and return arrays
             elif args.measure[0]=='tran_4':
@@ -567,6 +567,28 @@ if args.measure[0]=='tran_3' and args.drawMap:
                     #print(pixX,pixY)
                     #print(weight)
                     arrXYZ[pixY][pixX]=weight*100./4.
+                    #print(arrXYZ)
+                    #print(len(arrXYZ))
+                    
+        # draw map in 4x4 if --scaleLET 4
+        if args.scaleLET==1:
+            matrix = 5
+            arrX=[20,10,0,10,20]
+            arrY=[0]
+            arrXYZ=[[0 for x in range(0,5)] for y in range(0,1)]
+            #print(arrXYZ)
+            for pixX in range(0,5):
+                for pixY in range(0,1):
+                    weight=0
+                    if (pixX==0 and pixY==0) or (pixX==4 and pixY==0):
+                        weight=CCEs1[0][realTime]
+                    elif (pixX==1 or pixX==3) and (pixY==0):
+                        weight=CCEs2[0][realTime]
+                    else:
+                        weight=CCEs3[0][realTime]
+                    #print(pixX,pixY)
+                    #print(weight)
+                    arrXYZ[pixY][pixX]=weight*100.
                     #print(arrXYZ)
                     #print(len(arrXYZ))
 
