@@ -1,0 +1,8 @@
+*.log
+*.plt
+*.pdf
+*.err
+*.job
+*.out
+DB/*
+scripts/*
