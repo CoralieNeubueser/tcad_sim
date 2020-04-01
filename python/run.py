@@ -17,6 +17,7 @@ parser.add_argument('--free', action='store_true', help='Free y range.')
 parser.add_argument('--maxX', type=int, help='Set draw range maximum.')
 parser.add_argument('-numP', '--Parameters', type=int, default=2, help='Define how many parameters are tested.')
 parser.add_argument('-th', '--thickness', type=int, default=100, help='Define silicon thickness for CCE.', required= 'tran_4' in sys.argv or 'tran' in sys.argv or 'tran_3' in sys.argv)
+parser.add_argument('--LET', type=float, default=1.28, help='Set the LET value for CCE calculation.', required= 'tran_4' in sys.argv or 'tran_3' in sys.argv)
 parser.add_argument('--scaleLET', type=int, default=1, help='Scaling of the LET for CCE.', required= 'tran_4' in sys.argv or 'tran_3' in sys.argv)
 parser.add_argument('--drawMap', action='store_true', help='Print out CCE per pixel in map.')
 parser.add_argument('-out', '--output', type=str, default='_', help='Define output file name..')
@@ -277,12 +278,9 @@ for i,perm in enumerate(arrayParPermName):
             # C=A*s
             totalCharge=abs(getIntegral(data1.Y,data1.X)* pow(10,12)) #,0,10*pow(10,-9)) * pow(10,12)
             # search for the LET value in string                                                               
-            index=perm.find('e-5')
-            let=perm[-8:index]
-            let=let.replace("_","")
             # transform from pC/um to pC
-            # print("Found LET of: ", let)
-            final_let=float( let ) * pow(10,-5) * thickness
+            print("Found LET of: ", args.LET)
+            final_let=float( args.LET ) * pow(10,-5) * thickness
             # print("Convert to LET*thickness: ", final_let)
             # normalise to 1/4 when running in 4 pixel domain, assumes particle in 0,0
             if args.scaleLET != 1:
