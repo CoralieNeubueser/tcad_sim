@@ -353,6 +353,15 @@ def draw4MultiGraphLines(axis,arr1,arr2,arr3,arr4,arr5,linestyle):
     axis.plot(arr1,arr4, color='blue',marker=',', linestyle=linestyle, label="Ntop_1_0")
     axis.plot(arr1,arr5, color='orange',marker=',', linestyle=linestyle, label="Ntop_1_1")
 
+def draw7MultiGraphLines(axis,arr1,arr2,arr3,arr4,arr5,arr6,arr7,arr8,linestyle):
+    axis.plot(arr1,arr2, color='black',marker=',', linestyle=linestyle, label="Ntop_1")
+    axis.plot(arr1,arr3, color='red',marker=',', linestyle=linestyle, label="Ntop_2")
+    axis.plot(arr1,arr4, color='blue',marker=',', linestyle=linestyle, label="Ntop_3")
+    axis.plot(arr1,arr5, color='orange',marker=',', linestyle=linestyle, label="Ntop_4")
+    axis.plot(arr1,arr6, color='green',marker=',', linestyle=linestyle, label="Ntop_5")
+    axis.plot(arr1,arr7, color='cyan',marker=',', linestyle=linestyle, label="Ntop_6")
+    axis.plot(arr1,arr8, color='magenta',marker=',', linestyle=linestyle, label="Ntop_7")
+
 def csvFileName(project, measure, pars):
     home=os.getcwd()+"/DB/"
     csvName=home+project+"/tmp/"+measure
@@ -440,3 +449,42 @@ def draw3MultiCCE(axis,arr1,arr2,arr3,arr4,norm,linestyle):
     axis.plot(time*pow(10,9),eff3,color='blue',marker=',',linestyle=linestyle,label="Ntop3")
     
     return eff1, eff2, eff3
+
+def draw7MultiCCE(axis,arr1,arr2,arr3,arr4,arr5,arr6,arr7,arr8,norm,linestyle):
+    eff1=np.zeros(len(arr2))
+    eff2=np.zeros(len(arr3))
+    eff3=np.zeros(len(arr4))
+    eff4=np.zeros(len(arr5))
+    eff5=np.zeros(len(arr6))
+    eff6=np.zeros(len(arr7))
+    eff7=np.zeros(len(arr8))
+    current1=abs(np.array(arr2)) # A
+    current2=abs(np.array(arr3)) # A
+    current3=abs(np.array(arr4)) # A
+    current4=abs(np.array(arr5)) # A
+    current5=abs(np.array(arr6)) # A
+    current6=abs(np.array(arr7)) # A
+    current7=abs(np.array(arr8)) # A
+    time=np.array(arr1) # s
+    # print(time)
+    for it,t in enumerate(time):
+        # convert to pC and normalise
+        eff1[it] = np.trapz(current1[time<t], x=time[time<t]) *pow(10,12)/norm
+        eff2[it] = np.trapz(current2[time<t], x=time[time<t]) *pow(10,12)/norm
+        eff3[it] = np.trapz(current3[time<t], x=time[time<t]) *pow(10,12)/norm
+        eff4[it] = np.trapz(current4[time<t], x=time[time<t]) *pow(10,12)/norm
+        eff5[it] = np.trapz(current5[time<t], x=time[time<t]) *pow(10,12)/norm
+        eff6[it] = np.trapz(current6[time<t], x=time[time<t]) *pow(10,12)/norm
+        eff7[it] = np.trapz(current7[time<t], x=time[time<t]) *pow(10,12)/norm
+    # time in ns
+    axis.plot(time*pow(10,9),eff1,color='black',marker=',',linestyle=linestyle,label="Ntop1")
+    axis.plot(time*pow(10,9),eff2,color='red',marker=',',linestyle=linestyle,label="Ntop2")
+    axis.plot(time*pow(10,9),eff3,color='blue',marker=',',linestyle=linestyle,label="Ntop3")
+    axis.plot(time*pow(10,9),eff4,color='orange',marker=',',linestyle=linestyle,label="Ntop4")
+    axis.plot(time*pow(10,9),eff5,color='green',marker=',',linestyle=linestyle,label="Ntop5")
+    axis.plot(time*pow(10,9),eff6,color='cyan',marker=',',linestyle=linestyle,label="Ntop6")
+    axis.plot(time*pow(10,9),eff7,color='magenta',marker=',',linestyle=linestyle,label="Ntop7")
+
+    return eff1, eff2, eff3, eff4, eff5, eff6, eff7
+
+
