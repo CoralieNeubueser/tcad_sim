@@ -332,7 +332,6 @@ for i,perm in enumerate(arrayParPermName):
             elif args.measure[0]=='tran_7':
                 CCEs1[i], CCEs2[i], CCEs3[i], CCEs4[i], CCEs5[i], CCEs6[i], CCEs7[i] = draw7MultiCCE(axs[1],data1.X,data1.Y,data1.Y1,data1.Y2,data1.Y3,data1.Y4,data1.Y5,data1.Y6,final_let,lines[0])
                 axs[1].set_ylabel(r'CCE $\times$ '+str(args.scaleLET))
-                axs[0].set_xlim(-1,10) #lorenzo
                 
             if args.measure[0]=='tran_7':
                 time95 = getTime(times[i],CCEs4[i],95)
@@ -673,104 +672,104 @@ if args.measure[0]=='tran_3' and args.drawMap:
     
     
     
-    # draw hit maps for trans_7 measurements
-    if args.measure[0]=='tran_7' and args.drawMap:
-        timeBin=math.floor(len(times[0])/10.)
-        # sample time in 10
-        
-        for t in range(1,10):
-            timeValue=int(0)
-            realTime=t*timeBin
-            # for last time bin, use the highest entry
-            if t==9:
-                timeValue=int(times[0][len(times[0])-1])
-            else:
-                timeValue=int(times[0][realTime])
-        
-            plotOutName=allCurvesName(args.project, 'CCE_map_'+str(timeValue)+'ns_'+allM, args.output, 'pdf')
-            print(plotOutName)
-        
-            matrix = 0
-            # draw map in 4x4 if --scaleLET 4
+# draw hit maps for trans_7 measurements
+if args.measure[0]=='tran_7' and args.drawMap:
+    timeBin=math.floor(len(times[0])/10.)
+    # sample time in 10
+    
+    for t in range(1,10):
+        timeValue=int(0)
+        realTime=t*timeBin
+        # for last time bin, use the highest entry
+        if t==9:
+            timeValue=int(times[0][len(times[0])-1])
+        else:
+            timeValue=int(times[0][realTime])
+    
+        plotOutName=allCurvesName(args.project, 'CCE_map_'+str(timeValue)+'ns_'+allM, args.output, 'pdf')
+        print(plotOutName)
+    
+        matrix = 0
+        # draw map in 4x4 if --scaleLET 4
 
-            if args.scaleLET==4:
-                matrix = 7
-                arrX=[30,20,10,0,10,20,30]
-                arrY=[0]
-                arrXYZ=[[0 for x in range(0,7)] for y in range(0,1)]
-                #print(arrXYZ)
-                for pixX in range(0,7):
-                    for pixY in range(0,1):
-                        weight=0
-                        if (pixX==0 and pixY==0) or (pixX==6 and pixY==0):
-                            weight=CCEs3[0][realTime]
-                        elif (pixX==1 or pixX==3) and (pixY==0):
-                            weight=CCEs2[0][realTime]
-                        else:
-                            weight=CCEs1[0][realTime]
-                        #print(pixX,pixY)
-                        #print(weight)
-                        arrXYZ[pixY][pixX]=weight*100./4.
-                        #print(arrXYZ)
-                        #print(len(arrXYZ))
-                        
-            # draw map in 4x4 if --scaleLET 4
-            if args.scaleLET==1:
-                matrix = 7
-                arrX=[30,20,10,0,10,20,30]
-                arrY=[0]
-                arrXYZ=[[0 for x in range(0,7)] for y in range(0,1)]
-                #print(arrXYZ)
-                for pixX in range(0,7):
-                    for pixY in range(0,1):
-                        weight=0
-                        if (pixX==0 and pixY==0):
-                            weight=CCEs1[0][realTime]
-                        elif (pixX==1 and pixY==0):
-                            weight=CCEs2[0][realTime]
-                        elif (pixX==2 and pixY==0):
-                            weight=CCEs3[0][realTime]
-                        elif (pixX==3 and pixY==0):
-                            weight=CCEs4[0][realTime]
-                        elif (pixX==4 and pixY==0):
-                            weight=CCEs5[0][realTime]
-                        elif (pixX==5 and pixY==0):
-                            weight=CCEs6[0][realTime]
-                        elif (pixX==6 and pixY==0):
-                            weight=CCEs7[0][realTime]
-                        #print(pixX,pixY)
-                        #print(weight)
-                        arrXYZ[pixY][pixX]=weight*100.
-                        #print(arrXYZ)
-                        #print(len(arrXYZ))
-
-            fig, ax = plt.subplots()
-            im = ax.imshow(arrXYZ, cmap='viridis', vmin=0, vmax=int(120/float(args.scaleLET)), aspect=5)
-            ax.set_xticks(np.arange(7)) #np.arange(matrix)
-            ax.set_yticks(np.arange(1)) #np.arange(matrix)
-            # ... and label them with the respective list entries
-            ax.set_xticklabels(arrX)
-            ax.set_yticklabels(arrY)
-            #ax.imshow(arrXYZ)
-            ax.set_xticks(np.arange(len(arrXYZ[0])+1)-.5, minor=True)
-            ax.set_yticks(np.arange(len(arrXYZ)+1)-.5, minor=True)
-            ax.grid(which="minor", color="w", linestyle='-', linewidth=3)
-            ax.tick_params(which="minor", bottom=False, left=False)
-            # write values in pixel
-            for pixX in range(0,matrix):
+        if args.scaleLET==4:
+            matrix = 7
+            arrX=[30,20,10,0,10,20,30]
+            arrY=[0]
+            arrXYZ=[[0 for x in range(0,7)] for y in range(0,1)]
+            #print(arrXYZ)
+            for pixX in range(0,7):
                 for pixY in range(0,1):
-                    text = ax.text(pixX, pixY, "{0:.1f}".format(arrXYZ[pixY][pixX]),
-                                   ha="center", va="bottom", color="w")
-            
-            # Create colorbar
-            cbar = ax.figure.colorbar(im, ax=ax, cmap="viridis")
-            cbar.ax.set_ylabel('CCE [%] $\Delta$t='+str(timeValue)+'ns', rotation=-90, va="bottom")
-            # add impinging point
-            x = matrix/2. - 0.5 #math.floor(matrix/2.)
-            y = 0 #matrix/2. - 0.5 #math.floor(matrix/2.)
-            # print(x,y)
-            ax.scatter(x,y,color='r')
-            fig.tight_layout()
-            fig.savefig(plotOutName)
+                    weight=0
+                    if (pixX==0 and pixY==0) or (pixX==6 and pixY==0):
+                        weight=CCEs3[0][realTime]
+                    elif (pixX==1 or pixX==3) and (pixY==0):
+                        weight=CCEs2[0][realTime]
+                    else:
+                        weight=CCEs1[0][realTime]
+                    #print(pixX,pixY)
+                    #print(weight)
+                    arrXYZ[pixY][pixX]=weight*100./4.
+                    #print(arrXYZ)
+                    #print(len(arrXYZ))
+                    
+        # draw map in 4x4 if --scaleLET 4
+        if args.scaleLET==1:
+            matrix = 7
+            arrX=[30,20,10,0,10,20,30]
+            arrY=[0]
+            arrXYZ=[[0 for x in range(0,7)] for y in range(0,1)]
+            #print(arrXYZ)
+            for pixX in range(0,7):
+                for pixY in range(0,1):
+                    weight=0
+                    if (pixX==0 and pixY==0):
+                        weight=CCEs1[0][realTime]
+                    elif (pixX==1 and pixY==0):
+                        weight=CCEs2[0][realTime]
+                    elif (pixX==2 and pixY==0):
+                        weight=CCEs3[0][realTime]
+                    elif (pixX==3 and pixY==0):
+                        weight=CCEs4[0][realTime]
+                    elif (pixX==4 and pixY==0):
+                        weight=CCEs5[0][realTime]
+                    elif (pixX==5 and pixY==0):
+                        weight=CCEs6[0][realTime]
+                    elif (pixX==6 and pixY==0):
+                        weight=CCEs7[0][realTime]
+                    #print(pixX,pixY)
+                    #print(weight)
+                    arrXYZ[pixY][pixX]=weight*100.
+                    #print(arrXYZ)
+                    #print(len(arrXYZ))
+
+        fig, ax = plt.subplots()
+        im = ax.imshow(arrXYZ, cmap='viridis', vmin=0, vmax=int(120/float(args.scaleLET)), aspect=5)
+        ax.set_xticks(np.arange(7)) #np.arange(matrix)
+        ax.set_yticks(np.arange(1)) #np.arange(matrix)
+        # ... and label them with the respective list entries
+        ax.set_xticklabels(arrX)
+        ax.set_yticklabels(arrY)
+        #ax.imshow(arrXYZ)
+        ax.set_xticks(np.arange(len(arrXYZ[0])+1)-.5, minor=True)
+        ax.set_yticks(np.arange(len(arrXYZ)+1)-.5, minor=True)
+        ax.grid(which="minor", color="w", linestyle='-', linewidth=3)
+        ax.tick_params(which="minor", bottom=False, left=False)
+        # write values in pixel
+        for pixX in range(0,matrix):
+            for pixY in range(0,1):
+                text = ax.text(pixX, pixY, "{0:.1f}".format(arrXYZ[pixY][pixX]),
+                               ha="center", va="bottom", color="w")
+        
+        # Create colorbar
+        cbar = ax.figure.colorbar(im, ax=ax, cmap="viridis")
+        cbar.ax.set_ylabel('CCE [%] $\Delta$t='+str(timeValue)+'ns', rotation=-90, va="bottom")
+        # add impinging point
+        x = matrix/2. - 0.5 #math.floor(matrix/2.)
+        y = 0 #matrix/2. - 0.5 #math.floor(matrix/2.)
+        # print(x,y)
+        ax.scatter(x,y,color='r')
+        fig.tight_layout()
+        fig.savefig(plotOutName)
 
 
