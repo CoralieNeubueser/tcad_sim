@@ -1,5 +1,5 @@
 import os, sys, argparse, re
-from utils import * 
+from utils import *
 import pandas as pd
 import numpy as np
 from matplotlib import ticker
@@ -8,17 +8,17 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--project', type=str, default='ARCADIA25um_surfaceDamage', help='Define patht to project.')
 parser.add_argument('--writeCSV', action='store_true', help='Convert tcl to csv, if not already done.')
 parser.add_argument('-threeD', '--threeD', action='store_true', help='3D measurement, assumes only particle transient measurement at the moment.')
-parser.add_argument('-m', '--measure', action='append', type=str, default=[], help='Define which plots you want to draw.', choices=['cv','iv','iv_p','iv_b','cv_b','tran','tran_3','tran_4','charge'])
+parser.add_argument('-m', '--measure', action='append', type=str, default=[], help='Define which plots you want to draw.', choices=['cv','iv','iv_p','iv_b','cv_b','tran','tran_3','tran_4','tran_7','charge'])
 parser.add_argument('--log', action='store_true', help='Define if y axis on log scale.')
 parser.add_argument('--fit', action='store_true', help='Define if cv curve is fitted.')
 parser.add_argument('--fit_minX', type=int, help='Set fit range minimum.')
-parser.add_argument('--fit_maxX', type=int, help='Set fit range maximum.') 
+parser.add_argument('--fit_maxX', type=int, help='Set fit range maximum.')
 parser.add_argument('--free', action='store_true', help='Free y range.')
 parser.add_argument('--maxX', type=int, help='Set draw range maximum.')
 parser.add_argument('-numP', '--Parameters', type=int, default=2, help='Define how many parameters are tested.')
-parser.add_argument('-th', '--thickness', type=int, default=100, help='Define silicon thickness for CCE.', required= 'tran_4' in sys.argv or 'tran' in sys.argv or 'tran_3' in sys.argv)
-parser.add_argument('--LET', type=float, default=1.28, help='Set the LET value for CCE calculation.', required= 'tran_4' in sys.argv or 'tran_3' in sys.argv)
-parser.add_argument('--scaleLET', type=int, default=1, help='Scaling of the LET for CCE.', required= 'tran_4' in sys.argv or 'tran_3' in sys.argv)
+parser.add_argument('-th', '--thickness', type=int, default=100, help='Define silicon thickness for CCE.', required= 'tran_4' in sys.argv or 'tran' in sys.argv or 'tran_3' in sys.argv or 'tran_7' in sys.argv)
+parser.add_argument('--LET', type=float, default=1.28, help='Set the LET value for CCE calculation.', required= 'tran_4' in sys.argv or 'tran_3' in sys.argv or 'tran_7' in sys.argv)
+parser.add_argument('--scaleLET', type=int, default=1, help='Scaling of the LET for CCE.', required= 'tran_4' in sys.argv or 'tran_3' in sys.argv or 'tran_7' in sys.argv)
 parser.add_argument('--drawMap', action='store_true', help='Print out CCE per pixel in map.')
 parser.add_argument('-out', '--output', type=str, default='_', help='Define output file name..')
 parser.add_argument('-p1', '--par1', action='append', default=[], help='Fill arrays with parameter value.')
@@ -51,6 +51,7 @@ titles = dict([('cv', 'C [F/$\mu$m]'),
                ('tran', 'I$_{front}$ [$\mu$A]'),
                ('tran_3', 'I$_{front}$ [$\mu$A]'),
                ('tran_4', 'I$_{front}$ [$\mu$A]'),
+               ('tran_7', 'I$_{front}$ [$\mu$A]'),
                ('charge', 'charge [pC]')
                ])
 
@@ -62,6 +63,7 @@ ranges = dict([('cv', [2e-16, 5e-15]),
                ('tran', [0, 1.2]),
                ('tran_3', [0, 0.2]),
                ('tran_4', [0, 0.2]),
+               ('tran_7', [0, 0.2]),
                ('charge', [0, 1.2])
            ])
 
@@ -70,7 +72,7 @@ if threeDim:
     titles['cv']='C [F]'
     titles['iv']='I [A]'
 
-# write parameter permutations.. 
+# write parameter permutations..
 arrayParPerm=[]
 arrayParPermName=[]
 legTitle=args.par1Name
@@ -122,7 +124,7 @@ for p1 in args.par1:
         arrayParPerm.append(parOption)
         arrayParPermName.append(parPermName)
 
-# produce csv files 
+# produce csv files
 if args.writeCSV:
     for parOption in arrayParPerm:
         print(parOption)
@@ -143,11 +145,11 @@ lines=['-','--',':','-.']
 print(len(args.measure))
 fig, axs = plt.subplots(len(args.measure),1, sharex=True, sharey=False) #, gridspec_kw={'hspace': 0})
 # need two canvas' to include CCE
-if args.measure[0]=='tran' or args.measure[0]=='tran_4' or  args.measure[0]=='tran_3':
+if args.measure[0]=='tran' or args.measure[0]=='tran_4' or  args.measure[0]=='tran_3' or  args.measure[0]=='tran_7':
     fig, axs = plt.subplots(2,1, sharex=True, sharey=False)
 
 # pick color map
-colormap = plt.cm.nipy_spectral 
+colormap = plt.cm.nipy_spectral
 colors = [colormap(i) for i in np.linspace(0, 0.9,len(arrayParPermName))]
 
 # arrays of Vdpl and Cend
@@ -156,10 +158,13 @@ ptIs=np.zeros(len(arrayParPermName), dtype=float)
 deplVs=np.zeros(len(arrayParPermName), dtype=float)
 capCs=np.zeros(len(arrayParPermName), dtype=[])
 endIs=np.zeros(len(arrayParPermName), dtype=[])
-CCEs1=[[0 for x in range(len(arrayParPermName))] for y in range(100)] 
-CCEs2=[[0 for x in range(len(arrayParPermName))] for y in range(100)] 
-CCEs3=[[0 for x in range(len(arrayParPermName))] for y in range(100)] 
-CCEs4=[[0 for x in range(len(arrayParPermName))] for y in range(100)] 
+CCEs1=[[0 for x in range(len(arrayParPermName))] for y in range(100)]
+CCEs2=[[0 for x in range(len(arrayParPermName))] for y in range(100)]
+CCEs3=[[0 for x in range(len(arrayParPermName))] for y in range(100)]
+CCEs4=[[0 for x in range(len(arrayParPermName))] for y in range(100)]
+CCEs5=[[0 for x in range(len(arrayParPermName))] for y in range(100)]
+CCEs6=[[0 for x in range(len(arrayParPermName))] for y in range(100)]
+CCEs7=[[0 for x in range(len(arrayParPermName))] for y in range(100)]
 times=[[0 for x in range(len(arrayParPermName))] for y in range(100)]
 
 # read csv files and analyse
@@ -167,7 +172,7 @@ for i,perm in enumerate(arrayParPermName):
 
     f1=csvFileName(args.project, args.measure[0], perm)
     print(f1)
-    data1 = pd.read_csv(f1, names=["X","Y","X1","Y1","X2","Y2","X3","Y3"], skiprows=1)
+    data1 = pd.read_csv(f1, names=["X","Y","X1","Y1","X2","Y2","X3","Y3","X4","Y4","X5","Y5","X6","Y6"], skiprows=1)
     lab=str(perm)
 
     # if multiple measurements are analysed draw in multiple subplots
@@ -198,7 +203,7 @@ for i,perm in enumerate(arrayParPermName):
                 ptIs[i]=Ipt
 
             elif m=='iv_p':
-                # set maximum current to be fitted for detemining punch through.. keep low for set-off     
+                # set maximum current to be fitted for detemining punch through.. keep low for set-off
                 newDat1x=np.array(abs(data2.X[ abs(data2.X) > float(3) ]))
                 newDat1y=np.array(abs(data2.Y[ abs(data2.X) > float(3) ]))
                 indMin=np.where(newDat1y == newDat1y.min())
@@ -213,7 +218,7 @@ for i,perm in enumerate(arrayParPermName):
                 ptVs[i]=ptV
                 ptIs[i]=Ipt
 
-            # if measurement is cv curve, fit and extract the depletion voltage 
+            # if measurement is cv curve, fit and extract the depletion voltage
             elif m=='cv' and args.fit:
                 if args.fit_maxX or args.fit_minX:
                     deplV,deplC=deplVoltageRange(axs[im],data2,args.fit_minX, args.fit_maxX, colors[i])
@@ -258,13 +263,16 @@ for i,perm in enumerate(arrayParPermName):
                 
     # if only one measurement, draw in one canvas
     else:
-        if args.measure[0]=='tran' or args.measure[0]=='tran_3' or args.measure[0]=='tran_4':
+        if args.measure[0]=='tran' or args.measure[0]=='tran_3' or args.measure[0]=='tran_4' or args.measure[0]=='tran_7':
             if args.measure[0]=='tran':
                 drawGraphLines(axs[0],data1.X*pow(10,9), data1.Y*pow(10,6),colors[i],lines[0],lab)
             elif args.measure[0]=='tran_3':
                 draw3MultiGraphLines(axs[0],data1.X*pow(10,9), data1.Y*pow(10,6), data1.Y1*pow(10,6), data1.Y2*pow(10,6), lines[0])
             elif args.measure[0]=='tran_4':
                 draw4MultiGraphLines(axs[0],data1.X*pow(10,9), data1.Y*pow(10,6), data1.Y1*pow(10,6), data1.Y2*pow(10,6), data1.Y3*pow(10,6),lines[0])
+            elif args.measure[0]=='tran_7':
+                draw7MultiGraphLines(axs[0],data1.X*pow(10,9), data1.Y*pow(10,6), data1.Y1*pow(10,6), data1.Y2*pow(10,6), data1.Y3*pow(10,6), data1.Y4*pow(10,6), data1.Y5*pow(10,6), data1.Y6*pow(10,6),lines[0])
+                
             #set x range
             axs[0].set_xlim(-2, axs[0].get_xlim()[1])
             if args.maxX:
@@ -274,15 +282,28 @@ for i,perm in enumerate(arrayParPermName):
             # fill array with time bins for hit maps
             times[i]=data1.X*pow(10,9)
 
-            # integrate current over 200ns
-            # C=A*s
-            totalCharge=abs(getIntegral(data1.Y,data1.X)* pow(10,12)) #,0,10*pow(10,-9)) * pow(10,12)
-            # search for the LET value in string                                                               
-            # transform from pC/um to pC
-            print("Found LET of: ", args.LET)
-            final_let=float( args.LET ) * pow(10,-5) * thickness
-            # print("Convert to LET*thickness: ", final_let)
-            # normalise to 1/4 when running in 4 pixel domain, assumes particle in 0,0
+            if args.measure[0]=='tran_7':
+                # integrate current over 200ns
+                # C=A*s
+                totalCharge=abs(getIntegral(data1.Y3,data1.X)* pow(10,12)) #,0,10*pow(10,-9)) * pow(10,12)
+                # search for the LET value in string
+                # transform from pC/um to pC
+                print("Found LET of: ", args.LET)
+                final_let=float( args.LET ) * pow(10,-5) * thickness
+                # print("Convert to LET*thickness: ", final_let)
+                # normalise to 1/4 when running in 4 pixel domain, assumes particle in 0,0
+            
+            else:
+                # integrate current over 200ns
+                # C=A*s
+                totalCharge=abs(getIntegral(data1.Y,data1.X)* pow(10,12)) #,0,10*pow(10,-9)) * pow(10,12)
+                # search for the LET value in string
+                # transform from pC/um to pC
+                print("Found LET of: ", args.LET)
+                final_let=float( args.LET ) * pow(10,-5) * thickness
+                # print("Convert to LET*thickness: ", final_let)
+                # normalise to 1/4 when running in 4 pixel domain, assumes particle in 0,0
+                
             if args.scaleLET != 1:
                 final_let = final_let / float(args.scaleLET)
             cce = totalCharge/final_let
@@ -308,8 +329,20 @@ for i,perm in enumerate(arrayParPermName):
                 CCEs1[i], CCEs2[i], CCEs3[i], CCEs4[i] = draw4MultiCCE(axs[1],data1.X,data1.Y,data1.Y1,data1.Y2,data1.Y3,final_let,lines[0])
                 axs[1].set_ylabel(r'CCE $\times$ '+str(args.scaleLET))
                 
-            time95 = getTime(times[i],CCEs1[i],95)
-            time99 = getTime(times[i],CCEs1[i],99)
+            # draw CCEs over time and return 7 arrays
+            elif args.measure[0]=='tran_7':
+                CCEs1[i], CCEs2[i], CCEs3[i], CCEs4[i], CCEs5[i], CCEs6[i], CCEs7[i] = draw7MultiCCE(axs[1],data1.X,data1.Y,data1.Y1,data1.Y2,data1.Y3,data1.Y4,data1.Y5,data1.Y6,final_let,lines[0])
+                axs[1].set_ylabel(r'CCE $\times$ '+str(args.scaleLET))
+                axs[0].set_xlim(-1,10) #lorenzo
+                
+            if args.measure[0]=='tran_7':
+                time95 = getTime(times[i],CCEs4[i],95)
+                time99 = getTime(times[i],CCEs4[i],99)
+                
+            else:
+                time95 = getTime(times[i],CCEs1[i],95)
+                time99 = getTime(times[i],CCEs1[i],99)
+                
             print('Time of 95% collection:    {:.1f} ns'.format(time95))
             print('Time of 99% collection:    {:.1f} ns'.format(time99))
             print('#############################')
@@ -361,7 +394,7 @@ for i,perm in enumerate(arrayParPermName):
 
                 # if measure current at p well, determine punch through voltage
                 elif args.measure[0]=='iv_p' and args.fit:
-                    # set maximum current to be fitted for detemining punch through.. keep low for set-off     
+                    # set maximum current to be fitted for detemining punch through.. keep low for set-off
                     newDat1x=np.array(dat1x[ dat1x > float(3) ])
                     newDat1y=np.array(dat1y[ dat1x > float(3) ])
                     indMin=np.where(newDat1y == newDat1y.min())
@@ -414,8 +447,8 @@ for m in args.measure:
 outName=allCurvesName(args.project, allM, args.output, 'pdf')
 print(outName)
 
-if len(args.measure)>1 or args.measure[0]=='tran_4' or args.measure[0]=='tran_3' or args.measure[0]=='tran':
-    if args.measure[0]=='tran_4' or args.measure[0]=='tran_3' or args.measure[0]=='tran':
+if len(args.measure)>1 or args.measure[0]=='tran_4' or args.measure[0]=='tran_3' or args.measure[0]=='tran' or args.measure[0]=='tran_7':
+    if args.measure[0]=='tran_4' or args.measure[0]=='tran_3' or args.measure[0]=='tran' or args.measure[0]=='tran_7':
         plt.subplots_adjust(top=0.8)
         colmn=4
         if len(arrayParPermName)>1:
@@ -429,20 +462,20 @@ if len(args.measure)>1 or args.measure[0]=='tran_4' or args.measure[0]=='tran_3'
         axs[len(args.measure)-1].set_xlabel('|V|')
 else:
     axs.legend(title=legTitle, loc='center left', bbox_to_anchor=(1, 0.5), fancybox=True)
-if not args.measure[0]=='tran_4' and not args.measure[0]=='tran_3' and not args.measure[0]=='tran':
+if not args.measure[0]=='tran_4' and not args.measure[0]=='tran_3' and not args.measure[0]=='tran' and not args.measure[0]=='tran_7':
     if numP>3:
         plt.subplots_adjust(right=0.5)
     else:
         plt.subplots_adjust(right=0.65)
-# print out 
+# print out
 fig.savefig(outName)
 
 
 # to be moved outside
-# draw hit maps for trans_4 measurements 
+# draw hit maps for trans_4 measurements
 if args.measure[0]=='tran_4' and args.drawMap:
     timeBin=math.floor(len(times[0])/10.)
-    # sample time in 10 
+    # sample time in 10
     for t in range(1,10):
         timeValue=int(0)
         realTime=t*timeBin
@@ -548,7 +581,7 @@ if args.measure[0]=='tran_4' and args.drawMap:
 
 
 
-# draw hit maps for trans_4 measurements
+# draw hit maps for trans_3 measurements
 if args.measure[0]=='tran_3' and args.drawMap:
     timeBin=math.floor(len(times[0])/10.)
     # sample time in 10
@@ -639,3 +672,106 @@ if args.measure[0]=='tran_3' and args.drawMap:
         fig.tight_layout()
         fig.savefig(plotOutName)
     
+    
+    
+    # draw hit maps for trans_7 measurements
+    if args.measure[0]=='tran_7' and args.drawMap:
+        timeBin=math.floor(len(times[0])/10.)
+        # sample time in 10
+        
+        for t in range(1,10):
+            timeValue=int(0)
+            realTime=t*timeBin
+            # for last time bin, use the highest entry
+            if t==9:
+                timeValue=int(times[0][len(times[0])-1])
+            else:
+                timeValue=int(times[0][realTime])
+        
+            plotOutName=allCurvesName(args.project, 'CCE_map_'+str(timeValue)+'ns_'+allM, args.output, 'pdf')
+            print(plotOutName)
+        
+            matrix = 0
+            # draw map in 4x4 if --scaleLET 4
+
+            if args.scaleLET==4:
+                matrix = 7
+                arrX=[30,20,10,0,10,20,30]
+                arrY=[0]
+                arrXYZ=[[0 for x in range(0,7)] for y in range(0,1)]
+                #print(arrXYZ)
+                for pixX in range(0,7):
+                    for pixY in range(0,1):
+                        weight=0
+                        if (pixX==0 and pixY==0) or (pixX==6 and pixY==0):
+                            weight=CCEs3[0][realTime]
+                        elif (pixX==1 or pixX==3) and (pixY==0):
+                            weight=CCEs2[0][realTime]
+                        else:
+                            weight=CCEs1[0][realTime]
+                        #print(pixX,pixY)
+                        #print(weight)
+                        arrXYZ[pixY][pixX]=weight*100./4.
+                        #print(arrXYZ)
+                        #print(len(arrXYZ))
+                        
+            # draw map in 4x4 if --scaleLET 4
+            if args.scaleLET==1:
+                matrix = 7
+                arrX=[30,20,10,0,10,20,30]
+                arrY=[0]
+                arrXYZ=[[0 for x in range(0,7)] for y in range(0,1)]
+                #print(arrXYZ)
+                for pixX in range(0,7):
+                    for pixY in range(0,1):
+                        weight=0
+                        if (pixX==0 and pixY==0):
+                            weight=CCEs1[0][realTime]
+                        elif (pixX==1 and pixY==0):
+                            weight=CCEs2[0][realTime]
+                        elif (pixX==2 and pixY==0):
+                            weight=CCEs3[0][realTime]
+                        elif (pixX==3 and pixY==0):
+                            weight=CCEs4[0][realTime]
+                        elif (pixX==4 and pixY==0):
+                            weight=CCEs5[0][realTime]
+                        elif (pixX==5 and pixY==0):
+                            weight=CCEs6[0][realTime]
+                        elif (pixX==6 and pixY==0):
+                            weight=CCEs7[0][realTime]
+                        #print(pixX,pixY)
+                        #print(weight)
+                        arrXYZ[pixY][pixX]=weight*100.
+                        #print(arrXYZ)
+                        #print(len(arrXYZ))
+
+            fig, ax = plt.subplots()
+            im = ax.imshow(arrXYZ, cmap='viridis', vmin=0, vmax=int(120/float(args.scaleLET)), aspect=5)
+            ax.set_xticks(np.arange(7)) #np.arange(matrix)
+            ax.set_yticks(np.arange(1)) #np.arange(matrix)
+            # ... and label them with the respective list entries
+            ax.set_xticklabels(arrX)
+            ax.set_yticklabels(arrY)
+            #ax.imshow(arrXYZ)
+            ax.set_xticks(np.arange(len(arrXYZ[0])+1)-.5, minor=True)
+            ax.set_yticks(np.arange(len(arrXYZ)+1)-.5, minor=True)
+            ax.grid(which="minor", color="w", linestyle='-', linewidth=3)
+            ax.tick_params(which="minor", bottom=False, left=False)
+            # write values in pixel
+            for pixX in range(0,matrix):
+                for pixY in range(0,1):
+                    text = ax.text(pixX, pixY, "{0:.1f}".format(arrXYZ[pixY][pixX]),
+                                   ha="center", va="bottom", color="w")
+            
+            # Create colorbar
+            cbar = ax.figure.colorbar(im, ax=ax, cmap="viridis")
+            cbar.ax.set_ylabel('CCE [%] $\Delta$t='+str(timeValue)+'ns', rotation=-90, va="bottom")
+            # add impinging point
+            x = matrix/2. - 0.5 #math.floor(matrix/2.)
+            y = 0 #matrix/2. - 0.5 #math.floor(matrix/2.)
+            # print(x,y)
+            ax.scatter(x,y,color='r')
+            fig.tight_layout()
+            fig.savefig(plotOutName)
+
+
