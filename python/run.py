@@ -323,7 +323,6 @@ for i,perm in enumerate(arrayParPermName):
             elif args.measure[0]=='tran_3':
                 CCEs1[i], CCEs2[i], CCEs3[i] = draw3MultiCCE(axs[1],data1.X,data1.Y,data1.Y1,data1.Y2,final_let,lines[0])
                 axs[1].set_ylabel(r'CCE $\times$ '+str(args.scaleLET))
-                axs[0].set_xlim(-1,10) #lorenzo
                 
             elif args.measure[0]=='tran_4':
                 CCEs1[i], CCEs2[i], CCEs3[i], CCEs4[i] = draw4MultiCCE(axs[1],data1.X,data1.Y,data1.Y1,data1.Y2,data1.Y3,final_let,lines[0])
