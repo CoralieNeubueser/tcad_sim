@@ -694,20 +694,28 @@ if args.measure[0]=='tran_7' and args.drawMap:
 
         if args.scaleLET==4:
             matrix = 7
-            arrX=[30,20,10,0,10,20,30]
+            arrX=[0,10,20,30,40,50,60]
             arrY=[0]
             arrXYZ=[[0 for x in range(0,7)] for y in range(0,1)]
             #print(arrXYZ)
             for pixX in range(0,7):
                 for pixY in range(0,1):
                     weight=0
-                    if (pixX==0 and pixY==0) or (pixX==6 and pixY==0):
-                        weight=CCEs3[0][realTime]
-                    elif (pixX==1 or pixX==3) and (pixY==0):
-                        weight=CCEs2[0][realTime]
-                    else:
-                        weight=CCEs1[0][realTime]
-                    #print(pixX,pixY)
+                    if (pixX==0 and pixY==0):
+                        weight=CCEs1[0][realTime]*4
+                    elif (pixX==1 and pixY==0):
+                        weight=CCEs2[0][realTime]*2
+                    elif (pixX==2 and pixY==0):
+                        weight=CCEs3[0][realTime]*2
+                    elif (pixX==3 and pixY==0):
+                        weight=CCEs4[0][realTime]*2
+                    elif (pixX==4 and pixY==0):
+                        weight=CCEs5[0][realTime]*2
+                    elif (pixX==5 and pixY==0):
+                        weight=CCEs6[0][realTime]*2
+                    elif (pixX==6 and pixY==0):
+                        weight=CCEs7[0][realTime]*2
+		    #print(pixX,pixY)
                     #print(weight)
                     arrXYZ[pixY][pixX]=weight*100./4.
                     #print(arrXYZ)
@@ -765,10 +773,16 @@ if args.measure[0]=='tran_7' and args.drawMap:
         cbar = ax.figure.colorbar(im, ax=ax, cmap="viridis")
         cbar.ax.set_ylabel('CCE [%] $\Delta$t='+str(timeValue)+'ns', rotation=-90, va="bottom")
         # add impinging point
-        x = matrix/2. - 0.5 #math.floor(matrix/2.)
-        y = 0 #matrix/2. - 0.5 #math.floor(matrix/2.)
-        # print(x,y)
-        ax.scatter(x,y,color='r')
+        if args.scaleLET==1:
+            x = matrix/2. - 0.5 #math.floor(matrix/2.)
+            y = 0 #matrix/2. - 0.5 #math.floor(matrix/2.)
+            # print(x,y)
+            ax.scatter(x,y,color='r')
+        if args.scaleLET==4:
+            x = 0 #matrix/2. - 0.5 #math.floor(matrix/2.)
+            y = 0 #matrix/2. - 0.5 #math.floor(matrix/2.)
+            # print(x,y)
+            ax.scatter(x,y,color='r')
         fig.tight_layout()
         fig.savefig(plotOutName)
 
