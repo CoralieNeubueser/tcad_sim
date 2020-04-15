@@ -7,6 +7,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--project', type=str, default='ARCADIA25um_surfaceDamage', help='Define patht to project.')
 parser.add_argument('--cv', action='store_true', help='Specify if measurement is cv.')
 parser.add_argument('--iv', action='store_true', help='Specify if measurement is iv.')
+parser.add_argument('--electrode', type=int, help='Specify which electrode is read-out.')
 parser.add_argument('--iv_p', action='store_true', help='Specify if measurement is iv on pwell.')
 parser.add_argument('--iv_b', action='store_true', help='Specify if measurement is iv.')
 parser.add_argument('--cv_b', action='store_true', help='Specify if measurement is cv.')
@@ -77,6 +78,10 @@ elif args.charge:
     nameBegin="tran"
     nameEnd=".plt"
 
+el=None
+if args.electrode:
+    el=args.electrode
+
 figName=nameBegin
 inFileName=home+args.project+"/"+nameBegin
 options=str()
@@ -114,10 +119,16 @@ newFile.write('select_plots {Plot_1}\n')
 newFile.write('#-> Plot_1\n')
 
 if measure=='cv':
-    newFile.write('create_curve -plot Plot_1 -dataset {'+str(figName)+'} -axisX v(Pbot) -axisY c(Ntop,Ntop)\n')
+    if el is not None:
+        newFile.write('create_curve -plot Plot_1 -dataset {'+str(figName)+'} -axisX v(Pbot) -axisY c(Ntop'+str(el)+',Ntop'+str(el)+')\n')
+    else:    
+        newFile.write('create_curve -plot Plot_1 -dataset {'+str(figName)+'} -axisX v(Pbot) -axisY c(Ntop,Ntop)\n')
 
 elif measure=='iv':
-    newFile.write('create_curve -plot Plot_1 -dataset {'+str(figName)+'} -axisX {Pbot OuterVoltage} -axisY {Ntop TotalCurrent}\n')
+    if el is not None:
+        newFile.write('create_curve -plot Plot_1 -dataset {'+str(figName)+'} -axisX {Pbot OuterVoltage} -axisY {Ntop'+str(el)+' TotalCurrent}\n')
+    else:    
+        newFile.write('create_curve -plot Plot_1 -dataset {'+str(figName)+'} -axisX {Pbot OuterVoltage} -axisY {Ntop TotalCurrent}\n')
 
 elif measure=='iv_p':
     newFile.write('create_curve -plot Plot_1 -dataset {'+str(figName)+'} -axisX {Pbot OuterVoltage} -axisY {Ptop TotalCurrent}\n')

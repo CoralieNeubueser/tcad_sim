@@ -4,5 +4,5 @@
 *.err
 *.job
 *.out
-DB/*
-scripts/*
+DB/
+scripts/

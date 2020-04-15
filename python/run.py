@@ -7,20 +7,25 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument('--project', type=str, default='ARCADIA25um_surfaceDamage', help='Define patht to project.')
 parser.add_argument('--writeCSV', action='store_true', help='Convert tcl to csv, if not already done.')
-parser.add_argument('-threeD', '--threeD', action='store_true', help='3D measurement, assumes only particle transient measurement at the moment.')
 parser.add_argument('-m', '--measure', action='append', type=str, default=[], help='Define which plots you want to draw.', choices=['cv','iv','iv_p','iv_b','cv_b','tran','tran_3','tran_4','tran_7','tran_8','charge'])
+# define read-out electrode
+parser.add_argument('-el', '--electrode', type=int, help='Possibility to define read-out electrode. Do not use if simulations has only one!', choices=[1,2,3,4,5])
+# draw and fit ranges
 parser.add_argument('--log', action='store_true', help='Define if y axis on log scale.')
 parser.add_argument('--fit', action='store_true', help='Define if cv curve is fitted.')
 parser.add_argument('--fit_minX', type=int, help='Set fit range minimum.')
 parser.add_argument('--fit_maxX', type=int, help='Set fit range maximum.')
 parser.add_argument('--free', action='store_true', help='Free y range.')
 parser.add_argument('--maxX', type=int, help='Set draw range maximum.')
-parser.add_argument('-numP', '--Parameters', type=int, default=2, help='Define how many parameters are tested.')
+parser.add_argument('-threeD', '--threeD', action='store_true', help='3D measurement, assumes only particle transient measurement at the moment.')
+# options for transient measurements
 parser.add_argument('-th', '--thickness', type=int, default=100, help='Define silicon thickness for CCE.', required= 'tran_4' in sys.argv or 'tran' in sys.argv or 'tran_3' in sys.argv or 'tran_7' in sys.argv or 'tran_8' in sys.argv)
 parser.add_argument('--LET', type=float, default=1.28, help='Set the LET value for CCE calculation.', required= 'tran_4' in sys.argv or 'tran_3' in sys.argv or 'tran_7' in sys.argv or 'tran_8' in sys.argv)
 parser.add_argument('--scaleLET', type=int, default=1, help='Scaling of the LET for CCE.', required= 'tran_4' in sys.argv or 'tran_3' in sys.argv or 'tran_7' in sys.argv or 'tran_8' in sys.argv)
 parser.add_argument('--drawMap', action='store_true', help='Print out CCE per pixel in map.')
+# Tested variables
 parser.add_argument('-out', '--output', type=str, default='_', help='Define output file name..')
+parser.add_argument('-numP', '--Parameters', type=int, default=2, help='Define how many parameters are tested.')
 parser.add_argument('-p1', '--par1', action='append', default=[], help='Fill arrays with parameter value.')
 parser.add_argument('-p2', '--par2', action='append', default=[], help='Fill arrays with parameter value.')
 parser.add_argument('-p3', '--par3', action='append', default=[], help='Fill arrays with parameter value.')
@@ -56,8 +61,8 @@ titles = dict([('cv', 'C [F/$\mu$m]'),
                ('charge', 'charge [pC]')
                ])
 
-ranges = dict([('cv', [2e-16, 5e-15]),
-               ('iv', [7e-17, 5e-13]),
+ranges = dict([('cv', [2e-16, 1.5e-15]),
+               ('iv', [7e-17, 5e-14]),
                ('iv_p', [1e-20, 1e-5]),
                ('iv_b', [1e-16, 1e-5]),
                ('cv_b', [1e-16, 5e-15]),
@@ -133,11 +138,15 @@ if args.writeCSV:
         if len(args.measure)>1:
             for im,m in enumerate(args.measure):
                 if m=='cv':
+                    # only cv files are re-written in case that muli-measures are taken!
                     # write and run tcl files to store csv files in tmp/ for
                     os.system('python3 python/writeTcl.py --project '+str(args.project)+' --'+str(m)+' '+parOption+' --run')
         else:
             # write and run tcl files to store csv files in tmp/ for
-            os.system('python3 python/writeTcl.py --project '+str(args.project)+' --'+str(args.measure[0])+' '+parOption+' --run')
+            cmd = 'python3 python/writeTcl.py --project '+str(args.project)+' --'+str(args.measure[0])+' '+parOption+' --run'
+            if args.electrode:
+                cmd += ' --electrode '+str(args.electrode)
+            os.system(cmd)
             
 # prepare for drawing
 mark=','

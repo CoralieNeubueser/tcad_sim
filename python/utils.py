@@ -385,18 +385,13 @@ def allCurvesName(project, measure, op, form):
 
 def drawCCE(axis,arr1,arr2,norm,col,linestyle,la):
     eff=np.zeros(len(arr2))
-    current=np.array(arr2) # A
+    current=abs(np.array(arr2)) # A
     time=np.array(arr1) # s
     
     for it,t in enumerate(time):
-        dt = t-time[it-1]
-        if it==0:
-            dt=time[it+1]-t
-            eff[it] = abs(current[it])*dt*pow(10,12)/norm
-            continue
-        # convert to pC and normalise  
-        eff[it] = eff[it-1] + abs(current[it])*dt*pow(10,12)/norm 
-    # time in ns
+        eff[it] = np.trapz(current[time<t], x=time[time<t]) *pow(10,12)/norm
+ 
+    #time in ns
     axis.plot(time*pow(10,9),eff,color=col,marker=',',linestyle=linestyle,label=la)
     return eff
 
@@ -498,7 +493,7 @@ def draw7MultiCCE(axis,arr1,arr2,arr3,arr4,arr5,arr6,arr7,arr8,norm,linestyle):
     return eff1, eff2, eff3, eff4, eff5, eff6, eff7
     
     
-    def draw8MultiCCE(axis,arr1,arr2,arr3,arr4,arr5,arr6,arr7,arr8,arr9,norm,linestyle):
+def draw8MultiCCE(axis,arr1,arr2,arr3,arr4,arr5,arr6,arr7,arr8,arr9,norm,linestyle):
     eff1=np.zeros(len(arr2))
     eff2=np.zeros(len(arr3))
     eff3=np.zeros(len(arr4))
