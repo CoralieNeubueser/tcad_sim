@@ -378,6 +378,12 @@ def csvFileName(project, measure, pars):
     csvName=csvName+"_"+str(pars)
     return csvName+".csv"
 
+def csvFileNameElectrode(project, measure, pars, el):
+    home=os.getcwd()+"/DB/"
+    csvName=home+project+"/tmp/"+measure+"_electr_"+str(el)
+    csvName=csvName+"_"+str(pars)
+    return csvName+".csv"
+
 def allCurvesName(project, measure, op, form):
     home=os.getcwd()+"/DB/"
     name=home+project+"/tmp/"+measure

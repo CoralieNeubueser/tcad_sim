@@ -1,6 +1,6 @@
 import glob, os, sys, argparse
 import numpy as np
-from utils import csvFileName 
+from utils import * 
 
 parser = argparse.ArgumentParser()
 
@@ -90,6 +90,8 @@ for ipar,par in enumerate(args.parStr):
     if ipar<(len(args.parStr)-1):
         options+='_'
 csvFile=csvFileName(args.project, measure, options)
+if el is not None:
+    csvFile=csvFileNameElectrode(args.project, measure, options, el)
 
 # check if temporary path exist, if not create
 workDir=home+args.project+"/tmp/"
@@ -97,7 +99,7 @@ if not os.path.isdir(workDir):
     print("Create output directory /tmp/")
     os.system('mkdir '+home+args.project+"/tmp/")
 if os.path.isfile(csvFile):
-    print("CSV file already exists.")
+    print("CSV file already exists. It will be removed, and re-written.")
     os.system('rm '+csvFile)
     args.run=True
 # set parameters in file names

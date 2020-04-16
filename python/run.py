@@ -13,8 +13,8 @@ parser.add_argument('-el', '--electrode', type=int, help='Possibility to define 
 # draw and fit ranges
 parser.add_argument('--log', action='store_true', help='Define if y axis on log scale.')
 parser.add_argument('--fit', action='store_true', help='Define if cv curve is fitted.')
-parser.add_argument('--fit_minX', type=int, help='Set fit range minimum.')
-parser.add_argument('--fit_maxX', type=int, help='Set fit range maximum.')
+parser.add_argument('--fit_minX', type=float, default=0., help='Set fit range minimum.')
+parser.add_argument('--fit_maxX', type=float, default=100., help='Set fit range maximum.')
 parser.add_argument('--free', action='store_true', help='Free y range.')
 parser.add_argument('--maxX', type=int, help='Set draw range maximum.')
 parser.add_argument('-threeD', '--threeD', action='store_true', help='3D measurement, assumes only particle transient measurement at the moment.')
@@ -183,6 +183,9 @@ times=[[0 for x in range(len(arrayParPermName))] for y in range(100)]
 for i,perm in enumerate(arrayParPermName):
 
     f1=csvFileName(args.project, args.measure[0], perm)
+    if args.electrode:
+        f1=csvFileNameElectrode(args.project, args.measure[0], perm, args.electrode)
+
     print(f1)
     data1 = pd.read_csv(f1, names=["X","Y","X1","Y1","X2","Y2","X3","Y3","X4","Y4","X5","Y5","X6","Y6","X7","Y7"], skiprows=1)
     lab=str(perm)
@@ -191,6 +194,9 @@ for i,perm in enumerate(arrayParPermName):
     if len(args.measure)>1:
         for im,m in enumerate(args.measure):
             f2=csvFileName(args.project, m, perm)
+            if args.electrode:
+                f2=csvFileNameElectrode(args.project, m, perm, args.electrode)
+
             data2 = pd.read_csv(f2, names=["X","Y"], skiprows=1)
                 
             drawGraphLines(axs[im],abs(data2.X), abs(data2.Y),colors[i],lines[0],lab)
@@ -244,7 +250,28 @@ for i,perm in enumerate(arrayParPermName):
                 deplVs[i]=deplV
                 capCs[i]=deplC
 
-            elif  m=='cv_b' and args.fit:
+            elif m=='iv' and args.fit:
+                # find minimum above 2V and below 20V
+                useMin=2
+                useMax=20
+                if args.fit_minX:
+                    useMin = args.fit_minX
+                if args.fit_maxX:
+                    useMax = args.fit_maxX
+                newDat1x=np.array(data2.X[ (data2.X < float(useMax)) & (data2.X > float(useMin)) ])
+                newDat1y=np.array(data2.Y[ (data2.X < float(useMax)) & (data2.X > float(useMin)) ])
+                indMin=np.where(newDat1y == newDat1y.min())
+                ptV = newDat1x[int(indMin[0])]
+                Ipt = newDat1y[int(indMin[0])]
+                drawVoltageLine(axs,ptV,colors[i])
+
+                print('#############################')
+                print( perm )
+                print('Depletion voltage found to be:    {:.1f} V'.format(ptV))
+                print('Current at depletion voltage:     {:.4f} uA'.format(Ipt*pow(10,6)))
+                print('#############################')
+
+            elif m=='cv_b' and args.fit:
                 deplV,deplC=deplVoltageRange(axs[im],data2,args.fit_minX,args.fit_maxX,colors[i])
                 print('#############################')
                 print( perm )
@@ -256,6 +283,9 @@ for i,perm in enumerate(arrayParPermName):
                 
         for im,m in enumerate(args.measure):
             f2=csvFileName(args.project, m, perm)
+            if args.electrode:
+                f2=csvFileNameElectrode(args.project, m, perm, args.electrode)
+
             data2 = pd.read_csv(f2, names=["X","Y"], skiprows=1)
             # check if punch-through/depletion voltage is detemined
             if (m=='iv' or m=='iv_b' or m=='iv_p') and find_element_in_list('cv',args.measure) and args.fit:
@@ -411,7 +441,7 @@ for i,perm in enumerate(arrayParPermName):
 
                 # if measure current at p well, determine punch through voltage
                 elif args.measure[0]=='iv_p' and args.fit:
-                    # set maximum current to be fitted for detemining punch through.. keep low for set-off
+                    # find minimum above 3V
                     newDat1x=np.array(dat1x[ dat1x > float(3) ])
                     newDat1y=np.array(dat1y[ dat1x > float(3) ])
                     indMin=np.where(newDat1y == newDat1y.min())
@@ -424,6 +454,28 @@ for i,perm in enumerate(arrayParPermName):
                     print('Punch-through voltage found to be:  {:.1f} V'.format(ptV))
                     print('Current at punch through voltage:   {:.4f} uA'.format(Ipt*pow(10,6)))
                     print('#############################')
+
+                elif args.measure[0]=='iv' and args.fit:
+                    # find minimum above 2V and below 20V
+                    useMin=2
+                    useMax=20
+                    if args.fit_minX:
+                        useMin = args.fit_minX
+                    if args.fit_maxX:
+                        useMax = args.fit_maxX 
+                    newDat1x=np.array(dat1x[ (dat1x < float(useMax)) & (dat1x > float(useMin)) ])
+                    newDat1y=np.array(dat1y[ (dat1x < float(useMax)) & (dat1x > float(useMin)) ])
+                    indMin=np.where(newDat1y == newDat1y.min())
+                    ptV = newDat1x[int(indMin[0])]
+                    Ipt = newDat1y[int(indMin[0])]
+                    drawVoltageLine(axs,ptV,colors[i])
+
+                    print('#############################')
+                    print( perm )
+                    print('Depletion voltage found to be:    {:.1f} V'.format(ptV))
+                    print('Current at depletion voltage:     {:.4f} uA'.format(Ipt*pow(10,6)))
+                    print('#############################')
+
             else:
                 drawGraphLines(axs,abs(data1.X), data1.Y,colors[i],lines[0],lab)
             axs.set_xlabel('|V|')
