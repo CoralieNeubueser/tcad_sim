@@ -391,7 +391,7 @@ def allCurvesName(project, measure, op, form):
 
 def drawCCE(axis,arr1,arr2,norm,col,linestyle,la):
     eff=np.zeros(len(arr2))
-    current=abs(np.array(arr2)) # A
+    current=np.array(arr2) # A
     time=np.array(arr1) # s
     
     for it,t in enumerate(time):
@@ -418,10 +418,10 @@ def draw4MultiCCE(axis,arr1,arr2,arr3,arr4,arr5,norm,linestyle):
     eff2=np.zeros(len(arr3))
     eff3=np.zeros(len(arr4))
     eff4=np.zeros(len(arr5))
-    current1=abs(np.array(arr2)) # A                 
-    current2=abs(np.array(arr3)) # A
-    current3=abs(np.array(arr4)) # A
-    current4=abs(np.array(arr5)) # A
+    current1=np.array(arr2) # A                 
+    current2=np.array(arr3) # A
+    current3=np.array(arr4) # A
+    current4=np.array(arr5) # A
     time=np.array(arr1) # s              
     
     # print(time)
@@ -443,9 +443,9 @@ def draw3MultiCCE(axis,arr1,arr2,arr3,arr4,norm,linestyle):
     eff1=np.zeros(len(arr2))
     eff2=np.zeros(len(arr3))
     eff3=np.zeros(len(arr4))
-    current1=abs(np.array(arr2)) # A
-    current2=abs(np.array(arr3)) # A
-    current3=abs(np.array(arr4)) # A
+    current1=np.array(arr2) # A
+    current2=np.array(arr3) # A
+    current3=np.array(arr4) # A
     time=np.array(arr1) # s
     # print(time)                                                
     for it,t in enumerate(time):
@@ -469,13 +469,13 @@ def draw7MultiCCE(axis,arr1,arr2,arr3,arr4,arr5,arr6,arr7,arr8,norm,linestyle):
     eff5=np.zeros(len(arr6))
     eff6=np.zeros(len(arr7))
     eff7=np.zeros(len(arr8))
-    current1=abs(np.array(arr2)) # A
-    current2=abs(np.array(arr3)) # A
-    current3=abs(np.array(arr4)) # A
-    current4=abs(np.array(arr5)) # A
-    current5=abs(np.array(arr6)) # A
-    current6=abs(np.array(arr7)) # A
-    current7=abs(np.array(arr8)) # A
+    current1=np.array(arr2) # A
+    current2=np.array(arr3) # A
+    current3=np.array(arr4) # A
+    current4=np.array(arr5) # A
+    current5=np.array(arr6) # A
+    current6=np.array(arr7) # A
+    current7=np.array(arr8) # A
     time=np.array(arr1) # s
     # print(time)
     for it,t in enumerate(time):
@@ -508,14 +508,14 @@ def draw8MultiCCE(axis,arr1,arr2,arr3,arr4,arr5,arr6,arr7,arr8,arr9,norm,linesty
     eff6=np.zeros(len(arr7))
     eff7=np.zeros(len(arr8))
     eff8=np.zeros(len(arr9))
-    current1=abs(np.array(arr2)) # A
-    current2=abs(np.array(arr3)) # A
-    current3=abs(np.array(arr4)) # A
-    current4=abs(np.array(arr5)) # A
-    current5=abs(np.array(arr6)) # A
-    current6=abs(np.array(arr7)) # A
-    current7=abs(np.array(arr8)) # A
-    current8=abs(np.array(arr9)) # A
+    current1=np.array(arr2) # A
+    current2=np.array(arr3) # A
+    current3=np.array(arr4) # A
+    current4=np.array(arr5) # A
+    current5=np.array(arr6) # A
+    current6=np.array(arr7) # A
+    current7=np.array(arr8) # A
+    current8=np.array(arr9) # A
     time=np.array(arr1) # s
     # print(time)
     for it,t in enumerate(time):

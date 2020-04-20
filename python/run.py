@@ -78,6 +78,8 @@ if threeDim:
     ranges['cv']=[0, 2e-14]
     titles['cv']='C [F]'
     titles['iv']='I [A]'
+    titles['iv_b']='I [A]'
+    titles['iv_p']='I [A]'
 
 # write parameter permutations..
 arrayParPerm=[]
@@ -199,7 +201,7 @@ for i,perm in enumerate(arrayParPermName):
 
             data2 = pd.read_csv(f2, names=["X","Y"], skiprows=1)
                 
-            drawGraphLines(axs[im],abs(data2.X), abs(data2.Y),colors[i],lines[0],lab)
+            drawGraphLines(axs[im],abs(data2.X), data2.Y,colors[i],lines[0],lab)
             axs[im].set_ylabel(titles[m])
             if not args.free:
                 axs[im].set_ylim(ranges[m][0],ranges[m][1])
@@ -211,7 +213,7 @@ for i,perm in enumerate(arrayParPermName):
             # if measurement is iv curve, fit and extract the punch through voltage
             if m=='iv_b':
                 # set maximum current to be fitted for detemining punch through.. keep low for set-off
-                ptV,Ipt=punchThrough(axs[im],abs(data2.X),abs(data2.Y),1e-13,colors[i])
+                ptV,Ipt=punchThrough(axs[im],abs(data2.X),data2.Y,1e-13,colors[i])
                 print('#############################')
                 print( perm )
                 print('Punch-through voltage found to be:  {:.1f} V'.format(ptV))
@@ -223,7 +225,7 @@ for i,perm in enumerate(arrayParPermName):
             elif m=='iv_p':
                 # set maximum current to be fitted for detemining punch through.. keep low for set-off
                 newDat1x=np.array(abs(data2.X[ abs(data2.X) > float(3) ]))
-                newDat1y=np.array(abs(data2.Y[ abs(data2.X) > float(3) ]))
+                newDat1y=np.array(data2.Y[ abs(data2.X) > float(3) ])
                 indMin=np.where(newDat1y == newDat1y.min())
                 ptV = newDat1x[int(indMin[0])]
                 Ipt = newDat1y[int(indMin[0])]
@@ -291,7 +293,7 @@ for i,perm in enumerate(arrayParPermName):
             if (m=='iv' or m=='iv_b' or m=='iv_p') and find_element_in_list('cv',args.measure) and args.fit:
                 xtmp=np.array(abs(data2.X))
                 vbin=np.where((xtmp<deplVs[i]+0.5) & (xtmp>deplVs[i]-0.5) )
-                ytmp=np.array(abs(data2.Y))
+                ytmp=np.array(data2.Y)
                 idpl=float(ytmp[vbin])
                 print('Current at depletion voltage:    {:.4f} pA'.format(idpl*pow(10,12)))
                 print('#############################')
@@ -425,7 +427,7 @@ for i,perm in enumerate(arrayParPermName):
 
         else:
             dat1x=abs(data1.X)
-            dat1y=abs(data1.Y)
+            dat1y=data1.Y
 
             if args.measure[0]=='iv_b' or args.measure[0]=='iv_p' or args.measure[0]=='iv':
                 drawGraphLines(axs,dat1x,dat1y,colors[i],lines[0],lab)
