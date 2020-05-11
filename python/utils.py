@@ -27,6 +27,22 @@ def drawVoltageLine(axs,parX,col):
     arrX=linFunction(arrY,float(parX))
     axs.plot(arrX, arrY, color=col, linestyle=':')
 
+def addValuesToPlot(axs,Vpt,Ileak,col,m,lenP,iP,log):
+
+    ypos = axs.get_ylim()[1]/3.+iP*(axs.get_ylim()[1]/10.)
+    if log:
+        ypos = axs.get_ylim()[1]/eval('1e'+str(lenP)) + (axs.get_ylim()[1]/eval('1e'+str(lenP-iP))) 
+
+    yaxis='$I_{leak}'
+    unit='pA'
+    scale=1e12
+    if m=='cv':
+        yaxis='$C'
+        unit='fF'
+        scale=1e15
+
+    axs.text( axs.get_xlim()[1]/2., ypos, yaxis+'('+str("{:.1f}V").format(Vpt)+')=$'+str("{:.3f}"+str(unit)).format(Ileak*scale), color=col)
+    
 def linFit(x,y):
     # fit of shape x+a
     fitfunc=lambda params, x: params[0] + x * params[1]
@@ -221,7 +237,6 @@ def punchThrough(ax,datX,datY,yMax,*col):
     y_noCut = np.array(datY)
     x1 = x_noCut[(x_noCut > float(2)) & (y_noCut < float(yMax))]
     y1 = y_noCut[(x_noCut > float(2)) & (y_noCut < float(yMax))]
-
     # get slope of your data
     dif = np.diff(y1) / np.diff(x1)
     
@@ -256,9 +271,6 @@ def punchThrough(ax,datX,datY,yMax,*col):
         for indi, ind in enumerate(indNZLow):
             if ind < len(x1):
                 slope, intercept, r_value, p_value, std_err = linregress(x1[ind:indNZLow[indi+1]], y1[ind:indNZLow[indi+1]])
-                #err, function=linFit(x[ind:indNZ[indi+1]], y[ind:indNZ[indi+1]])
-                #print(err)
-                #print(function)
                 if not math.isnan(slope):
                     # fill lin fits to lists
                     f.append(slope * x1 + intercept)
@@ -281,7 +293,6 @@ def punchThrough(ax,datX,datY,yMax,*col):
                     yran.append(slope * x1[ind:indNZHigh[indi+1]] + intercept)
                     Ipt.append(intercept)
                     print('Found second fit.. \n')
-                    #break
 
         if len(f)<2:
             print('Found only {} linear fits.. reduce threshold by half.'.format(len(f)))
@@ -322,7 +333,7 @@ def punchThrough(ax,datX,datY,yMax,*col):
         if not idx:
             for ifunctions in range(1,len(f)):
                 idx = np.argwhere(np.diff(np.sign(np.array(func) - np.array(f[len(f)-ifunctions])))).flatten()
-
+        # plot line at punch-through
         curr_pt=np.linspace(ax.get_ylim()[0],ax.get_ylim()[1],100)
         print(float(x1[idx]))
         vol_pt=linFunction(curr_pt,float(x1[idx]))
@@ -406,7 +417,7 @@ def getTime(vecTime,vecCCEs,perc):
     cces = np.array(vecCCEs)
     maxCCE = float(vecCCEs[len(vecCCEs)-1])
     ccePerc = maxCCE*perc/100.
-    print("{}% are in absolut values: {:.2f}".format(perc, ccePerc))
+    print("{}% are in absolut values: {:.1f}%".format(perc, ccePerc*100))
     timesWithPerc = time[cces > ccePerc]
     if len(timesWithPerc)>1:
         return float(timesWithPerc[0])
