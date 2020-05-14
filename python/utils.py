@@ -353,35 +353,35 @@ def drawGraph(axis,arr1,arr2,col,la):
 def drawGraphLines(axis,arr1,arr2,col,linestyle,la):
     axis.plot(arr1,arr2, color=col,marker=',', linestyle=linestyle, label=la)
 
-def draw3MultiGraphLines(axis,arr1,arr2,arr3,arr4,linestyle):
-    axis.plot(arr1,arr2, color='black',marker=',', linestyle=linestyle, label="Ntop1")
-    axis.plot(arr1,arr3, color='red',marker=',', linestyle=linestyle, label="Ntop2")
-    axis.plot(arr1,arr4, color='blue',marker=',', linestyle=linestyle, label="Ntop3")
+def draw3MultiGraphLines(axis,arr1,arr2,arr3,arr4,scale,linestyle):
+    axis.plot(arr1,arr2*scale, color='black',marker=',', linestyle=linestyle, label="Ntop1")
+    axis.plot(arr1,arr3*scale, color='red',marker=',', linestyle=linestyle, label="Ntop2")
+    axis.plot(arr1,arr4*scale, color='blue',marker=',', linestyle=linestyle, label="Ntop3")
     
-def draw4MultiGraphLines(axis,arr1,arr2,arr3,arr4,arr5,linestyle):
-    axis.plot(arr1,arr2, color='black',marker=',', linestyle=linestyle, label="Ntop_0_0")
-    axis.plot(arr1,arr3, color='red',marker=',', linestyle=linestyle, label="Ntop_0_1")
-    axis.plot(arr1,arr4, color='blue',marker=',', linestyle=linestyle, label="Ntop_1_0")
-    axis.plot(arr1,arr5, color='orange',marker=',', linestyle=linestyle, label="Ntop_1_1")
+def draw4MultiGraphLines(axis,arr1,arr2,arr3,arr4,arr5,scale,linestyle):
+    axis.plot(arr1,arr2*scale, color='black',marker=',', linestyle=linestyle, label="Ntop_0_0")
+    axis.plot(arr1,arr3*scale, color='red',marker=',', linestyle=linestyle, label="Ntop_0_1")
+    axis.plot(arr1,arr4*scale, color='blue',marker=',', linestyle=linestyle, label="Ntop_1_0")
+    axis.plot(arr1,arr5*scale, color='orange',marker=',', linestyle=linestyle, label="Ntop_1_1")
 
-def draw7MultiGraphLines(axis,arr1,arr2,arr3,arr4,arr5,arr6,arr7,arr8,linestyle):
-    axis.plot(arr1,arr2, color='black',marker=',', linestyle=linestyle, label="Ntop_1")
-    axis.plot(arr1,arr3, color='red',marker=',', linestyle=linestyle, label="Ntop_2")
-    axis.plot(arr1,arr4, color='blue',marker=',', linestyle=linestyle, label="Ntop_3")
-    axis.plot(arr1,arr5, color='orange',marker=',', linestyle=linestyle, label="Ntop_4")
-    axis.plot(arr1,arr6, color='green',marker=',', linestyle=linestyle, label="Ntop_5")
-    axis.plot(arr1,arr7, color='cyan',marker=',', linestyle=linestyle, label="Ntop_6")
-    axis.plot(arr1,arr8, color='magenta',marker=',', linestyle=linestyle, label="Ntop_7")
+def draw7MultiGraphLines(axis,arr1,arr2,arr3,arr4,arr5,arr6,arr7,arr8,scale,linestyle):
+    axis.plot(arr1,arr2*scale, color='black',marker=',', linestyle=linestyle, label="Ntop_1")
+    axis.plot(arr1,arr3*scale, color='red',marker=',', linestyle=linestyle, label="Ntop_2")
+    axis.plot(arr1,arr4*scale, color='blue',marker=',', linestyle=linestyle, label="Ntop_3")
+    axis.plot(arr1,arr5*scale, color='orange',marker=',', linestyle=linestyle, label="Ntop_4")
+    axis.plot(arr1,arr6*scale, color='green',marker=',', linestyle=linestyle, label="Ntop_5")
+    axis.plot(arr1,arr7*scale, color='cyan',marker=',', linestyle=linestyle, label="Ntop_6")
+    axis.plot(arr1,arr8*scale, color='magenta',marker=',', linestyle=linestyle, label="Ntop_7")
 
-def draw8MultiGraphLines(axis,arr1,arr2,arr3,arr4,arr5,arr6,arr7,arr8,arr9,linestyle):
-    axis.plot(arr1,arr2, color='black',marker=',', linestyle=linestyle, label="Ntop_1")
-    axis.plot(arr1,arr3, color='red',marker=',', linestyle=linestyle, label="Ntop_2")
-    axis.plot(arr1,arr4, color='blue',marker=',', linestyle=linestyle, label="Ntop_3")
-    axis.plot(arr1,arr5, color='orange',marker=',', linestyle=linestyle, label="Ntop_4")
-    axis.plot(arr1,arr6, color='green',marker=',', linestyle=linestyle, label="Ntop_5")
-    axis.plot(arr1,arr7, color='cyan',marker=',', linestyle=linestyle, label="Ntop_6")
-    axis.plot(arr1,arr8, color='magenta',marker=',', linestyle=linestyle, label="Ntop_7")
-    axis.plot(arr1,arr9, color='black',marker=',', linestyle=linestyle, label="Ntop_8")
+def draw8MultiGraphLines(axis,arr1,arr2,arr3,arr4,arr5,arr6,arr7,arr8,arr9,scale,linestyle):
+    axis.plot(arr1,arr2*scale, color='black',marker=',', linestyle=linestyle, label="Ntop_1")
+    axis.plot(arr1,arr3*scale, color='red',marker=',', linestyle=linestyle, label="Ntop_2")
+    axis.plot(arr1,arr4*scale, color='blue',marker=',', linestyle=linestyle, label="Ntop_3")
+    axis.plot(arr1,arr5*scale, color='orange',marker=',', linestyle=linestyle, label="Ntop_4")
+    axis.plot(arr1,arr6*scale, color='green',marker=',', linestyle=linestyle, label="Ntop_5")
+    axis.plot(arr1,arr7*scale, color='cyan',marker=',', linestyle=linestyle, label="Ntop_6")
+    axis.plot(arr1,arr8*scale, color='magenta',marker=',', linestyle=linestyle, label="Ntop_7")
+    axis.plot(arr1,arr9*scale, color='black',marker=',', linestyle=linestyle, label="Ntop_8")
     
 def csvFileName(project, measure, pars):
     home=os.getcwd()+"/DB/"
