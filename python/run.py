@@ -27,6 +27,9 @@ parser.add_argument('-th', '--thickness', type=int, default=100, help='Define si
 parser.add_argument('--LET', type=float, default=1.28, help='Set the LET value for CCE calculation in [e-5pC].', required= 'tran_4' in sys.argv or 'tran_3' in sys.argv or 'tran_7' in sys.argv or 'tran_8' in sys.argv)
 parser.add_argument('--scaleLET', type=int, default=1, help='Scaling of the LET for CCE.', required= 'tran_4' in sys.argv or 'tran_3' in sys.argv or 'tran_7' in sys.argv or 'tran_8' in sys.argv)
 parser.add_argument('--drawMap', action='store_true', help='Print out CCE per pixel in map.')
+parser.add_argument('--pitch', type=int, help='Define pitch for maps.', required='drawMap' in sys.argv)
+parser.add_argument('--positionX', type=float, help='Set x position of impinging particle.', required='drawMap' in sys.argv)
+parser.add_argument('--positionZ', type=float, help='Set z position of impinging particle.', required='drawMap' in sys.argv)
 # Tested variables
 parser.add_argument('-out', '--output', type=str, default='_', help='Define output file name..')
 parser.add_argument('-numP', '--Parameters', type=int, default=2, help='Define how many parameters are tested.')
@@ -418,7 +421,13 @@ for i,perm in enumerate(arrayParPermName):
 
             print('#############################')
             print('Total CCE, integrated over all channels.')
-            CCEs = CCEs1 + CCEs2 + CCEs3 + CCEs4 + CCEs5 + CCEs7 + CCEs8
+            CCEs[i] = np.add(CCEs1[i], CCEs2[i])
+            CCEs[i] = np.add(CCEs[i], CCEs3[i])
+            CCEs[i] = np.add(CCEs[i], CCEs4[i])
+            CCEs[i] = np.add(CCEs[i], CCEs5[i])
+            CCEs[i] = np.add(CCEs[i], CCEs6[i])
+            CCEs[i] = np.add(CCEs[i], CCEs7[i])
+            CCEs[i] = np.add(CCEs[i], CCEs8[i])
             time95 = getTime(times[i],CCEs[i],95)
             time99 = getTime(times[i],CCEs[i],99)
                 
@@ -605,10 +614,18 @@ if args.drawMap:
     plotOutName=allCurvesName(args.project, 'CCE_map_'+allM, args.output, 'pdf')
     print('#################')
     print('Print CCE map: ',plotOutName)
-    vecCCEs = [CCEs, CCEs1, CCEs2, CCEs3, CCEs4, CCEs5, CCEs6, CCEs7, CCEs8]
     # number of transients
-    trans = int(re.search(r'\d+', args.measure[0]).group())
-    drawMap(trans, times, vecCCEs, args.scaleLET, plotOutName, False)
+    channels = int(re.search(r'\d+', args.measure[0]).group())
+    vecCCEs = []
+    for i in range(0,channels+1):
+        # normalise CCEs
+        if i==0:
+            normCCEs = np.divide(eval('CCEs')[0], CCEs[0], out=np.zeros_like(eval('CCEs')[0]), where=CCEs[0]!=0)
+        else:
+            normCCEs = np.divide(eval('CCEs'+str(i))[0], CCEs[0], out=np.zeros_like(eval('CCEs'+str(i))[0]), where=CCEs[0]!=0)
+        vecCCEs.append(normCCEs)
+
+    drawMap(channels, times, vecCCEs, args.pitch, args.positionX, args.positionZ, args.scaleLET, plotOutName, False)
 
 #if args.measure[0]=='tran_3' and args.drawMap:
 #    timeBin=math.floor(len(times[0])/10.)
