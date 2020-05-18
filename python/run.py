@@ -620,9 +620,9 @@ if args.drawMap:
     for i in range(0,channels+1):
         # normalise CCEs
         if i==0:
-            normCCEs = np.divide(eval('CCEs')[0], CCEs[0], out=np.zeros_like(eval('CCEs')[0]), where=CCEs[0]!=0)
+            normCCEs = [x / CCEs[0][len(CCEs)-1] for x in eval('CCEs')[0]]
         else:
-            normCCEs = np.divide(eval('CCEs'+str(i))[0], CCEs[0], out=np.zeros_like(eval('CCEs'+str(i))[0]), where=CCEs[0]!=0)
+            normCCEs = [x / CCEs[0][len(CCEs)-1] for x in eval('CCEs'+str(i))[0]]
         vecCCEs.append(normCCEs)
 
     drawMap(channels, times, vecCCEs, args.pitch, args.positionX, args.positionZ, args.scaleLET, plotOutName, False)

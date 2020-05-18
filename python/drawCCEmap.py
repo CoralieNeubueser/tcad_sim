@@ -79,7 +79,7 @@ def drawMap(trans, times, vecCCEs, pitch, posX, posZ, scale, plotOutName, strps)
             matrix_X = 2
             matrix_Y = 2
             arrX=[0,pitch]
-            arrY=[-pitch,0]
+            arrY=[0,-pitch]
             arrXYZ=[[0 for x in range(matrix_X)] for y in range(matrix_Y)]
             for pixX in range(0,matrix_X):
                 for pixY in range(0,matrix_Y):
