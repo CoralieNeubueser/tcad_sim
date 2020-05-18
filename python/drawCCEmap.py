@@ -107,11 +107,11 @@ def drawMap(trans, times, vecCCEs, pitch, posX, posZ, scale, plotOutName, strps)
                     if (pixX==1 and pixY==1):
                         weight=vecCCEs[1][realTime]
                     elif (pixX==1 and not pixY==1):
-                        weight=vecCCEs[2][realTime]
+                        weight=vecCCEs[2][realTime]/2.
                     elif (pixY==1 and not pixX==1):
-                        weight=vecCCEs[3][realTime]
+                        weight=vecCCEs[3][realTime]/2.
                     else:
-                        weight=vecCCEs[4][realTime]
+                        weight=vecCCEs[4][realTime]/4.
                     arrXYZ[pixX][pixY]=weight*100.
 
         fig, ax = plt.subplots()

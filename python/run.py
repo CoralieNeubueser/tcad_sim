@@ -617,12 +617,14 @@ if args.drawMap:
     # number of transients
     channels = int(re.search(r'\d+', args.measure[0]).group())
     vecCCEs = []
+    print("Normalise CCEs to: {:.1f}".format(100*(CCEs[0][len(CCEs[0])-1])) )
+
     for i in range(0,channels+1):
         # normalise CCEs
         if i==0:
-            normCCEs = [x / CCEs[0][len(CCEs)-1] for x in eval('CCEs')[0]]
+            normCCEs = [x / CCEs[0][len(CCEs[0])-1] for x in eval('CCEs')[0]]
         else:
-            normCCEs = [x / CCEs[0][len(CCEs)-1] for x in eval('CCEs'+str(i))[0]]
+            normCCEs = [x / CCEs[0][len(CCEs[0])-1] for x in eval('CCEs'+str(i))[0]]
         vecCCEs.append(normCCEs)
 
     drawMap(channels, times, vecCCEs, args.pitch, args.positionX, args.positionZ, args.scaleLET, plotOutName, False)
