@@ -184,15 +184,15 @@ deplVs=np.zeros(len(arrayParPermName), dtype=float)
 capCs=np.zeros(len(arrayParPermName), dtype=[])
 endIs=np.zeros(len(arrayParPermName), dtype=[])
 CCEs=[[0 for x in range(len(arrayParPermName))] for y in range(100)]
-CCEs1=[[0 for x in range(len(arrayParPermName))] for y in range(100)]
-CCEs2=[[0 for x in range(len(arrayParPermName))] for y in range(100)]
-CCEs3=[[0 for x in range(len(arrayParPermName))] for y in range(100)]
-CCEs4=[[0 for x in range(len(arrayParPermName))] for y in range(100)]
-CCEs5=[[0 for x in range(len(arrayParPermName))] for y in range(100)]
-CCEs6=[[0 for x in range(len(arrayParPermName))] for y in range(100)]
-CCEs7=[[0 for x in range(len(arrayParPermName))] for y in range(100)]
-CCEs8=[[0 for x in range(len(arrayParPermName))] for y in range(100)]
-times=[[0 for x in range(len(arrayParPermName))] for y in range(100)]
+CCEs1=[[0 for x in range(len(arrayParPermName))] for y in range(100)] 
+CCEs2=[[0 for x in range(len(arrayParPermName))] for y in range(100)] 
+CCEs3=[[0 for x in range(len(arrayParPermName))] for y in range(100)] 
+CCEs4=[[0 for x in range(len(arrayParPermName))] for y in range(100)] 
+CCEs5=[[0 for x in range(len(arrayParPermName))] for y in range(100)] 
+CCEs6=[[0 for x in range(len(arrayParPermName))] for y in range(100)] 
+CCEs7=[[0 for x in range(len(arrayParPermName))] for y in range(100)] 
+CCEs8=[[0 for x in range(len(arrayParPermName))] for y in range(100)] 
+times=[[0 for x in range(len(arrayParPermName))] for y in range(100)] 
 
 # read csv files and analyse
 for i,perm in enumerate(arrayParPermName):
@@ -421,13 +421,11 @@ for i,perm in enumerate(arrayParPermName):
 
             print('#############################')
             print('Total CCE, integrated over all channels.')
-            CCEs[i] = np.add(CCEs1[i], CCEs2[i])
-            CCEs[i] = np.add(CCEs[i], CCEs3[i])
-            CCEs[i] = np.add(CCEs[i], CCEs4[i])
-            CCEs[i] = np.add(CCEs[i], CCEs5[i])
-            CCEs[i] = np.add(CCEs[i], CCEs6[i])
-            CCEs[i] = np.add(CCEs[i], CCEs7[i])
-            CCEs[i] = np.add(CCEs[i], CCEs8[i])
+            
+            channels = int(re.search(r'\d+', args.measure[0]).group())
+            for ch in range(1,channels+1):
+                CCEs[i] += eval("CCEs"+str(ch))[i]
+                
             time95 = getTime(times[i],CCEs[i],95)
             time99 = getTime(times[i],CCEs[i],99)
                 
@@ -617,17 +615,22 @@ if args.drawMap:
     # number of transients
     channels = int(re.search(r'\d+', args.measure[0]).group())
     vecCCEs = []
-    print("Normalise CCEs to: {:.1f}".format(100*(CCEs[0][len(CCEs[0])-1])) )
+    print("Normalise CCEs to : {:.1f}".format(100*(CCEs[0][len(CCEs[0])-1])) )
+    print("CCE of 1st channel: {:.1f}".format(100*(CCEs1[0][len(CCEs1[0])-1])) )
+    print("Length(time): ", len(times))
+    print("Length(CEEs): ", len(CCEs1[0]))
 
     for i in range(0,channels+1):
         # normalise CCEs
         if i==0:
-            normCCEs = [x / CCEs[0][len(CCEs[0])-1] for x in eval('CCEs')[0]]
+            normCCEs = [x / CCEs[0][len(CCEs[0])-1] for x in CCEs[0]]
         else:
             normCCEs = [x / CCEs[0][len(CCEs[0])-1] for x in eval('CCEs'+str(i))[0]]
+            print("CCE of {}st channel: {:.1f}".format(i, 100*(normCCEs[len(normCCEs)-1])) )
+
         vecCCEs.append(normCCEs)
 
-    drawMap(channels, times, vecCCEs, args.pitch, args.positionX, args.positionZ, args.scaleLET, plotOutName, False)
+    drawMap(channels, times[0], vecCCEs, args.pitch, args.positionX, args.positionZ, args.scaleLET, plotOutName, False)
 
 #if args.measure[0]=='tran_3' and args.drawMap:
 #    timeBin=math.floor(len(times[0])/10.)

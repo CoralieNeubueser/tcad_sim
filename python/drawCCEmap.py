@@ -4,16 +4,18 @@ from utils import *
 def drawMap(trans, times, vecCCEs, pitch, posX, posZ, scale, plotOutName, strps):
 
     print('Particle impinges at: ', posX, posZ)
-    timeBin=math.floor(len(times[0])/10.)
+
+    timeBin=math.floor(len(times)/10.)
     # sample time in 10
     for t in range(1,10):
         timeValue=int(0)
         realTime=t*timeBin
         # for last time bin, use the highest entry
         if t==9:
-            timeValue=int(times[0][len(times[0])-1])
+            timeValue=int(times[len(times)-1])
+            realTime=len(times)-1
         else:
-            timeValue=int(times[0][realTime])
+            timeValue=int(times[realTime])
 
         outName = plotOutName.replace('map_','map_'+str(timeValue)+'ns_')
         matrix_X = 0
@@ -29,13 +31,16 @@ def drawMap(trans, times, vecCCEs, pitch, posX, posZ, scale, plotOutName, strps)
             for pixX in range(0,4):
                 for pixY in range(0,4):
                     weight=0
+
                     if (pixX==0 and pixY==0) or (pixX==3 and pixY==3) or (pixX==0 and pixY==3) or (pixX==3 and pixY==0):
                         weight=vecCCEs[4][realTime]
                     elif (pixX==1 or pixX==2) and (pixY==2 or pixY==1):
                         weight=vecCCEs[1][realTime]
-                    else:
+                    elif (pixX==1 or pixX==2):
                         weight=vecCCEs[2][realTime]
- 
+                    else:
+                        weight=vecCCEs[3][realTime]
+
                     arrXYZ[pixY][pixX]=weight*100./4.
 
         elif scale==4 and strps:
@@ -55,7 +60,7 @@ def drawMap(trans, times, vecCCEs, pitch, posX, posZ, scale, plotOutName, strps)
                     arrXYZ[pixY][pixX]=weight*100./4.                                                   
 
         # draw map in 3x4 if --scaleLET 4
-        if scale==2 and not strps:
+        elif scale==2 and not strps:
             matrix_X = 4
             matrix_Y = 3
             arrX=[-pitch,0,pitch,2*pitch]
@@ -75,7 +80,7 @@ def drawMap(trans, times, vecCCEs, pitch, posX, posZ, scale, plotOutName, strps)
                     arrXYZ[pixY][pixX]=weight*100./2.
 
         # draw map in 2x2 if --scaleLET 1 and non-symmetric posX/posZ
-        if scale==1 and (posX!=posZ or posX>pitch/2.) and not strps:
+        elif scale==1 and (posX!=posZ or posX>pitch/2.) and not strps:
             matrix_X = 2
             matrix_Y = 2
             arrX=[0,pitch]
