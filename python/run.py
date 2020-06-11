@@ -30,6 +30,7 @@ parser.add_argument('--drawMap', action='store_true', help='Print out CCE per pi
 parser.add_argument('--pitch', type=int, help='Define pitch for maps.', required='drawMap' in sys.argv)
 parser.add_argument('--positionX', type=float, help='Set x position of impinging particle.', required='drawMap' in sys.argv)
 parser.add_argument('--positionZ', type=float, help='Set z position of impinging particle.', required='drawMap' in sys.argv)
+parser.add_argument('--drawMoreCCE', action='store_true', help='Print out 1-CCE.')
 # Tested variables
 parser.add_argument('-out', '--output', type=str, default='_', help='Define output file name..')
 parser.add_argument('-numP', '--Parameters', type=int, default=2, help='Define how many parameters are tested.')
@@ -96,38 +97,74 @@ if args.electrode:
 # write parameter permutations..
 arrayParPerm=[]
 arrayParPermName=[]
-legTitle=args.par1Name
-for p1 in args.par1:
+arrayParName=[]
+
+legTitle=''
+legTitleAll=''
+moreThanOne = 0
+
+for i1,p1 in enumerate(args.par1):
     parOption='-pS '+p1
     parPermName=p1
+    legTitleAll = args.par1Name
+    if len(args.par1)>1:
+        parName=p1
+        arrayParName.append(parName)
+        if i1==0:
+            legTitle=args.par1Name
+            moreThanOne+=1
     # check of more than 1 par
     if len(args.par2)>0:
-        legTitle=args.par1Name+'_'+args.par2Name
         numP=2
-        for p2 in args.par2:
+        legTitleAll = args.par1Name+'_'+args.par2Name
+        for i2,p2 in enumerate(args.par2):
             parOption='-pS '+p1+' -pS '+p2
             parPermName=p1+'_'+p2
+            if len(args.par2)>1:
+                parName=p2
+                arrayParName.append(parName)
+                if i2==0:
+                    legTitle+='_'+args.par2Name
+                    moreThanOne+=1
             if len(args.par3)>0:
-                legTitle=args.par1Name+'_'+args.par2Name+'_'+args.par3Name
                 numP=3
-                for p3 in args.par3:
+                legTitleAll = args.par1Name+'_'+args.par2Name+'_'+args.par3Name
+                for i3,p3 in enumerate(args.par3):
                     parOption='-pS '+p1+' -pS '+p2+' -pS '+p3
                     parPermName=p1+'_'+p2+'_'+p3
+                    if len(args.par3)>1:
+                        parName=p3
+                        arrayParName.append(parName)
+                        if i3==0:
+                            legTitle+='_'+args.par3Name
+                            moreThanOne+=1
                     if len(args.par4)>0:
-                        legTitle=args.par1Name+'_'+args.par2Name+'_'+args.par3Name+'_'+args.par4Name
                         numP=4
-                        for p4 in args.par4:
+                        legTitleAll = args.par1Name+'_'+args.par2Name+'_'+args.par3Name+'_'+args.par4Name
+                        for i4,p4 in enumerate(args.par4):
                             parOption='-pS '+p1+' -pS '+p2+' -pS '+p3+' -pS '+p4
                             parPermName=p1+'_'+p2+'_'+p3+'_'+p4
+                            if len(args.par4)>1:
+                                parName=p4
+                                arrayParName.append(parName)
+                                if i4==0:
+                                    legTitle+='_'+args.par4Name
+                                    moreThanOne+=1
                             if len(args.par5)>0:
-                                legTitle=args.par1Name+'_'+args.par2Name+'_'+args.par3Name+'_'+args.par4Name+'_'+args.par5Name
                                 numP=5
-                                for p5 in args.par5:
+                                legTitleAll = args.par1Name+'_'+args.par2Name+'_'+args.par3Name+'_'+args.par4Name+'_'+args.par5Name
+                                for i5,p5 in enumerate(args.par5):
                                     parOption='-pS '+p1+' -pS '+p2+' -pS '+p3+' -pS '+p4+' -pS '+p5
                                     parPermName=p1+'_'+p2+'_'+p3+'_'+p4+'_'+p5
                                     print(parOption)
                                     arrayParPerm.append(parOption)
                                     arrayParPermName.append(parPermName)
+                                    if len(args.par5)>1:
+                                        parName = p5
+                                        arrayParName.append(parName)
+                                        if i5==0:
+                                            legTitle+='_'+args.par5Name
+                                            moreThanOne+=1
                             else:
                                 print(parOption)
                                 arrayParPerm.append(parOption)
@@ -144,6 +181,10 @@ for p1 in args.par1:
         print(parOption)
         arrayParPerm.append(parOption)
         arrayParPermName.append(parPermName)
+
+if len(arrayParName)==0 or moreThanOne>1:
+    arrayParName = arrayParPermName
+    legTitle = legTitleAll
 
 # produce csv files
 if args.writeCSV:
@@ -164,7 +205,7 @@ if args.writeCSV:
             
 # prepare for drawing
 mark=','
-lines=['-','--',':','-.']
+lines=['-','--',':','-.','']
 
 # create canvas
 print(len(args.measure))
@@ -203,7 +244,7 @@ for i,perm in enumerate(arrayParPermName):
 
     print(f1)
     data1 = pd.read_csv(f1, names=["X","Y","X1","Y1","X2","Y2","X3","Y3","X4","Y4","X5","Y5","X6","Y6","X7","Y7"], skiprows=1)
-    lab=str(perm)
+    lab=str(arrayParName[i])
 
     # if multiple measurements are analysed draw in multiple subplots
     if len(args.measure)>1:
@@ -270,7 +311,7 @@ for i,perm in enumerate(arrayParPermName):
                 capCs[i]=deplC
 
             # if measurement is iv curve at specific nwell, fit and extract the depletion voltage 
-            elif m=='iv' and args.electrode and args.fit:
+            elif m=='iv' and args.electrode and args.fit and not find_element_in_list('iv_p',args.measure):
                 # find minimum above 2V and below 20V
                 useMin=2
                 useMax=20
@@ -357,7 +398,10 @@ for i,perm in enumerate(arrayParPermName):
             elif args.measure[0]=='tran_3':
                 draw3MultiGraphLines(axs[0],data1.X*pow(10,9), data1.Y*pow(10,6), data1.Y1*pow(10,6), data1.Y2*pow(10,6), args.scaleLET, lines[0])
             elif args.measure[0]=='tran_4':
-                draw4MultiGraphLines(axs[0],data1.X*pow(10,9), data1.Y*pow(10,6), data1.Y1*pow(10,6), data1.Y2*pow(10,6), data1.Y3*pow(10,6), args.scaleLET, lines[0])
+                if len(arrayParPermName)==1:
+                    draw4MultiGraphLines(axs[0],data1.X*pow(10,9), data1.Y*pow(10,6), data1.Y1*pow(10,6), data1.Y2*pow(10,6), data1.Y3*pow(10,6), args.scaleLET)
+                else:
+                    draw4MultiMultiGraphLines(axs[0],data1.X*pow(10,9), data1.Y*pow(10,6), data1.Y1*pow(10,6), data1.Y2*pow(10,6), data1.Y3*pow(10,6), args.scaleLET, i, colors, lines)
             elif args.measure[0]=='tran_7':
                 draw7MultiGraphLines(axs[0],data1.X*pow(10,9), data1.Y*pow(10,6), data1.Y1*pow(10,6), data1.Y2*pow(10,6), data1.Y3*pow(10,6), data1.Y4*pow(10,6), data1.Y5*pow(10,6), data1.Y6*pow(10,6), args.scaleLET, lines[0])
             elif args.measure[0]=='tran_8':
@@ -406,7 +450,10 @@ for i,perm in enumerate(arrayParPermName):
                 axs[1].set_ylabel(r'CCE $\times$ '+str(args.scaleLET))
                 
             elif args.measure[0]=='tran_4':
-                CCEs1[i], CCEs2[i], CCEs3[i], CCEs4[i] = draw4MultiCCE(axs[1],data1.X,data1.Y,data1.Y1,data1.Y2,data1.Y3,final_let,lines[0])
+                if len(arrayParPermName)==1:
+                    times[i], CCEs1[i], CCEs2[i], CCEs3[i], CCEs4[i] = draw4MultiCCE(axs[1],data1.X,data1.Y,data1.Y1,data1.Y2,data1.Y3,final_let)
+                else:
+                    times[i], CCEs1[i], CCEs2[i], CCEs3[i], CCEs4[i] = draw4MultiMultiCCE(axs[1],data1.X,data1.Y,data1.Y1,data1.Y2,data1.Y3,final_let,i,colors,lines)
                 axs[1].set_ylabel(r'CCE $\times$ '+str(args.scaleLET))
                 
             # draw CCEs over time and return 7 arrays
@@ -424,8 +471,12 @@ for i,perm in enumerate(arrayParPermName):
             
             channels = int(re.search(r'\d+', args.measure[0]).group())
             for ch in range(1,channels+1):
-                CCEs[i] += eval("CCEs"+str(ch))[i]
-                
+                #print(i,ch)
+                if ch==1:
+                    CCEs[i] = eval("CCEs"+str(ch))[i]
+                else:
+                    CCEs[i] += eval("CCEs"+str(ch))[i]
+
             time95 = getTime(times[i],CCEs[i],95)
             time99 = getTime(times[i],CCEs[i],99)
                 
@@ -451,8 +502,6 @@ for i,perm in enumerate(arrayParPermName):
 
             axs[1].set_xticks(np.arange(0, int(axs[1].get_xlim()[1]),  int(axs[1].get_xlim()[1]/10.) ))
             plt.grid(True)
-
-            #axs[1].set_ylim(10e-5,2) #lorenzo
 
         elif args.measure[0]=='charge':
             drawGraphLines(axs,data1.X*pow(10,9), data1.Y*pow(10,12),colors[i],lines[0],lab)
@@ -584,17 +633,18 @@ if len(args.measure)>1 or args.measure[0]=='tran_4' or args.measure[0]=='tran_3'
             colmn=int(len(arrayParPermName)/2.)
         else:
             legTitle=legTitle+'\n'+arrayParPermName[0]
-        axs[0].legend(loc='upper center', bbox_to_anchor=(.5, 1.5), fancybox=True, ncol=colmn, title=legTitle)
+        axs[0].legend(loc='upper center', bbox_to_anchor=(.5, 1.5), fancybox=True, ncol=colmn, title=args.measure[0])
     else:
-        if len(arrayParPermName)>4 and numP<4:
-            plt.subplots_adjust(right=0.75)
-            axs[0].legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.5), fancybox=True)
-        elif len(arrayParPermName)>4 and numP>2:
-            plt.subplots_adjust(right=0.6)
+        if moreThanOne>1:
+            axs[0].legend(loc='upper center', bbox_to_anchor=(.5, 1.2), fancybox=True, ncol=1, title=legTitle)
+        else:
+            plt.subplots_adjust(right=0.7)
             axs[0].legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.5), fancybox=True)
         axs[len(args.measure)-1].set_xlabel('|V|')
 else:
     if not args.measure[0]=='tran_4' and not args.measure[0]=='tran_3' and not args.measure[0]=='tran' and not args.measure[0]=='tran_7' and not args.measure[0]=='tran_8':
+        if len(arrayParPermName)==1:
+            legTitle=legTitle+'\n'+arrayParPermName[0]
         if len(arrayParPermName)>4 and numP<4:
             plt.subplots_adjust(right=0.75)
             axs.legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.5), fancybox=True)
@@ -607,6 +657,60 @@ else:
 # print out
 fig.savefig(outName)
 
+if args.drawMoreCCE:
+    # draw 1-CCE for comparison of different parameters over all channels
+    plotOutName=allCurvesName(args.project, 'CCE_'+allM, args.output, 'pdf')
+    print('Print 1-CCE: ',plotOutName)
+    figCCE, axsCCE = plt.subplots(1,1, sharex=True, sharey=False)     
+ 
+    for i in range(len(arrayParPermName)):
+        maxCCE=0
+        trial=1
+        while maxCCE==0:
+            CCEs[i] = CCEs[i][1:len(CCEs)-trial]
+            times[i] = times[i][1:len(CCEs)-trial]
+            maxCCE = float(CCEs[i][len(CCEs[i])-trial])
+            trial+=1
+
+        print("Normalise CCEs to : {:.1f}".format(100*maxCCE) )
+        normCCEs = np.array([1 - (x / maxCCE) for x in CCEs[i][1:(len(CCEs[i])-trial-1)]])
+        normTimes = np.array(times[i][1:(len(times[i])-trial-1)])
+
+        axsCCE.plot(normTimes, normCCEs, color=colors[i], marker=',', label=arrayParName[i])
+        axsCCE.set_yscale('log')
+        axsCCE.set_xlim(0,args.maxX/4.)
+    
+        time99 = getTime(normTimes, CCEs[i][1:(len(CCEs[i])-trial-1)],99)
+        time95 = getTime(normTimes, CCEs[i][1:(len(CCEs[i])-trial-1)],95)
+        time90 = getTime(normTimes, CCEs[i][1:(len(CCEs[i])-trial-1)],90)
+
+        cce99 = normCCEs[(normTimes == time99)][0]
+        cce95 = normCCEs[(normTimes == time95)][0]
+        cce90 = normCCEs[(normTimes == time90)][0]
+
+        # 99%
+        if i==0:
+            plt.hlines(y=cce99, xmin=0, xmax=time99, color=colors[i], label='99%')
+        else:
+            plt.hlines(y=cce99, xmin=0, xmax=time99, color=colors[i])
+        plt.vlines(x=time99, ymin=0, ymax=cce99, color=colors[i])
+        # 95%
+        #plt.hlines(y=cce95, xmin=0, xmax=time95, color=colors[i], linestyle=lines[1])
+        #plt.vlines(x=time95, ymin=0, ymax=cce95, color=colors[i], linestyle=lines[1])
+        # 90%
+        if i==0:
+            plt.hlines(y=cce90, xmin=0, xmax=time90, color=colors[i], linestyle=lines[2], label='90%')
+        else:
+            plt.hlines(y=cce90, xmin=0, xmax=time90, color=colors[i], linestyle=lines[2])
+        plt.vlines(x=time90, ymin=0, ymax=cce90, color=colors[i], linestyle=lines[2])
+
+    plt.subplots_adjust(right=0.75)
+    axsCCE.legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.5), fancybox=True)
+    axsCCE.set_xlabel('time [ns]')
+    axsCCE.set_ylabel('1-CCE$_{tot}$')
+    figCCE.savefig(plotOutName)                                                                                                                                                                                           
+
+
 if args.drawMap: 
     # draw hit maps for trans_4 measurements
     plotOutName=allCurvesName(args.project, 'CCE_map_'+allM, args.output, 'pdf')
@@ -617,17 +721,16 @@ if args.drawMap:
     vecCCEs = []
     print("Normalise CCEs to : {:.1f}".format(100*(CCEs[0][len(CCEs[0])-1])) )
     print("CCE of 1st channel: {:.1f}".format(100*(CCEs1[0][len(CCEs1[0])-1])) )
-    print("Length(time): ", len(times))
+    print("Length(time): ", len(times[0]))
     print("Length(CEEs): ", len(CCEs1[0]))
 
-    for i in range(0,channels+1):
+    for channel in range(0,channels+1):
         # normalise CCEs
-        if i==0:
+        if channel==0:
             normCCEs = [x / CCEs[0][len(CCEs[0])-1] for x in CCEs[0]]
         else:
-            normCCEs = [x / CCEs[0][len(CCEs[0])-1] for x in eval('CCEs'+str(i))[0]]
-            print("CCE of {}st channel: {:.1f}".format(i, 100*(normCCEs[len(normCCEs)-1])) )
-
+            normCCEs = [x / CCEs[0][len(CCEs[0])-1] for x in eval('CCEs'+str(channel))[0]]
+            print("CCE of {}st channel: {:.1f}".format(channel, 100*(normCCEs[len(normCCEs)-1])) )
         vecCCEs.append(normCCEs)
 
     drawMap(channels, times[0], vecCCEs, args.pitch, args.positionX, args.positionZ, args.scaleLET, plotOutName, False)

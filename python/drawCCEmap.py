@@ -16,7 +16,7 @@ def drawMap(trans, times, vecCCEs, pitch, posX, posZ, scale, plotOutName, strps)
             realTime=len(times)-1
         else:
             timeValue=int(times[realTime])
-
+            
         outName = plotOutName.replace('map_','map_'+str(timeValue)+'ns_')
         matrix_X = 0
         matrix_Y = 0
@@ -31,7 +31,6 @@ def drawMap(trans, times, vecCCEs, pitch, posX, posZ, scale, plotOutName, strps)
             for pixX in range(0,4):
                 for pixY in range(0,4):
                     weight=0
-
                     if (pixX==0 and pixY==0) or (pixX==3 and pixY==3) or (pixX==0 and pixY==3) or (pixX==3 and pixY==0):
                         weight=vecCCEs[4][realTime]
                     elif (pixX==1 or pixX==2) and (pixY==2 or pixY==1):
@@ -57,10 +56,10 @@ def drawMap(trans, times, vecCCEs, pitch, posX, posZ, scale, plotOutName, strps)
                         weight=vecCCEs[2][realTime]                                                       
                     else:                                                                               
                         weight=vecCCEs[1][realTime]                                                       
-                    arrXYZ[pixY][pixX]=weight*100./4.                                                   
+                    arrXYZ[pixY][pixX]=weight*100./4.
 
-        # draw map in 3x4 if --scaleLET 4
         elif scale==2 and not strps:
+            # draw map in 3x4 if --scaleLET 4
             matrix_X = 4
             matrix_Y = 3
             arrX=[-pitch,0,pitch,2*pitch]
@@ -74,12 +73,12 @@ def drawMap(trans, times, vecCCEs, pitch, posX, posZ, scale, plotOutName, strps)
                     elif (pixX==0 and pixY==0) or (pixX==3 and pixY==2) or (pixX==0 and pixY==2) or (pixX==3 and pixY==0):
                         weight=vecCCEs[4][realTime]
                     elif (pixX==0 and pixY==1) or (pixX==3 and pixY==1):
-                        weight=vecCCEs[3][realTime]
+                        weight=vecCCEs[3][realTime]/2.
                     else:
-                        weight=vecCCEs[2][realTime]
+                        weight=vecCCEs[2][realTime]/2.
                     arrXYZ[pixY][pixX]=weight*100./2.
 
-        # draw map in 2x2 if --scaleLET 1 and non-symmetric posX/posZ
+                    # draw map in 2x2 if --scaleLET 1 and non-symmetric posX/posZ
         elif scale==1 and (posX!=posZ or posX>pitch/2.) and not strps:
             matrix_X = 2
             matrix_Y = 2
@@ -99,7 +98,7 @@ def drawMap(trans, times, vecCCEs, pitch, posX, posZ, scale, plotOutName, strps)
                         weight=vecCCEs[1][realTime]
                     arrXYZ[pixX][pixY]=weight*100.
 
-        # draw map in 3x3 if --scaleLET 1
+            # draw map in 3x3 if --scaleLET 1
         elif scale==1 and not strps:
             matrix_X = 3
             matrix_Y = 3
@@ -149,7 +148,8 @@ def drawMap(trans, times, vecCCEs, pitch, posX, posZ, scale, plotOutName, strps)
         if (posX!=posZ or posX>pitch/2.) and scale==1:
             x = - matrix_X/4. + posX/pitch
             y = - matrix_Y/4. + posZ/pitch
-
+            
+        print(outName)
         ax.scatter(x,y,color='r')
         fig.tight_layout()
         fig.savefig(outName)

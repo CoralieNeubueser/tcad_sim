@@ -358,11 +358,47 @@ def draw3MultiGraphLines(axis,arr1,arr2,arr3,arr4,scale,linestyle):
     axis.plot(arr1,arr3*scale, color='red',marker=',', linestyle=linestyle, label="Ntop2")
     axis.plot(arr1,arr4*scale, color='blue',marker=',', linestyle=linestyle, label="Ntop3")
     
-def draw4MultiGraphLines(axis,arr1,arr2,arr3,arr4,arr5,scale,linestyle):
-    axis.plot(arr1,arr2*scale, color='black',marker=',', linestyle=linestyle, label="Ntop_0_0")
-    axis.plot(arr1,arr3*scale, color='red',marker=',', linestyle=linestyle, label="Ntop_0_1")
-    axis.plot(arr1,arr4*scale, color='blue',marker=',', linestyle=linestyle, label="Ntop_1_0")
-    axis.plot(arr1,arr5*scale, color='orange',marker=',', linestyle=linestyle, label="Ntop_1_1")
+def draw4MultiGraphLines(axis,arr1,arr2,arr3,arr4,arr5,scale):
+    # add legend entry only for first parameter set
+    maxE=arr1[len(arr1)-1]
+    trial=1
+    while maxE==0:
+        maxE = float(arr1[len(arr1)-trial])
+        trial+=1
+    arr1 = arr1[1:len(arr1)-trial]
+    arr2 = arr2[1:len(arr2)-trial]
+    arr3 = arr3[1:len(arr3)-trial]
+    arr4 = arr4[1:len(arr4)-trial]
+    arr5 = arr5[1:len(arr5)-trial]
+
+    axis.plot(arr1,arr2*scale, color='black',marker=',', label="Ntop_0_0")
+    axis.plot(arr1,arr3*scale, color='red',marker=',', label="Ntop_0_1")
+    axis.plot(arr1,arr4*scale, color='blue',marker=',', label="Ntop_1_0")
+    axis.plot(arr1,arr5*scale, color='orange',marker=',', label="Ntop_1_1")
+
+def draw4MultiMultiGraphLines(axis,arr1,arr2,arr3,arr4,arr5,scale,i,colors,linestyle):
+    # add legend entry only for first parameter set 
+    maxE=arr1[len(arr1)-1]
+    trial=1
+    while maxE==0:
+        maxE = float(arr1[len(arr1)-trial])
+        trial+=1
+    arr1 = arr1[1:len(arr1)-trial]
+    arr2 = arr2[1:len(arr2)-trial]
+    arr3 = arr3[1:len(arr3)-trial]
+    arr4 = arr4[1:len(arr4)-trial]
+    arr5 = arr5[1:len(arr5)-trial]
+
+    if i==0:
+        axis.plot(arr1,arr2*scale, color=colors[i],marker=',', linestyle=linestyle[0], label="Ntop_0_0")
+        axis.plot(arr1,arr3*scale, color=colors[i],marker=',', linestyle=linestyle[1], label="Ntop_0_1")
+        axis.plot(arr1,arr4*scale, color=colors[i],marker=',', linestyle=linestyle[2], label="Ntop_1_0")
+        axis.plot(arr1,arr5*scale, color=colors[i],marker=',', linestyle=linestyle[3], label="Ntop_1_1")
+    else:
+        axis.plot(arr1,arr2*scale, color=colors[i],marker=',', linestyle=linestyle[0])
+        axis.plot(arr1,arr3*scale, color=colors[i],marker=',', linestyle=linestyle[1])
+        axis.plot(arr1,arr4*scale, color=colors[i],marker=',', linestyle=linestyle[2])
+        axis.plot(arr1,arr5*scale, color=colors[i],marker=',', linestyle=linestyle[3])
 
 def draw7MultiGraphLines(axis,arr1,arr2,arr3,arr4,arr5,arr6,arr7,arr8,scale,linestyle):
     axis.plot(arr1,arr2*scale, color='black',marker=',', linestyle=linestyle, label="Ntop_1")
@@ -424,17 +460,29 @@ def getTime(vecTime,vecCCEs,perc):
     else:
         return float(timesWithPerc)
 
-def draw4MultiCCE(axis,arr1,arr2,arr3,arr4,arr5,norm,linestyle):
-    eff1=np.zeros(len(arr2))
-    eff2=np.zeros(len(arr3))
-    eff3=np.zeros(len(arr4))
-    eff4=np.zeros(len(arr5))
+def draw4MultiCCE(axis,arr1,arr2,arr3,arr4,arr5,norm):
     current1=np.array(arr2) # A                 
     current2=np.array(arr3) # A
     current3=np.array(arr4) # A
     current4=np.array(arr5) # A
     time=np.array(arr1) # s              
     
+    maxE=arr1[len(arr1)-1]
+    trial=1
+    while maxE==0:
+        maxE = float(arr1[len(arr1)-trial])
+        trial+=1
+    time     = np.array(arr1[1:len(arr1)-trial])
+    current1 = np.array(arr2[1:len(arr2)-trial])
+    current2 = np.array(arr3[1:len(arr3)-trial])
+    current3 = np.array(arr4[1:len(arr4)-trial])
+    current4 = np.array(arr5[1:len(arr5)-trial])
+    
+    eff1=np.zeros(len(time))
+    eff2=np.zeros(len(time))
+    eff3=np.zeros(len(time))
+    eff4=np.zeros(len(time))
+
     # print(time)
     for it,t in enumerate(time):
         # convert to pC and normalise  
@@ -443,12 +491,49 @@ def draw4MultiCCE(axis,arr1,arr2,arr3,arr4,arr5,norm,linestyle):
         eff3[it] = np.trapz(current3[time<t], x=time[time<t]) *pow(10,12)/norm
         eff4[it] = np.trapz(current4[time<t], x=time[time<t]) *pow(10,12)/norm
     # time in ns
-    axis.plot(time*pow(10,9),eff1,color='black',marker=',',linestyle=linestyle,label="Ntop_0_0")
-    axis.plot(time*pow(10,9),eff2,color='red',marker=',',linestyle=linestyle,label="Ntop_0_1")
-    axis.plot(time*pow(10,9),eff3,color='blue',marker=',',linestyle=linestyle,label="Ntop_1_0")
-    axis.plot(time*pow(10,9),eff4,color='orange',marker=',',linestyle=linestyle,label="Ntop_1_1")
+    axis.plot(time*pow(10,9),eff1,color='black',marker=',',label="Ntop_0_0")
+    axis.plot(time*pow(10,9),eff2,color='red',marker=',',label="Ntop_0_1")
+    axis.plot(time*pow(10,9),eff3,color='blue',marker=',',label="Ntop_1_0")
+    axis.plot(time*pow(10,9),eff4,color='orange',marker=',',label="Ntop_1_1")
     
-    return eff1, eff2, eff3, eff4
+    return time*pow(10,9), eff1, eff2, eff3, eff4
+
+def draw4MultiMultiCCE(axis,arr1,arr2,arr3,arr4,arr5,norm,i,colors,linestyle):
+    current1=np.array(arr2) # A
+    current2=np.array(arr3) # A
+    current3=np.array(arr4) # A
+    current4=np.array(arr5) # A
+    time=np.array(arr1) # s
+
+    maxE=arr1[len(arr1)-1]
+    trial=1
+    while maxE==0:
+        maxE = float(arr1[len(arr1)-trial])
+        trial+=1
+    time     = np.array(arr1[1:len(arr1)-trial])
+    current1 = np.array(arr2[1:len(arr2)-trial])
+    current2 = np.array(arr3[1:len(arr3)-trial])
+    current3 = np.array(arr4[1:len(arr4)-trial])
+    current4 = np.array(arr5[1:len(arr5)-trial])
+
+    eff1=np.zeros(len(time))
+    eff2=np.zeros(len(time))
+    eff3=np.zeros(len(time))
+    eff4=np.zeros(len(time))
+
+    for it,t in enumerate(time):
+        # convert to pC and normalise
+        eff1[it] = np.trapz(current1[time<t], x=time[time<t]) *pow(10,12)/norm
+        eff2[it] = np.trapz(current2[time<t], x=time[time<t]) *pow(10,12)/norm
+        eff3[it] = np.trapz(current3[time<t], x=time[time<t]) *pow(10,12)/norm
+        eff4[it] = np.trapz(current4[time<t], x=time[time<t]) *pow(10,12)/norm
+    # time in ns
+    axis.plot(time*pow(10,9),eff1,color=colors[i],marker=',',linestyle=linestyle[0],label="Ntop_0_0")
+    axis.plot(time*pow(10,9),eff2,color=colors[i],marker=',',linestyle=linestyle[1],label="Ntop_0_1")
+    axis.plot(time*pow(10,9),eff3,color=colors[i],marker=',',linestyle=linestyle[2],label="Ntop_1_0")
+    axis.plot(time*pow(10,9),eff4,color=colors[i],marker=',',linestyle=linestyle[3],label="Ntop_1_1")
+
+    return time*pow(10,9), eff1, eff2, eff3, eff4
 
 def draw3MultiCCE(axis,arr1,arr2,arr3,arr4,norm,linestyle):
     eff1=np.zeros(len(arr2))
