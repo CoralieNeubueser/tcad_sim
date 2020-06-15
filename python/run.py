@@ -573,13 +573,23 @@ for i,perm in enumerate(arrayParPermName):
             elif (args.measure[0]=='iv' or args.measure[0]=='cv') and args.depletion:
                 drawGraphLines(axs,dat1x,dat1y,colors[i],lines[0],lab)
                 xtmp=np.array(abs(data1.X))
-                vbin=np.where( (xtmp<(vdepletion+0.5)) & (xtmp>(vdepletion-0.5)) )
+                #print(xtmp)
+                vbin=np.where( (xtmp < (vdepletion+1.5)) & (xtmp > (vdepletion-1.5)) )
+                # use value found closest to actual value
+                # print(vbin)
                 if len(vbin[0])>1:
-                    vbin = vbin[0][0]
+                    usev=0
+                    diff = 10
+                    for index in range(0, len(vbin[0])):
+                        voltage = xtmp[vbin[0][index]]
+                        if abs((voltage - vdepletion)/vdepletion) < diff:
+                            usev=index
+                    vbin=vbin[0][usev]
+                print('Found: ', xtmp[vbin])
                 ytmp=np.array(abs(data1.Y))
                 Ileak=float(ytmp[vbin])
                 print('#############################')
-                print('Leakage current at depletion voltage {}V: {}'.format(vdepletion, Ileak))
+                print('Leakage current/Capacitance at depletion voltage {}V: {}'.format(vdepletion, Ileak))
                 print('#############################')
                 drawVoltageLine(axs, vdepletion, colors[i])
                 addValuesToPlot(axs, vdepletion, Ileak, colors[i], args.measure[0], len(arrayParPermName), i ,args.log)
@@ -594,7 +604,7 @@ for i,perm in enumerate(arrayParPermName):
                 axs.set_yscale('log')
 
         # if measurement is cv curve, fit and extract the depletion voltage
-        if args.measure[0]=='cv' and args.fit:
+        if args.measure[0]=='cv' and args.fit and not args.depletion:
             if args.fit_maxX or args.fit_minX:
                 deplV,deplC=deplVoltageRange(axs,data1,args.fit_minX, args.fit_maxX, colors[i])
             else:
