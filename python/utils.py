@@ -41,7 +41,7 @@ def addValuesToPlot(axs,Vpt,Ileak,col,m,lenP,iP,log):
         unit='fF'
         scale=1e15
 
-    axs.text( axs.get_xlim()[1]/2., ypos, yaxis+'('+str("{:.1f}V").format(Vpt)+')=$'+str("{:.3f}"+str(unit)).format(Ileak*scale), color=col)
+    axs.text( axs.get_xlim()[1]/2., ypos, yaxis+'('+str("{:.1f}V").format(Vpt)+')=$'+str("{:.2f}"+str(unit)).format(Ileak*scale), color=col)
     
 def linFit(x,y):
     # fit of shape x+a

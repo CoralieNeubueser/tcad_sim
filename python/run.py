@@ -363,9 +363,15 @@ for i,perm in enumerate(arrayParPermName):
                 print('#############################')
                 print('Draw line at punch-through voltage.. ', ptVs[i])
                 xtmp=np.array(abs(data2.X))
-                vbin=np.where((xtmp<ptVs[i]+0.5) & (xtmp>ptVs[i]-0.5))
+                vbin=np.where((xtmp<ptVs[i]+1.5) & (xtmp>ptVs[i]-1.5))
                 if len(vbin[0])>1:
-                    vbin = vbin[0][0]
+                    usev=0
+                    diff = 10
+                    for index in range(0, len(vbin[0])):
+                        voltage = xtmp[vbin[0][index]]
+                        if abs((voltage - ptVs[i])/ptVs[i]) < diff:
+                            usev=index
+                    vbin=vbin[0][usev] 
                 ytmp=np.array(abs(data2.Y))
                 Cend=float(ytmp[vbin])
                 print('#############################')
@@ -645,8 +651,11 @@ if len(args.measure)>1 or args.measure[0]=='tran_4' or args.measure[0]=='tran_3'
             legTitle=legTitle+'\n'+arrayParPermName[0]
         axs[0].legend(loc='upper center', bbox_to_anchor=(.5, 1.5), fancybox=True, ncol=colmn, title=args.measure[0])
     else:
-        if moreThanOne>1:
+        if moreThanOne>1 and len(arrayParPermName)<5:
             axs[0].legend(loc='upper center', bbox_to_anchor=(.5, 1.2), fancybox=True, ncol=1, title=legTitle)
+        elif len(arrayParPermName)>4 and numP>3:
+            plt.subplots_adjust(right=0.5)
+            axs[0].legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.5), fancybox=True)
         else:
             plt.subplots_adjust(right=0.7)
             axs[0].legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.5), fancybox=True)
