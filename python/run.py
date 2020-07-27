@@ -99,7 +99,7 @@ arrayParPerm=[]
 arrayParPermName=[]
 arrayParName=[]
 
-legTitle=''
+legTitle='' #'ARCADIA TCAD simulation\n'
 legTitleAll=''
 moreThanOne = 0
 
@@ -198,7 +198,7 @@ if args.writeCSV:
                     os.system('python3 python/writeTcl.py --project '+str(args.project)+' --'+str(m)+' '+parOption+' --run')
         else:
             # write and run tcl files to store csv files in tmp/ for
-            cmd = 'python3 python/writeTcl.py --project '+str(args.project)+' --'+str(args.measure[0])+' '+parOption+' --run'
+            cmd = 'python python/writeTcl.py --project '+str(args.project)+' --'+str(args.measure[0])+' '+parOption+' --run'
             if args.electrode:
                 cmd += ' --electrode '+str(args.electrode)
             os.system(cmd)
@@ -638,6 +638,9 @@ for m in args.measure:
 outName=allCurvesName(args.project, allM, args.output, 'pdf')
 print(outName)
 
+# add ARCADIA label
+arcadia='ARCADIA TCAD simulation'
+
 if len(args.measure)>1 or args.measure[0]=='tran_4' or args.measure[0]=='tran_3' or args.measure[0]=='tran' or args.measure[0]=='tran_7' or args.measure[0]=='tran_8':
     if args.measure[0]=='tran_4' or args.measure[0]=='tran_3' or args.measure[0]=='tran' or args.measure[0]=='tran_7' or args.measure[0]=='tran_8':
         plt.subplots_adjust(top=0.8)
@@ -646,7 +649,7 @@ if len(args.measure)>1 or args.measure[0]=='tran_4' or args.measure[0]=='tran_3'
             colmn=int(len(arrayParPermName)/2.)
         else:
             legTitle=legTitle+'\n'+arrayParPermName[0]
-        axs[0].legend(loc='upper center', bbox_to_anchor=(.5, 1.5), fancybox=True, ncol=colmn, title=args.measure[0])
+        axs[0].legend(loc='upper center', bbox_to_anchor=(.5, 1.5), fancybox=True, ncol=colmn, title=legTitle)
     else:
         if moreThanOne>1 and len(arrayParPermName)<5:
             axs[0].legend(loc='upper center', bbox_to_anchor=(.5, 1.2), fancybox=True, ncol=1, title=legTitle)
@@ -656,7 +659,8 @@ if len(args.measure)>1 or args.measure[0]=='tran_4' or args.measure[0]=='tran_3'
         else:
             plt.subplots_adjust(right=0.7)
             axs[0].legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.5), fancybox=True)
-        axs[len(args.measure)-1].set_xlabel('|V|')
+    axs[len(args.measure)-1].set_xlabel('|V|')
+    axs[1].text(0,1.05,arcadia,color='gray',fontsize=10,fontweight='bold')
 else:
     if not args.measure[0]=='tran_4' and not args.measure[0]=='tran_3' and not args.measure[0]=='tran' and not args.measure[0]=='tran_7' and not args.measure[0]=='tran_8':
         if len(arrayParPermName)==1:
@@ -680,32 +684,42 @@ if args.drawMoreCCE:
     # draw 1-CCE for comparison of different parameters over all channels
     plotOutName=allCurvesName(args.project, 'CCE_'+allM, args.output, 'pdf')
     print('Print 1-CCE: ',plotOutName)
-    figCCE, axsCCE = plt.subplots(1,1, sharex=True, sharey=False)     
- 
+    figCCE, axsCCE = plt.subplots(1,1, sharex=True, sharey=False)
+    fixedTime=5. #ns      
+    Effs=[0 for x in range(len(arrayParPermName))]
     for i in range(len(arrayParPermName)):
         maxCCE=0
         trial=1
         while maxCCE==0:
-            CCEs[i] = CCEs[i][1:len(CCEs)-trial]
-            times[i] = times[i][1:len(CCEs)-trial]
+            CCEs_loc = CCEs[i][1:len(CCEs)-trial]
+            times_loc = times[i][1:len(CCEs)-trial]
             maxCCE = float(CCEs[i][len(CCEs[i])-trial])
             trial+=1
-
         print("Normalise CCEs to : {:.1f}".format(100*maxCCE) )
-        normCCEs = np.array([1 - (x / maxCCE) for x in CCEs[i][1:(len(CCEs[i])-trial-1)]])
-        normTimes = np.array(times[i][1:(len(times[i])-trial-1)])
+        normCCEs = np.array([1 - (x / maxCCE) for x in CCEs_loc])
+        normTimes = np.array(times_loc)
 
         axsCCE.plot(normTimes, normCCEs, color=colors[i], marker=',', label=arrayParName[i])
         axsCCE.set_yscale('log')
-        axsCCE.set_xlim(0,args.maxX/4.)
+        axsCCE.set_xlim(0,args.maxX)
     
-        time99 = getTime(normTimes, CCEs[i][1:(len(CCEs[i])-trial-1)],99)
-        time95 = getTime(normTimes, CCEs[i][1:(len(CCEs[i])-trial-1)],95)
-        time90 = getTime(normTimes, CCEs[i][1:(len(CCEs[i])-trial-1)],90)
+        time99 = getTime(normTimes, CCEs_loc,99)
+        time95 = getTime(normTimes, CCEs_loc,95)
+        time90 = getTime(normTimes, CCEs_loc,90)
 
         cce99 = normCCEs[(normTimes == time99)][0]
         cce95 = normCCEs[(normTimes == time95)][0]
         cce90 = normCCEs[(normTimes == time90)][0]
+        
+        #find index of charge collection at 'fixedTime'
+        j=0
+        for timeVal in times[i]:
+            if timeVal < fixedTime:
+                j+=1
+            else:
+                break
+
+        Effs[i] = CCEs[i][j]/ maxCCE
 
         # 99%
         if i==0:
@@ -724,11 +738,22 @@ if args.drawMoreCCE:
         plt.vlines(x=time90, ymin=0, ymax=cce90, color=colors[i], linestyle=lines[2])
 
     plt.subplots_adjust(right=0.75)
-    axsCCE.legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.5), fancybox=True)
+    axsCCE.legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.77777775), fancybox=True)
     axsCCE.set_xlabel('time [ns]')
     axsCCE.set_ylabel('1-CCE$_{tot}$')
     figCCE.savefig(plotOutName)                                                                                                                                                                                           
-
+    
+    # add efficiency plot
+    plotOutName2=allCurvesName(args.project, 'Eff_'+allM, args.output, 'pdf')
+    print('Print Efficiency: ', plotOutName2)
+    figEff, axsEff = plt.subplots(1,1, sharex=True, sharey=False)
+    arrPos=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+    print(Effs)
+    axsEff.plot(arrPos[:len(arrayParPermName)], Effs, color='black', marker='o')
+    axsEff.set_ylabel('CCE$_{tot}$('+str(fixedTime)+'ns)')
+    axsEff.set_xlabel('pos [$\mu$m]')
+    axsEff.text(0,1.05,arcadia,color='gray',fontsize=10,fontweight='bold')
+    figEff.savefig(plotOutName2)
 
 if args.drawMap: 
     # draw hit maps for trans_4 measurements
