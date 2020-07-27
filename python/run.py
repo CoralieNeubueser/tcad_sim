@@ -363,15 +363,12 @@ for i,perm in enumerate(arrayParPermName):
                 print('#############################')
                 print('Draw line at punch-through voltage.. ', ptVs[i])
                 xtmp=np.array(abs(data2.X))
-                vbin=np.where((xtmp<ptVs[i]+1.5) & (xtmp>ptVs[i]-1.5))
-                if len(vbin[0])>1:
-                    usev=0
-                    diff = 10
-                    for index in range(0, len(vbin[0])):
-                        voltage = xtmp[vbin[0][index]]
-                        if abs((voltage - ptVs[i])/ptVs[i]) < diff:
-                            usev=index
-                    vbin=vbin[0][usev] 
+                vbin=0
+                for volt in xtmp:
+                    if volt < ptVs[i]:
+                        vbin+=1
+                    else:
+                        break
                 ytmp=np.array(abs(data2.Y))
                 Cend=float(ytmp[vbin])
                 print('#############################')
@@ -654,7 +651,7 @@ if len(args.measure)>1 or args.measure[0]=='tran_4' or args.measure[0]=='tran_3'
         if moreThanOne>1 and len(arrayParPermName)<5:
             axs[0].legend(loc='upper center', bbox_to_anchor=(.5, 1.2), fancybox=True, ncol=1, title=legTitle)
         elif len(arrayParPermName)>4 and numP>3:
-            plt.subplots_adjust(right=0.5)
+            plt.subplots_adjust(right=0.8)
             axs[0].legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.5), fancybox=True)
         else:
             plt.subplots_adjust(right=0.7)
@@ -667,11 +664,14 @@ else:
         if len(arrayParPermName)>4 and numP<4:
             plt.subplots_adjust(right=0.75)
             axs.legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.5), fancybox=True)
-        elif len(arrayParPermName)>4 and numP>2:
+        elif len(arrayParPermName)>4 and len(arrayParPermName)<8 and numP>2:
             plt.subplots_adjust(right=0.6)
             axs.legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.5), fancybox=True)
+        elif len(arrayParPermName)>8:
+            plt.subplots_adjust(right=0.6)
+            axs.legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.75), fancybox=True)
         else: 
-           axs.legend(loc='upper center', bbox_to_anchor=(.5, 1.1), fancybox=True, ncol=1, title=legTitle)
+            axs.legend(loc='upper center', bbox_to_anchor=(.5, 1.1), fancybox=True, ncol=1, title=legTitle)
 
 # print out
 fig.savefig(outName)
