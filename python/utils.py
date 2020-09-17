@@ -25,13 +25,18 @@ def drawVoltagePoint(axs,parX,parY,col):
 def drawVoltageLine(axs,parX,col):
     arrY=np.linspace(axs.get_ylim()[0],axs.get_ylim()[1],100)
     arrX=linFunction(arrY,float(parX))
+    axs.plot(arrX, arrY, color=col, linestyle='-.')
+
+def drawPowerVoltageLine(axs,parX,col):
+    arrY=np.linspace(axs.get_ylim()[0],axs.get_ylim()[1],100)
+    arrX=linFunction(arrY,float(parX))
     axs.plot(arrX, arrY, color=col, linestyle=':')
 
 def addValuesToPlot(axs,Vpt,Ileak,col,m,lenP,iP,log):
 
     ypos = axs.get_ylim()[1]/3.+iP*(axs.get_ylim()[1]/10.)
     if log:
-        ypos = axs.get_ylim()[1]/eval('1e'+str(lenP)) + (axs.get_ylim()[1]/eval('1e'+str(lenP-iP))) 
+        ypos = axs.get_ylim()[1]/80. + (math.exp((1+iP)/lenP*4)*axs.get_ylim()[0]) 
 
     yaxis='$I_{leak}'
     unit='pA'

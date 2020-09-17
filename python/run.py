@@ -27,7 +27,7 @@ parser.add_argument('-th', '--thickness', type=int, default=100, help='Define si
 parser.add_argument('--LET', type=float, default=1.28, help='Set the LET value for CCE calculation in [e-5pC].', required= 'tran_4' in sys.argv or 'tran_3' in sys.argv or 'tran_7' in sys.argv or 'tran_8' in sys.argv)
 parser.add_argument('--scaleLET', type=int, default=1, help='Scaling of the LET for CCE.', required= 'tran_4' in sys.argv or 'tran_3' in sys.argv or 'tran_7' in sys.argv or 'tran_8' in sys.argv)
 parser.add_argument('--drawMap', action='store_true', help='Print out CCE per pixel in map.')
-parser.add_argument('--pitch', type=int, help='Define pitch for maps.', required='drawMap' in sys.argv)
+parser.add_argument('--pitch', type=int, default=25, help='Define pitch for maps.', required='drawMap' in sys.argv)
 parser.add_argument('--positionX', type=float, help='Set x position of impinging particle.', required='drawMap' in sys.argv)
 parser.add_argument('--positionZ', type=float, help='Set z position of impinging particle.', required='drawMap' in sys.argv)
 parser.add_argument('--drawMoreCCE', action='store_true', help='Print out 1-CCE.')
@@ -72,7 +72,7 @@ titles = dict([('cv', 'C [F/$\mu$m]'),
                ('charge', 'charge [pC]')
                ])
 
-ranges = dict([('cv', [0, 1.5e-15]),
+ranges = dict([('cv', [0, 9e-14]),
                ('iv', [-0.3e-13, 1.2e-13]),
                ('iv_p', [1e-20, 1e-5]),
                ('iv_b', [1e-16, 1e-5]),
@@ -86,13 +86,13 @@ ranges = dict([('cv', [0, 1.5e-15]),
            ])
 
 if threeDim:
-    ranges['cv']=[0, 2e-14]
+    ranges['cv']=[0, 9e-14]
     titles['cv']='C [F]'
     titles['iv']='I$_{front}$ [A]'
     titles['iv_b']='|I$_{back}$| [A]'
     titles['iv_p']='|I$_{ptop}$| [A]'
 if args.electrode:
-    titles['iv']='I(ntop'+str(args.electrode)+') [A]'
+    titles['iv']='|I(ntop'+str(args.electrode)+')| [A]'
 
 # write parameter permutations..
 arrayParPerm=[]
@@ -254,7 +254,7 @@ for i,perm in enumerate(arrayParPermName):
                 f2=csvFileNameElectrode(args.project, m, perm, args.electrode)
 
             data2 = pd.read_csv(f2, names=["X","Y"], skiprows=1)
-            if m=='iv_b' or m=='iv_p':
+            if m=='iv_b' or m=='iv_p' or args.electrode:
                 drawGraphLines(axs[im],abs(data2.X), abs(data2.Y),colors[i],lines[0],lab)
             else:
                 drawGraphLines(axs[im],abs(data2.X), data2.Y,colors[i],lines[0],lab)
@@ -288,13 +288,26 @@ for i,perm in enumerate(arrayParPermName):
                 ptV = newDat1x[int(indMin[0])]
                 Ipt = newDat1y[int(indMin[0])]
                 drawVoltageLine(axs[im],ptV,colors[i])
+                pitch = args.pitch
+                sqaure_cm = pitch*1e-4*pitch*1e-4
+                power = abs(data2.X) * abs(data2.Y) / sqaure_cm * 1e3
+                pwV = 0
+                # check for 0.1mW/cm2
+                for ien,en in enumerate(power):
+                    #print(en)
+                    if en>0.1:
+                        pwV=abs(data2.X[ien])
+                        #print(pwV)
+                        break
                 print('#############################')
                 print( perm )
                 print('Punch-through voltage found to be:  {:.1f} V'.format(ptV))
+                print('Maximum power voltage found to be:  {:.1f} V'.format(pwV))
                 print('Current at punch through voltage:   {:.4f} uA'.format(Ipt*pow(10,6)))
                 print('#############################')
                 ptVs[i]=ptV
                 ptIs[i]=Ipt
+                drawPowerVoltageLine(axs[im],pwV,colors[i])
 
             # if measurement is cv curve, fit and extract the depletion voltage
             elif m=='cv' and args.fit and not args.depletion and not find_element_in_list('iv_p',args.measure):
@@ -319,8 +332,9 @@ for i,perm in enumerate(arrayParPermName):
                     useMin = args.fit_minX
                 if args.fit_maxX:
                     useMax = args.fit_maxX
-                newDat1x=np.array(data2.X[ (data2.X < float(useMax)) & (data2.X > float(useMin)) ])
-                newDat1y=np.array(data2.Y[ (data2.X < float(useMax)) & (data2.X > float(useMin)) ])
+                newDat1x=np.array(abs( data2.X[ (data2.X < float(useMax)) & (data2.X > float(useMin)) ] ))
+                newDat1y=np.array(abs( data2.Y[ (data2.X < float(useMax)) & (data2.X > float(useMin)) ] ))
+                newDat1y=abs(newDat1y)
                 indMin=np.where(newDat1y == newDat1y.min())
                 deplVs[i]=newDat1x[int(indMin[0])]
                 Ipt = newDat1y[int(indMin[0])]
@@ -387,7 +401,7 @@ for i,perm in enumerate(arrayParPermName):
                 ytmp=np.array(abs(data2.Y))
                 Ileak=float(ytmp[vbin])
                 print('#############################')
-                print('Leakage current at punch-thourgh: ', Ileak)
+                print('Leakage current at punch-thourgh: {:.3f}pA'.format(Ileak*1e12))
                 print('#############################')
                 addValuesToPlot(axs[im], ptVs[i], Ileak, colors[i], m, len(arrayParPermName), i ,args.log)
                 drawVoltageLine(axs[im], ptVs[i], colors[i])
@@ -544,15 +558,27 @@ for i,perm in enumerate(arrayParPermName):
                 ptV = newDat1x[int(indMin[0])]
                 Ipt = newDat1y[int(indMin[0])]
                 drawVoltageLine(axs,ptV,colors[i])
-                
+                pitch =args.pitch
+                sqaure_cm = pitch*1e-4*pitch*1e-4
+                power = abs(dat1x) * abs(dat1y) / sqaure_cm * 1e3
+                pwV = 0
+                # check for 0.1mW/cm2
+                for ien,en in enumerate(power):
+                    #print(en)
+                    if en>0.1:
+                        pwV=abs(dat1x[ien])
+                        #print(pwV)
+                        break
                 print('#############################')
                 print( perm )
                 print('Punch-through voltage found to be:  {:.1f} V'.format(ptV))
+                print('Maximum power voltage found to be:  {:.1f} V'.format(pwV))
                 print('Current at punch through voltage:   {:.4f} uA'.format(Ipt*pow(10,6)))
                 print('#############################')
-                
+                drawPowerVoltageLine(axs,pwV,colors[i])
+
             elif args.measure[0]=='iv' and args.fit and args.electrode:
-                drawGraphLines(axs,dat1x,dat1y,colors[i],lines[0],lab)
+                drawGraphLines(axs,dat1x,abs(dat1y),colors[i],lines[0],lab)
                 # find minimum above 2V and below 20V
                 useMin=2
                 useMax=20
@@ -561,7 +587,8 @@ for i,perm in enumerate(arrayParPermName):
                 if args.fit_maxX:
                     useMax = args.fit_maxX 
                 newDat1x=np.array(dat1x[ (dat1x < float(useMax)) & (dat1x > float(useMin)) ])
-                newDat1y=np.array(dat1y[ (dat1x < float(useMax)) & (dat1x > float(useMin)) ])
+                newDat1y=np.array(abs(dat1y[ (dat1x < float(useMax)) & (dat1x > float(useMin)) ]))
+                newDat1y=abs(newDat1y)
                 indMin=np.where(newDat1y == newDat1y.min())
                 ptV = newDat1x[int(indMin[0])]
                 Ipt = newDat1y[int(indMin[0])]
@@ -572,7 +599,7 @@ for i,perm in enumerate(arrayParPermName):
                 print('Depletion voltage found to be:    {:.1f} V'.format(ptV))
                 print('Current at depletion voltage:     {:.4f} uA'.format(Ipt*pow(10,6)))
                 print('#############################')
-                
+
             elif (args.measure[0]=='iv' or args.measure[0]=='cv') and args.depletion:
                 drawGraphLines(axs,dat1x,dat1y,colors[i],lines[0],lab)
                 xtmp=np.array(abs(data1.X))
@@ -660,7 +687,7 @@ if len(args.measure)>1 or args.measure[0]=='tran_4' or args.measure[0]=='tran_3'
             plt.subplots_adjust(right=0.7)
             axs[0].legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.5), fancybox=True)
     axs[len(args.measure)-1].set_xlabel('|V|')
-    axs[1].text(0,1.05,arcadia,color='gray',fontsize=10,fontweight='bold')
+    axs[0].text(0.27,1.1,arcadia,horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs[0].transAxes)
 else:
     if not args.measure[0]=='tran_4' and not args.measure[0]=='tran_3' and not args.measure[0]=='tran' and not args.measure[0]=='tran_7' and not args.measure[0]=='tran_8':
         if len(arrayParPermName)==1:
@@ -741,6 +768,7 @@ if args.drawMoreCCE:
     axsCCE.legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.77777775), fancybox=True)
     axsCCE.set_xlabel('time [ns]')
     axsCCE.set_ylabel('1-CCE$_{tot}$')
+    axsCCE.text(0.2,1.05,arcadia,horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axsCCE.transAxes)
     figCCE.savefig(plotOutName)                                                                                                                                                                                           
     
     # add efficiency plot
@@ -752,7 +780,6 @@ if args.drawMoreCCE:
     axsEff.plot(arrPos[:len(arrayParPermName)], Effs, color='black', marker='o')
     axsEff.set_ylabel('CCE$_{tot}$('+str(fixedTime)+'ns)')
     axsEff.set_xlabel('pos [$\mu$m]')
-    axsEff.text(0,1.05,arcadia,color='gray',fontsize=10,fontweight='bold')
     figEff.savefig(plotOutName2)
 
 if args.drawMap: 
