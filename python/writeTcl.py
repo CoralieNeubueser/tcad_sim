@@ -17,6 +17,12 @@ parser.add_argument('--tran_4', action='store_true', help='Specify if measuremen
 parser.add_argument('--tran_7', action='store_true', help='Specify if measurement is particle.')
 parser.add_argument('--tran_8', action='store_true', help='Specify if measurement is particle.')
 parser.add_argument('--charge', action='store_true', help='Specify if measurement is particle.')
+parser.add_argument('--field', action='store_true', help='Specify if measurement is electric field.')
+parser.add_argument('--spacecharge', action='store_true', help='Specify if measurement is space charge.')
+parser.add_argument('--potential', action='store_true', help='Specify if measurement is electrostatic potential.')
+parser.add_argument('--traps', action='store_true', help='Specify if measurement is trap occupation.')
+parser.add_argument('--pitch', type=int, help='Specify the pitch.')
+parser.add_argument('--cutline', type=int, help='Specify the cutline position.')
 parser.add_argument('-pS', '--parStr', action='append', default=[], help='Give parameters as specified in tcad project.')
 parser.add_argument('--run', action='store_true', help='Specify if you want to execute the tcl file.')
 
@@ -32,6 +38,7 @@ measure=''
 nameBegin=''
 nameEnd=''
 figName=''
+useTDR=False
 
 if args.cv:
     measure='cv'
@@ -77,7 +84,31 @@ elif args.charge:
     measure='charge'
     nameBegin="tran"
     nameEnd=".plt"
-
+elif args.field:
+    measure='field'
+    nameBegin="iv"
+    nameEnd=".tdr"
+    useTDR=True
+    nameValue=['Abs(ElectricField-V)']
+elif args.spacecharge:
+    measure='spacecharge'
+    nameBegin="iv"
+    nameEnd=".tdr"
+    useTDR=True
+    nameValue=['SpaceCharge']
+elif args.potential:
+    measure='potential'
+    nameBegin="iv"
+    nameEnd=".tdr"
+    useTDR=True
+    nameValue=['ElectrostaticPotential']
+elif args.traps:
+    measure='traps'
+    nameBegin="iv"
+    nameEnd=".tdr"
+    useTDR=True
+    nameValue=['TrapOccupation_0(Ac,Le)', 'TrapOccupation_1(Ac,Le)', 'TrapOccupation_2(Do,Le)']
+    
 el=None
 if args.electrode:
     el=args.electrode
@@ -103,14 +134,17 @@ if os.path.isfile(csvFile):
     os.system('rm '+csvFile)
     args.run=True
 # set parameters in file names
-for par in args.parStr:
+for ip,par in enumerate(args.parStr):    
     inFileName+="_"+str(par)
     figName+="_"+str(par)
+    if useTDR and (ip==(len(args.parStr)-2)):
+        inFileName+="_000003"
+        figName+="_000003"
 
 inFileName=inFileName+nameEnd
 tclFileName=csvFile+".tcl"
-figName=figName+nameEnd.replace(".plt","")
-
+figName=figName+nameEnd.replace(nameEnd[-4:],"")
+    
 #Write tcl file
 newFile=open(tclFileName, "w")
 print(tclFileName)
@@ -186,6 +220,23 @@ elif measure=='tran_8':
     newFile.write('export_curves {Curve_1 Curve_2 Curve_3 Curve_4 Curve_5 Curve_6 Curve_7 Curve_8} -plot Plot_1 -filename '+str(csvFile)+' -format csv -overwrite\n')
 
 
+elif useTDR:
+    firstCut = float(args.pitch)/2.
+    newFile.write('create_plot -dataset {'+str(figName)+'}\n')
+    newFile.write('select_plots {Plot_'+str(figName)+'}\n')
+    curves = ''
+    for iv,value in enumerate(nameValue):
+        iv+=1
+        newFile.write('set_field_prop -plot Plot_'+str(figName)+' -geom '+str(figName)+' '+str(value)+' -show_bands\n')
+        newFile.write('create_cutplane -plot Plot_'+str(figName)+' -type z -at {:.1f}'.format(firstCut)+'\n')
+        newFile.write('create_plot -dataset C1('+str(figName)+') -ref_plot Plot_'+str(figName)+'\n')
+        newFile.write('create_cutline -plot Plot_C1('+str(figName)+') -type x -at '+str(args.cutline)+'\n')
+        newFile.write('create_plot -dataset C1(C1('+str(figName)+')) -1d\n')
+        newFile.write('create_curve -plot Plot_C1(C1('+str(figName)+')) -dataset {C1(C1('+str(figName)+'))} -axisX Y -axisY '+str(value)+'\n')
+        curves += 'Curve_'+str(iv)+' '
+
+    newFile.write('export_curves {'+str(curves)+'} -plot Plot_C1(C1('+str(figName)+')) -filename '+str(csvFile)+' -format csv -overwrite\n')
+        
 else:
     newFile.write('#-> Curve_1\n')
     newFile.write('export_curves {Curve_1} -plot Plot_1 -filename '+str(csvFile)+' -format csv -overwrite\n')

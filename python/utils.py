@@ -22,21 +22,21 @@ def getIntegral(y, x): #, xMin, xMax):
 def drawVoltagePoint(axs,parX,parY,col):
     axs.plot(parX, parY, color=col,marker='*')
     
-def drawVoltageLine(axs,parX,col):
+def drawVoltageLine(axs,parX,col,volName='$V_{pt}$'):
     arrY=np.linspace(axs.get_ylim()[0],axs.get_ylim()[1],100)
     arrX=linFunction(arrY,float(parX))
-    axs.plot(arrX, arrY, color=col, linestyle='-.')
+    axs.plot(arrX, arrY, color=col, linestyle='-.', label=volName+'={0:.1f}V'.format(parX))
 
 def drawPowerVoltageLine(axs,parX,col):
     arrY=np.linspace(axs.get_ylim()[0],axs.get_ylim()[1],100)
     arrX=linFunction(arrY,float(parX))
-    axs.plot(arrX, arrY, color=col, linestyle=':')
+    axs.plot(arrX, arrY, color=col, linestyle=':', label='$V_{pw}=$'+'{0:.1f}V'.format(parX))
 
 def addValuesToPlot(axs,Vpt,Ileak,col,m,lenP,iP,log):
 
     ypos = axs.get_ylim()[1]/3.+iP*(axs.get_ylim()[1]/10.)
     if log:
-        ypos = axs.get_ylim()[1]/80. + (math.exp((1+iP)/lenP*4)*axs.get_ylim()[0]) 
+        ypos = math.exp((1+iP)*(lenP/4.)) * (axs.get_ylim()[0]) 
 
     yaxis='$I_{leak}'
     unit='pA'
@@ -445,13 +445,24 @@ def drawCCE(axis,arr1,arr2,norm,col,linestyle,la):
     eff=np.zeros(len(arr2))
     current=np.array(arr2) # A
     time=np.array(arr1) # s
-    
+
+    maxE=arr1[len(arr1)-1]
+    trial=1
+    while maxE==0:
+        maxE = float(arr1[len(arr1)-trial])
+        trial+=1
+
+    time     = np.array(arr1[1:len(arr1)-trial])
+    current  = np.array(arr2[1:len(arr2)-trial])
+    eff      = np.zeros(len(time))
+
     for it,t in enumerate(time):
+        # convert to pC and normalise
         eff[it] = np.trapz(current[time<t], x=time[time<t]) *pow(10,12)/norm
  
     #time in ns
     axis.plot(time*pow(10,9),eff,color=col,marker=',',linestyle=linestyle,label=la)
-    return eff
+    return time*pow(10,9), eff
 
 def getTime(vecTime,vecCCEs,perc):
     time = np.array(vecTime)

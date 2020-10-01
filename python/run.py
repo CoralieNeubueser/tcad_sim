@@ -8,7 +8,7 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument('--project', type=str, default='ARCADIA25um_surfaceDamage', help='Define patht to project.')
 parser.add_argument('--writeCSV', action='store_true', help='Convert tcl to csv, if not already done.')
-parser.add_argument('-m', '--measure', action='append', type=str, default=[], help='Define which plots you want to draw.', choices=['cv','iv','iv_p','iv_b','cv_b','tran','tran_3','tran_4','tran_7','tran_8','charge'])
+parser.add_argument('-m', '--measure', action='append', type=str, default=[], help='Define which plots you want to draw.', choices=['cv','iv','iv_p','iv_b','cv_b','tran','tran_3','tran_4','tran_7','tran_8','charge','field','spacecharge','potential','traps'])
 # define read-out electrode
 parser.add_argument('-el', '--electrode', type=int, help='Possibility to define read-out electrode. Do not use if simulations has only one!', choices=[1,2,3,4,5])
 # set sepletion voltage for leakage current determination
@@ -16,7 +16,7 @@ parser.add_argument('-deplV', '--depletion', type=float, help='Give depletion vo
 # draw and fit ranges
 parser.add_argument('--log', action='store_true', help='Define if y axis on log scale.')
 parser.add_argument('--fit', action='store_true', help='Define if cv curve is fitted.')
-parser.add_argument('--fit_minX', type=float, default=0., help='Set fit range minimum.')
+parser.add_argument('--fit_minX', type=float, default=0.1, help='Set fit range minimum.')
 parser.add_argument('--fit_maxX', type=float, default=100., help='Set fit range maximum.')
 parser.add_argument('--fit_maxY', type=float, default=1e-14, help='Limits the fit range for punch through by maximum current.')
 parser.add_argument('--free', action='store_true', help='Free y range.')
@@ -27,10 +27,13 @@ parser.add_argument('-th', '--thickness', type=int, default=100, help='Define si
 parser.add_argument('--LET', type=float, default=1.28, help='Set the LET value for CCE calculation in [e-5pC].', required= 'tran_4' in sys.argv or 'tran_3' in sys.argv or 'tran_7' in sys.argv or 'tran_8' in sys.argv)
 parser.add_argument('--scaleLET', type=int, default=1, help='Scaling of the LET for CCE.', required= 'tran_4' in sys.argv or 'tran_3' in sys.argv or 'tran_7' in sys.argv or 'tran_8' in sys.argv)
 parser.add_argument('--drawMap', action='store_true', help='Print out CCE per pixel in map.')
-parser.add_argument('--pitch', type=int, default=25, help='Define pitch for maps.', required='drawMap' in sys.argv)
+# define pitch for are dependent measurements
+parser.add_argument('--pitch', type=int, default=25, help='Define pitch for maps.', required='drawMap' in sys.argv or 'potential' in sys.argv or 'field' in sys.argv)
 parser.add_argument('--positionX', type=float, help='Set x position of impinging particle.', required='drawMap' in sys.argv)
 parser.add_argument('--positionZ', type=float, help='Set z position of impinging particle.', required='drawMap' in sys.argv)
 parser.add_argument('--drawMoreCCE', action='store_true', help='Print out 1-CCE.')
+#
+parser.add_argument('--cutline', type=int, help='Set position of cut line for profiles.', required='potential' in sys.argv or 'field' in sys.argv)
 # Tested variables
 parser.add_argument('-out', '--output', type=str, default='_', help='Define output file name..')
 parser.add_argument('-numP', '--Parameters', type=int, default=2, help='Define how many parameters are tested.')
@@ -69,12 +72,20 @@ titles = dict([('cv', 'C [F/$\mu$m]'),
                ('tran_4', r'I$_{front}$ [$\mu$A] $\times$ '+str(args.scaleLET)),
                ('tran_7', r'I$_{front}$ [$\mu$A] $\times$ '+str(args.scaleLET)),
                ('tran_8', r'I$_{front}$ [$\mu$A] $\times$ '+str(args.scaleLET)),
-               ('charge', 'charge [pC]')
-               ])
+               ('charge', 'charge [pC]'),
+               ('field', '|E| [V/cm]'),
+               ('spacecharge', 'space charge [cm$^{-3}$]'),
+               ('potential', '|U| [V]'),
+               ('traps', 'trap occupation')
+])
 
-ranges = dict([('cv', [0, 9e-14]),
-               ('iv', [-0.3e-13, 1.2e-13]),
-               ('iv_p', [1e-20, 1e-5]),
+ranges = dict([('cv', [5e-15, 9e-14]),
+               # bulk damage at 248K
+#               ('iv', [5e-18, 5e-10]),
+               # bulk damage ar 300K
+               ('iv', [1e-17, 5e-7]),
+#               ('iv', [1e-15, 5e-13]), 
+               ('iv_p', [1e-17, 1e-5]),
                ('iv_b', [1e-16, 1e-5]),
                ('cv_b', [1e-16, 5e-15]),
                ('tran', [0, 1.2]),
@@ -82,11 +93,16 @@ ranges = dict([('cv', [0, 9e-14]),
                ('tran_4', [0, 0.2]),
                ('tran_7', [0, 0.2]),
                ('tran_8', [0, 0.2]),
-               ('charge', [0, 1.2])
+               ('charge', [0, 1.2]),
+               ('field', [0,200]),
+               ('spacecharge', [-3e16,3e16]),
+               ('potential', [-20,20]),
+               ('traps', [0,1])
            ])
 
 if threeDim:
-    ranges['cv']=[0, 9e-14]
+    #ranges['cv']=[5e-15, 9e-14]
+    ranges['cv']=[1e-14, 8e-14]
     titles['cv']='C [F]'
     titles['iv']='I$_{front}$ [A]'
     titles['iv_b']='|I$_{back}$| [A]'
@@ -192,15 +208,20 @@ if args.writeCSV:
         print(parOption)
         if len(args.measure)>1:
             for im,m in enumerate(args.measure):
-                if m=='cv':
-                    # only cv files are re-written in case that muli-measures are taken!
-                    # write and run tcl files to store csv files in tmp/ for
-                    os.system('python3 python/writeTcl.py --project '+str(args.project)+' --'+str(m)+' '+parOption+' --run')
+                # write and run tcl files to store csv files in tmp/ for
+                cmd = 'python3 python/writeTcl.py --project '+str(args.project)+' --'+str(m)+' '+parOption+\
+' --run'
+                if args.cutline:
+                    cmd += ' --cutline '+str(args.cutline)+' --pitch '+str(args.pitch)
+                os.system(cmd)
+
         else:
             # write and run tcl files to store csv files in tmp/ for
-            cmd = 'python python/writeTcl.py --project '+str(args.project)+' --'+str(args.measure[0])+' '+parOption+' --run'
+            cmd = 'python3 python/writeTcl.py --project '+str(args.project)+' --'+str(args.measure[0])+' '+parOption+' --run'
             if args.electrode:
                 cmd += ' --electrode '+str(args.electrode)
+            elif args.cutline:
+                cmd += ' --cutline '+str(args.cutline)+' --pitch '+str(args.pitch)
             os.system(cmd)
             
 # prepare for drawing
@@ -253,8 +274,8 @@ for i,perm in enumerate(arrayParPermName):
             if args.electrode:
                 f2=csvFileNameElectrode(args.project, m, perm, args.electrode)
 
-            data2 = pd.read_csv(f2, names=["X","Y"], skiprows=1)
-            if m=='iv_b' or m=='iv_p' or args.electrode:
+            data2 = pd.read_csv(f2, names=["X","Y","X1","Y1","X2","Y2","X3","Y3"], skiprows=1)
+            if m=='iv_b' or m=='iv_p' or args.electrode or m=='potential':
                 drawGraphLines(axs[im],abs(data2.X), abs(data2.Y),colors[i],lines[0],lab)
             else:
                 drawGraphLines(axs[im],abs(data2.X), data2.Y,colors[i],lines[0],lab)
@@ -264,8 +285,10 @@ for i,perm in enumerate(arrayParPermName):
                 axs[im].set_ylim(ranges[m][0],ranges[m][1])
             if args.log:
                 axs[im].set_yscale('log')
+                if m=='spacecharge' or m=='traps' or m=='potential':
+                    axs[im].set_xscale('symlog')
             if args.maxX:
-                axs[im].set_xlim(-2, xmax)
+                axs[im].set_xlim(-1, xmax)
             
             # if measurement is iv curve, fit and extract the punch through voltage
             if m=='iv_b':
@@ -282,8 +305,8 @@ for i,perm in enumerate(arrayParPermName):
             # if measurement is iv curve, fit and extract the punch through voltage
             elif m=='iv_p':
                 # set maximum current to be fitted for detemining punch through.. keep low for set-off
-                newDat1x=np.array(abs(data2.X[ abs(data2.X) > float(3) ]))
-                newDat1y=np.array(abs(data2.Y[ abs(data2.X) > float(3) ]))
+                newDat1x=np.array(abs(data2.X[ abs(data2.X) > float(0.1) ]))
+                newDat1y=np.array(abs(data2.Y[ abs(data2.X) > float(0.1) ]))
                 indMin=np.where(newDat1y == newDat1y.min())
                 ptV = newDat1x[int(indMin[0])]
                 Ipt = newDat1y[int(indMin[0])]
@@ -386,7 +409,7 @@ for i,perm in enumerate(arrayParPermName):
                 ytmp=np.array(abs(data2.Y))
                 Cend=float(ytmp[vbin])
                 print('#############################')
-                print('Capacitance at punch-through voltage {}V: {}F'.format(ptVs[i], Cend))
+                print('Capacitance at punch-through voltage {:.1f}V: {:.2f}fF'.format(ptVs[i], (Cend*1e15)))
                 print('#############################')
                 addValuesToPlot(axs[im], ptVs[i], Cend, colors[i], m, len(arrayParPermName), i ,args.log)
                 drawVoltageLine(axs[im], ptVs[i], colors[i])
@@ -395,9 +418,13 @@ for i,perm in enumerate(arrayParPermName):
                 print('#############################')
                 print('Write leakage current at punch through in plot.. ')
                 xtmp=np.array(abs(data2.X))
-                vbin=np.where((xtmp<ptVs[i]+0.5) & (xtmp>ptVs[i]-0.5))
-                if len(vbin[0])>1:
-                    vbin = vbin[0][0]
+                # use value found closest to actual value
+                vbin=0
+                for volt in xtmp:
+                    if volt < ptVs[i]:
+                        vbin+=1
+                    else:
+                        break
                 ytmp=np.array(abs(data2.Y))
                 Ileak=float(ytmp[vbin])
                 print('#############################')
@@ -425,10 +452,10 @@ for i,perm in enumerate(arrayParPermName):
                 draw8MultiGraphLines(axs[0],data1.X*pow(10,9), data1.Y*pow(10,6), data1.Y1*pow(10,6), data1.Y2*pow(10,6), data1.Y3*pow(10,6), data1.Y4*pow(10,6), data1.Y5*pow(10,6), data1.Y6*pow(10,6), data1.Y7*pow(10,6), args.scaleLET, lines[0])
                     
             #set x range
-            axs[0].set_xlim(-2, axs[0].get_xlim()[1])
+            axs[0].set_xlim(-1, axs[0].get_xlim()[1])
             if args.maxX:
-                axs[1].set_xlim(-2, xmax)
-                axs[0].set_xlim(-2, xmax)
+                axs[1].set_xlim(0, xmax)
+                axs[0].set_xlim(0, xmax)
 
             # fill array with time bins for hit maps
             times[i]=data1.X*pow(10,9)
@@ -458,7 +485,7 @@ for i,perm in enumerate(arrayParPermName):
             
             # draw CCE over time
             if args.measure[0]=='tran':
-                CCEs1[i] = drawCCE(axs[1],data1.X,data1.Y,final_let,colors[i],lines[0],lab)
+                times[i], CCEs1[i] = drawCCE(axs[1],data1.X,data1.Y,final_let,colors[i],lines[0],lab)
                 axs[1].set_ylabel('CCE')
 
             # draw CCEs over time and return 3 arrays
@@ -485,8 +512,10 @@ for i,perm in enumerate(arrayParPermName):
 
             print('#############################')
             print('Total CCE, integrated over all channels.')
-            
-            channels = int(re.search(r'\d+', args.measure[0]).group())
+
+            channels = 1
+            if not args.measure[0]=='tran':
+                channels = int(re.search(r'\d+', args.measure[0]).group())
             for ch in range(1,channels+1):
                 #print(i,ch)
                 if ch==1:
@@ -514,10 +543,10 @@ for i,perm in enumerate(arrayParPermName):
                 axs[1].set_ylim(0,1.2)
 
             if args.log:
-                axs[0].set_yscale('log')
-                axs[1].set_yscale('log')
+                axs[0].set_yscale('symlog')
+                axs[1].set_yscale('symlog')
 
-            axs[1].set_xticks(np.arange(0, int(axs[1].get_xlim()[1]),  int(axs[1].get_xlim()[1]/10.) ))
+                #axs[1].set_xticks(np.arange(0, int(axs[1].get_xlim()[1]),  int(axs[1].get_xlim()[1]/10.) ))
             plt.grid(True)
 
         elif args.measure[0]=='charge':
@@ -528,13 +557,21 @@ for i,perm in enumerate(arrayParPermName):
             if not args.free:
                 axs.set_ylim(ranges[args.measure[0]][0],ranges[args.measure[0]][1])
 
+        elif args.measure[0]=='traps':
+            drawGraphLines(axs,data1.X, data1.Y,colors[i],lines[0],lab+', Acc1')
+            drawGraphLines(axs,data1.X1, data1.Y1,colors[i],lines[1],lab+', Acc2')
+            drawGraphLines(axs,data1.X2, data1.Y2,colors[i],lines[2],lab+', Don1')
+            axs.set_ylabel(titles[args.measure[0]])
+            axs.set_xlabel('depth [$\mu$m]')
+            #axs.set_ylim(ranges[args.measure[0]][0],ranges[args.measure[0]][1])
+            
         else:
             if args.maxX:
                 axs.set_xlim(-2, xmax)
 
             dat1x=abs(data1.X)
             dat1y=data1.Y
-
+            
             # if measure current at back, determine punch through voltage
             if args.measure[0]=='iv_b' and args.fit:
                 drawGraphLines(axs,dat1x,abs(dat1y),colors[i],lines[0],lab)
@@ -552,8 +589,8 @@ for i,perm in enumerate(arrayParPermName):
                 drawGraphLines(axs,dat1x,abs(dat1y),colors[i],lines[0],lab)
                 dat1y=abs(dat1y)
                 # find minimum above 3V
-                newDat1x=np.array(dat1x[ dat1x > float(3) ])
-                newDat1y=np.array(dat1y[ dat1x > float(3) ])
+                newDat1x=np.array(dat1x[ dat1x > float(0.1) ])
+                newDat1y=np.array(dat1y[ dat1x > float(0.1) ])
                 indMin=np.where(newDat1y == newDat1y.min())
                 ptV = newDat1x[int(indMin[0])]
                 Ipt = newDat1y[int(indMin[0])]
@@ -564,10 +601,8 @@ for i,perm in enumerate(arrayParPermName):
                 pwV = 0
                 # check for 0.1mW/cm2
                 for ien,en in enumerate(power):
-                    #print(en)
                     if en>0.1:
                         pwV=abs(dat1x[ien])
-                        #print(pwV)
                         break
                 print('#############################')
                 print( perm )
@@ -592,7 +627,7 @@ for i,perm in enumerate(arrayParPermName):
                 indMin=np.where(newDat1y == newDat1y.min())
                 ptV = newDat1x[int(indMin[0])]
                 Ipt = newDat1y[int(indMin[0])]
-                drawVoltageLine(axs,ptV,colors[i])
+                drawVoltageLine(axs,ptV,colors[i],'$V_{dpl}$')
                 
                 print('#############################')
                 print( perm )
@@ -624,14 +659,22 @@ for i,perm in enumerate(arrayParPermName):
                 drawVoltageLine(axs, vdepletion, colors[i])
                 addValuesToPlot(axs, vdepletion, Ileak, colors[i], args.measure[0], len(arrayParPermName), i ,args.log)
 
+            elif args.measure[0]=='potential':
+                drawGraphLines(axs,abs(data1.X), abs(data1.Y),colors[i],lines[0],lab)
             else:
                 drawGraphLines(axs,abs(data1.X), data1.Y,colors[i],lines[0],lab)
-            axs.set_xlabel('|V|')
+            if (args.measure[0]=='field' or args.measure[0]=='spacecharge' or args.measure[0]=='potential' or args.measure[0]=='traps'):
+                axs.set_xlabel('depth [$\mu$m]')
+            else:
+                axs.set_xlabel('|V|')
             axs.set_ylabel(titles[args.measure[0]])
             if not args.free:
                 axs.set_ylim(ranges[args.measure[0]][0],ranges[args.measure[0]][1])
             if args.log:
                 axs.set_yscale('log')
+                if args.measure[0]=='spacecharge' or args.measure[0]=='traps':
+                    axs.set_xscale('symlog')
+
 
         # if measurement is cv curve, fit and extract the depletion voltage
         if args.measure[0]=='cv' and args.fit and not args.depletion:
@@ -668,24 +711,24 @@ print(outName)
 # add ARCADIA label
 arcadia='ARCADIA TCAD simulation'
 
-if len(args.measure)>1 or args.measure[0]=='tran_4' or args.measure[0]=='tran_3' or args.measure[0]=='tran' or args.measure[0]=='tran_7' or args.measure[0]=='tran_8':
-    if args.measure[0]=='tran_4' or args.measure[0]=='tran_3' or args.measure[0]=='tran' or args.measure[0]=='tran_7' or args.measure[0]=='tran_8':
-        plt.subplots_adjust(top=0.8)
+if len(args.measure)>1 or "tran" in args.measure[0]:
+    if "tran" in args.measure[0]:
+        #plt.subplots_adjust(top=0.8)
         colmn=4
         if len(arrayParPermName)>1:
             colmn=int(len(arrayParPermName)/2.)
         else:
             legTitle=legTitle+'\n'+arrayParPermName[0]
-        axs[0].legend(loc='upper center', bbox_to_anchor=(.5, 1.5), fancybox=True, ncol=colmn, title=legTitle)
+        axs[0].legend(loc='upper center', bbox_to_anchor=(.7, 1.), fancybox=True, ncol=colmn, title=legTitle)
     else:
         if moreThanOne>1 and len(arrayParPermName)<5:
             axs[0].legend(loc='upper center', bbox_to_anchor=(.5, 1.2), fancybox=True, ncol=1, title=legTitle)
         elif len(arrayParPermName)>4 and numP>3:
             plt.subplots_adjust(right=0.8)
-            axs[0].legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.5), fancybox=True)
+            axs[0].legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 1.2), fancybox=True)
         else:
             plt.subplots_adjust(right=0.7)
-            axs[0].legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.5), fancybox=True)
+            axs[0].legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 1.2), fancybox=True)
     axs[len(args.measure)-1].set_xlabel('|V|')
     axs[0].text(0.27,1.1,arcadia,horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs[0].transAxes)
 else:
@@ -694,13 +737,13 @@ else:
             legTitle=legTitle+'\n'+arrayParPermName[0]
         if len(arrayParPermName)>4 and numP<4:
             plt.subplots_adjust(right=0.75)
-            axs.legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.5), fancybox=True)
+            axs.legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 1.2), fancybox=True)
         elif len(arrayParPermName)>4 and len(arrayParPermName)<8 and numP>2:
             plt.subplots_adjust(right=0.6)
-            axs.legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.5), fancybox=True)
+            axs.legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 1.2), fancybox=True)
         elif len(arrayParPermName)>8:
             plt.subplots_adjust(right=0.6)
-            axs.legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.75), fancybox=True)
+            axs.legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 1.2), fancybox=True)
         else: 
             axs.legend(loc='upper center', bbox_to_anchor=(.5, 1.1), fancybox=True, ncol=1, title=legTitle)
 
@@ -727,7 +770,7 @@ if args.drawMoreCCE:
         normTimes = np.array(times_loc)
 
         axsCCE.plot(normTimes, normCCEs, color=colors[i], marker=',', label=arrayParName[i])
-        axsCCE.set_yscale('log')
+        axsCCE.set_yscale('symlog')
         axsCCE.set_xlim(0,args.maxX)
     
         time99 = getTime(normTimes, CCEs_loc,99)
