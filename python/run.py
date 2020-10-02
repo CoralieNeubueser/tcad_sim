@@ -101,8 +101,8 @@ ranges = dict([('cv', [5e-15, 9e-14]),
            ])
 
 if threeDim:
-    #ranges['cv']=[5e-15, 9e-14]
-    ranges['cv']=[1e-14, 8e-14]
+    ranges['cv']=[5e-15, 9e-14]
+    #ranges['cv']=[1e-14, 8e-14]
     titles['cv']='C [F]'
     titles['iv']='I$_{front}$ [A]'
     titles['iv_b']='|I$_{back}$| [A]'
@@ -266,7 +266,8 @@ for i,perm in enumerate(arrayParPermName):
     print(f1)
     data1 = pd.read_csv(f1, names=["X","Y","X1","Y1","X2","Y2","X3","Y3","X4","Y4","X5","Y5","X6","Y6","X7","Y7"], skiprows=1)
     lab=str(arrayParName[i])
-
+    if arrayParName[i]=='-2':
+        lab='no SiO$_{2}$'
     # if multiple measurements are analysed draw in multiple subplots
     if len(args.measure)>1:
         for im,m in enumerate(args.measure):
@@ -656,7 +657,7 @@ for i,perm in enumerate(arrayParPermName):
                 print('#############################')
                 print('Leakage current/Capacitance at depletion voltage {}V: {}'.format(vdepletion, Ileak))
                 print('#############################')
-                drawVoltageLine(axs, vdepletion, colors[i])
+                drawVoltageLine(axs, vdepletion, colors[i], '$V_{dpl}$')
                 addValuesToPlot(axs, vdepletion, Ileak, colors[i], args.measure[0], len(arrayParPermName), i ,args.log)
 
             elif args.measure[0]=='potential':
@@ -732,21 +733,23 @@ if len(args.measure)>1 or "tran" in args.measure[0]:
     axs[len(args.measure)-1].set_xlabel('|V|')
     axs[0].text(0.27,1.1,arcadia,horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs[0].transAxes)
 else:
-    if not args.measure[0]=='tran_4' and not args.measure[0]=='tran_3' and not args.measure[0]=='tran' and not args.measure[0]=='tran_7' and not args.measure[0]=='tran_8':
+    if not "tran" in args.measure[0]:
         if len(arrayParPermName)==1:
             legTitle=legTitle+'\n'+arrayParPermName[0]
+        if legTitle[:1]=="_":
+            legTitle = legTitle[1:]
         if len(arrayParPermName)>4 and numP<4:
             plt.subplots_adjust(right=0.75)
-            axs.legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 1.2), fancybox=True)
+            axs.legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 1.), fancybox=True)
         elif len(arrayParPermName)>4 and len(arrayParPermName)<8 and numP>2:
             plt.subplots_adjust(right=0.6)
-            axs.legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 1.2), fancybox=True)
+            axs.legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 1.), fancybox=True)
         elif len(arrayParPermName)>8:
             plt.subplots_adjust(right=0.6)
-            axs.legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 1.2), fancybox=True)
+            axs.legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 1.), fancybox=True)
         else: 
             axs.legend(loc='upper center', bbox_to_anchor=(.5, 1.1), fancybox=True, ncol=1, title=legTitle)
-
+        axs.text(0.27,1.1,arcadia,horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs.transAxes)
 # print out
 fig.savefig(outName)
 
