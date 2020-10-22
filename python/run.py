@@ -3,7 +3,8 @@ from utils import *
 from drawCCEmap import *
 import pandas as pd
 import numpy as np
-from matplotlib import ticker
+#from matplotlib import ticker
+import matplotlib.ticker as ticker
 parser = argparse.ArgumentParser()
 
 parser.add_argument('--project', type=str, default='ARCADIA25um_surfaceDamage', help='Define patht to project.')
@@ -20,6 +21,7 @@ parser.add_argument('--fit_minX', type=float, default=0.1, help='Set fit range m
 parser.add_argument('--fit_maxX', type=float, default=100., help='Set fit range maximum.')
 parser.add_argument('--fit_maxY', type=float, default=1e-14, help='Limits the fit range for punch through by maximum current.')
 parser.add_argument('--free', action='store_true', help='Free y range.')
+parser.add_argument('--minX', type=float, default=0, help='Set draw range minimum.')
 parser.add_argument('--maxX', type=int, help='Set draw range maximum.')
 parser.add_argument('-threeD', '--threeD', action='store_true', help='3D measurement, assumes only particle transient measurement at the moment.')
 # options for transient measurements
@@ -32,10 +34,13 @@ parser.add_argument('--pitch', type=int, default=25, help='Define pitch for maps
 parser.add_argument('--positionX', type=float, help='Set x position of impinging particle.', required='drawMap' in sys.argv)
 parser.add_argument('--positionZ', type=float, help='Set z position of impinging particle.', required='drawMap' in sys.argv)
 parser.add_argument('--drawMoreCCE', action='store_true', help='Print out 1-CCE.')
-#
+# set the cutline for svisual, for the 3D domains
 parser.add_argument('--cutline', type=int, help='Set position of cut line for profiles.', required='potential' in sys.argv or 'field' in sys.argv)
-# Tested variables
+# General output settings
 parser.add_argument('-out', '--output', type=str, default='_', help='Define output file name..')
+parser.add_argument('-add1', '--addLabel1', type=str, default='', help='Add label to the ARCADIA standard.')
+parser.add_argument('-add2', '--addLabel2', type=str, default='', help='Add label to the ARCADIA standard.')
+# Tested variables 
 parser.add_argument('-numP', '--Parameters', type=int, default=2, help='Define how many parameters are tested.')
 parser.add_argument('-p1', '--par1', action='append', default=[], help='Fill arrays with parameter value.')
 parser.add_argument('-p2', '--par2', action='append', default=[], help='Fill arrays with parameter value.')
@@ -58,6 +63,8 @@ thickness = args.thickness
 numP=args.Parameters
 if args.log:
     args.output += 'log_'
+if args.free:
+    args.output += 'free_'
 if args.depletion:
     vdepletion = args.depletion
     print("Depletion voltage set to: ", vdepletion)
@@ -67,13 +74,13 @@ titles = dict([('cv', 'C [F/$\mu$m]'),
                ('iv_p', '|I$_{ptop}$| [A/$\mu$m]'),
                ('iv_b', '|I$_{back}$| [A/$\mu$m]'),
                ('cv_b', 'C$_{back}$ [F/$\mu$m]'),
-               ('tran',  r'I$_{front}$ [$\mu$A] $\times$ '+str(args.scaleLET) ),
+               ('tran',  r'I$_{front}$ [$\mu$A]'),
                ('tran_3', r'I$_{front}$ [$\mu$A] $\times$ '+str(args.scaleLET)),
                ('tran_4', r'I$_{front}$ [$\mu$A] $\times$ '+str(args.scaleLET)),
                ('tran_7', r'I$_{front}$ [$\mu$A] $\times$ '+str(args.scaleLET)),
                ('tran_8', r'I$_{front}$ [$\mu$A] $\times$ '+str(args.scaleLET)),
                ('charge', 'charge [pC]'),
-               ('field', '|E| [V/cm]'),
+               ('field', '|E| [kV/cm]'),
                ('spacecharge', 'space charge [cm$^{-3}$]'),
                ('potential', '|U| [V]'),
                ('traps', 'trap occupation')
@@ -94,8 +101,8 @@ ranges = dict([('cv', [5e-15, 9e-14]),
                ('tran_7', [0, 0.2]),
                ('tran_8', [0, 0.2]),
                ('charge', [0, 1.2]),
-               ('field', [0,200]),
-               ('spacecharge', [-3e16,3e16]),
+               ('field', [0,10]),
+               ('spacecharge', [1e12,1e14]),
                ('potential', [-20,20]),
                ('traps', [0,1])
            ])
@@ -234,6 +241,7 @@ fig, axs = plt.subplots(len(args.measure),1, sharex=True, sharey=False) #, grids
 # need two canvas' to include CCE
 if args.measure[0]=='tran' or args.measure[0]=='tran_4' or  args.measure[0]=='tran_3' or  args.measure[0]=='tran_7' or  args.measure[0]=='tran_8':
     fig, axs = plt.subplots(2,1, sharex=True, sharey=False)
+plt.subplots_adjust(hspace = 0.05, wspace = 0.01, right = 0.98, top=0.95)
 
 # pick color map
 colormap = plt.cm.nipy_spectral
@@ -278,6 +286,8 @@ for i,perm in enumerate(arrayParPermName):
             data2 = pd.read_csv(f2, names=["X","Y","X1","Y1","X2","Y2","X3","Y3"], skiprows=1)
             if m=='iv_b' or m=='iv_p' or args.electrode or m=='potential':
                 drawGraphLines(axs[im],abs(data2.X), abs(data2.Y),colors[i],lines[0],lab)
+            elif m=='field':
+                drawGraphLines(axs[im],abs(data2.X), data2.Y/1e3,colors[i],lines[0],lab)
             else:
                 drawGraphLines(axs[im],abs(data2.X), data2.Y,colors[i],lines[0],lab)
 
@@ -286,10 +296,13 @@ for i,perm in enumerate(arrayParPermName):
                 axs[im].set_ylim(ranges[m][0],ranges[m][1])
             if args.log:
                 axs[im].set_yscale('log')
-                if m=='spacecharge' or m=='traps' or m=='potential':
-                    axs[im].set_xscale('symlog')
+            elif m=='spacecharge' or m=='traps' or m=='potential' and args.log:
+                ymin, ymax = axs[im].get_ylim()
+                axs[im].set_yticks(np.round(np.linspace(ymin, ymax, 3), 2))
+                axs[im].set_yscale('symlog')
+                #axs[im].tick_params(axis='y', direction='out', labelrotation=0.5) 
             if args.maxX:
-                axs[im].set_xlim(-1, xmax)
+                axs[im].set_xlim(args.minX, xmax)
             
             # if measurement is iv curve, fit and extract the punch through voltage
             if m=='iv_b':
@@ -455,8 +468,8 @@ for i,perm in enumerate(arrayParPermName):
             #set x range
             axs[0].set_xlim(-1, axs[0].get_xlim()[1])
             if args.maxX:
-                axs[1].set_xlim(0, xmax)
-                axs[0].set_xlim(0, xmax)
+                axs[1].set_xlim(args.minX, xmax)
+                axs[0].set_xlim(args.minX, xmax)
 
             # fill array with time bins for hit maps
             times[i]=data1.X*pow(10,9)
@@ -533,7 +546,7 @@ for i,perm in enumerate(arrayParPermName):
 
             axs[1].set_xlabel('time [ns]')
             startY=0.05
-            deltaY=0.2*i
+            deltaY=1.1/len(arrayParPermName)*i
             if args.log:
                 startY=1E-6
                 deltaY=pow(10,-6+i)
@@ -541,7 +554,8 @@ for i,perm in enumerate(arrayParPermName):
             axs[0].set_ylabel(titles['tran'])
 
             if not args.free:
-                axs[1].set_ylim(0,1.2)
+                axs[1].set_ylim(0, 1.1)
+                axs[0].set_ylim(axs[0].get_ylim()[0], 1.07*axs[0].get_ylim()[1])
 
             if args.log:
                 axs[0].set_yscale('symlog')
@@ -568,7 +582,7 @@ for i,perm in enumerate(arrayParPermName):
             
         else:
             if args.maxX:
-                axs.set_xlim(-2, xmax)
+                axs.set_xlim(args.minX, xmax)
 
             dat1x=abs(data1.X)
             dat1y=data1.Y
@@ -662,6 +676,8 @@ for i,perm in enumerate(arrayParPermName):
 
             elif args.measure[0]=='potential':
                 drawGraphLines(axs,abs(data1.X), abs(data1.Y),colors[i],lines[0],lab)
+            elif args.measure[0]=='field':
+                drawGraphLines(axs,abs(data1.X), data1.Y/1e3,colors[i],lines[0],lab)
             else:
                 drawGraphLines(axs,abs(data1.X), data1.Y,colors[i],lines[0],lab)
             if (args.measure[0]=='field' or args.measure[0]=='spacecharge' or args.measure[0]=='potential' or args.measure[0]=='traps'):
@@ -674,7 +690,7 @@ for i,perm in enumerate(arrayParPermName):
             if args.log:
                 axs.set_yscale('log')
                 if args.measure[0]=='spacecharge' or args.measure[0]=='traps':
-                    axs.set_xscale('symlog')
+                    axs.set_yscale('symlog')
 
 
         # if measurement is cv curve, fit and extract the depletion voltage
@@ -711,10 +727,13 @@ print(outName)
 
 # add ARCADIA label
 arcadia='ARCADIA TCAD simulation'
-
+if legTitle[:1]=="_":
+    legTitle = legTitle[1:]
+ 
 if len(args.measure)>1 or "tran" in args.measure[0]:
+    posLabel = 0.27
     if "tran" in args.measure[0]:
-        #plt.subplots_adjust(top=0.8)
+        posLabel = 0.2
         colmn=4
         if len(arrayParPermName)>1:
             colmn=int(len(arrayParPermName)/2.)
@@ -723,21 +742,24 @@ if len(args.measure)>1 or "tran" in args.measure[0]:
         axs[0].legend(loc='upper center', bbox_to_anchor=(.7, 1.), fancybox=True, ncol=colmn, title=legTitle)
     else:
         if moreThanOne>1 and len(arrayParPermName)<5:
-            axs[0].legend(loc='upper center', bbox_to_anchor=(.5, 1.2), fancybox=True, ncol=1, title=legTitle)
+            axs[0].legend(loc='upper center', bbox_to_anchor=(.5, 1.), fancybox=True, ncol=1, title=legTitle)
         elif len(arrayParPermName)>4 and numP>3:
             plt.subplots_adjust(right=0.8)
-            axs[0].legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 1.2), fancybox=True)
+            axs[0].legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 1.), fancybox=True)
         else:
-            plt.subplots_adjust(right=0.7)
-            axs[0].legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 1.2), fancybox=True)
-    axs[len(args.measure)-1].set_xlabel('|V|')
-    axs[0].text(0.27,1.1,arcadia,horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs[0].transAxes)
+            plt.subplots_adjust(right=0.8)
+            axs[0].legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 1.), fancybox=True)
+        if "potential" or "spacecharge" or "field" in args.measure[0]:
+            axs[len(args.measure)-1].set_xlabel('depth [$\mu$m]')
+            
+    axs[0].text(posLabel,1.1, arcadia, horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs[0].transAxes)
+    axs[0].text(posLabel,0.9, args.addLabel1, horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs[0].transAxes)
+    axs[0].text(posLabel,0.8, args.addLabel2, horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs[0].transAxes)
+    
 else:
     if not "tran" in args.measure[0]:
         if len(arrayParPermName)==1:
             legTitle=legTitle+'\n'+arrayParPermName[0]
-        if legTitle[:1]=="_":
-            legTitle = legTitle[1:]
         if len(arrayParPermName)>4 and numP<4:
             plt.subplots_adjust(right=0.75)
             axs.legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 1.), fancybox=True)
@@ -750,6 +772,8 @@ else:
         else: 
             axs.legend(loc='upper center', bbox_to_anchor=(.5, 1.1), fancybox=True, ncol=1, title=legTitle)
         axs.text(0.27,1.1,arcadia,horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs.transAxes)
+        axs.text(0.27,0.9,args.addLabel1,horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs.transAxes)
+        axs.text(0.27,0.8,args.addLabel2,horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs.transAxes)
 # print out
 fig.savefig(outName)
 
@@ -774,7 +798,7 @@ if args.drawMoreCCE:
 
         axsCCE.plot(normTimes, normCCEs, color=colors[i], marker=',', label=arrayParName[i])
         axsCCE.set_yscale('symlog')
-        axsCCE.set_xlim(0,args.maxX)
+        axsCCE.set_xlim(args.minX,args.maxX)
     
         time99 = getTime(normTimes, CCEs_loc,99)
         time95 = getTime(normTimes, CCEs_loc,95)
@@ -814,7 +838,9 @@ if args.drawMoreCCE:
     axsCCE.legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 0.77777775), fancybox=True)
     axsCCE.set_xlabel('time [ns]')
     axsCCE.set_ylabel('1-CCE$_{tot}$')
-    axsCCE.text(0.2,1.05,arcadia,horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axsCCE.transAxes)
+    axsCCE.text(0.2,1.05,arcadia, horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axsCCE.transAxes)
+    axsCCE.text(0.2,0.9,args.addLabel1,horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axsCCE.transAxes)
+    axsCCE.text(0.2,0.8,args.addLabel2,horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axsCCE.transAxes)
     figCCE.savefig(plotOutName)                                                                                                                                                                                           
     
     # add efficiency plot
