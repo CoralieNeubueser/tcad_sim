@@ -101,8 +101,8 @@ ranges = dict([('cv', [5e-15, 9e-14]),
                ('tran_7', [0, 0.2]),
                ('tran_8', [0, 0.2]),
                ('charge', [0, 1.2]),
-               ('field', [0,10]),
-               ('spacecharge', [1e12,1e14]),
+               ('field', [0,8]),
+               ('spacecharge', [-5e13,5e13]),
                ('potential', [-20,20]),
                ('traps', [0,1])
            ])
@@ -296,11 +296,10 @@ for i,perm in enumerate(arrayParPermName):
                 axs[im].set_ylim(ranges[m][0],ranges[m][1])
             if args.log:
                 axs[im].set_yscale('log')
-            elif m=='spacecharge' or m=='traps' or m=='potential' and args.log:
-                ymin, ymax = axs[im].get_ylim()
-                axs[im].set_yticks(np.round(np.linspace(ymin, ymax, 3), 2))
-                axs[im].set_yscale('symlog')
-                #axs[im].tick_params(axis='y', direction='out', labelrotation=0.5) 
+            elif m=='spacecharge' or m=='traps' or m=='potential' and args.log:            
+                axs[im].set_yscale('symlog', linthreshy=1e8)
+                #axs[im].tick_params(axis='y', reset=True, which='major')
+
             if args.maxX:
                 axs[im].set_xlim(args.minX, xmax)
             
