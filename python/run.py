@@ -69,7 +69,7 @@ if args.depletion:
     vdepletion = args.depletion
     print("Depletion voltage set to: ", vdepletion)
 
-titles = dict([('cv', 'C [F/$\mu$m]'),
+titles = dict([('cv', 'C [fF/$\mu$m]'),
                ('iv', 'I [A/$\mu$m]'),
                ('iv_p', '|I$_{ptop}$| [A/$\mu$m]'),
                ('iv_b', '|I$_{back}$| [A/$\mu$m]'),
@@ -86,7 +86,7 @@ titles = dict([('cv', 'C [F/$\mu$m]'),
                ('traps', 'trap occupation')
 ])
 
-ranges = dict([('cv', [5e-15, 9e-14]),
+ranges = dict([('cv', [0.5, 90]),
                # bulk damage at 248K
 #               ('iv', [5e-18, 5e-10]),
                # bulk damage ar 300K
@@ -108,9 +108,9 @@ ranges = dict([('cv', [5e-15, 9e-14]),
            ])
 
 if threeDim:
-    ranges['cv']=[5e-15, 9e-14]
+    ranges['cv']=[0, 90]
     #ranges['cv']=[1e-14, 8e-14]
-    titles['cv']='C [F]'
+    titles['cv']='C [fF]'
     titles['iv']='I$_{front}$ [A]'
     titles['iv_b']='|I$_{back}$| [A]'
     titles['iv_p']='|I$_{ptop}$| [A]'
@@ -561,7 +561,6 @@ for i,perm in enumerate(arrayParPermName):
                 axs[0].set_yscale('symlog')
                 axs[1].set_yscale('symlog')
 
-                #axs[1].set_xticks(np.arange(0, int(axs[1].get_xlim()[1]),  int(axs[1].get_xlim()[1]/10.) ))
             plt.grid(True)
 
         elif args.measure[0]=='charge':
@@ -586,7 +585,8 @@ for i,perm in enumerate(arrayParPermName):
 
             dat1x=abs(data1.X)
             dat1y=data1.Y
-            
+            if args.measure[0]=='cv':
+                dat1y=data1.Y*1e15            
             # if measure current at back, determine punch through voltage
             if args.measure[0]=='iv_b' and args.fit:
                 drawGraphLines(axs,dat1x,abs(dat1y),colors[i],lines[0],lab)
@@ -671,15 +671,16 @@ for i,perm in enumerate(arrayParPermName):
                 print('#############################')
                 print('Leakage current/Capacitance at depletion voltage {}V: {}'.format(vdepletion, Ileak))
                 print('#############################')
-                drawVoltageLine(axs, vdepletion, colors[i], '$V_{dpl}$')
-                addValuesToPlot(axs, vdepletion, Ileak, colors[i], args.measure[0], len(arrayParPermName), i ,args.log)
+                if i==0:
+                    drawVoltageLine(axs, vdepletion, colors[i], '$V_{dpl}$')
+                #addValuesToPlot(axs, vdepletion, Ileak, colors[i], args.measure[0], len(arrayParPermName), i ,args.log)
 
             elif args.measure[0]=='potential':
                 drawGraphLines(axs,abs(data1.X), abs(data1.Y),colors[i],lines[0],lab)
             elif args.measure[0]=='field':
                 drawGraphLines(axs,abs(data1.X), data1.Y/1e3,colors[i],lines[0],lab)
             else:
-                drawGraphLines(axs,abs(data1.X), data1.Y,colors[i],lines[0],lab)
+                drawGraphLines(axs,dat1x,dat1y,colors[i],lines[0],lab)
             if (args.measure[0]=='field' or args.measure[0]=='spacecharge' or args.measure[0]=='potential' or args.measure[0]=='traps'):
                 axs.set_xlabel('depth [$\mu$m]')
             else:
@@ -731,7 +732,7 @@ if legTitle[:1]=="_":
     legTitle = legTitle[1:]
  
 if len(args.measure)>1 or "tran" in args.measure[0]:
-    posLabel = 0.27
+    posLabel = 0.75
     if "tran" in args.measure[0]:
         posLabel = 0.2
         colmn=4
@@ -752,7 +753,7 @@ if len(args.measure)>1 or "tran" in args.measure[0]:
         if "potential" or "spacecharge" or "field" in args.measure[0]:
             axs[len(args.measure)-1].set_xlabel('depth [$\mu$m]')
             
-    axs[0].text(posLabel,1.1, arcadia, horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs[0].transAxes)
+    axs[0].text(posLabel,0.97, arcadia, horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs[0].transAxes)
     axs[0].text(posLabel,0.9, args.addLabel1, horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs[0].transAxes)
     axs[0].text(posLabel,0.8, args.addLabel2, horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs[0].transAxes)
     
@@ -771,9 +772,9 @@ else:
             axs.legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 1.), fancybox=True)
         else: 
             axs.legend(loc='upper center', bbox_to_anchor=(.5, 1.1), fancybox=True, ncol=1, title=legTitle)
-        axs.text(0.27,1.1,arcadia,horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs.transAxes)
-        axs.text(0.27,0.9,args.addLabel1,horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs.transAxes)
-        axs.text(0.27,0.8,args.addLabel2,horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs.transAxes)
+        axs.text(0.73,0.97,arcadia,horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs.transAxes)
+        axs.text(0.73,0.9,args.addLabel1,horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs.transAxes)
+        axs.text(0.73,0.8,args.addLabel2,horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs.transAxes)
 # print out
 fig.savefig(outName)
 
