@@ -18,7 +18,7 @@ parser.add_argument('-deplV', '--depletion', type=float, help='Give depletion vo
 parser.add_argument('--log', action='store_true', help='Define if y axis on log scale.')
 parser.add_argument('--fit', action='store_true', help='Define if cv curve is fitted.')
 parser.add_argument('--fit_minX', type=float, default=0.1, help='Set fit range minimum.')
-parser.add_argument('--fit_maxX', type=float, default=100., help='Set fit range maximum.')
+parser.add_argument('--fit_maxX', type=float, default=200., help='Set fit range maximum.')
 parser.add_argument('--fit_maxY', type=float, default=1e-14, help='Limits the fit range for punch through by maximum current.')
 parser.add_argument('--free', action='store_true', help='Free y range.')
 parser.add_argument('--minX', type=float, default=0, help='Set draw range minimum.')
@@ -70,9 +70,9 @@ if args.depletion:
     print("Depletion voltage set to: ", vdepletion)
 
 titles = dict([('cv', 'C [fF/$\mu$m]'),
-               ('iv', 'I [A/$\mu$m]'),
-               ('iv_p', '|I$_{ptop}$| [A/$\mu$m]'),
-               ('iv_b', '|I$_{back}$| [A/$\mu$m]'),
+               ('iv', 'I [pA/$\mu$m]'),
+               ('iv_p', '|I$_{ptop}$| [pA/$\mu$m]'),
+               ('iv_b', '|I$_{back}$| [pA/$\mu$m]'),
                ('cv_b', 'C$_{back}$ [F/$\mu$m]'),
                ('tran',  r'I$_{front}$ [$\mu$A]'),
                ('tran_3', r'I$_{front}$ [$\mu$A] $\times$ '+str(args.scaleLET)),
@@ -90,11 +90,11 @@ ranges = dict([('cv', [0.5, 90]),
                # bulk damage at 248K
 #               ('iv', [5e-18, 5e-10]),
                # bulk damage ar 300K
-               ('iv', [1e-17, 5e-7]),
+               ('iv', [1e-3, 1]),
 #               ('iv', [1e-15, 5e-13]), 
-               ('iv_p', [1e-17, 1e-5]),
-               ('iv_b', [1e-16, 1e-5]),
-               ('cv_b', [1e-16, 5e-15]),
+               ('iv_p', [1e-3, 1]),
+               ('iv_b', [1e-4, 1]),
+               ('cv_b', [1e-1, 5]),
                ('tran', [0, 1.2]),
                ('tran_3', [0, 0.2]),
                ('tran_4', [0, 0.2]),
@@ -111,9 +111,9 @@ if threeDim:
     ranges['cv']=[0, 90]
     #ranges['cv']=[1e-14, 8e-14]
     titles['cv']='C [fF]'
-    titles['iv']='I$_{front}$ [A]'
-    titles['iv_b']='|I$_{back}$| [A]'
-    titles['iv_p']='|I$_{ptop}$| [A]'
+    titles['iv']='I$_{front}$ [pA]'
+    titles['iv_b']='|I$_{back}$| [pA]'
+    titles['iv_p']='|I$_{ptop}$| [pA]'
 if args.electrode:
     titles['iv']='|I(ntop'+str(args.electrode)+')| [A]'
 
@@ -284,7 +284,9 @@ for i,perm in enumerate(arrayParPermName):
                 f2=csvFileNameElectrode(args.project, m, perm, args.electrode)
 
             data2 = pd.read_csv(f2, names=["X","Y","X1","Y1","X2","Y2","X3","Y3"], skiprows=1)
-            if m=='iv_b' or m=='iv_p' or args.electrode or m=='potential':
+            if m=='iv_b' or m=='iv_p' or m=='iv' or args.electrode:
+                drawGraphLines(axs[im],abs(data2.X), abs(data2.Y)*1e12,colors[i],lines[0],lab)
+            elif m=='potential':
                 drawGraphLines(axs[im],abs(data2.X), abs(data2.Y),colors[i],lines[0],lab)
             elif m=='field':
                 drawGraphLines(axs[im],abs(data2.X), data2.Y/1e3,colors[i],lines[0],lab)
@@ -304,8 +306,8 @@ for i,perm in enumerate(arrayParPermName):
                 axs[im].set_xlim(args.minX, xmax)
             
             # if measurement is iv curve, fit and extract the punch through voltage
-            if m=='iv_b':
-                # set maximum current to be fitted for detemining punch through.. keep low for set-off
+            if m=='iv_b' and args.fit:
+                # set maximum current to be fitted for determining punch through.. keep low for set-off
                 ptV,Ipt=punchThrough(axs[im],abs(data2.X),abs(data2).Y,args.fit_maxY,colors[i])
                 print('#############################')
                 print( perm )
@@ -319,7 +321,7 @@ for i,perm in enumerate(arrayParPermName):
             elif m=='iv_p':
                 # set maximum current to be fitted for detemining punch through.. keep low for set-off
                 newDat1x=np.array(abs(data2.X[ abs(data2.X) > float(0.1) ]))
-                newDat1y=np.array(abs(data2.Y[ abs(data2.X) > float(0.1) ]))
+                newDat1y=np.array(abs(data2.Y[ abs(data2.X) > float(0.1) ])*1e12)
                 indMin=np.where(newDat1y == newDat1y.min())
                 ptV = newDat1x[int(indMin[0])]
                 Ipt = newDat1y[int(indMin[0])]
@@ -331,7 +333,7 @@ for i,perm in enumerate(arrayParPermName):
                 # check for 0.1mW/cm2
                 for ien,en in enumerate(power):
                     #print(en)
-                    if en>0.1:
+                    if en>0.1 and abs(data2.X)[ien]>1:
                         pwV=abs(data2.X[ien])
                         #print(pwV)
                         break
@@ -382,10 +384,13 @@ for i,perm in enumerate(arrayParPermName):
                 print('Current at depletion voltage:     {:.4f} uA'.format(Ipt*pow(10,6)))
                 print('#############################')
             
-            elif (m=='iv' or m=='cv') and args.depletion:
+            elif (m=='iv' or m=='iv_p' or m=='cv') and args.depletion:
+                scale=1e12
+                if m=='cv':
+                    scale=1e15
                 xtmp=np.array(abs(data2.X))
                 vbin=np.where((xtmp<(vdepletion+0.5)) & (xtmp>(vdepletion-0.5)))
-                ytmp=np.array(abs(data2.Y))
+                ytmp=np.array(abs(data2.Y)*scale)
                 Ileak=float(ytmp[vbin])
                 print('#############################')
                 print('Leakage current at depletion voltage {}V: {}'.format(vdepletion, Ileak))
@@ -585,7 +590,10 @@ for i,perm in enumerate(arrayParPermName):
             dat1x=abs(data1.X)
             dat1y=data1.Y
             if args.measure[0]=='cv':
-                dat1y=data1.Y*1e15            
+                dat1y=data1.Y*1e15          
+            if args.measure[0]=='iv' or args.measure[0]=='iv_p' or args.measure[0]=='iv_b':
+                dat1y=abs(data1.Y)*1e12
+
             # if measure current at back, determine punch through voltage
             if args.measure[0]=='iv_b' and args.fit:
                 drawGraphLines(axs,dat1x,abs(dat1y),colors[i],lines[0],lab)
@@ -611,12 +619,14 @@ for i,perm in enumerate(arrayParPermName):
                 drawVoltageLine(axs,ptV,colors[i])
                 pitch =args.pitch
                 sqaure_cm = pitch*1e-4*pitch*1e-4
-                power = abs(dat1x) * abs(dat1y) / sqaure_cm * 1e3
+                power = dat1x * abs(dat1y)*1e-12 / sqaure_cm * 1e3
                 pwV = 0
                 # check for 0.1mW/cm2
                 for ien,en in enumerate(power):
-                    if en>0.1:
-                        pwV=abs(dat1x[ien])
+                    print(en)
+                    if en>0.1 and abs(dat1x[ien])>1:
+                        print(en)
+                        pwV=dat1x[ien]
                         break
                 print('#############################')
                 print( perm )
@@ -649,7 +659,7 @@ for i,perm in enumerate(arrayParPermName):
                 print('Current at depletion voltage:     {:.4f} uA'.format(Ipt*pow(10,6)))
                 print('#############################')
 
-            elif (args.measure[0]=='iv' or args.measure[0]=='cv') and args.depletion:
+            elif (args.measure[0]=='iv' or args.measure[0]=='iv_p' or args.measure[0]=='iv_b' or args.measure[0]=='cv') and args.depletion:
                 drawGraphLines(axs,dat1x,dat1y,colors[i],lines[0],lab)
                 xtmp=np.array(abs(data1.X))
                 #print(xtmp)
@@ -722,7 +732,7 @@ for i,perm in enumerate(arrayParPermName):
 allM=''
 for m in args.measure:
     allM=allM+m
-outName=allCurvesName(args.project, allM, args.output, 'pdf')
+outName=allCurvesName(args.project, allM, args.output, 'png')
 print(outName)
 
 # add ARCADIA label
@@ -744,14 +754,16 @@ if len(args.measure)>1 or "tran" in args.measure[0]:
         if moreThanOne>1 and len(arrayParPermName)<5:
             axs[0].legend(loc='upper center', bbox_to_anchor=(.5, 1.), fancybox=True, ncol=1, title=legTitle)
         elif len(arrayParPermName)>4 and numP>3:
-            plt.subplots_adjust(right=0.8)
-            axs[0].legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 1.), fancybox=True)
+            #plt.subplots_adjust(right=0.8)
+            axs[0].legend(title=legTitle, fancybox=True) #loc='upper left', bbox_to_anchor=(.7, .7), fancybox=True)
         else:
-            plt.subplots_adjust(right=0.8)
-            axs[0].legend(title=legTitle, loc='upper left', bbox_to_anchor=(1, 1.), fancybox=True)
-        if "potential" or "spacecharge" or "field" in args.measure[0]:
+            #plt.subplots_adjust(right=0.8)
+            axs[0].legend(title=legTitle, fancybox=True) #loc='upper left', bbox_to_anchor=(.7, .7), fancybox=True)
+        if (args.measure[0]=='field' or args.measure[0]=='spacecharge' or args.measure[0]=='potential' or args.measure[0]=='traps'):
             axs[len(args.measure)-1].set_xlabel('depth [$\mu$m]')
-            
+        else:
+            axs[len(args.measure)-1].set_xlabel('|$V_{bias}$| [V]')
+
     axs[0].text(posLabel,0.97, arcadia, horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs[0].transAxes)
     axs[0].text(posLabel,0.9, args.addLabel1, horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs[0].transAxes)
     axs[0].text(posLabel,0.8, args.addLabel2, horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs[0].transAxes)
@@ -775,7 +787,7 @@ else:
         axs.text(0.73,0.9,args.addLabel1,horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs.transAxes)
         axs.text(0.73,0.8,args.addLabel2,horizontalalignment='center', verticalalignment='top',color='gray',fontsize=10,fontweight='bold',transform=axs.transAxes)
 # print out
-fig.savefig(outName)
+fig.savefig(outName, dpi=300)
 
 if args.drawMoreCCE:
     # draw 1-CCE for comparison of different parameters over all channels
