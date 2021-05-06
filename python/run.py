@@ -108,7 +108,8 @@ ranges = dict([('cv', [0.5, 90]),
            ])
 
 if threeDim:
-    ranges['cv']=[0, 90]
+    ranges['cv']=[0.1, 10]
+    ranges['iv_p']=[1e-4, 1]
     #ranges['cv']=[1e-14, 8e-14]
     titles['cv']='C [fF]'
     titles['iv']='I$_{front}$ [pA]'
@@ -286,6 +287,8 @@ for i,perm in enumerate(arrayParPermName):
             data2 = pd.read_csv(f2, names=["X","Y","X1","Y1","X2","Y2","X3","Y3"], skiprows=1)
             if m=='iv_b' or m=='iv_p' or m=='iv' or args.electrode:
                 drawGraphLines(axs[im],abs(data2.X), abs(data2.Y)*1e12,colors[i],lines[0],lab)
+            elif m=='cv':
+                drawGraphLines(axs[im],abs(data2.X), abs(data2.Y)*1e15,colors[i],lines[0],lab)
             elif m=='potential':
                 drawGraphLines(axs[im],abs(data2.X), abs(data2.Y),colors[i],lines[0],lab)
             elif m=='field':
@@ -415,6 +418,7 @@ for i,perm in enumerate(arrayParPermName):
             data2 = pd.read_csv(f2, names=["X","Y"], skiprows=1)
                 
             if m=='cv' and ( find_element_in_list('iv_p',args.measure) or find_element_in_list('iv_b',args.measure) ) and args.fit:
+                #data2.Y = data2.Y*1e15
                 print('#############################')
                 print('Draw line at punch-through voltage.. ', ptVs[i])
                 xtmp=np.array(abs(data2.X))
@@ -752,13 +756,15 @@ if len(args.measure)>1 or "tran" in args.measure[0]:
         axs[0].legend(loc='upper center', bbox_to_anchor=(.7, 1.), fancybox=True, ncol=colmn, title=legTitle)
     else:
         if moreThanOne>1 and len(arrayParPermName)<5:
+            #plt.subplots_adjust(right=0.8)
+            #axs[0].legend(title=legTitle, fancybox=True)
             axs[0].legend(loc='upper center', bbox_to_anchor=(.5, 1.), fancybox=True, ncol=1, title=legTitle)
         elif len(arrayParPermName)>4 and numP>3:
             #plt.subplots_adjust(right=0.8)
             axs[0].legend(title=legTitle, fancybox=True) #loc='upper left', bbox_to_anchor=(.7, .7), fancybox=True)
         else:
-            #plt.subplots_adjust(right=0.8)
-            axs[0].legend(title=legTitle, fancybox=True) #loc='upper left', bbox_to_anchor=(.7, .7), fancybox=True)
+            plt.subplots_adjust(right=0.8)
+            axs[0].legend(title=legTitle,loc='upper left', bbox_to_anchor=(1, 1.), fancybox=True) #loc='upper left', bbox_to_anchor=(.7, .7), fancybox=True)
         if (args.measure[0]=='field' or args.measure[0]=='spacecharge' or args.measure[0]=='potential' or args.measure[0]=='traps'):
             axs[len(args.measure)-1].set_xlabel('depth [$\mu$m]')
         else:

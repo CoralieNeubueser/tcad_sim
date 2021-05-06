@@ -364,12 +364,14 @@ def draw3MultiGraphLines(axis,arr1,arr2,arr3,arr4,scale,linestyle):
     axis.plot(arr1,arr4*scale, color='blue',marker=',', linestyle=linestyle, label="Ntop3")
     
 def draw4MultiGraphLines(axis,arr1,arr2,arr3,arr4,arr5,scale):
-    # add legend entry only for first parameter set
+
     maxE=arr1[len(arr1)-1]
     trial=1
     while maxE==0:
         maxE = float(arr1[len(arr1)-trial])
         trial+=1
+
+    # add legend entry only for first parameter set
     arr1 = arr1[1:len(arr1)-trial]
     arr2 = arr2[1:len(arr2)-trial]
     arr3 = arr3[1:len(arr3)-trial]
@@ -382,12 +384,13 @@ def draw4MultiGraphLines(axis,arr1,arr2,arr3,arr4,arr5,scale):
     axis.plot(arr1,arr5*scale, color='orange',marker=',', label="Ntop_1_1")
 
 def draw4MultiMultiGraphLines(axis,arr1,arr2,arr3,arr4,arr5,scale,i,colors,linestyle):
-    # add legend entry only for first parameter set 
     maxE=arr1[len(arr1)-1]
     trial=1
     while maxE==0:
         maxE = float(arr1[len(arr1)-trial])
         trial+=1
+
+    # add legend entry only for first parameter set 
     arr1 = arr1[1:len(arr1)-trial]
     arr2 = arr2[1:len(arr2)-trial]
     arr3 = arr3[1:len(arr3)-trial]
@@ -482,12 +485,13 @@ def draw4MultiCCE(axis,arr1,arr2,arr3,arr4,arr5,norm):
     current3=np.array(arr4) # A
     current4=np.array(arr5) # A
     time=np.array(arr1) # s              
-    
+
     maxE=arr1[len(arr1)-1]
     trial=1
     while maxE==0:
         maxE = float(arr1[len(arr1)-trial])
         trial+=1
+        
     time     = np.array(arr1[1:len(arr1)-trial])
     current1 = np.array(arr2[1:len(arr2)-trial])
     current2 = np.array(arr3[1:len(arr3)-trial])
@@ -526,6 +530,7 @@ def draw4MultiMultiCCE(axis,arr1,arr2,arr3,arr4,arr5,norm,i,colors,linestyle):
     while maxE==0:
         maxE = float(arr1[len(arr1)-trial])
         trial+=1
+        
     time     = np.array(arr1[1:len(arr1)-trial])
     current1 = np.array(arr2[1:len(arr2)-trial])
     current2 = np.array(arr3[1:len(arr3)-trial])
@@ -653,3 +658,27 @@ def draw8MultiCCE(axis,arr1,arr2,arr3,arr4,arr5,arr6,arr7,arr8,arr9,norm,linesty
     return eff1, eff2, eff3, eff4, eff5, eff6, eff7, eff8
 
 
+def autoscale_y(ax,margin=0.1):
+    """This function rescales the y-axis based on the data that is visible given the current xlim of the axis.
+    ax -- a matplotlib axes object
+    margin -- the fraction of the total height of the y-data to pad the upper and lower ylims"""
+
+    def get_bottom_top(line):
+        xd = line.get_xdata()
+        yd = line.get_ydata()
+        lo,hi = ax.get_xlim()
+        y_displayed = yd[((xd>lo) & (xd<hi))]
+        h = np.max(y_displayed) - np.min(y_displayed)
+        bot = np.min(y_displayed)-margin*h
+        top = np.max(y_displayed)+margin*h
+        return bot,top
+
+    lines = ax.get_lines()
+    bot,top = np.inf, -np.inf
+
+    for line in lines:
+        new_bot, new_top = get_bottom_top(line)
+        if new_bot < bot: bot = new_bot
+        if new_top > top: top = new_top
+
+    ax.set_ylim(bot,top)
